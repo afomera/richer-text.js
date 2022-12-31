@@ -1,0 +1,36 @@
+{
+  "name": "@afomera/richer-text",
+  "version": "0.0.1",
+  "description": "A Richer Text Editor experience based on Tiptap",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d dist"
+  },
+  "author": "Andrea Fomera <andrea.fomera@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@tabler/icons": "^1.118.0",
+    "@tiptap/extension-bubble-menu": "^2.0.0-beta.209",
+    "@tiptap/extension-dropcursor": "^2.0.0-beta.209",
+    "@tiptap/extension-focus": "^2.0.0-beta.209",
+    "@tiptap/extension-highlight": "^2.0.0-beta.209",
+    "@tiptap/extension-link": "^2.0.0-beta.209",
+    "@tiptap/extension-placeholder": "^2.0.0-beta.209",
+    "@tiptap/extension-text-align": "^2.0.0-beta.209",
+    "@tiptap/extension-text-style": "^2.0.0-beta.209",
+    "@tiptap/react": "^2.0.0-beta.209",
+    "@tiptap/starter-kit": "^2.0.0-beta.209",
+    "@tiptap/suggestion": "^2.0.0-beta.209"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6"
+  }
+}
