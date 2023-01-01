@@ -3,6 +3,9 @@
   "version": "0.0.9",
   "description": "A Richer Text Editor experience based on Tiptap",
   "main": "index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d dist && cp -p src/css/richer-text.css dist/css/richer-text.css"
