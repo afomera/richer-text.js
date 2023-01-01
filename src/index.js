@@ -1,11 +1,5 @@
-console.log("RicherText - Loaded");
+import RicherTextEditor from "./components/RicherTextEditor";
 
-import React from "react";
-
-export const HelloWorld = ({name}) => {
-  return (
-    <div>
-      <h1>Hello {name}!</h1>
-    </div>
-  );
+export {
+  RicherTextEditor
 }

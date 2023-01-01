@@ -1,0 +1,425 @@
+[hidden] {
+  display: none !important;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+button {
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+:root {
+  /* Callouts */
+  --callout-gray-background-color: #F2F3F7;
+  --callout-gray-border-color: #D0D5DD;
+  --callout-gray-text-color: #344054;
+
+  --callout-blue-background-color: #D1E9FF;
+  --callout-blue-border-color: #84CAFF;
+  --callout-blue-text-color: #2b6fe6;
+
+  --callout-green-background-color: #D1F2D7;
+  --callout-green-border-color: #84E1A9;
+  --callout-green-text-color: #0F8B3D;
+
+  --callout-yellow-background-color: #FFF9D1;
+  --callout-yellow-border-color: #FFE084;
+  --callout-yellow-text-color: #a38310;
+
+  --callout-red-background-color: #fedada;
+  --callout-red-border-color: #ff8484;
+  --callout-red-text-color: #B30000;
+
+  /* General colors */
+  --editor-text-color: #374151;
+  --editor-border-color: #e2e8f0;
+  --editor-placeholder-text-color: #a0aec0;
+  --editor-content-background-color: #ffffff;
+  --editor-content-focus-color: #ec4899;
+
+  /* General buttons */
+  --editor-button-text-color: #7b7b7b;
+  --editor-button-active-color: #000;
+  --editor-button-disabled-color: #e2e8f0;
+  --editor-button-active-background-color: #e2e8f0;
+  --editor-button-size: 24px;
+
+  /* MenuBar */
+  --editor-menu-bar-background-color: #ffffff;
+  --editor-menu-bar-border-color: var(--editor-border-color);
+  --editor-menu-bar-seperator-background-color: #e2e8f0;
+  --editor-menu-bar-button-background-color: #ffffff;
+  --editor-menu-bar-button-text-color: var(--editor-button-text-color);
+  --editor-menu-bar-button-active-text-color: var(--editor-button-active-color);
+  --editor-menu-bar-button-disabled-text-color: var(--editor-button-disabled-color);
+  --editor-menu-bar-button-active-background-color: #ffffff;
+  --editor-menu-bar-top-radius: 0rem;
+
+  /* BubbleMenu */
+  --editor-bubble-menu-background-color: #ffffff;
+  --editor-bubble-menu-border-color: var(--editor-border-color);
+  --editor-bubble-menu-button-text-color: var(--editor-button-text-color);
+  --editor-bubble-menu-button-active-text-color: var(--editor-button-active-color);
+  --editor-bubble-menu-button-disabled-text-color: var(--editor-button-disabled-color);
+  --editor-bubble-menu-button-active-background-color: var(--editor-button-active-background-color);
+}
+
+html.dark {
+  /* General colors */
+  --editor-text-color: #dee6f2;
+  --editor-border-color: #2d3748;
+  --editor-placeholder-text-color: #a0aec0;
+  --editor-content-background-color: #1a202c;
+  --editor-content-focus-color: #ec4899;
+
+  /* General buttons */
+  --editor-button-text-color: #7b7b7b;
+  --editor-button-active-color: #1a202c;
+  --editor-button-disabled-color: #2d3748;
+  --editor-button-active-background-color: #2d3748;
+
+  /* MenuBar */
+  --editor-menu-bar-background-color: #1a202c;
+  --editor-menu-bar-border-color: var(--editor-border-color);
+  --editor-menu-bar-seperator-background-color: #2d3748;
+  --editor-menu-bar-button-background-color: #1a202c;
+  --editor-menu-bar-button-text-color: var(--editor-button-text-color);
+  --editor-menu-bar-button-active-text-color: var(--editor-button-active-color);
+  --editor-menu-bar-button-disabled-text-color: var(--editor-button-disabled-color);
+  --editor-menu-bar-button-active-background-color: #1a202c;
+  --editor-menu-bar-top-radius: 0rem;
+
+  /* BubbleMenu */
+  --editor-bubble-menu-background-color: #1a202c;
+  --editor-bubble-menu-border-color: var(--editor-border-color);
+  --editor-bubble-menu-button-text-color: var(--editor-button-text-color);
+  --editor-bubble-menu-button-active-text-color: var(--editor-button-active-color);
+  --editor-bubble-menu-button-disabled-text-color: var(--editor-button-disabled-color);
+  --editor-bubble-menu-button-active-background-color: var(--editor-button-active-background-color);
+}
+
+.editor--command-menu-dropdown {
+  background-color: var(--editor-bubble-menu-background-color);
+  border: 1px solid var(--editor-border-color);
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+}
+
+.editor--command-menu-dropdown .editor--command-menu-dropdown-group {
+  margin-bottom: 0.5rem;
+  display: block;
+  width: 100%;
+}
+
+.editor--command-menu-dropdown .editor--command-menu-dropdown-group:last-child {
+  margin-bottom: 0;
+}
+
+.editor--command-menu-dropdown .editor--command-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: var(--editor-text-color);
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.editor--command-menu-dropdown .editor--command-menu-item:hover {
+  background: var(--editor-content-background-color);
+}
+
+.editor--command-menu-item.is-active {
+  color: var(--editor-bubble-menu-button-active-text-color);
+  background-color: var(--editor-bubble-menu-button-active-background-color);
+}
+
+html.dark hr {
+  border-color: #dee6f2 !important;
+}
+
+.callout {
+  border-radius: 0.5rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-width: 1px;
+}
+
+.callout p {
+  color: inherit !important;
+}
+
+.callout strong {
+  color: inherit !important;
+}
+
+.callout[data-color='gray'] {
+  background-color: var(--callout-gray-background-color);
+  border-color: var(--callout-gray-border-color);
+  color: var(--callout-gray-text-color) !important;
+}
+
+.callout[data-color='blue'] {
+  background-color: var(--callout-blue-background-color);
+  border-color: var(--callout-blue-border-color);
+  color: var(--callout-blue-text-color) !important;
+}
+
+.callout[data-color='green'] {
+  background-color: var(--callout-green-background-color);
+  border-color: var(--callout-green-border-color);
+  color: var(--callout-green-text-color) !important;
+}
+
+.callout[data-color='yellow'] {
+  background-color: var(--callout-yellow-background-color);
+  border-color: var(--callout-yellow-border-color);
+  color: var(--callout-yellow-text-color) !important;
+}
+
+.callout[data-color='red'] {
+  background-color: var(--callout-red-background-color);
+  border-color: var(--callout-red-border-color);
+  color: var(--callout-red-text-color) !important;
+}
+
+.callout p:first-child {
+  margin-top: 0;
+  margin-bottom: 0.2rem;
+}
+
+.callout p:last-child {
+  margin-top: 0.2rem;
+  margin-bottom: 0;
+}
+
+.editor {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--editor-text-color);
+}
+
+/* .editor .has-focus {
+  border-radius: 3px;
+  box-shadow: 0 0 0 3px #68cef8;
+} */
+
+.editor [contenteditable="true"] {
+  padding: 0.5rem;
+  border: 1px solid var(--editor-border-color);
+  outline: none;
+  overflow-y: scroll;
+  min-height: 250px;
+  max-height: 700px;
+}
+
+.editor [contenteditable="true"]:focus {
+  border: 2px solid var(--editor-content-focus-color);
+}
+
+.editor ul {
+  list-style-type: disc;
+  padding-left: 2.5rem;
+  margin-left: 1rem;
+}
+
+.editor ol {
+  list-style-type: decimal;
+  padding-left: 2.5rem;
+  margin-left: 1rem;
+}
+
+.editor--bubble-menu {
+  background-color: var(--editor-bubble-menu-background-color);
+  border: 1px solid var(--editor-bubble-menu-border-color);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.editor--bubble-menu button {
+  color: var(--editor-bubble-menu-button-text-color);
+  background-color: var(--editor-menu-bar-button-background-color);
+  padding: 0.3rem;
+  margin: 0.2rem;
+}
+
+.editor--bubble-menu button:hover {
+  color: var(--editor-bubble-menu-button-active-text-color);
+  background-color: var(--editor-bubble-menu-button-active-background-color);
+}
+
+.editor--bubble-menu button:active {
+  color: var(--editor-bubble-menu-button-active-text-color);
+  background-color: var(--editor-bubble-menu-button-active-background-color);
+}
+
+.editor--bubble-menu button:disabled {
+  color: var(--editor-bubble-menu-button-disabled-text-color);
+}
+
+.editor--bubble-menu button svg {
+  width: var(--editor-button-size);
+  height: var(--editor-button-size);
+}
+
+.editor--bubble-menu button.is-active {
+  color: var(--editor-bubble-menu-button-active-text-color);
+  background-color: var(--editor-bubble-menu-button-active-background-color);
+}
+
+.editor--menu-bar {
+  background-color: var(--editor-menu-bar-background-color);
+  border-color: var(--editor-menu-bar-border-color);
+  border-width: 1px;
+  border-top-left-radius: var(--editor-menu-bar-top-radius);
+  border-top-right-radius: var(--editor-menu-bar-top-radius);
+  border-left: 1px solid var(--editor-menu-bar-border-color);
+  border-right: 1px solid var(--editor-menu-bar-border-color);
+  border-top: 1px solid var(--editor-menu-bar-border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.editor--menu-bar-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.editor--menu-bar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.editor--menu-bar .editor--menu-bar-seperator {
+  background-color: var(--editor-menu-bar-seperator-background-color);
+  height: 1.25rem;
+  width: 1px;
+  margin: 0 0.5rem;
+}
+
+.editor--menu-bar button {
+  color: var(--editor-menu-bar-button-text-color);
+  background-color: var(--editor-menu-bar-button-background-color);
+  padding: 0.5rem;
+}
+
+.editor--menu-bar button:hover {
+  color: var(--editor-menu-bar-button-active-color);
+  background-color: var(--editor-menu-bar-button-active-background-color);
+}
+
+.editor--menu-bar button:active {
+  color: var(--editor-menu-bar-button-active-color);
+  background-color: var(--editor-menu-bar-button-active-background-color);
+}
+
+.editor--menu-bar button:disabled {
+  color: var(--editor-menu-bar-button-disabled-text-color);
+}
+
+.editor--menu-bar button svg {
+  width: var(--editor-button-size);
+  height: var(--editor-button-size);
+}
+
+.editor--menu-bar button.is-active {
+  color: var(--editor-menu-bar-background-text-color);
+  background-color: var(--editor-menu-bar-button-active-background-color);
+}
+
+.editor--content {
+  background-color: var(--editor-content-background-color);
+  /* border: 1px solid var(--editor-border-color); */
+  /* padding: 0.5rem; */
+}
+
+/* Basic editor styles */
+.ProseMirror>*+* {
+  margin-top: 0.75em;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding: 0 1rem;
+}
+
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3,
+.ProseMirror h4,
+.ProseMirror h5,
+.ProseMirror h6 {
+  line-height: 1.1;
+}
+
+.ProseMirror h1 {
+  font-size: 1.65em;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5em;
+}
+
+.ProseMirror h3 {
+  font-size: 1.25em;
+}
+
+.ProseMirror code {
+  background-color: rgba(97, 97, 97, 0.1);
+  color: #616161;
+}
+
+.ProseMirror pre {
+  background: #0d0d0d;
+  color: #fff;
+  font-family: 'JetBrainsMono', monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.ProseMirror pre code {
+  color: inherit;
+  padding: 0;
+  background: none;
+  font-size: 0.8rem;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+}
+
+.ProseMirror blockquote {
+  padding-left: 1rem;
+  border-left: 2px solid rgba(13, 13, 13, 0.1);
+}
+
+.ProseMirror hr {
+  border: none;
+  border-top: 2px solid rgba(13, 13, 13, 0.1);
+  margin: 2rem 0;
+}
+
+.ProseMirror p.is-empty::before {
+  color: var(--editor-placeholder-text-color);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}

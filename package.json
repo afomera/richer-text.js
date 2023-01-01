@@ -1,11 +1,11 @@
 {
   "name": "@afomera/richer-text",
-  "version": "0.0.1",
+  "version": "0.0.9",
   "description": "A Richer Text Editor experience based on Tiptap",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d dist"
+    "build": "babel src -d dist && cp -p src/css/richer-text.css dist/css/richer-text.css"
   },
   "author": "Andrea Fomera <andrea.fomera@gmail.com>",
   "license": "MIT",
@@ -21,11 +21,11 @@
     "@tiptap/extension-text-style": "^2.0.0-beta.209",
     "@tiptap/react": "^2.0.0-beta.209",
     "@tiptap/starter-kit": "^2.0.0-beta.209",
-    "@tiptap/suggestion": "^2.0.0-beta.209"
-  },
-  "peerDependencies": {
+    "@tiptap/suggestion": "^2.0.0-beta.209",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-to-webcomponent": "^2.0.0-alpha.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.20.7",
