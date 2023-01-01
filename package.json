@@ -1,6 +1,6 @@
 {
   "name": "@afomera/richer-text",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "A Richer Text Editor experience based on Tiptap",
   "main": "index.js",
   "files": [
@@ -10,6 +10,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d dist && cp -p src/css/richer-text.css dist/css/richer-text.css"
   },
+  "repository": "git@github.com:afomera/richer-text.js.git",
+  "bugs": {
+    "url": "https://github.com/afomera/richer-text.js/issues"
+  },
+  "homepage": "https://github.com/afomera/richer-text.js",
   "author": "Andrea Fomera <andrea.fomera@gmail.com>",
   "license": "MIT",
   "dependencies": {
