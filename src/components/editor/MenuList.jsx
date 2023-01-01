@@ -56,12 +56,12 @@ export default forwardRef((props, ref) => {
   const items = props.items;
 
   return (
-    <div className="editor--command-menu-dropdown">
-      <div className="editor--command-menu-dropdown-group">
+    <div className="editor--menu-list-dropdown">
+      <div className="editor--menu-list-dropdown-group">
         {items.length ? (
           items.map((item, index) => (
             <button
-              className={`editor--command-menu-item ${index === selectedIndex ? "is-active" : ""}`}
+              className={`editor--menu-list-item ${index === selectedIndex ? "is-active" : ""}`}
               key={index}
               onClick={() => selectItem(index)}
             >
@@ -70,7 +70,7 @@ export default forwardRef((props, ref) => {
             </button>
           ))
         ) : (
-          <button className="editor--command-menu-item" disabled>
+          <button className="editor--menu-list-item" disabled>
             No results
           </button>
         )}

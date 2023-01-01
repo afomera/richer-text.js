@@ -69,6 +69,14 @@ button {
   --editor-bubble-menu-button-active-text-color: var(--editor-button-active-color);
   --editor-bubble-menu-button-disabled-text-color: var(--editor-button-disabled-color);
   --editor-bubble-menu-button-active-background-color: var(--editor-button-active-background-color);
+
+  /* MenuList (ie Command Menu) */
+  --editor-menu-list-background-color: #ffffff;
+  --editor-menu-list-border-color: var(--editor-border-color);
+  --editor-menu-list-item-text-color: var(--editor-text-color);
+  --editor-menu-list-button-active-text-color: var(--editor-button-active-color);
+  --editor-menu-list-button-disabled-text-color: var(--editor-button-disabled-color);
+  --editor-menu-list-button-active-background-color: var(--editor-button-active-background-color);
 }
 
 html.dark {
@@ -103,44 +111,54 @@ html.dark {
   --editor-bubble-menu-button-active-text-color: var(--editor-button-active-color);
   --editor-bubble-menu-button-disabled-text-color: var(--editor-button-disabled-color);
   --editor-bubble-menu-button-active-background-color: var(--editor-button-active-background-color);
+
+
+  /* MenuList (ie Command Menu) */
+    --editor-menu-list-background-color: #1a202c;
+    --editor-menu-list-border-color: var(--editor-border-color);
+    --editor-menu-list-item-text-color: var(--editor-text-color);
+    --editor-menu-list-button-active-text-color: #dee6f2;
+    --editor-menu-list-button-disabled-text-color: var(--editor-button-disabled-color);
+    --editor-menu-list-button-active-background-color: var(--editor-button-active-background-color);
 }
 
-.editor--command-menu-dropdown {
-  background-color: var(--editor-bubble-menu-background-color);
-  border: 1px solid var(--editor-border-color);
+.editor--menu-list-dropdown {
+  background-color: var(--editor-menu-list-background-color);
+  border: 1px solid var(--editor-menu-list-border-color);
   padding: 0.3rem;
   border-radius: 0.5rem;
 }
 
-.editor--command-menu-dropdown .editor--command-menu-dropdown-group {
+.editor--menu-list-dropdown .editor--menu-list-dropdown-group {
   margin-bottom: 0.5rem;
   display: block;
   width: 100%;
 }
 
-.editor--command-menu-dropdown .editor--command-menu-dropdown-group:last-child {
+.editor--menu-list-dropdown .editor--menu-list-dropdown-group:last-child {
   margin-bottom: 0;
 }
 
-.editor--command-menu-dropdown .editor--command-menu-item {
+.editor--menu-list-dropdown .editor--menu-list-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  color: var(--editor-text-color);
+  color: var(--editor-menu-list-item-text-color);
   text-decoration: none;
   cursor: pointer;
   width: 100%;
 }
 
-.editor--command-menu-dropdown .editor--command-menu-item:hover {
-  background: var(--editor-content-background-color);
+.editor--menu-list-dropdown .editor--menu-list-item:hover {
+  color: var(--editor-menu-list-button-active-text-color);
+  background-color: var(--editor-menu-list-button-active-background-color);
 }
 
-.editor--command-menu-item.is-active {
-  color: var(--editor-bubble-menu-button-active-text-color);
-  background-color: var(--editor-bubble-menu-button-active-background-color);
+.editor--menu-list-dropdown .editor--menu-list-item.is-active {
+  color: var(--editor-menu-list-button-active-text-color);
+  background-color: var(--editor-menu-list-button-active-background-color);
 }
 
 html.dark hr {
