@@ -15,6 +15,7 @@ import TextStyle from '@tiptap/extension-text-style'
 import Callout from "./editor/extensions/Callout";
 import CommandMenu from "./editor/extensions/CommandMenu";
 import FontSize from "./editor/extensions/FontSize";
+import Image from "./editor/extensions/Image";
 
 import MenuBar from "./editor/MenuBar";
 import BubbleMenu from "./editor/BubbleMenu";
@@ -44,14 +45,14 @@ const RicherTextEditor = ({
       Dropcursor.configure({
         color: 'var(--editor-content-focus-color)'
       }),
-      FontSize,
-      // Image,
       Focus.configure({
         mode: "shallowest"
       }),
+      FontSize,
       Highlight.configure({
         multicolor: true
       }),
+      Image,
       Link.configure({
         openOnClick: false,
         protocols: ["https", "mailto"]

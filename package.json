@@ -1,6 +1,6 @@
 {
   "name": "@afomera/richer-text",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A Richer Text Editor experience based on Tiptap",
   "main": "index.js",
   "files": [
@@ -13,6 +13,7 @@
   "author": "Andrea Fomera <andrea.fomera@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@rails/activestorage": "^7.0.4",
     "@tabler/icons": "^1.118.0",
     "@tiptap/extension-bubble-menu": "^2.0.0-beta.209",
     "@tiptap/extension-dropcursor": "^2.0.0-beta.209",

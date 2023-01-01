@@ -20,6 +20,7 @@ var _extensionTextStyle = _interopRequireDefault(require("@tiptap/extension-text
 var _Callout = _interopRequireDefault(require("./editor/extensions/Callout"));
 var _CommandMenu = _interopRequireDefault(require("./editor/extensions/CommandMenu"));
 var _FontSize = _interopRequireDefault(require("./editor/extensions/FontSize"));
+var _Image = _interopRequireDefault(require("./editor/extensions/Image"));
 var _MenuBar = _interopRequireDefault(require("./editor/MenuBar"));
 var _BubbleMenu = _interopRequireDefault(require("./editor/BubbleMenu"));
 var _reactToWebcomponent = _interopRequireDefault(require("react-to-webcomponent"));
@@ -51,13 +52,11 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
   var editor = (0, _react2.useEditor)({
     extensions: [_Callout["default"], _CommandMenu["default"], _extensionDropcursor["default"].configure({
       color: 'var(--editor-content-focus-color)'
-    }), _FontSize["default"],
-    // Image,
-    _extensionFocus["default"].configure({
+    }), _extensionFocus["default"].configure({
       mode: "shallowest"
-    }), _extensionHighlight["default"].configure({
+    }), _FontSize["default"], _extensionHighlight["default"].configure({
       multicolor: true
-    }), _extensionLink["default"].configure({
+    }), _Image["default"], _extensionLink["default"].configure({
       openOnClick: false,
       protocols: ["https", "mailto"]
     }), _extensionPlaceholder["default"].configure({
