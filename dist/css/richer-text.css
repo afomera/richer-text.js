@@ -39,27 +39,27 @@ button {
 
   /* General colors */
   --editor-text-color: #374151;
-  --editor-border-color: #e2e8f0;
+  --editor-border-color: #D0D5DD;
   --editor-placeholder-text-color: #a0aec0;
   --editor-content-background-color: #ffffff;
   --editor-content-focus-color: #ec4899;
 
   /* General buttons */
-  --editor-button-text-color: #7b7b7b;
-  --editor-button-active-color: #000;
-  --editor-button-disabled-color: #e2e8f0;
-  --editor-button-active-background-color: #e2e8f0;
+  --editor-button-text-color: #667085;
+  --editor-button-active-color: #101828;
+  --editor-button-disabled-color: #D0D5DD;
+  --editor-button-active-background-color: #f1f3f8;
   --editor-button-size: 24px;
 
   /* MenuBar */
   --editor-menu-bar-background-color: #ffffff;
   --editor-menu-bar-border-color: var(--editor-border-color);
-  --editor-menu-bar-seperator-background-color: #e2e8f0;
+  --editor-menu-bar-seperator-background-color: #D0D5DD;
   --editor-menu-bar-button-background-color: #ffffff;
   --editor-menu-bar-button-text-color: var(--editor-button-text-color);
   --editor-menu-bar-button-active-text-color: var(--editor-button-active-color);
   --editor-menu-bar-button-disabled-text-color: var(--editor-button-disabled-color);
-  --editor-menu-bar-button-active-background-color: #ffffff;
+  --editor-menu-bar-button-active-background-color: #f1f3f8;
   --editor-menu-bar-top-radius: 0rem;
 
   /* BubbleMenu */
