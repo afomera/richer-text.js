@@ -63,13 +63,6 @@ var _default = function _default(_ref2) {
     className: "editor--menu-bar-seperator"
   }), /*#__PURE__*/_react["default"].createElement(MenuBarButton, {
     action: function action() {
-      return editor.chain().focus().setParagraph().run();
-    },
-    disabled: !editor.can().chain().focus().setParagraph().run(),
-    active: editor.isActive('paragraph'),
-    icon: /*#__PURE__*/_react["default"].createElement(_icons.IconPilcrow, null)
-  }), /*#__PURE__*/_react["default"].createElement(MenuBarButton, {
-    action: function action() {
       return editor.chain().focus().toggleHeading({
         level: 1
       }).run();

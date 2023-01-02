@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IconBold, IconItalic, IconStrikethrough, IconCode, IconFileCode, IconH1, IconH2, IconPilcrow,
+import { IconBold, IconItalic, IconStrikethrough, IconCode, IconFileCode, IconH1, IconH2,
   IconList, IconListNumbers, IconBlockquote, IconSeparator, IconArrowBackUp, IconArrowForwardUp } from '@tabler/icons';
 
 const MenuBarButton = ({ action, disabled, active, icon }) => {
@@ -57,13 +57,6 @@ export default ({ editor }) => {
         />
 
         <div className="editor--menu-bar-seperator"></div>
-
-        <MenuBarButton
-          action={() => editor.chain().focus().setParagraph().run()}
-          disabled={!editor.can().chain().focus().setParagraph().run()}
-          active={editor.isActive('paragraph')}
-          icon={<IconPilcrow />}
-        />
 
         <MenuBarButton
           action={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
