@@ -178,6 +178,7 @@ html.dark hr {
   padding-right: 0.5rem;
   margin-bottom: 0.5rem;
   border-width: 1px;
+  word-break: break-all;
 }
 
 .callout p {
