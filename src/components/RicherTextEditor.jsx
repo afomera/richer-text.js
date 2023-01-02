@@ -3,19 +3,7 @@ import * as ReactDOM from "react-dom/client"
 import PropTypes from "prop-types"
 
 import { EditorContent, useEditor } from "@tiptap/react";
-import Dropcursor from "@tiptap/extension-dropcursor";
-import Focus from "@tiptap/extension-focus";
-import Highlight from "@tiptap/extension-highlight";
-import Link from "@tiptap/extension-link";
-import Placeholder from '@tiptap/extension-placeholder'
-import StarterKit from '@tiptap/starter-kit'
-import TextAlign from "@tiptap/extension-text-align";
-import TextStyle from '@tiptap/extension-text-style'
-
-import Callout from "./editor/extensions/Callout";
-import CommandMenu from "./editor/extensions/CommandMenu";
-import FontSize from "./editor/extensions/FontSize";
-import Image from "./editor/extensions/Image";
+import { RicherTextKit } from "./editor/extensions/RicherTextKit";
 
 import MenuBar from "./editor/MenuBar";
 import BubbleMenu from "./editor/BubbleMenu";
@@ -23,6 +11,7 @@ import BubbleMenu from "./editor/BubbleMenu";
 const RicherTextEditor = ({
   content,
   placeholder = "Write something...",
+  callouts = "true",
   showMenuBar = true,
   bubbleMenuOptions = { highlight: true }
 }) => {
@@ -38,37 +27,13 @@ const RicherTextEditor = ({
     element.dispatchEvent(event)
   }
 
+  console.log("callouts", callouts)
+
   const editor = useEditor({
     extensions: [
-      Callout,
-      CommandMenu,
-      Dropcursor.configure({
-        color: 'var(--editor-content-focus-color)'
-      }),
-      Focus.configure({
-        mode: "shallowest"
-      }),
-      FontSize,
-      Highlight.configure({
-        multicolor: true
-      }),
-      Image,
-      Link.configure({
-        openOnClick: false,
-        protocols: ["https", "mailto"]
-      }),
-      Placeholder.configure({
-        placeholder: placeholder
-      }),
-      StarterKit.configure({
-        dropcursor: false,
-        heading: {
-          levels: [1, 2]
-        }
-      }),
-      TextStyle,
-      TextAlign.configure({
-        types: ['paragraph', 'heading'],
+      RicherTextKit.configure({
+        placeholder: placeholder,
+        callout: callouts !== "false",
       }),
     ],
     content: content,
@@ -90,6 +55,7 @@ const RicherTextEditor = ({
 RicherTextEditor.propTypes = {
   content: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
+  callouts: PropTypes.boolean,
 }
 
 import reactToWebcomponent from "react-to-webcomponent";

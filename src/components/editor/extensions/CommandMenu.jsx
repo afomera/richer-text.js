@@ -8,7 +8,120 @@ import { IconTextSize, IconH1, IconH2, IconList, IconListNumbers, IconBlockquote
 
 import MenuList from "../MenuList";
 
-const CommandMenu = Extension.create({
+const commandItems = ({ calloutEnabled }) => {
+  console.log("calloutEnabled", calloutEnabled)
+  const commandItems = []
+
+  commandItems.push(
+    {
+      label: "Heading 1",
+      icon: <IconH1 />,
+      command: ({ editor, range }) => {
+        editor.chain().focus().deleteRange(range).setHeading({ level: 1 }).run();
+      }
+    },
+    {
+      label: "Heading 2",
+      icon: <IconH2 />,
+      command: ({ editor, range }) => {
+        editor.chain().focus().deleteRange(range).setHeading({ level: 2 }).run();
+      }
+    },
+    {
+      label: "Large text",
+      icon: <IconTextSize />,
+      command: ({ editor, range }) => {
+        editor.chain().focus().deleteRange(range).setFontSize("22px").run();
+      }
+    },
+    {
+      label: "Normal text",
+      icon: <IconTextSize />,
+      command: ({ editor, range }) => {
+        editor.chain().focus().deleteRange(range).unsetFontSize().run();
+      }
+    },
+    {
+      label: "Bullet List",
+      icon: <IconList />,
+      command: ({ editor, range }) => {
+        editor.chain().focus().deleteRange(range).toggleBulletList().run();
+      }
+    },
+    {
+      label: "Numbered List",
+      icon: <IconListNumbers />,
+      command: ({ editor, range }) => {
+        editor.chain().focus().deleteRange(range).toggleOrderedList().run();
+      }
+    },
+    {
+      label: "Blockquote",
+      icon: <IconBlockquote />,
+      command: ({ editor, range }) => {
+        editor.chain().focus().deleteRange(range).toggleBlockquote().run();
+      }
+    },
+    {
+      label: "Horizontal Rule",
+      icon: <IconSeparator />,
+      command: ({ editor, range }) => {
+        editor.chain().focus().deleteRange(range).setHorizontalRule().run();
+      }
+    },
+    {
+      label: "Code Block",
+      icon: <IconFileCode />,
+      command: ({ editor, range }) => {
+        editor.chain().focus().deleteRange(range).toggleCodeBlock().run();
+      }
+    }
+  )
+
+  if (calloutEnabled !== false) {
+    commandItems.push(
+      {
+        label: "Callout - Gray",
+        icon: <IconFlag color="gray" />,
+        command: ({ editor, range }) => {
+          editor.chain().focus().deleteRange(range).setCallout().run();
+        }
+      },
+      {
+        label: "Callout - Blue",
+        icon: <IconFlag color="blue" />,
+        command: ({ editor, range }) => {
+          editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", { 'data-color': "blue" }).run();
+        }
+      },
+      {
+        label: "Callout - Green",
+        icon: <IconFlag color="green" />,
+        command: ({ editor, range }) => {
+          editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", { 'data-color': "green" }).run();
+        }
+      },
+      {
+        label: "Callout - Yellow",
+        icon: <IconFlag color="gold" />,
+        command: ({ editor, range }) => {
+          editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", { 'data-color': "yellow" }).run();
+        }
+      },
+      {
+        label: "Callout - Red",
+        icon: <IconFlag color="red" />,
+        command: ({ editor, range }) => {
+          editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", { 'data-color': "red" }).run();
+        }
+      }
+    )
+  }
+
+  return commandItems
+}
+
+const CommandMenu = (calloutEnabled) => Extension.create({
   name: "command-menu",
 
   addOptions: {
@@ -16,106 +129,7 @@ const CommandMenu = Extension.create({
       char: "/",
       startOfLine: false,
       items: ({ query }) => {
-        return [
-          {
-            label: "Heading 1",
-            icon: <IconH1 />,
-            command: ({ editor, range }) => {
-              editor.chain().focus().deleteRange(range).setHeading({ level: 1 }).run();
-            }
-          },
-          {
-            label: "Heading 2",
-            icon: <IconH2 />,
-            command: ({ editor, range }) => {
-              editor.chain().focus().deleteRange(range).setHeading({ level: 2 }).run();
-            }
-          },
-          {
-            label: "Large text",
-            icon: <IconTextSize />,
-            command: ({ editor, range }) => {
-              editor.chain().focus().deleteRange(range).setFontSize("22px").run();
-            }
-          },
-          {
-            label: "Normal text",
-            icon: <IconTextSize />,
-            command: ({ editor, range }) => {
-              editor.chain().focus().deleteRange(range).unsetFontSize().run();
-            }
-          },
-          {
-            label: "Bullet List",
-            icon: <IconList />,
-            command: ({ editor, range }) => {
-              editor.chain().focus().deleteRange(range).toggleBulletList().run();
-            }
-          },
-          {
-            label: "Numbered List",
-            icon: <IconListNumbers />,
-            command: ({ editor, range }) => {
-              editor.chain().focus().deleteRange(range).toggleOrderedList().run();
-            }
-          },
-          {
-            label: "Blockquote",
-            icon: <IconBlockquote />,
-            command: ({ editor, range }) => {
-              editor.chain().focus().deleteRange(range).toggleBlockquote().run();
-            }
-          },
-          {
-            label: "Horizontal Rule",
-            icon: <IconSeparator />,
-            command: ({ editor, range }) => {
-              editor.chain().focus().deleteRange(range).setHorizontalRule().run();
-            }
-          },
-          {
-            label: "Code Block",
-            icon: <IconFileCode />,
-            command: ({ editor, range }) => {
-              editor.chain().focus().deleteRange(range).toggleCodeBlock().run();
-            }
-          },
-          {
-            label: "Callout - Gray",
-            icon: <IconFlag color="gray" />,
-            command: ({ editor, range }) => {
-              editor.chain().focus().deleteRange(range).setCallout().run();
-            }
-          },
-          {
-            label: "Callout - Blue",
-            icon: <IconFlag color="blue" />,
-            command: ({ editor, range }) => {
-              editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", { 'data-color': "blue" }).run();
-            }
-          },
-          {
-            label: "Callout - Green",
-            icon: <IconFlag color="green" />,
-            command: ({ editor, range }) => {
-              editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", { 'data-color': "green" }).run();
-            }
-          },
-          {
-            label: "Callout - Yellow",
-            icon: <IconFlag color="gold" />,
-            command: ({ editor, range }) => {
-              editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", { 'data-color': "yellow" }).run();
-            }
-          },
-          {
-            label: "Callout - Red",
-            icon: <IconFlag color="red" />,
-            command: ({ editor, range }) => {
-              editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", { 'data-color': "red" }).run();
-            }
-          }
-        ].filter((item) =>
+        return commandItems({ calloutEnabled }).filter((item) =>
           item.label.toLowerCase().startsWith(query.toLowerCase())
         );
       },

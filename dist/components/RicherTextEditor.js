@@ -9,18 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 var ReactDOM = _interopRequireWildcard(require("react-dom/client"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _react2 = require("@tiptap/react");
-var _extensionDropcursor = _interopRequireDefault(require("@tiptap/extension-dropcursor"));
-var _extensionFocus = _interopRequireDefault(require("@tiptap/extension-focus"));
-var _extensionHighlight = _interopRequireDefault(require("@tiptap/extension-highlight"));
-var _extensionLink = _interopRequireDefault(require("@tiptap/extension-link"));
-var _extensionPlaceholder = _interopRequireDefault(require("@tiptap/extension-placeholder"));
-var _starterKit = _interopRequireDefault(require("@tiptap/starter-kit"));
-var _extensionTextAlign = _interopRequireDefault(require("@tiptap/extension-text-align"));
-var _extensionTextStyle = _interopRequireDefault(require("@tiptap/extension-text-style"));
-var _Callout = _interopRequireDefault(require("./editor/extensions/Callout"));
-var _CommandMenu = _interopRequireDefault(require("./editor/extensions/CommandMenu"));
-var _FontSize = _interopRequireDefault(require("./editor/extensions/FontSize"));
-var _Image = _interopRequireDefault(require("./editor/extensions/Image"));
+var _RicherTextKit = require("./editor/extensions/RicherTextKit");
 var _MenuBar = _interopRequireDefault(require("./editor/MenuBar"));
 var _BubbleMenu = _interopRequireDefault(require("./editor/BubbleMenu"));
 var _reactToWebcomponent = _interopRequireDefault(require("react-to-webcomponent"));
@@ -31,6 +20,8 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
   var content = _ref.content,
     _ref$placeholder = _ref.placeholder,
     placeholder = _ref$placeholder === void 0 ? "Write something..." : _ref$placeholder,
+    _ref$callouts = _ref.callouts,
+    callouts = _ref$callouts === void 0 ? "true" : _ref$callouts,
     _ref$showMenuBar = _ref.showMenuBar,
     showMenuBar = _ref$showMenuBar === void 0 ? true : _ref$showMenuBar,
     _ref$bubbleMenuOption = _ref.bubbleMenuOptions,
@@ -49,25 +40,11 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
     });
     element.dispatchEvent(event);
   };
+  console.log("callouts", callouts);
   var editor = (0, _react2.useEditor)({
-    extensions: [_Callout["default"], _CommandMenu["default"], _extensionDropcursor["default"].configure({
-      color: 'var(--editor-content-focus-color)'
-    }), _extensionFocus["default"].configure({
-      mode: "shallowest"
-    }), _FontSize["default"], _extensionHighlight["default"].configure({
-      multicolor: true
-    }), _Image["default"], _extensionLink["default"].configure({
-      openOnClick: false,
-      protocols: ["https", "mailto"]
-    }), _extensionPlaceholder["default"].configure({
-      placeholder: placeholder
-    }), _starterKit["default"].configure({
-      dropcursor: false,
-      heading: {
-        levels: [1, 2]
-      }
-    }), _extensionTextStyle["default"], _extensionTextAlign["default"].configure({
-      types: ['paragraph', 'heading']
+    extensions: [_RicherTextKit.RicherTextKit.configure({
+      placeholder: placeholder,
+      callout: callouts !== "false"
     })],
     content: content,
     onUpdate: function onUpdate(_ref2) {
@@ -91,7 +68,8 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
 };
 RicherTextEditor.propTypes = {
   content: _propTypes["default"].string.isRequired,
-  placeholder: _propTypes["default"].string
+  placeholder: _propTypes["default"].string,
+  callouts: _propTypes["default"]["boolean"]
 };
 var WebRicherTextEditor = (0, _reactToWebcomponent["default"])(RicherTextEditor, _react["default"], ReactDOM);
 customElements.define("richer-text-editor", WebRicherTextEditor);
