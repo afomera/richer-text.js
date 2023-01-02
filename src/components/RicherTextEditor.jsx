@@ -27,8 +27,6 @@ const RicherTextEditor = ({
     element.dispatchEvent(event)
   }
 
-  console.log("callouts", callouts)
-
   const editor = useEditor({
     extensions: [
       RicherTextKit.configure({

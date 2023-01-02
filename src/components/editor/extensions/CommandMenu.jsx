@@ -9,7 +9,6 @@ import { IconTextSize, IconH1, IconH2, IconList, IconListNumbers, IconBlockquote
 import MenuList from "../MenuList";
 
 const commandItems = ({ calloutEnabled }) => {
-  console.log("calloutEnabled", calloutEnabled)
   const commandItems = []
 
   commandItems.push(

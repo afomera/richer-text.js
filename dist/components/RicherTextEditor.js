@@ -40,7 +40,6 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
     });
     element.dispatchEvent(event);
   };
-  console.log("callouts", callouts);
   var editor = (0, _react2.useEditor)({
     extensions: [_RicherTextKit.RicherTextKit.configure({
       placeholder: placeholder,
