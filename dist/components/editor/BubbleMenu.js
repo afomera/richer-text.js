@@ -24,7 +24,9 @@ var BubbleMenuButton = function BubbleMenuButton(_ref) {
 var HighlighterMenu = function HighlighterMenu(_ref2) {
   var editor = _ref2.editor;
   if (!editor) return null;
-  return /*#__PURE__*/_react["default"].createElement("div", null, editor.isActive('highlight') && /*#__PURE__*/_react["default"].createElement(BubbleMenuButton, {
+  return /*#__PURE__*/_react["default"].createElement("div", {
+    className: "editor--bubble-menu-highlighter-menu"
+  }, editor.isActive('highlight') && /*#__PURE__*/_react["default"].createElement(BubbleMenuButton, {
     command: function command() {
       return editor.chain().focus().unsetHighlight().run();
     },
@@ -33,14 +35,38 @@ var HighlighterMenu = function HighlighterMenu(_ref2) {
   }), /*#__PURE__*/_react["default"].createElement(BubbleMenuButton, {
     command: function command() {
       return editor.chain().focus().toggleHighlight({
-        color: '#FEB7B3'
+        color: 'var(--editor-highlight-color-one)'
       }).run();
     },
     active: editor.isActive('highlight', {
-      color: '#FEB7B3'
+      color: 'var(--editor-highlight-color-one)'
     }),
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconHighlight, {
-      color: "#FEB7B3"
+      color: 'var(--editor-highlight-color-one)'
+    })
+  }), /*#__PURE__*/_react["default"].createElement(BubbleMenuButton, {
+    command: function command() {
+      return editor.chain().focus().toggleHighlight({
+        color: 'var(--editor-highlight-color-two)'
+      }).run();
+    },
+    active: editor.isActive('highlight', {
+      color: 'var(--editor-highlight-color-two)'
+    }),
+    icon: /*#__PURE__*/_react["default"].createElement(_icons.IconHighlight, {
+      color: 'var(--editor-highlight-color-two)'
+    })
+  }), /*#__PURE__*/_react["default"].createElement(BubbleMenuButton, {
+    command: function command() {
+      return editor.chain().focus().toggleHighlight({
+        color: 'var(--editor-highlight-color-three)'
+      }).run();
+    },
+    active: editor.isActive('highlight', {
+      color: 'var(--editor-highlight-color-three)'
+    }),
+    icon: /*#__PURE__*/_react["default"].createElement(_icons.IconHighlight, {
+      color: 'var(--editor-highlight-color-three)'
     })
   }));
 };

@@ -23,7 +23,7 @@ const HighlighterMenu = ({ editor }) => {
   if (!editor) return null
 
   return (
-    <div>
+    <div className="editor--bubble-menu-highlighter-menu">
       {editor.isActive('highlight') &&
         <BubbleMenuButton
           command={() => editor.chain().focus().unsetHighlight().run()}
@@ -32,9 +32,21 @@ const HighlighterMenu = ({ editor }) => {
         />}
 
       <BubbleMenuButton
-        command={() => editor.chain().focus().toggleHighlight({ color: '#FEB7B3' }).run()}
-        active={editor.isActive('highlight', { color: '#FEB7B3' })}
-        icon={<IconHighlight color={"#FEB7B3"} />}
+        command={() => editor.chain().focus().toggleHighlight({ color: 'var(--editor-highlight-color-one)' }).run()}
+        active={editor.isActive('highlight', { color: 'var(--editor-highlight-color-one)' })}
+        icon={<IconHighlight color={'var(--editor-highlight-color-one)'} />}
+      />
+
+      <BubbleMenuButton
+        command={() => editor.chain().focus().toggleHighlight({ color: 'var(--editor-highlight-color-two)' }).run()}
+        active={editor.isActive('highlight', { color: 'var(--editor-highlight-color-two)' })}
+        icon={<IconHighlight color={'var(--editor-highlight-color-two)'} />}
+      />
+
+      <BubbleMenuButton
+        command={() => editor.chain().focus().toggleHighlight({ color: 'var(--editor-highlight-color-three)' }).run()}
+        active={editor.isActive('highlight', { color: 'var(--editor-highlight-color-three)' })}
+        icon={<IconHighlight color={'var(--editor-highlight-color-three)'} />}
       />
     </div>
   )

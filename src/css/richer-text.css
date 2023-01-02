@@ -44,6 +44,11 @@ button {
   --editor-content-background-color: #ffffff;
   --editor-content-focus-color: #ec4899;
 
+  /* Highlight colors */
+  --editor-highlight-color-one: #FEB7B3;
+  --editor-highlight-color-two: #fef1b3;
+  --editor-highlight-color-three: #b3dcfe;
+
   /* General buttons */
   --editor-button-text-color: #667085;
   --editor-button-active-color: #101828;
@@ -263,6 +268,12 @@ html.dark hr {
   background-color: var(--editor-bubble-menu-background-color);
   border: 1px solid var(--editor-bubble-menu-border-color);
   border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.editor--bubble-menu .editor--bubble-menu-highlighter-menu {
+  background-color: var(--editor-bubble-menu-background-color);
   display: flex;
   align-items: center;
 }
