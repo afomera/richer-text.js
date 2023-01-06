@@ -10,6 +10,7 @@ import TextAlign from "@tiptap/extension-text-align";
 import TextStyle from '@tiptap/extension-text-style'
 
 import Callout from "./Callout";
+import CodeBlock from "./CodeBlock";
 import CommandMenu from "./CommandMenu";
 import FontSize from "./FontSize";
 import Image from "./Image";
@@ -29,6 +30,7 @@ export const RicherTextKit = Extension.create({
     if (this.options.starterKit !== false) {
       extensions.push(
         StarterKit.configure({
+          codeBlock: false,
           dropcursor: false,
           heading: {
             levels: [1, 2]
@@ -93,6 +95,7 @@ export const RicherTextKit = Extension.create({
     }
 
     extensions.push(
+      CodeBlock,
       TextStyle,
       TextAlign.configure({
         types: ['paragraph', 'heading'],
