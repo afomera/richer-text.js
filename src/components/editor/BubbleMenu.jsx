@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { BubbleMenu } from '@tiptap/react'
 
-import { IconBold, IconItalic, IconStrikethrough, IconAlignLeft, IconAlignCenter, IconAlignRight, IconHighlight, IconHighlightOff } from '@tabler/icons';
+import { IconBold, IconItalic, IconStrikethrough, IconLink, IconAlignLeft, IconAlignCenter, IconAlignRight, IconHighlight, IconHighlightOff } from '@tabler/icons';
+import LinkBubbleMenu from "./LinkBubbleMenu";
 
 const BubbleMenuButton = ({ command, active, icon }) => {
   const handleClick = (event) => {
@@ -55,12 +56,15 @@ const HighlighterMenu = ({ editor }) => {
 export default ({ editor, bubbleMenuOptions }) => {
   if (!editor) return null
 
+  const [editingLink, setEditingLink] = useState(false)
+
   return (
-    <BubbleMenu editor={editor} tippyOptions={{ duration: 0, placement: "bottom" }}
+    <BubbleMenu editor={editor} tippyOptions={{ duration: 0, placement: "bottom", onHide: () => setEditingLink(false) }}
       shouldShow={() => {
         return !editor.view.state.selection.empty && (editor.isActive("paragraph") || editor.isActive("heading"));
       }}
     >
+      {!editingLink ? (
       <div className="editor--bubble-menu">
         <BubbleMenuButton
           command={() => editor.chain().focus().toggleBold().run()}
@@ -78,6 +82,12 @@ export default ({ editor, bubbleMenuOptions }) => {
           command={() => editor.chain().focus().toggleStrike().run()}
           active={editor.isActive('strike')}
           icon={<IconStrikethrough />}
+        />
+
+        <BubbleMenuButton
+          command={() => setEditingLink(true)}
+          active={editor.isActive('link')}
+          icon={<IconLink />}
         />
 
         <BubbleMenuButton
@@ -102,7 +112,9 @@ export default ({ editor, bubbleMenuOptions }) => {
           <HighlighterMenu editor={editor} />
         ) : null}
 
-      </div>
+      </div>) : (
+        <LinkBubbleMenu editor={editor} onClose={() => setEditingLink(false)} />
+      )}
     </BubbleMenu>
   )
 }

@@ -170,6 +170,11 @@ html.dark hr {
   border-color: #dee6f2 !important;
 }
 
+.editor--bubble-menu-form {
+  display: flex;
+  align-items: center;
+}
+
 .callout {
   border-radius: 0.5rem;
   padding-top: 0.2rem;
