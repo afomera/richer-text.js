@@ -43,6 +43,7 @@ button {
   --editor-placeholder-text-color: #a0aec0;
   --editor-content-background-color: #ffffff;
   --editor-content-focus-color: #ec4899;
+  --editor-link-color: #ec4899;
 
   /* Highlight colors */
   --editor-highlight-color-one: #FEB7B3;
@@ -177,10 +178,10 @@ html.dark hr {
 
 .callout {
   border-radius: 0.5rem;
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   margin-bottom: 0.5rem;
   border-width: 1px;
   word-break: break-word;
@@ -443,6 +444,12 @@ html.dark hr {
 .ProseMirror blockquote {
   padding-left: 1rem;
   border-left: 2px solid rgba(13, 13, 13, 0.1);
+}
+
+.ProseMirror a {
+  color: var(--editor-link-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--editor-link-color);
 }
 
 .ProseMirror hr {

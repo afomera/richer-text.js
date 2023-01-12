@@ -13,7 +13,7 @@ const RicherTextEditor = ({
   placeholder = "Write something...",
   callouts = "true",
   showMenuBar = true,
-  bubbleMenuOptions = { highlight: true }
+  bubbleMenuOptions = { highlight: false }
 }) => {
   const editorRef = React.useRef(null);
 

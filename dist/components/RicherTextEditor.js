@@ -26,7 +26,7 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
     showMenuBar = _ref$showMenuBar === void 0 ? true : _ref$showMenuBar,
     _ref$bubbleMenuOption = _ref.bubbleMenuOptions,
     bubbleMenuOptions = _ref$bubbleMenuOption === void 0 ? {
-      highlight: true
+      highlight: false
     } : _ref$bubbleMenuOption;
   var editorRef = _react["default"].useRef(null);
   var _onUpdate = function onUpdate(element, editor) {
