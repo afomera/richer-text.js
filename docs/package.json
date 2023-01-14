@@ -1,0 +1,24 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "esbuild": "node esbuild.config.js --minify",
+    "esbuild-dev": "node esbuild.config.js --watch"
+  },
+  "devDependencies": {
+    "esbuild": "^0.14.39",
+    "glob": "^8.0.1",
+    "postcss": "^8.4.12",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^14.1.0",
+    "postcss-load-config": "^3.1.4",
+    "postcss-preset-env": "^7.4.3"
+  },
+  "dependencies": {
+    "@afomera/richer-text": "^0.2.1",
+    "highlight.js": "^11.7.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
