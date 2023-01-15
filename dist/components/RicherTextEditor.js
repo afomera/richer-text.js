@@ -65,7 +65,7 @@ RicherTextEditor.defaultProps = {
   placeholder: "Write something...",
   callouts: "true",
   showMenuBar: "true",
-  bubbleMenuOptions: "{ \"highlight\": true }"
+  bubbleMenuOptions: "{ \"highlight\": false }"
 };
 RicherTextEditor.propTypes = {
   content: _propTypes["default"].string,
