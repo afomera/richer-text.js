@@ -1,7 +1,27 @@
 ---
 layout: page
-title: Theming
+title: Customize
 ---
+
+## Options
+
+Optionally, you can customize a few of the attributes by passing them as attributes to the `<richer-text-editor>` tag.
+
+| Option              | &nbsp;&nbsp;&nbsp; |           Default            |              Allowed values |
+| :------------------ | ------------------ | :--------------------------: | --------------------------: |
+| content             |                    |              ""              |                      String |
+| placeholder         | &nbsp;&nbsp;&nbsp; |     "Write something..."     |                      String |
+| callouts            |                    |            "true"            |             "true", "false" |
+| show-menu-bar       |                    |            "true"            |             "true", "false" |
+| bubble-menu-options |                    | `"{ \"highlight\": false }"` | `"{ \"highlight\": true }"` |
+
+```html
+<richer-text-editor
+  content="I'm an editor without a menu bar and no callouts."
+  callouts="false"
+  show-menu-bar="false"
+></richer-text-editor>
+```
 
 <h2>Customizing the Menu Bar</h2>
 
