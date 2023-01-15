@@ -3,17 +3,23 @@ import React from "react";
 import { IconBold, IconItalic, IconStrikethrough, IconCode, IconFileCode, IconH1, IconH2,
   IconList, IconListNumbers, IconBlockquote, IconSeparator, IconArrowBackUp, IconArrowForwardUp } from '@tabler/icons';
 
-const MenuBarButton = ({ action, disabled, active, icon }) => {
+const MenuBarButton = ({ action, disabled, active, icon, hideOnMobile }) => {
   const handleClick = (event) => {
     event.preventDefault()
     action()
   }
 
+  let classes = []
+  if (hideOnMobile) {
+    classes.push('editor--hide-on-mobile')
+  }
+  classes.push(active ? 'is-active' : '')
+
   return (
     <button
       onClick={handleClick}
       disabled={disabled}
-      className={active ? 'is-active' : ''}
+      className={classes.join(' ')}
     >
       {icon}
     </button>
@@ -91,6 +97,7 @@ export default ({ editor }) => {
           disabled={!editor.can().chain().focus().toggleCodeBlock().run()}
           active={editor.isActive('codeBlock')}
           icon={<IconFileCode />}
+          hideOnMobile={true}
         />
 
         <MenuBarButton
@@ -105,6 +112,7 @@ export default ({ editor }) => {
           disabled={!editor.can().chain().focus().setHorizontalRule().run()}
           active={editor.isActive('horizontalRule')}
           icon={<IconSeparator />}
+          hideOnMobile={true}
         />
       </div>
 
@@ -113,11 +121,13 @@ export default ({ editor }) => {
           action={() => editor.chain().focus().undo().run()}
           disabled={!editor.can().chain().focus().undo().run()}
           icon={<IconArrowBackUp />}
+          hideOnMobile={true}
         />
         <MenuBarButton
           action={() => editor.chain().focus().redo().run()}
           disabled={!editor.can().chain().focus().redo().run()}
           icon={<IconArrowForwardUp />}
+          hideOnMobile={true}
         />
       </div>
     </div>
