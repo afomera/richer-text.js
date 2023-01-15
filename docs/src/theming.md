@@ -3,7 +3,7 @@ layout: page
 title: Theming
 ---
 
-## CSS Variables
+<h2>CSS Variables</h2>
 
 We support customizing the looks of the Richer Text Editor by using CSS variables to control coloring.
 

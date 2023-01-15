@@ -3,8 +3,6 @@ layout: page
 title: About
 ---
 
-This is the basic Bridgetown site template. You can find out more info about customizing your Bridgetown site, as well as basic Bridgetown usage documentation at [bridgetownrb.com](https://bridgetownrb.com/)
+RicherText is a project by [Andrea Fomera](https://afomera.dev). It's based on [TipTap](https://tiptap.dev), which itself is based on ProseMirror.
 
-You can find the source code for Bridgetown at GitHub:
-[bridgetownrb](https://github.com/bridgetownrb) /
-[bridgetown](https://github.com/bridgetownrb/bridgetown)
+The editor itself is written in React, and converted into a Web Component for ease of including in any project.

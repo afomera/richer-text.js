@@ -1,5 +1,5 @@
 :root {
-  --body-background: #fbf9f9;
+  --body-background: #ffffff;
   --body-color: #444;
   --heading-color: black;
   --action-color: #d64079;
@@ -12,7 +12,7 @@ body {
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     "Helvetica", "Arial", sans-serif;
   margin: 0 8px;
-  font-size: 108%;
+  font-size: 100%;
   line-height: 1.5;
 }
 
@@ -23,16 +23,16 @@ a {
 }
 
 h1 {
-  /* margin: 1rem 0 3rem; */
+  margin: 1rem 0 2rem;
   /* text-align: center; */
   /* font-weight: 900; */
   font-size: 2.5rem;
   /* color: var(--heading-color); */
-  /* line-height: 1.2; */
+  line-height: 1.2;
 }
 
 body > header {
-  margin: 1rem;
+  margin: 0;
   text-align: center;
 }
 
@@ -43,7 +43,7 @@ body > header img {
 }
 
 body > nav ul {
-  margin: 2rem 0;
+  margin: 1rem 0;
   padding: 0;
   list-style-type: none;
   display: flex;
@@ -58,12 +58,13 @@ body > nav a {
 }
 
 main {
-  margin: 2rem auto 4rem;
+  margin: 0.5rem auto 2rem;
+  /* border: 1px solid #ddd; */
   max-width: 65rem;
   min-height: calc(100vh - 200px);
   padding: 25px 25px 50px;
   background: white;
-  box-shadow: 2px 3px 3px #ddd;
+  /* box-shadow: 2px 3px 3px #ddd; */
   border-radius: 3px;
 
   @media (max-width: 500px) {
@@ -73,14 +74,23 @@ main {
 
 footer {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   font-size: 1em;
+}
+
+pre {
+  background: #f8f8f8;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+  overflow: auto;
 }
 
 hr {
   border: none;
   border-top: 2px dotted #bbb;
-  margin: 3rem 0;
+  margin: 2rem 0;
 }
 
 .dark {

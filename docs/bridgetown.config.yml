@@ -17,10 +17,10 @@
 # https://learnxinyminutes.com/docs/yaml/
 #
 
-url: "http://richer-text-js.vercel.app" # the base hostname & protocol for your site, e.g. https://example.com
+url: "http://richer-text.vercel.app" # the base hostname & protocol for your site, e.g. https://example.com
 
 permalink: pretty
-template_engine: liquid
+template_engine: erb
 # Other options you might want to investigate:
 #
 base_path: "/" # the subpath of your site, e.g. /blog. If you set this option,
