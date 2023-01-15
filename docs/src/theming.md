@@ -3,9 +3,63 @@ layout: page
 title: Theming
 ---
 
-<h2>CSS Variables</h2>
+<h2>Customizing the Menu Bar</h2>
+
+Want a smaller menu bar, or perhaps you don't want a border? Using CSS Variables you can tweak the border color, icon size, and any other colors.
+
+If you'd like, you can also apply these variables at the ==`:root`== level, just ensure your variables are defined after the Richer Text css is imported into your project.
+
+<div class="editor--without-border">
+  <richer-text-editor></richer-text-editor>
+</div>
+
+```html
+<div class="editor--without-border">
+  <richer-text-editor></richer-text-editor>
+</div>
+```
+
+```css
+.editor--without-border {
+  --editor-menu-bar-border-color: none;
+  --editor-button-size: 20px;
+
+  --editor-menu-bar-background-color: #efefef;
+}
+```
+
+---
+
+<div class="editor-with-menu-bar-background">
+  <richer-text-editor></richer-text-editor>
+</div>
+
+```html
+<div class="editor-with-menu-bar-background">
+  <richer-text-editor></richer-text-editor>
+</div>
+```
+
+```css
+.editor-with-menu-bar-background {
+  --editor-menu-bar-border-color: none;
+
+  --editor-menu-bar-background-color: #efefef;
+  --editor-menu-bar-button-background-color: #efefef;
+  --editor-menu-bar-button-text-color: var(--editor-button-text-color);
+  --editor-menu-bar-button-active-text-color: var(--editor-button-active-color);
+  --editor-menu-bar-button-disabled-text-color: var(
+    --editor-button-disabled-color
+  );
+  --editor-menu-bar-button-active-background-color: #d7dae0;
+}
+```
+
+<h2>All CSS Variables</h2>
 
 We support customizing the looks of the Richer Text Editor by using CSS variables to control coloring.
+
+**Default Variables**:
 
 ```css
 :root {
