@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Customize
+title: Customization
 ---
 
 ## Options
