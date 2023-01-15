@@ -3,9 +3,9 @@
 
 
 "@afomera/richer-text@^0.2.1":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@afomera/richer-text/-/richer-text-0.2.3.tgz#9d02504356eaa766858ea999eeef0c555a36d42a"
-  integrity sha512-4GJ0hnNnUH9kiUICyyq0xoyStn3TqaM57D3p+6aXfpq5uhbCekCtR7OwwW9QEbhuoMDTWpSxsA40iuAG6yODjA==
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@afomera/richer-text/-/richer-text-0.2.4.tgz#f69286f8cfb65db1d9aabd66948ccc9c6354eaf9"
+  integrity sha512-cvaAQSfRvQJrkAy0BbkWMQkSC+PLTLEfg3gWLKFKn29Y5v014em9P8E+P+4Dtp3Mvt1OlmkoP2tCtEu049WTSA==
   dependencies:
     "@rails/activestorage" "^7.0.4"
     "@tabler/icons" "^1.118.0"
