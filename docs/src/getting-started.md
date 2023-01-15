@@ -76,6 +76,9 @@ Then you'll need HTML that looks similar to this:
 ```html
 <div data-controller="editor" data-action="editor:update->editor#update">
   <input type="hidden" value="" data-editor-target="input" />
-  <richer-text-editor content="Your initial content"></richer-text-editor>
+  <richer-text-editor
+    content="Your initial content"
+    placeholder="Write something..."
+  ></richer-text-editor>
 </div>
 ```
