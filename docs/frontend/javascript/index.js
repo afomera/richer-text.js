@@ -8,3 +8,29 @@ import "@afomera/richer-text/dist/css/richer-text.css"
 import components from "bridgetownComponents/**/*.{js,jsx,js.rb,css}"
 
 console.info("Bridgetown is loaded!")
+
+const switchTheme = () => {
+  // get root element
+  const rootElement = document.documentElement
+  let dataTheme = rootElement.getAttribute("data-theme"), newTheme
+
+  newTheme = dataTheme === "dark" ? "light" : "dark"
+
+  if (newTheme === "dark") {
+    rootElement.classList.add("dark")
+    document.getElementById("#theme-switcher").querySelector("button").innerHTML = "Switch to light mode"
+  } else {
+    rootElement.classList.remove("dark")
+    document.getElementById("#theme-switcher").querySelector("button").innerHTML = "Switch to dark mode"
+  }
+
+  rootElement.setAttribute("data-theme", newTheme)
+
+  localStorage.setItem("theme", newTheme)
+
+  console.log("Switched theme to", newTheme)
+}
+
+if (document.getElementById("#theme-switcher")) {
+  document.getElementById("#theme-switcher").addEventListener("click", switchTheme)
+}

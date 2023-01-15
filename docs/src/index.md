@@ -11,6 +11,9 @@ layout: default
 
 # Try it out
 
+<div id="#theme-switcher">
+  <button>Switch To Dark</button>
+</div>
 <richer-text-editor content="<div class='callout' data-color='gray'>
 
 <p style='text-align: center'><strong><span style='font-size: 20px'>Welcome to RicherText</span></strong></p>
