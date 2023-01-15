@@ -10,10 +10,10 @@ import BubbleMenu from "./editor/BubbleMenu";
 
 const RicherTextEditor = ({
   content,
-  placeholder = "Write something...",
-  callouts = "true",
-  showMenuBar = true,
-  bubbleMenuOptions = { highlight: false }
+  placeholder,
+  callouts,
+  showMenuBar,
+  bubbleMenuOptions
 }) => {
   const editorRef = React.useRef(null);
 
@@ -26,6 +26,8 @@ const RicherTextEditor = ({
 
     element.dispatchEvent(event)
   }
+
+  bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
 
   const editor = useEditor({
     extensions: [
@@ -40,7 +42,7 @@ const RicherTextEditor = ({
 
   return (
     <div className="editor" ref={editorRef}>
-      {showMenuBar && <MenuBar editor={editor} />}
+      {showMenuBar == "true" && <MenuBar editor={editor} />}
 
       <BubbleMenu editor={editor} bubbleMenuOptions={bubbleMenuOptions} />
       <div className="editor--content">
@@ -50,10 +52,20 @@ const RicherTextEditor = ({
   );
 }
 
+RicherTextEditor.defaultProps = {
+  content: "",
+  placeholder: "Write something...",
+  callouts: "true",
+  showMenuBar: "true",
+  bubbleMenuOptions: "{ \"highlight\": true }"
+}
+
 RicherTextEditor.propTypes = {
-  content: PropTypes.string.isRequired,
+  content: PropTypes.string,
   placeholder: PropTypes.string,
-  callouts: PropTypes.boolean,
+  callouts: PropTypes.string,
+  showMenuBar: PropTypes.string,
+  bubbleMenuOptions: PropTypes.string
 }
 
 import reactToWebcomponent from "react-to-webcomponent";

@@ -18,16 +18,10 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 var RicherTextEditor = function RicherTextEditor(_ref) {
   var content = _ref.content,
-    _ref$placeholder = _ref.placeholder,
-    placeholder = _ref$placeholder === void 0 ? "Write something..." : _ref$placeholder,
-    _ref$callouts = _ref.callouts,
-    callouts = _ref$callouts === void 0 ? "true" : _ref$callouts,
-    _ref$showMenuBar = _ref.showMenuBar,
-    showMenuBar = _ref$showMenuBar === void 0 ? true : _ref$showMenuBar,
-    _ref$bubbleMenuOption = _ref.bubbleMenuOptions,
-    bubbleMenuOptions = _ref$bubbleMenuOption === void 0 ? {
-      highlight: false
-    } : _ref$bubbleMenuOption;
+    placeholder = _ref.placeholder,
+    callouts = _ref.callouts,
+    showMenuBar = _ref.showMenuBar,
+    bubbleMenuOptions = _ref.bubbleMenuOptions;
   var editorRef = _react["default"].useRef(null);
   var _onUpdate = function onUpdate(element, editor) {
     // Emit a custom event with the current editor content
@@ -40,6 +34,7 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
     });
     element.dispatchEvent(event);
   };
+  bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
   var editor = (0, _react2.useEditor)({
     extensions: [_RicherTextKit.RicherTextKit.configure({
       placeholder: placeholder,
@@ -54,7 +49,7 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
   return /*#__PURE__*/_react["default"].createElement("div", {
     className: "editor",
     ref: editorRef
-  }, showMenuBar && /*#__PURE__*/_react["default"].createElement(_MenuBar["default"], {
+  }, showMenuBar == "true" && /*#__PURE__*/_react["default"].createElement(_MenuBar["default"], {
     editor: editor
   }), /*#__PURE__*/_react["default"].createElement(_BubbleMenu["default"], {
     editor: editor,
@@ -65,10 +60,19 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
     editor: editor
   })));
 };
+RicherTextEditor.defaultProps = {
+  content: "",
+  placeholder: "Write something...",
+  callouts: "true",
+  showMenuBar: "true",
+  bubbleMenuOptions: "{ \"highlight\": true }"
+};
 RicherTextEditor.propTypes = {
-  content: _propTypes["default"].string.isRequired,
+  content: _propTypes["default"].string,
   placeholder: _propTypes["default"].string,
-  callouts: _propTypes["default"]["boolean"]
+  callouts: _propTypes["default"].string,
+  showMenuBar: _propTypes["default"].string,
+  bubbleMenuOptions: _propTypes["default"].string
 };
 var WebRicherTextEditor = (0, _reactToWebcomponent["default"])(RicherTextEditor, _react["default"], ReactDOM);
 customElements.define("richer-text-editor", WebRicherTextEditor);
