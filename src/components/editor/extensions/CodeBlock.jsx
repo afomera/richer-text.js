@@ -4,6 +4,7 @@ import { lowlight } from "lowlight";
 const CodeBlock = CodeBlockLowlight.extend({
   addKeyboardShortcuts() {
     return {
+      ...this.parent?.(),
       Tab: () => {
         if (this.editor.state.doc.childBefore(this.editor.state.selection.from).node.type.name === this.name) {
           return this.editor.commands.insertContent("  ");
