@@ -21,7 +21,7 @@ const LinkBubbleMenu = ({ editor, onClose }) => {
 
   return (
     <div className="editor--bubble-menu">
-      <form class="editor--bubble-menu-form" onSubmit={onSubmit}>
+      <form className="editor--bubble-menu-form" onSubmit={onSubmit}>
         <input
           type="url"
           name="url"

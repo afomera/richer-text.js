@@ -28,7 +28,7 @@ var LinkBubbleMenu = function LinkBubbleMenu(_ref) {
   return /*#__PURE__*/_react["default"].createElement("div", {
     className: "editor--bubble-menu"
   }, /*#__PURE__*/_react["default"].createElement("form", {
-    "class": "editor--bubble-menu-form",
+    className: "editor--bubble-menu-form",
     onSubmit: onSubmit
   }, /*#__PURE__*/_react["default"].createElement("input", {
     type: "url",
