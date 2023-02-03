@@ -183,6 +183,7 @@ html.dark hr {
 }
 
 .callout {
+  border-radius: 0.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 1rem;
@@ -202,35 +203,30 @@ html.dark hr {
 
 .callout[data-color='gray'] {
   background-color: var(--callout-gray-background-color);
-  border-left-width: 10px;
-  border-left-color: var(--callout-gray-border-color);
+  border-color: var(--callout-gray-border-color);
   color: var(--callout-gray-text-color) !important;
 }
 
 .callout[data-color='blue'] {
   background-color: var(--callout-blue-background-color);
-  border-left-width: 10px;
-  border-left-color: var(--callout-blue-border-color);
+  border-color: var(--callout-blue-border-color);
   color: var(--callout-blue-text-color) !important;
 }
 
 .callout[data-color='green'] {
   background-color: var(--callout-green-background-color);
-  border-left-width: 10px;
-  border-left-color: var(--callout-green-border-color);
+  border-color: var(--callout-green-border-color);
   color: var(--callout-green-text-color) !important;
 }
 
 .callout[data-color='yellow'] {
   background-color: var(--callout-yellow-background-color);
-  border-left-width: 10px;
-  border-left-color: var(--callout-yellow-border-color);
+  border-color: var(--callout-yellow-border-color);
   color: var(--callout-yellow-text-color) !important;
 }
 
 .callout[data-color='red'] {
   background-color: var(--callout-red-background-color);
-  border-left-width: 10px;
   border-color: var(--callout-red-border-color);
   color: var(--callout-red-text-color) !important;
 }
