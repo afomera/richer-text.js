@@ -9,6 +9,7 @@ var _react = _interopRequireWildcard(require("react"));
 var _react2 = require("@tiptap/react");
 var _icons = require("@tabler/icons");
 var _LinkBubbleMenu = _interopRequireDefault(require("./LinkBubbleMenu"));
+var _HighlighterMenu = _interopRequireDefault(require("./HighlighterMenu"));
 var _BubbleMenuButton = _interopRequireDefault(require("../elements/BubbleMenuButton"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -38,7 +39,8 @@ var _default = function _default(_ref) {
     },
     shouldShow: function shouldShow() {
       return !editor.view.state.selection.empty && (editor.isActive("paragraph") || editor.isActive("heading"));
-    }
+    },
+    pluginKey: "main-bubble-menu"
   }, !editingLink ? /*#__PURE__*/_react["default"].createElement("div", {
     className: "editor--bubble-menu"
   }, /*#__PURE__*/_react["default"].createElement(_BubbleMenuButton["default"], {
@@ -89,7 +91,7 @@ var _default = function _default(_ref) {
       textAlign: "right"
     }),
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconAlignRight, null)
-  }), bubbleMenuOptions.highlight ? /*#__PURE__*/_react["default"].createElement(HighlighterMenu, {
+  }), bubbleMenuOptions.highlight ? /*#__PURE__*/_react["default"].createElement(_HighlighterMenu["default"], {
     editor: editor
   }) : null) : /*#__PURE__*/_react["default"].createElement(_LinkBubbleMenu["default"], {
     editor: editor,

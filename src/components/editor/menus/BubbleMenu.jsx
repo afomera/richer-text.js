@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { BubbleMenu } from '@tiptap/react'
 
-import { IconBold, IconItalic, IconStrikethrough, IconLink, IconAlignLeft, IconAlignCenter, IconAlignRight, IconHighlight, IconHighlightOff } from '@tabler/icons';
+import { IconBold, IconItalic, IconStrikethrough, IconLink, IconAlignLeft, IconAlignCenter, IconAlignRight } from '@tabler/icons';
 import LinkBubbleMenu from "./LinkBubbleMenu";
+import HighlighterMenu from "./HighlighterMenu";
 import BubbleMenuButton from "../elements/BubbleMenuButton";
 
 export default ({ editor, bubbleMenuOptions }) => {
@@ -15,6 +16,7 @@ export default ({ editor, bubbleMenuOptions }) => {
       shouldShow={() => {
         return !editor.view.state.selection.empty && (editor.isActive("paragraph") || editor.isActive("heading"));
       }}
+      pluginKey={"main-bubble-menu"}
     >
       {!editingLink ? (
       <div className="editor--bubble-menu">
@@ -60,9 +62,7 @@ export default ({ editor, bubbleMenuOptions }) => {
           icon={<IconAlignRight />}
         />
 
-        {bubbleMenuOptions.highlight ? (
-          <HighlighterMenu editor={editor} />
-        ) : null}
+        {bubbleMenuOptions.highlight ? (<HighlighterMenu editor={editor} />) : null}
 
       </div>) : (
         <LinkBubbleMenu editor={editor} onClose={() => setEditingLink(false)} />

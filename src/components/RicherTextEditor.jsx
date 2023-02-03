@@ -27,6 +27,12 @@ const RicherTextEditor = ({
     element.dispatchEvent(event)
   }
 
+  const onBlur = (element) => {
+    const event = new CustomEvent('editor:blur', { bubbles: true });
+
+    element.dispatchEvent(event)
+  }
+
   bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
 
   const editor = useEditor({
@@ -37,6 +43,7 @@ const RicherTextEditor = ({
       }),
     ],
     content: content,
+    onBlur: () => onBlur(editorRef.current),
     onUpdate: ({ editor }) => onUpdate(editorRef.current, editor),
   });
 

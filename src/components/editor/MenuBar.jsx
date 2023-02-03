@@ -1,6 +1,6 @@
 import React from "react";
 
-import MenuBarButton from "../elements/MenuBarButton";
+import MenuBarButton from "./elements/MenuBarButton";
 
 import { IconBold, IconItalic, IconStrikethrough, IconCode, IconFileCode, IconH1, IconH2,
   IconList, IconListNumbers, IconBlockquote, IconSeparator, IconArrowBackUp, IconArrowForwardUp } from '@tabler/icons';

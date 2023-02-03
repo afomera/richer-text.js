@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 var _react = _interopRequireDefault(require("react"));
-var _MenuBarButton = _interopRequireDefault(require("../elements/MenuBarButton"));
+var _MenuBarButton = _interopRequireDefault(require("./elements/MenuBarButton"));
 var _icons = require("@tabler/icons");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 var _default = function _default(_ref) {

@@ -34,6 +34,12 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
     });
     element.dispatchEvent(event);
   };
+  var _onBlur = function onBlur(element) {
+    var event = new CustomEvent('editor:blur', {
+      bubbles: true
+    });
+    element.dispatchEvent(event);
+  };
   bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
   var editor = (0, _react2.useEditor)({
     extensions: [_RicherTextKit.RicherTextKit.configure({
@@ -41,6 +47,9 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
       callout: callouts !== "false"
     })],
     content: content,
+    onBlur: function onBlur() {
+      return _onBlur(editorRef.current);
+    },
     onUpdate: function onUpdate(_ref2) {
       var editor = _ref2.editor;
       return _onUpdate(editorRef.current, editor);
