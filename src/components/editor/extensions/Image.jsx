@@ -1,7 +1,7 @@
 import { mergeAttributes, Node } from '@tiptap/core'
 import React from 'react';
 import { NodeViewWrapper, ReactNodeViewRenderer } from "@tiptap/react";
-import { Plugin, PluginKey } from "@tiptap/pm/state";
+import { Plugin, PluginKey } from "prosemirror-state";
 import { DirectUpload } from "@rails/activestorage";
 
 const ImageNode = ({ node }) => {

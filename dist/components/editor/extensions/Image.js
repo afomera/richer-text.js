@@ -7,7 +7,7 @@ exports["default"] = void 0;
 var _core = require("@tiptap/core");
 var _react = _interopRequireDefault(require("react"));
 var _react2 = require("@tiptap/react");
-var _state = require("@tiptap/pm/state");
+var _prosemirrorState = require("prosemirror-state");
 var _activestorage = require("@rails/activestorage");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 var ImageNode = function ImageNode(_ref) {
@@ -90,8 +90,8 @@ var _default = _core.Node.create({
   },
   addProseMirrorPlugins: function addProseMirrorPlugins() {
     var editor = this.editor;
-    return [new _state.Plugin({
-      key: new _state.PluginKey('image'),
+    return [new _prosemirrorState.Plugin({
+      key: new _prosemirrorState.PluginKey('image'),
       props: {
         handlePaste: function handlePaste(_, event) {
           event.preventDefault();
