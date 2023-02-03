@@ -3,55 +3,7 @@ import { BubbleMenu } from '@tiptap/react'
 
 import { IconBold, IconItalic, IconStrikethrough, IconLink, IconAlignLeft, IconAlignCenter, IconAlignRight, IconHighlight, IconHighlightOff } from '@tabler/icons';
 import LinkBubbleMenu from "./LinkBubbleMenu";
-
-const BubbleMenuButton = ({ command, active, icon }) => {
-  const handleClick = (event) => {
-    event.preventDefault()
-    command()
-  }
-
-  return (
-    <button
-      onClick={handleClick}
-      className={active ? 'is-active' : ''}
-    >
-      {icon}
-    </button>
-  )
-}
-
-const HighlighterMenu = ({ editor }) => {
-  if (!editor) return null
-
-  return (
-    <div className="editor--bubble-menu-highlighter-menu">
-      {editor.isActive('highlight') &&
-        <BubbleMenuButton
-          command={() => editor.chain().focus().unsetHighlight().run()}
-          active={false} /* always false */
-          icon={<IconHighlightOff />}
-        />}
-
-      <BubbleMenuButton
-        command={() => editor.chain().focus().toggleHighlight({ color: 'var(--editor-highlight-color-one)' }).run()}
-        active={editor.isActive('highlight', { color: 'var(--editor-highlight-color-one)' })}
-        icon={<IconHighlight color={'var(--editor-highlight-color-one)'} />}
-      />
-
-      <BubbleMenuButton
-        command={() => editor.chain().focus().toggleHighlight({ color: 'var(--editor-highlight-color-two)' }).run()}
-        active={editor.isActive('highlight', { color: 'var(--editor-highlight-color-two)' })}
-        icon={<IconHighlight color={'var(--editor-highlight-color-two)'} />}
-      />
-
-      <BubbleMenuButton
-        command={() => editor.chain().focus().toggleHighlight({ color: 'var(--editor-highlight-color-three)' }).run()}
-        active={editor.isActive('highlight', { color: 'var(--editor-highlight-color-three)' })}
-        icon={<IconHighlight color={'var(--editor-highlight-color-three)'} />}
-      />
-    </div>
-  )
-}
+import BubbleMenuButton from "../elements/BubbleMenuButton";
 
 export default ({ editor, bubbleMenuOptions }) => {
   if (!editor) return null

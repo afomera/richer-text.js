@@ -6,7 +6,7 @@ import { EditorContent, useEditor } from "@tiptap/react";
 import { RicherTextKit } from "./editor/extensions/RicherTextKit";
 
 import MenuBar from "./editor/MenuBar";
-import BubbleMenu from "./editor/BubbleMenu";
+import BubbleMenu from "./editor/menus/BubbleMenu";
 
 const RicherTextEditor = ({
   content,

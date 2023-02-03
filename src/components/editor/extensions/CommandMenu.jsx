@@ -6,7 +6,7 @@ import tippy from "tippy.js";
 
 import { IconTextSize, IconH1, IconH2, IconList, IconListNumbers, IconBlockquote, IconSeparator, IconFileCode, IconFlag } from '@tabler/icons';
 
-import MenuList from "../MenuList";
+import MenuList from "../elements/MenuList";
 
 const commandItems = ({ calloutEnabled }) => {
   const commandItems = []

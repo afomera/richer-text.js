@@ -10,7 +10,7 @@ var _react2 = require("@tiptap/react");
 var _suggestion = _interopRequireDefault(require("@tiptap/suggestion"));
 var _tippy = _interopRequireDefault(require("tippy.js"));
 var _icons = require("@tabler/icons");
-var _MenuList = _interopRequireDefault(require("../MenuList"));
+var _MenuList = _interopRequireDefault(require("../elements/MenuList"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
