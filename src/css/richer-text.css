@@ -231,7 +231,7 @@ html.dark hr {
 .callout[data-color='red'] {
   background-color: var(--callout-red-background-color);
   border-left-width: 10px;
-  border-left-color: var(--callout-red-border-color);
+  border-color: var(--callout-red-border-color);
   color: var(--callout-red-text-color) !important;
 }
 
