@@ -14,7 +14,7 @@ layout: default
 <div id="#theme-switcher">
   <button>Switch To Dark</button>
 </div>
-<richer-text-editor bubble-menu-options='{ "highlight": false }' content="<div class='callout' data-color='gray'>
+<richer-text-editor bubble-menu-options='{ "highlight": true }' content="<div class='callout' data-color='gray'>
 
 <p style='text-align: center'><strong><span style='font-size: 20px'>Welcome to RicherText</span></strong></p>
 <p>RicherText aims to provide an alternative solution to using ActionText and Trix in Ruby on Rails. It uses a rich text editor based on TipTap (which itself is based on ProseMirror).</p>
