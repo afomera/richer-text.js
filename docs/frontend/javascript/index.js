@@ -35,3 +35,15 @@ const switchTheme = () => {
 if (document.getElementById("#theme-switcher")) {
   document.getElementById("#theme-switcher").addEventListener("click", switchTheme)
 }
+
+// document.addEventListener("editor:blur", (event) => {
+//   console.log("Editor blurred", event)
+// });
+
+// document.addEventListener("editor:focus", (event) => {
+//   console.log("Editor focused", event)
+// });
+
+// document.addEventListener("editor:update", (event) => {
+//   console.log("Editor updated", event)
+// });

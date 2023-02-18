@@ -12,6 +12,7 @@ import TextStyle from '@tiptap/extension-text-style'
 import Callout from "./Callout";
 import CodeBlock from "./CodeBlock";
 import CommandMenu from "./CommandMenu";
+import EditorEvents from "./EditorEvents";
 import FontSize from "./FontSize";
 import Image from "./Image";
 
@@ -95,6 +96,7 @@ export const RicherTextKit = Extension.create({
     }
 
     extensions.push(
+      EditorEvents,
       CodeBlock,
       TextStyle,
       TextAlign.configure({

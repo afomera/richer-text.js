@@ -23,37 +23,13 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
     showMenuBar = _ref.showMenuBar,
     bubbleMenuOptions = _ref.bubbleMenuOptions;
   var editorRef = _react["default"].useRef(null);
-  var _onUpdate = function onUpdate(element, editor) {
-    // Emit a custom event with the current editor content
-    var event = new CustomEvent('editor:update', {
-      detail: {
-        html: editor.getHTML(),
-        json: editor.getJSON()
-      },
-      bubbles: true
-    });
-    element.dispatchEvent(event);
-  };
-  var _onBlur = function onBlur(element) {
-    var event = new CustomEvent('editor:blur', {
-      bubbles: true
-    });
-    element.dispatchEvent(event);
-  };
   bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
   var editor = (0, _react2.useEditor)({
     extensions: [_RicherTextKit.RicherTextKit.configure({
       placeholder: placeholder,
       callout: callouts !== "false"
     })],
-    content: content,
-    onBlur: function onBlur() {
-      return _onBlur(editorRef.current);
-    },
-    onUpdate: function onUpdate(_ref2) {
-      var editor = _ref2.editor;
-      return _onUpdate(editorRef.current, editor);
-    }
+    content: content
   });
   return /*#__PURE__*/_react["default"].createElement("div", {
     className: "editor",

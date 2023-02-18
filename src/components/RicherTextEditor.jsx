@@ -17,22 +17,6 @@ const RicherTextEditor = ({
 }) => {
   const editorRef = React.useRef(null);
 
-  const onUpdate = (element, editor) => {
-    // Emit a custom event with the current editor content
-    const event = new CustomEvent('editor:update',{
-      detail: { html: editor.getHTML(), json: editor.getJSON() },
-      bubbles: true
-    });
-
-    element.dispatchEvent(event)
-  }
-
-  const onBlur = (element) => {
-    const event = new CustomEvent('editor:blur', { bubbles: true });
-
-    element.dispatchEvent(event)
-  }
-
   bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
 
   const editor = useEditor({
@@ -42,9 +26,7 @@ const RicherTextEditor = ({
         callout: callouts !== "false",
       }),
     ],
-    content: content,
-    onBlur: () => onBlur(editorRef.current),
-    onUpdate: ({ editor }) => onUpdate(editorRef.current, editor),
+    content: content
   });
 
   return (

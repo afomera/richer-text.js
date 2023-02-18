@@ -16,6 +16,7 @@ var _extensionTextStyle = _interopRequireDefault(require("@tiptap/extension-text
 var _Callout = _interopRequireDefault(require("./Callout"));
 var _CodeBlock = _interopRequireDefault(require("./CodeBlock"));
 var _CommandMenu = _interopRequireDefault(require("./CommandMenu"));
+var _EditorEvents = _interopRequireDefault(require("./EditorEvents"));
 var _FontSize = _interopRequireDefault(require("./FontSize"));
 var _Image = _interopRequireDefault(require("./Image"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -76,7 +77,7 @@ var RicherTextKit = _core.Extension.create({
         placeholder: this.options.placeholder
       }));
     }
-    extensions.push(_CodeBlock["default"], _extensionTextStyle["default"], _extensionTextAlign["default"].configure({
+    extensions.push(_EditorEvents["default"], _CodeBlock["default"], _extensionTextStyle["default"], _extensionTextAlign["default"].configure({
       types: ['paragraph', 'heading']
     }));
     return extensions;
