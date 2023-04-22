@@ -3,6 +3,14 @@ import { Extension } from "@tiptap/core";
 export default Extension.create({
   name: "editorEvents",
 
+  onFocus({ editor }) {
+    const element = editor.options.element;
+
+    const customEvent = new CustomEvent('editor:focus',{ bubbles: true });
+
+    element.dispatchEvent(customEvent);
+  },
+
   onUpdate({ editor }) {
     // The content has changed.
     const element = editor.options.element;
@@ -15,7 +23,7 @@ export default Extension.create({
     element.dispatchEvent(customEvent);
   },
 
-  onBlur({ editor, event }) {
+  onBlur({ editor }) {
     const element = editor.options.element;
 
     const customEvent = new CustomEvent('editor:blur',{ bubbles: true });

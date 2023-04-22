@@ -44,7 +44,7 @@ const RicherTextEditor = ({
 RicherTextEditor.defaultProps = {
   content: "",
   placeholder: "Write something...",
-  callouts: "true",
+  callouts: "false",
   showMenuBar: "true",
   bubbleMenuOptions: "{ \"highlight\": false }"
 }

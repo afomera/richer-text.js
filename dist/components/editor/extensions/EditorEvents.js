@@ -7,8 +7,16 @@ exports["default"] = void 0;
 var _core = require("@tiptap/core");
 var _default = _core.Extension.create({
   name: "editorEvents",
-  onUpdate: function onUpdate(_ref) {
+  onFocus: function onFocus(_ref) {
     var editor = _ref.editor;
+    var element = editor.options.element;
+    var customEvent = new CustomEvent('editor:focus', {
+      bubbles: true
+    });
+    element.dispatchEvent(customEvent);
+  },
+  onUpdate: function onUpdate(_ref2) {
+    var editor = _ref2.editor;
     // The content has changed.
     var element = editor.options.element;
     var customEvent = new CustomEvent('editor:update', {
@@ -20,9 +28,8 @@ var _default = _core.Extension.create({
     });
     element.dispatchEvent(customEvent);
   },
-  onBlur: function onBlur(_ref2) {
-    var editor = _ref2.editor,
-      event = _ref2.event;
+  onBlur: function onBlur(_ref3) {
+    var editor = _ref3.editor;
     var element = editor.options.element;
     var customEvent = new CustomEvent('editor:blur', {
       bubbles: true
