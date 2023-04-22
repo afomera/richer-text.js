@@ -6,7 +6,7 @@ export default Extension.create({
   onFocus({ editor }) {
     const element = editor.options.element;
 
-    const customEvent = new CustomEvent('editor:focus',{ bubbles: true });
+    const customEvent = new CustomEvent('editor:focus', { bubbles: true });
 
     element.dispatchEvent(customEvent);
   },
@@ -15,8 +15,8 @@ export default Extension.create({
     // The content has changed.
     const element = editor.options.element;
 
-    const customEvent = new CustomEvent('editor:update',{
-      detail: { html: editor.getHTML(), json: editor.getJSON() },
+    const customEvent = new CustomEvent('editor:update', {
+      detail: { html: editor.getHTML(), json: editor.getJSON(), isEmpty: editor.isEmpty },
       bubbles: true
     });
 
@@ -26,7 +26,10 @@ export default Extension.create({
   onBlur({ editor }) {
     const element = editor.options.element;
 
-    const customEvent = new CustomEvent('editor:blur',{ bubbles: true });
+    const customEvent = new CustomEvent('editor:blur', {
+      detail: { isEmpty: editor.isEmpty },
+      bubbles: true
+    });
 
     element.dispatchEvent(customEvent);
   },

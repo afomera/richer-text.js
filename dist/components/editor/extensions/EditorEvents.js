@@ -22,7 +22,8 @@ var _default = _core.Extension.create({
     var customEvent = new CustomEvent('editor:update', {
       detail: {
         html: editor.getHTML(),
-        json: editor.getJSON()
+        json: editor.getJSON(),
+        isEmpty: editor.isEmpty
       },
       bubbles: true
     });
@@ -32,6 +33,9 @@ var _default = _core.Extension.create({
     var editor = _ref3.editor;
     var element = editor.options.element;
     var customEvent = new CustomEvent('editor:blur', {
+      detail: {
+        isEmpty: editor.isEmpty
+      },
       bubbles: true
     });
     element.dispatchEvent(customEvent);
