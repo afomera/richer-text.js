@@ -3,6 +3,7 @@ import { Extension } from "@tiptap/core";
 import Dropcursor from "@tiptap/extension-dropcursor";
 import Focus from "@tiptap/extension-focus";
 import Highlight from "@tiptap/extension-highlight";
+import HorizontalRule from "./HorizontalRule";
 import Link from "@tiptap/extension-link";
 import Placeholder from '@tiptap/extension-placeholder'
 import StarterKit from '@tiptap/starter-kit'
@@ -33,11 +34,16 @@ export const RicherTextKit = Extension.create({
         StarterKit.configure({
           codeBlock: false,
           dropcursor: false,
+          horizontalRule: false,
           heading: {
             levels: [1, 2]
           }
         })
       );
+    }
+
+    if (this.options.horizontalRule !== false) {
+      extensions.push(HorizontalRule);
     }
 
     if (this.options.callout !== false) {
@@ -58,6 +64,7 @@ export const RicherTextKit = Extension.create({
 
     if (this.options.focus !== false) {
       extensions.push(Focus.configure({
+        className: 'has-focus',
         mode: "shallowest"
       }));
     }

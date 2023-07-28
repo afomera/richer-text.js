@@ -247,10 +247,28 @@ html.dark hr {
   color: var(--editor-text-color);
 }
 
-/* .editor .has-focus {
-  border-radius: 3px;
-  box-shadow: 0 0 0 3px #68cef8;
-} */
+.ProseMirror .has-focus {
+  /* border-radius: 3px; */
+  /* box-shadow: 0 0 0 3px #fd8fd4; */
+}
+
+pre.has-focus {
+  outline: 2px solid var(--editor-content-focus-color);
+}
+
+div.editor--hr.has-focus {
+  outline: 2px solid var(--editor-content-focus-color);
+}
+
+div.editor--hr {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+div.editor--hr hr {
+  margin-bottom: 0px !important;
+  margin-top: 0px !important;
+}
 
 .editor [contenteditable="true"] {
   padding: 0.5rem;

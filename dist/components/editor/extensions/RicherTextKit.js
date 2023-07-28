@@ -8,6 +8,7 @@ var _core = require("@tiptap/core");
 var _extensionDropcursor = _interopRequireDefault(require("@tiptap/extension-dropcursor"));
 var _extensionFocus = _interopRequireDefault(require("@tiptap/extension-focus"));
 var _extensionHighlight = _interopRequireDefault(require("@tiptap/extension-highlight"));
+var _HorizontalRule = _interopRequireDefault(require("./HorizontalRule"));
 var _extensionLink = _interopRequireDefault(require("@tiptap/extension-link"));
 var _extensionPlaceholder = _interopRequireDefault(require("@tiptap/extension-placeholder"));
 var _starterKit = _interopRequireDefault(require("@tiptap/starter-kit"));
@@ -33,10 +34,14 @@ var RicherTextKit = _core.Extension.create({
       extensions.push(_starterKit["default"].configure({
         codeBlock: false,
         dropcursor: false,
+        horizontalRule: false,
         heading: {
           levels: [1, 2]
         }
       }));
+    }
+    if (this.options.horizontalRule !== false) {
+      extensions.push(_HorizontalRule["default"]);
     }
     if (this.options.callout !== false) {
       extensions.push(_Callout["default"]);
@@ -52,6 +57,7 @@ var RicherTextKit = _core.Extension.create({
     }
     if (this.options.focus !== false) {
       extensions.push(_extensionFocus["default"].configure({
+        className: 'has-focus',
         mode: "shallowest"
       }));
     }

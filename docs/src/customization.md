@@ -11,7 +11,7 @@ Optionally, you can customize a few of the attributes by passing them as attribu
 | :------------------ | ------------------ | :--------------------------: | --------------------------: |
 | content             |                    |              ""              |                      String |
 | placeholder         | &nbsp;&nbsp;&nbsp; |     "Write something..."     |                      String |
-| callouts            |                    |            "true"            |             "true", "false" |
+| callouts            |                    |           "false"            |             "true", "false" |
 | show-menu-bar       |                    |            "true"            |             "true", "false" |
 | bubble-menu-options |                    | `"{ \"highlight\": false }"` | `"{ \"highlight\": true }"` |
 
