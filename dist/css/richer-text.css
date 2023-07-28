@@ -55,7 +55,7 @@ button {
   --editor-button-active-color: #101828;
   --editor-button-disabled-color: #D0D5DD;
   --editor-button-active-background-color: #f1f3f8;
-  --editor-button-size: 24px;
+  --editor-button-size: 20px;
 
   /* MenuBar */
   --editor-menu-bar-background-color: #ffffff;
