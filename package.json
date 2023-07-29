@@ -1,6 +1,6 @@
 {
   "name": "@afomera/richer-text",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A Richer Text Editor experience based on Tiptap",
   "main": "index.js",
   "files": [
