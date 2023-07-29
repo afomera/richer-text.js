@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@afomera/richer-text@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@afomera/richer-text/-/richer-text-0.5.0.tgz#cf7a435fbbf09dc5a765ebbb0c48cde55d95e355"
-  integrity sha512-d9qNnmAYwkBzAmi1+v06z5+y2PUVoAVDNvWZpxGjuYI5uhQzr+ANTbOoqHV/6cBeV3xZ8wYa40FkSc7b5jt4LA==
+"@afomera/richer-text@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@afomera/richer-text/-/richer-text-0.6.0.tgz#ce566444fa5d8d4ea2b42935050fe38874c5d115"
+  integrity sha512-ofroPt+u/XSU0UJ8X9jDpSYp65tEayYVbMXLVUHSdfT5F2xbNq0DTo/312bkT5V17lPTbDvonEETxdkrgY2lgA==
   dependencies:
     "@rails/activestorage" "^7.0.4"
     "@tabler/icons" "^1.118.0"
@@ -13,7 +13,7 @@
     "@tiptap/extension-bubble-menu" "2.0.3"
     "@tiptap/extension-code-block-lowlight" "2.0.3"
     "@tiptap/extension-dropcursor" "2.0.3"
-    "@tiptap/extension-focus" "2.0.3"
+    "@tiptap/extension-focus" "^2.0.3"
     "@tiptap/extension-highlight" "2.0.3"
     "@tiptap/extension-link" "2.0.3"
     "@tiptap/extension-placeholder" "2.0.3"
@@ -261,10 +261,10 @@
   dependencies:
     tippy.js "^6.3.7"
 
-"@tiptap/extension-focus@2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-focus/-/extension-focus-2.0.3.tgz#d89c4007b4214167603028b11e8b5d7a85a787ff"
-  integrity sha512-WTJEmbGyHK8F/v1k5/5viLAa7PqtNoWOO4Qt4PBoUPlFDW97QMEh5m8Cvqw/RtbxTiGDHz6T+I5IJsKXGJed/A==
+"@tiptap/extension-focus@^2.0.3":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-focus/-/extension-focus-2.0.4.tgz#6003d935f0c4bac227cdad3f3ac420c4ae7fca02"
+  integrity sha512-0NAMBiUvRdcS0XxDDxIxc0gqK44VWd6R58jGTr7CQjocsdrKzxlm2O62/iiagew2goxRkEB6GSH2GX07BNMsbQ==
 
 "@tiptap/extension-gapcursor@^2.0.3":
   version "2.0.3"
