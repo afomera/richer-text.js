@@ -3,7 +3,60 @@ layout: page
 title: Getting started
 ---
 
-## Installation
+<div class="callout" data-color="green">
+  <p><strong>Important:</strong> RicherText has a hard dependency on React/react-dom and you must install or have React >= 17 in your project. If you follow the Rails installation the packages will be added if they're not already. You <strong>do not</strong> have to use React outside of the RicherText editor if you do not want to.</p>
+</div>
+
+## Installation (Ruby on Rails)
+
+Getting started with Ruby on Rails is a matter of following the following instructions:
+
+First up is to add the `richer_text` gem to your Gemfile.
+
+```shell
+  bundle add richer_text
+```
+
+Next you'll need to run the generator task to add the yarn packages, copy over the migrations and assets.
+
+```shell
+  rails richer_text:install
+```
+
+Then run your migrations to create the tables in the database.
+
+```shell
+  rails db:migrate
+```
+
+### Implementing RicherText into your forms
+
+First up in your model add the `has_richer_text :attribute_name` to your models.
+
+```ruby
+class Post < ApplicationRecord
+  has_richer_text :body
+end
+```
+
+Next permit the `body` param in your controller
+
+```ruby
+  params.require(:post).permit(:title, :body)
+```
+
+Then add the RicherText editor into your forms.
+
+<pre>
+  &lt;%= form.label :body %&gt;
+  &lt;%= form.richer_text_area :body %&gt;
+</pre>
+
+The installation process installs a StimulusJS controller that is responsible for updating a hidden input the form helper generates upon the `editor:update` event from the RicherText editor. 🎉
+
+That's all! Enjoy using RicherText 🥳
+
+## Manual Installation
 
 <div class="callout" data-color="yellow">
   <p><strong>Important:</strong></p>
