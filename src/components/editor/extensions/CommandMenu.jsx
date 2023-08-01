@@ -4,11 +4,11 @@ import { ReactRenderer } from "@tiptap/react";
 import Suggestion from "@tiptap/suggestion";
 import tippy from "tippy.js";
 
-import { IconTextSize, IconH1, IconH2, IconList, IconListNumbers, IconBlockquote, IconSeparator, IconFileCode, IconFlag } from '@tabler/icons';
+import { IconTextSize, IconH1, IconH2, IconList, IconListNumbers, IconBlockquote, IconSeparator, IconFileCode, IconFlag, IconTable } from '@tabler/icons';
 
 import MenuList from "../elements/MenuList";
 
-const commandItems = ({ calloutEnabled }) => {
+const commandItems = ({ calloutEnabled, tablesEnabled }) => {
   const commandItems = []
 
   commandItems.push(
@@ -77,6 +77,18 @@ const commandItems = ({ calloutEnabled }) => {
     }
   )
 
+  if (tablesEnabled !== false) {
+    commandItems.push(
+      {
+        label: "Table",
+        icon: <IconTable />,
+        command: ({ editor, range }) => {
+          editor.chain().focus().deleteRange(range).insertTable({ rows: 3, cols: 3 }).run();
+        }
+      }
+    )
+  }
+
   if (calloutEnabled !== false) {
     commandItems.push(
       {
@@ -120,7 +132,7 @@ const commandItems = ({ calloutEnabled }) => {
   return commandItems
 }
 
-const CommandMenu = (calloutEnabled) => Extension.create({
+const CommandMenu = (calloutEnabled, tablesEnabled) => Extension.create({
   name: "command-menu",
 
   addOptions: {
@@ -128,7 +140,7 @@ const CommandMenu = (calloutEnabled) => Extension.create({
       char: "/",
       startOfLine: false,
       items: ({ query }) => {
-        return commandItems({ calloutEnabled }).filter((item) =>
+        return commandItems({ calloutEnabled, tablesEnabled }).filter((item) =>
           item.label.toLowerCase().startsWith(query.toLowerCase())
         );
       },

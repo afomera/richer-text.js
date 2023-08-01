@@ -7,6 +7,10 @@ import HorizontalRule from "./HorizontalRule";
 import Link from "@tiptap/extension-link";
 import Placeholder from '@tiptap/extension-placeholder'
 import StarterKit from '@tiptap/starter-kit'
+import Table from '@tiptap/extension-table'
+import TableCell from '@tiptap/extension-table-cell'
+import TableHeader from '@tiptap/extension-table-header'
+import TableRow from '@tiptap/extension-table-row'
 import TextAlign from "@tiptap/extension-text-align";
 import TextStyle from '@tiptap/extension-text-style'
 
@@ -52,8 +56,9 @@ export const RicherTextKit = Extension.create({
 
     if (this.options.commandMenu !== false) {
       const calloutEnabled = this.options.callout !== false;
+      const tablesEnabled = this.options.tables !== false;
 
-      extensions.push(CommandMenu(calloutEnabled));
+      extensions.push(CommandMenu(calloutEnabled, tablesEnabled));
     }
 
     if (this.options.dropcursor !== false) {
@@ -100,6 +105,17 @@ export const RicherTextKit = Extension.create({
           placeholder: this.options.placeholder,
         })
       );
+    }
+
+    if (this.options.tables !== false) {
+      extensions.push(
+        Table.configure({
+          resizable: true,
+        }),
+        TableRow,
+        TableHeader,
+        TableCell,
+      )
     }
 
     extensions.push(

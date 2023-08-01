@@ -12,6 +12,10 @@ var _HorizontalRule = _interopRequireDefault(require("./HorizontalRule"));
 var _extensionLink = _interopRequireDefault(require("@tiptap/extension-link"));
 var _extensionPlaceholder = _interopRequireDefault(require("@tiptap/extension-placeholder"));
 var _starterKit = _interopRequireDefault(require("@tiptap/starter-kit"));
+var _extensionTable = _interopRequireDefault(require("@tiptap/extension-table"));
+var _extensionTableCell = _interopRequireDefault(require("@tiptap/extension-table-cell"));
+var _extensionTableHeader = _interopRequireDefault(require("@tiptap/extension-table-header"));
+var _extensionTableRow = _interopRequireDefault(require("@tiptap/extension-table-row"));
 var _extensionTextAlign = _interopRequireDefault(require("@tiptap/extension-text-align"));
 var _extensionTextStyle = _interopRequireDefault(require("@tiptap/extension-text-style"));
 var _Callout = _interopRequireDefault(require("./Callout"));
@@ -48,7 +52,8 @@ var RicherTextKit = _core.Extension.create({
     }
     if (this.options.commandMenu !== false) {
       var calloutEnabled = this.options.callout !== false;
-      extensions.push((0, _CommandMenu["default"])(calloutEnabled));
+      var tablesEnabled = this.options.tables !== false;
+      extensions.push((0, _CommandMenu["default"])(calloutEnabled, tablesEnabled));
     }
     if (this.options.dropcursor !== false) {
       extensions.push(_extensionDropcursor["default"].configure({
@@ -82,6 +87,11 @@ var RicherTextKit = _core.Extension.create({
       extensions.push(_extensionPlaceholder["default"].configure({
         placeholder: this.options.placeholder
       }));
+    }
+    if (this.options.tables !== false) {
+      extensions.push(_extensionTable["default"].configure({
+        resizable: true
+      }), _extensionTableRow["default"], _extensionTableHeader["default"], _extensionTableCell["default"]);
     }
     extensions.push(_EditorEvents["default"], _CodeBlock["default"], _extensionTextStyle["default"], _extensionTextAlign["default"].configure({
       types: ['paragraph', 'heading']

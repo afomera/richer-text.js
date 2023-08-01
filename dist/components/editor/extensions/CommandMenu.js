@@ -19,7 +19,8 @@ function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key i
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var commandItems = function commandItems(_ref) {
-  var calloutEnabled = _ref.calloutEnabled;
+  var calloutEnabled = _ref.calloutEnabled,
+    tablesEnabled = _ref.tablesEnabled;
   var commandItems = [];
   commandItems.push({
     label: "Heading 1",
@@ -98,15 +99,29 @@ var commandItems = function commandItems(_ref) {
       editor.chain().focus().deleteRange(range).toggleCodeBlock().run();
     }
   });
+  if (tablesEnabled !== false) {
+    commandItems.push({
+      label: "Table",
+      icon: /*#__PURE__*/_react["default"].createElement(_icons.IconTable, null),
+      command: function command(_ref11) {
+        var editor = _ref11.editor,
+          range = _ref11.range;
+        editor.chain().focus().deleteRange(range).insertTable({
+          rows: 3,
+          cols: 3
+        }).run();
+      }
+    });
+  }
   if (calloutEnabled !== false) {
     commandItems.push({
       label: "Callout - Gray",
       icon: /*#__PURE__*/_react["default"].createElement(_icons.IconFlag, {
         color: "gray"
       }),
-      command: function command(_ref11) {
-        var editor = _ref11.editor,
-          range = _ref11.range;
+      command: function command(_ref12) {
+        var editor = _ref12.editor,
+          range = _ref12.range;
         editor.chain().focus().deleteRange(range).setCallout().run();
       }
     }, {
@@ -114,9 +129,9 @@ var commandItems = function commandItems(_ref) {
       icon: /*#__PURE__*/_react["default"].createElement(_icons.IconFlag, {
         color: "blue"
       }),
-      command: function command(_ref12) {
-        var editor = _ref12.editor,
-          range = _ref12.range;
+      command: function command(_ref13) {
+        var editor = _ref13.editor,
+          range = _ref13.range;
         editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", {
           'data-color': "blue"
         }).run();
@@ -126,9 +141,9 @@ var commandItems = function commandItems(_ref) {
       icon: /*#__PURE__*/_react["default"].createElement(_icons.IconFlag, {
         color: "green"
       }),
-      command: function command(_ref13) {
-        var editor = _ref13.editor,
-          range = _ref13.range;
+      command: function command(_ref14) {
+        var editor = _ref14.editor,
+          range = _ref14.range;
         editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", {
           'data-color': "green"
         }).run();
@@ -138,9 +153,9 @@ var commandItems = function commandItems(_ref) {
       icon: /*#__PURE__*/_react["default"].createElement(_icons.IconFlag, {
         color: "gold"
       }),
-      command: function command(_ref14) {
-        var editor = _ref14.editor,
-          range = _ref14.range;
+      command: function command(_ref15) {
+        var editor = _ref15.editor,
+          range = _ref15.range;
         editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", {
           'data-color': "yellow"
         }).run();
@@ -150,9 +165,9 @@ var commandItems = function commandItems(_ref) {
       icon: /*#__PURE__*/_react["default"].createElement(_icons.IconFlag, {
         color: "red"
       }),
-      command: function command(_ref15) {
-        var editor = _ref15.editor,
-          range = _ref15.range;
+      command: function command(_ref16) {
+        var editor = _ref16.editor,
+          range = _ref16.range;
         editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", {
           'data-color': "red"
         }).run();
@@ -161,17 +176,18 @@ var commandItems = function commandItems(_ref) {
   }
   return commandItems;
 };
-var CommandMenu = function CommandMenu(calloutEnabled) {
+var CommandMenu = function CommandMenu(calloutEnabled, tablesEnabled) {
   return _core.Extension.create({
     name: "command-menu",
     addOptions: {
       suggestion: {
         "char": "/",
         startOfLine: false,
-        items: function items(_ref16) {
-          var query = _ref16.query;
+        items: function items(_ref17) {
+          var query = _ref17.query;
           return commandItems({
-            calloutEnabled: calloutEnabled
+            calloutEnabled: calloutEnabled,
+            tablesEnabled: tablesEnabled
           }).filter(function (item) {
             return item.label.toLowerCase().startsWith(query.toLowerCase());
           });
@@ -223,10 +239,10 @@ var CommandMenu = function CommandMenu(calloutEnabled) {
             }
           };
         },
-        command: function command(_ref17) {
-          var editor = _ref17.editor,
-            range = _ref17.range,
-            props = _ref17.props;
+        command: function command(_ref18) {
+          var editor = _ref18.editor,
+            range = _ref18.range,
+            props = _ref18.props;
           props.command({
             editor: editor,
             range: range,

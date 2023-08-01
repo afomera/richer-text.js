@@ -27,13 +27,6 @@
     prop-types "^15.8.1"
     react-to-webcomponent "^2.0.0-alpha.0"
 
-"@babel/runtime@^7.13.10":
-  version "7.21.0"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.0.tgz#5b55c9d394e5fcf304909a8b00c07dc217b56673"
-  integrity sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==
-  dependencies:
-    regenerator-runtime "^0.13.11"
-
 "@csstools/postcss-cascade-layers@^1.1.1":
   version "1.1.1"
   resolved "https://registry.npmjs.org/@csstools/postcss-cascade-layers/-/postcss-cascade-layers-1.1.1.tgz"
@@ -145,89 +138,97 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.14.54.tgz#de2a4be678bd4d0d1ffbb86e6de779cde5999028"
   integrity sha512-bZBrLAIX1kpWelV0XemxBZllyRmM6vgFQQG2GdNb+r3Fkp0FOh1NJSvekXDs7jq70k4euu1cryLMfU+mTXlEpw==
 
-"@linaria/core@3.0.0-beta.13":
-  version "3.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/@linaria/core/-/core-3.0.0-beta.13.tgz#049c5be5faa67e341e413a0f6b641d5d78d91056"
-  integrity sha512-3zEi5plBCOsEzUneRVuQb+2SAx3qaC1dj0FfFAI6zIJQoDWu0dlSwKijMRack7oO9tUWrchfj3OkKQAd1LBdVg==
-
 "@popperjs/core@^2.9.0":
-  version "2.11.7"
-  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.7.tgz#ccab5c8f7dc557a52ca3288c10075c9ccd37fff7"
-  integrity sha512-Cr4OjIkipTtcXKjAsm8agyleBuDHvxzeBoa1v543lbv1YaIwQjESsVcmjiWiPEbC1FIeHOG/Op9kdCmAmiS3Kw==
+  version "2.11.8"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
+  integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
+
+"@r2wc/core@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@r2wc/core/-/core-1.0.0.tgz#5724bf472769ffe4157528bd10f62b9aada36098"
+  integrity sha512-P/P1YXpCXESnJKxFGXDZFrldov3T5wqeJSgQNWMgTkuV4CA9C+gVwv2guadkB7h5PuFyJxaLLbK6vl2VAUltpA==
 
 "@rails/activestorage@^7.0.4":
-  version "7.0.4"
-  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.0.4.tgz#56bc3052f60e8867b40a87ed5ff3c0afe536643e"
-  integrity sha512-K2fV9C0z88fapu58nt9uHzMylsmJWUFuaIFvuZQEf1WTiPMsgTsj1bf8+cD81zXfTXYMZDQNRq4164JmuBKD3A==
+  version "7.0.6"
+  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.0.6.tgz#8b762e7142eb8332541dffa0f841d7a5026f64fd"
+  integrity sha512-sLr5Uj8cnWkX9lLV7wk8mIVFt6XFOJR7mAXm0QmDnrR/YGMF4Ho5tcVRUHzlyAisRQcHp6D0zHSVgOUukF8OHg==
   dependencies:
     spark-md5 "^3.0.1"
 
-"@remirror/core-constants@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@remirror/core-constants/-/core-constants-2.0.0.tgz#a52f89059d93955e00810023cc76b4f7db9650bf"
-  integrity sha512-vpePPMecHJllBqCWXl6+FIcZqS+tRUM2kSCCKFeEo1H3XUEv3ocijBIPhnlSAa7g6maX+12ATTgxrOsLpWVr2g==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
+"@remirror/core-constants@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@remirror/core-constants/-/core-constants-2.0.2.tgz#f05eccdc69e3a65e7d524b52548f567904a11a1a"
+  integrity sha512-dyHY+sMF0ihPus3O27ODd4+agdHMEmuRdyiZJ2CCWjPV5UFmn17ZbElvk6WOGVE4rdCJKZQCrPV2BcikOMLUGQ==
 
-"@remirror/core-helpers@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@remirror/core-helpers/-/core-helpers-2.0.1.tgz#6847666a009ada8c9b9f3a093c13a6d07a95d9bb"
-  integrity sha512-s8M1pn33aBUhduvD1QR02uUQMegnFkGaTr4c1iBzxTTyg0rbQstzuQ7Q8TkL6n64JtgCdJS9jLz2dONb2meBKQ==
+"@remirror/core-helpers@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@remirror/core-helpers/-/core-helpers-3.0.0.tgz#3a35c2346bc23ebc3cee585b7840b5567755c5f1"
+  integrity sha512-tusEgQJIqg4qKj6HSBUFcyRnWnziw3neh4T9wOmsPGHFC3w9kl5KSrDb9UAgE8uX6y32FnS7vJ955mWOl3n50A==
   dependencies:
-    "@babel/runtime" "^7.13.10"
-    "@linaria/core" "3.0.0-beta.13"
-    "@remirror/core-constants" "^2.0.0"
-    "@remirror/types" "^1.0.0"
+    "@remirror/core-constants" "^2.0.2"
+    "@remirror/types" "^1.0.1"
     "@types/object.omit" "^3.0.0"
-    "@types/object.pick" "^1.3.1"
+    "@types/object.pick" "^1.3.2"
     "@types/throttle-debounce" "^2.1.0"
-    case-anything "^2.1.10"
+    case-anything "^2.1.13"
     dash-get "^1.0.2"
-    deepmerge "^4.2.2"
+    deepmerge "^4.3.1"
     fast-deep-equal "^3.1.3"
     make-error "^1.3.6"
     object.omit "^3.0.0"
     object.pick "^1.3.0"
     throttle-debounce "^3.0.1"
 
-"@remirror/types@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@remirror/types/-/types-1.0.0.tgz#cc8764440089a2ada71f149c409739575b73b12e"
-  integrity sha512-7HQbW7k8VxrAtfzs9FxwO6XSDabn8tSFDi1wwzShOnU+cvaYpfxu0ygyTk3TpXsag1hgFKY3ZIlAfB4WVz2LkQ==
+"@remirror/types@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@remirror/types/-/types-1.0.1.tgz#768502497a0fbbc23338a1586b893f729310cf70"
+  integrity sha512-VlZQxwGnt1jtQ18D6JqdIF+uFZo525WEqrfp9BOc3COPpK4+AWCgdnAWL+ho6imWcoINlGjR/+3b6y5C1vBVEA==
   dependencies:
-    type-fest "^2.0.0"
+    type-fest "^2.19.0"
 
 "@tabler/icons@^1.118.0":
   version "1.119.0"
   resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.119.0.tgz#8c590bc5a563c8673a78ccd451bedabd584b376e"
   integrity sha512-Fk3Qq4w2SXcTjc/n1cuL5bccPkylrOMo7cYpQIf/yw6zP76LQV9dtLcHQUjFiUnaYuswR645CnURIhlafyAh9g==
 
-"@tiptap/core@2.0.3", "@tiptap/core@^2.0.3":
+"@tiptap/core@2.0.3":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@tiptap/core/-/core-2.0.3.tgz#dfd55124b3e7b0482e5ccb8be46eb9c3189167e2"
   integrity sha512-jLyVIWAdjjlNzrsRhSE2lVL/7N8228/1R1QtaVU85UlMIwHFAcdzhD8FeiKkqxpTnGpaDVaTy7VNEtEgaYdCyA==
 
+"@tiptap/core@^2.0.3":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/core/-/core-2.0.4.tgz#0a2047150ae537e75f96841a603699526f7b4ec5"
+  integrity sha512-2YOMjRqoBGEP4YGgYpuPuBBJHMeqKOhLnS0WVwjVP84zOmMgZ7A8M6ILC9Xr7Q/qHZCvyBGWOSsI7+3HsEzzYQ==
+
 "@tiptap/extension-blockquote@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-blockquote/-/extension-blockquote-2.0.3.tgz#3ee7aff66a2526501154ca69f3e91e153c58313c"
-  integrity sha512-rkUcFv2iL6f86DBBHoa4XdKNG2StvkJ7tfY9GoMpT46k3nxOaMTqak9/qZOo79TWxMLYtXzoxtKIkmWsbbcj4A==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-blockquote/-/extension-blockquote-2.0.4.tgz#1e87f8f157573deec65b54d8a8b5568d79066a86"
+  integrity sha512-z5qfuLi04OgCBI6/odzB2vhulT/wpjymYOnON65vLXGZZbUw4cbPloykhqgWvQp+LzKH+HBhl4fz53d5CgnbOA==
 
 "@tiptap/extension-bold@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-bold/-/extension-bold-2.0.3.tgz#2a28816195562a39c33f50e626796d14a800784f"
-  integrity sha512-OGT62fMRovSSayjehumygFWTg2Qn0IDbqyMpigg/RUAsnoOI2yBZFVrdM2gk1StyoSay7gTn2MLw97IUfr7FXg==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-bold/-/extension-bold-2.0.4.tgz#debba8b0d957fe0b6943354834d8f1f0f8c0695c"
+  integrity sha512-CWSQy1uWkVsen8HUsqhm+oEIxJrCiCENABUbhaVcJL/MqhnP4Trrh1B6O00Yfoc0XToPRRibDaHMFs4A3MSO0g==
 
-"@tiptap/extension-bubble-menu@2.0.3", "@tiptap/extension-bubble-menu@^2.0.3":
+"@tiptap/extension-bubble-menu@2.0.3":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-bubble-menu/-/extension-bubble-menu-2.0.3.tgz#44b3c4e35fd478c42467d8fb7dbc9532614e5b18"
   integrity sha512-lPt1ELrYCuoQrQEUukqjp9xt38EwgPUwaKHI3wwt2Rbv+C6q1gmRsK1yeO/KqCNmFxNqF2p9ZF9srOnug/RZDQ==
   dependencies:
     tippy.js "^6.3.7"
 
+"@tiptap/extension-bubble-menu@^2.0.3":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-bubble-menu/-/extension-bubble-menu-2.0.4.tgz#f9dde09d3984e9879b1fe13d3e8c1859f0779ef5"
+  integrity sha512-+cRZwj0YINNNDElSAiX1pvY2K98S2j9MQW2dXV5oLqsJhqGPZsKxVo8I1u7ZtqUla3QE1V18RYPAzVgTiMRkBg==
+  dependencies:
+    tippy.js "^6.3.7"
+
 "@tiptap/extension-bullet-list@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-bullet-list/-/extension-bullet-list-2.0.3.tgz#43c4c0c161d5c065f3f87e4bf54d13bd6c55b4c3"
-  integrity sha512-RtaLiRvZbMTOje+FW5bn+mYogiIgNxOm065wmyLPypnTbLSeHeYkoqVSqzZeqUn+7GLnwgn1shirUe6csVE/BA==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-bullet-list/-/extension-bullet-list-2.0.4.tgz#d192767d39e45253c5e9d974e949f271e09c72d7"
+  integrity sha512-JSZKBVTaKSuLl5fR4EKE4dOINOrgeRHYA25Vj6cWjgdvpTw5ef7vcUdn9yP4JwTmLRI+VnnMlYL3rqigU3iZNg==
 
 "@tiptap/extension-code-block-lowlight@2.0.3":
   version "2.0.3"
@@ -235,29 +236,34 @@
   integrity sha512-thFXcFdFyHF0/dr9sqBedjj0Vt14k3m52YVc4l65+d65wRuHp4f8suu8T2ZGRJwqLCE3NIrvwQTSHhzjIqJVxQ==
 
 "@tiptap/extension-code-block@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-code-block/-/extension-code-block-2.0.3.tgz#4ce08b4f3c5af166d3cc00e91ba5b989f01fee63"
-  integrity sha512-F4xMy18EwgpyY9f5Te7UuF7UwxRLptOtCq1p2c2DfxBvHDWhAjQqVqcW/sq/I/WuED7FwCnPLyyAasPiVPkLPw==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-code-block/-/extension-code-block-2.0.4.tgz#d551ee7c13fef379bbbad298f1be757d1125cd54"
+  integrity sha512-In2tV3rgm/MznVF0N7qYsYugPWSzhZHaCRCWcFKNvllMExpo91bUWvk+hXaIhhPxvuqGIVezjybwrYuU3bJW0g==
 
 "@tiptap/extension-code@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-code/-/extension-code-2.0.3.tgz#74d88073faedd1fc52d6ed3de4eed8fde80ff4bf"
-  integrity sha512-LsVCKVxgBtkstAr1FjxN8T3OjlC76a2X8ouoZpELMp+aXbjqyanCKzt+sjjUhE4H0yLFd4v+5v6UFoCv4EILiw==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-code/-/extension-code-2.0.4.tgz#6952d402e7372dd2d129e962bf9bd54d68ee6183"
+  integrity sha512-HuwJSJkipZf4hkns9witv1CABNIPiB9C8lgAQXK4xJKcoUQChcnljEL+PQ2NqeEeMTEeV3nG3A/0QafH0pgTgg==
 
 "@tiptap/extension-document@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-document/-/extension-document-2.0.3.tgz#b58af5b4f71c0acea953a7ebe8b1d24341bfaf68"
-  integrity sha512-PsYeNQQBYIU9ayz1R11Kv/kKNPFNIV8tApJ9pxelXjzcAhkjncNUazPN/dyho60mzo+WpsmS3ceTj/gK3bCtWA==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-document/-/extension-document-2.0.4.tgz#f94e6da23a7d93a8ea34c6767d4e2e31f5ab8849"
+  integrity sha512-mCj2fAhnNhIHttPSqfTPSSTGwClGaPYvhT56Ij/Pi4iCrWjPXzC4XnIkIHSS34qS2tJN4XJzr/z7lm3NeLkF1w==
 
-"@tiptap/extension-dropcursor@2.0.3", "@tiptap/extension-dropcursor@^2.0.3":
+"@tiptap/extension-dropcursor@2.0.3":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-dropcursor/-/extension-dropcursor-2.0.3.tgz#205d02c70b200810572d0b7e264bbdb718343ad0"
   integrity sha512-McthMrfusn6PjcaynJLheZJcXto8TaIW5iVitYh8qQrDXr31MALC/5GvWuiswmQ8bAXiWPwlLDYE/OJfwtggaw==
 
+"@tiptap/extension-dropcursor@^2.0.3":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-dropcursor/-/extension-dropcursor-2.0.4.tgz#f4a7542866c9100fee8e78eca5eebefff58989ca"
+  integrity sha512-1OmKBv/E+nJo2vsosvu8KwFiBB+gZM1pY61qc7JbwEKHSYAxUFHfvLkIA0IQ53Z0DHMrFSKgWmHEcbnqtGevCA==
+
 "@tiptap/extension-floating-menu@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-floating-menu/-/extension-floating-menu-2.0.3.tgz#8d9943246aa3247442c1993f235617094fe705b5"
-  integrity sha512-zN1vRGRvyK3pO2aHRmQSOTpl4UJraXYwKYM009n6WviYKUNm0LPGo+VD4OAtdzUhPXyccnlsTv2p6LIqFty6Bg==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-floating-menu/-/extension-floating-menu-2.0.4.tgz#82f12c2415b7ddbfd782a03b100f717e9905bab0"
+  integrity sha512-0YRE738k+kNKuSHhAb3jj9ZQ7Kda78RYRr+cX2jrQVueIMKebPIY07eBt6JcKmob9V9vcNn9qLtBfmygfcPUQg==
   dependencies:
     tippy.js "^6.3.7"
 
@@ -267,19 +273,19 @@
   integrity sha512-0NAMBiUvRdcS0XxDDxIxc0gqK44VWd6R58jGTr7CQjocsdrKzxlm2O62/iiagew2goxRkEB6GSH2GX07BNMsbQ==
 
 "@tiptap/extension-gapcursor@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-gapcursor/-/extension-gapcursor-2.0.3.tgz#e098b78c4a169e1630dc6531d68b7f365de59c2f"
-  integrity sha512-6I9EzzsYOyyqDvDvxIK6Rv3EXB+fHKFj8ntHO8IXmeNJ6pkhOinuXVsW6Yo7TcDYoTj4D5I2MNFAW2rIkgassw==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-gapcursor/-/extension-gapcursor-2.0.4.tgz#c100a792fd41535ad6382aa8133d0d9c0b2cb2b8"
+  integrity sha512-VxmKfBQjSSu1mNvHlydA4dJW/zawGKyqmnryiFNcUV9s+/HWLR5i9SiUl4wJM/B8sG8cQxClne5/LrCAeGNYuA==
 
 "@tiptap/extension-hard-break@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-hard-break/-/extension-hard-break-2.0.3.tgz#aa7805d825e5244bdccc508da18c781e231b2859"
-  integrity sha512-RCln6ARn16jvKTjhkcAD5KzYXYS0xRMc0/LrHeV8TKdCd4Yd0YYHe0PU4F9gAgAfPQn7Dgt4uTVJLN11ICl8sQ==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-hard-break/-/extension-hard-break-2.0.4.tgz#a4f70fa9a473270f7ec89f20a14b9122af5657bc"
+  integrity sha512-4j8BZa6diuoRytWoIc7j25EYWWut5TZDLbb+OVURdkHnsF8B8zeNTo55W40CdwSaSyTtXtxbTIldV80ShQarGQ==
 
 "@tiptap/extension-heading@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-heading/-/extension-heading-2.0.3.tgz#5e9e779f33f366afcf729d9f68ef49721f825e11"
-  integrity sha512-f0IEv5ms6aCzL80WeZ1qLCXTkRVwbpRr1qAETjg3gG4eoJN18+lZNOJYpyZy3P92C5KwF2T3Av00eFyVLIbb8Q==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-heading/-/extension-heading-2.0.4.tgz#5372e346c5d69cfa0060d7238d1a0bf440442f6f"
+  integrity sha512-EfitUbew5ljH3xVlBXAxqqcJ4rjv15b8379LYOV6KQCf+Y1wY0gy9Q8wXSnrsAagqrvqipja4Ihn3OZeyIM+CA==
 
 "@tiptap/extension-highlight@2.0.3":
   version "2.0.3"
@@ -287,19 +293,19 @@
   integrity sha512-NrtibY8cZkIjZMQuHRrKd4php+plOvAoSo8g3uVFu275I/Ixt5HqJ53R4voCXs8W8BOBRs2HS2QX8Cjh79XhtA==
 
 "@tiptap/extension-history@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-history/-/extension-history-2.0.3.tgz#8936c15aa46f2ddeada1c3d9abe2888d58d08c30"
-  integrity sha512-00KHIcJ8kivn2ARI6NQYphv2LfllVCXViHGm0EhzDW6NQxCrriJKE3tKDcTFCu7LlC5doMpq9Z6KXdljc4oVeQ==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-history/-/extension-history-2.0.4.tgz#761a9c4b2a875817acc73137660552bd49e94fca"
+  integrity sha512-3GAUszn1xZx3vniHMiX9BSKmfvb5QOb0oSLXInN+hx80CgJDIHqIFuhx2dyV9I/HWpa0cTxaLWj64kfDzb1JVg==
 
 "@tiptap/extension-horizontal-rule@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-horizontal-rule/-/extension-horizontal-rule-2.0.3.tgz#5c67db2c0bf3bc14a8aab80df584bee5aa23fbeb"
-  integrity sha512-SZRUSh07b/M0kJHNKnfBwBMWrZBEm/E2LrK1NbluwT3DBhE+gvwiEdBxgB32zKHNxaDEXUJwUIPNC3JSbKvPUA==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-horizontal-rule/-/extension-horizontal-rule-2.0.4.tgz#6988dd63fb00ca144feb1baac84142782e8ebe38"
+  integrity sha512-OMx2ImQseKbSUjPbbRCuYGOJshxYedh9giWAqwgWWokhYkH4nGxXn5m7+Laj+1wLre4bnWgHWVY4wMGniEj3aw==
 
 "@tiptap/extension-italic@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-italic/-/extension-italic-2.0.3.tgz#2d9d5d8ccf3c38266f745029c2ec0646c075c1fc"
-  integrity sha512-cfS5sW0gu7qf4ihwnLtW/QMTBrBEXaT0sJl3RwkhjIBg/65ywJKE5Nz9ewnQHmDeT18hvMJJ1VIb4j4ze9jj9A==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-italic/-/extension-italic-2.0.4.tgz#4c6d0938542e4f7276f9dd18db395c040f76dcd8"
+  integrity sha512-C/6+qs4Jh8xERRP0wcOopA1+emK8MOkBE4RQx5NbPnT2iCpERP0GlmHBFQIjaYPctZgKFHxsCfRnneS5Xe76+A==
 
 "@tiptap/extension-link@2.0.3":
   version "2.0.3"
@@ -309,19 +315,19 @@
     linkifyjs "^4.1.0"
 
 "@tiptap/extension-list-item@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-list-item/-/extension-list-item-2.0.3.tgz#2bca673b1ed83fdc00cb208f4d5c57d4d44ddb22"
-  integrity sha512-p7cUsk0LpM1PfdAuFE8wYBNJ3gvA0UhNGR08Lo++rt9UaCeFLSN1SXRxg97c0oa5+Ski7SrCjIJ5Ynhz0viTjQ==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-list-item/-/extension-list-item-2.0.4.tgz#8ca7c9959a07bf94602f8957d784d526568f2069"
+  integrity sha512-tSkbLgRo1QMNDJttWs9FeRywkuy5T2HdLKKfUcUNzT3s0q5AqIJl7VyimsBL4A6MUfN1qQMZCMHB4pM9Mkluww==
 
 "@tiptap/extension-ordered-list@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-ordered-list/-/extension-ordered-list-2.0.3.tgz#d1e5d6fc240545dbba7f7e6666bebd658fc3b4ad"
-  integrity sha512-ZB3MpZh/GEy1zKgw7XDQF4FIwycZWNof1k9WbDZOI063Ch4qHZowhVttH2mTCELuyvTMM/o9a8CS7qMqQB48bw==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-ordered-list/-/extension-ordered-list-2.0.4.tgz#e3e220e9c15114b07c952c32fa58e96601db6bd7"
+  integrity sha512-Kfg+8k9p4iJCUKP/yIa18LfUpl9trURSMP/HX3/yQTz9Ul1vDrjxeFjSE5uWNvupcXRAM24js+aYrCmV7zpU+Q==
 
 "@tiptap/extension-paragraph@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-paragraph/-/extension-paragraph-2.0.3.tgz#88d332158c70622d36849256f90e43ca4d226dfe"
-  integrity sha512-a+tKtmj4bU3GVCH1NE8VHWnhVexxX5boTVxsHIr4yGG3UoKo1c5AO7YMaeX2W5xB5iIA+BQqOPCDPEAx34dd2A==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-paragraph/-/extension-paragraph-2.0.4.tgz#9cffa3f8a980349ca068b1b3c12596bf5f3aef0f"
+  integrity sha512-nDxpopi9WigVqpfi8nU3B0fWYB14EMvKIkutNZo8wJvKGTZufNI8hw66wupIx/jZH1gFxEa5dHerw6aSYuWjgQ==
 
 "@tiptap/extension-placeholder@2.0.3":
   version "2.0.3"
@@ -329,9 +335,9 @@
   integrity sha512-Z42jo0termRAf0S0L8oxrts94IWX5waU4isS2CUw8xCUigYyCFslkhQXkWATO1qRbjNFLKN2C9qvCgGf4UeBrw==
 
 "@tiptap/extension-strike@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-strike/-/extension-strike-2.0.3.tgz#4ec0001db5f51f86d06da22364114f20f073d4b3"
-  integrity sha512-RO4/EYe2iPD6ifDHORT8fF6O9tfdtnzxLGwZIKZXnEgtweH+MgoqevEzXYdS+54Wraq4TUQGNcsYhe49pv7Rlw==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-strike/-/extension-strike-2.0.4.tgz#13286dcf8780c55610ed65b24238b8395a5be824"
+  integrity sha512-Men7LK6N/Dh3/G4/z2Z9WkDHM2Gxx1XyxYix2ZMf5CnqY37SeDNUnGDqit65pdIN3Y/TQnOZTkKSBilSAtXfJA==
 
 "@tiptap/extension-text-align@2.0.3":
   version "2.0.3"
@@ -344,14 +350,14 @@
   integrity sha512-yHIYtZVewSwfBfI6TffnsDRiOuXzytppcCsaDlsZFm8OtLG8v9ioH0ItMoOstmZZBiWJOm8iOy2yWSc4rNQEJw==
 
 "@tiptap/extension-text@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-text/-/extension-text-2.0.3.tgz#12b6400a31ac6d35cbaf1822600f4c425457902f"
-  integrity sha512-LvzChcTCcPSMNLUjZe/A9SHXWGDHtvk73fR7CBqAeNU0MxhBPEBI03GFQ6RzW3xX0CmDmjpZoDxFMB+hDEtW1A==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-text/-/extension-text-2.0.4.tgz#318b0105491a5976d220871dccabe6c4d2cbeedd"
+  integrity sha512-i8/VFlVZh7TkAI49KKX5JmC0tM8RGwyg5zUpozxYbLdCOv07AkJt+E1fLJty9mqH4Y5HJMNnyNxsuZ9Ol/ySRA==
 
 "@tiptap/pm@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/pm/-/pm-2.0.3.tgz#e8bb47df765fc1b7acd52f2800c52d7ff945c5ec"
-  integrity sha512-I9dsInD89Agdm1QjFRO9dmJtU1ldVSILNPW0pEhv9wYqYVvl4HUj/JMtYNqu2jWrCHNXQcaX/WkdSdvGJtmg5g==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/pm/-/pm-2.0.4.tgz#c3df31a29120e1e3334f8f063df23ccb1ace7851"
+  integrity sha512-DNgxntpEaiW7ciW0BTNTL0TFqAreZTrAROWakI4XaYRAyi5H9NfZW8jmwGwMBkoZ1KB3pfy+jT/Bisy4okEQGQ==
   dependencies:
     prosemirror-changeset "^2.2.0"
     prosemirror-collab "^1.3.0"
@@ -411,18 +417,18 @@
   integrity sha512-1y3palQStGZq13UtHjouZ50k4sotM+N56cIlFeygIv3gqdai2zGPaPQtqV9FOVVQizXpUbQMTlPSDC5Ej4SPnQ==
 
 "@types/hast@^2.0.0":
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/@types/hast/-/hast-2.3.4.tgz#8aa5ef92c117d20d974a82bdfb6a648b08c0bafc"
-  integrity sha512-wLEm0QvaoawEDoTRwzTXp4b4jpwiJDvR5KMnFnVodm3scufTlBOWRD6N1OBf9TZMhjlNsSfcO5V+7AF4+Vy+9g==
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/@types/hast/-/hast-2.3.5.tgz#08caac88b44d0fdd04dc17a19142355f43bd8a7a"
+  integrity sha512-SvQi0L/lNpThgPoleH53cdjB3y9zpLlVjRbqB3rH8hx1jiRSBGAhyjV3H+URFjNVRqt2EdYNrbZE5IsGlNfpRg==
   dependencies:
-    "@types/unist" "*"
+    "@types/unist" "^2"
 
 "@types/object.omit@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/object.omit/-/object.omit-3.0.0.tgz#0d31e1208eac8fe2ad5c9499a1016a8273bbfafc"
   integrity sha512-I27IoPpH250TUzc9FzXd0P1BV/BMJuzqD3jOz98ehf9dQqGkxlq+hO1bIqZGWqCg5bVOy0g4AUVJtnxe0klDmw==
 
-"@types/object.pick@^1.3.1":
+"@types/object.pick@^1.3.2":
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@types/object.pick/-/object.pick-1.3.2.tgz#9eb28118240ad8f658b9c9c6caf35359fdb37150"
   integrity sha512-sn7L+qQ6RLPdXRoiaE7bZ/Ek+o4uICma/lBFPyJEKDTPTBP1W8u0c4baj3EiS4DiqLs+Hk+KUGvMVJtAw3ePJg==
@@ -432,10 +438,10 @@
   resolved "https://registry.yarnpkg.com/@types/throttle-debounce/-/throttle-debounce-2.1.0.tgz#1c3df624bfc4b62f992d3012b84c56d41eab3776"
   integrity sha512-5eQEtSCoESnh2FsiLTxE121IiE60hnMqcb435fShf4bpLRjEu1Eoekht23y6zXS9Ts3l+Szu3TARnTsA0GkOkQ==
 
-"@types/unist@*":
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.6.tgz#250a7b16c3b91f672a24552ec64678eeb1d3a08d"
-  integrity sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==
+"@types/unist@^2":
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.7.tgz#5b06ad6894b236a1d2bd6b2f07850ca5c59cf4d6"
+  integrity sha512-cputDpIbFgLUaGQn6Vqg3/YsJwxUwHLO13v3i5ouxT4lat0khip9AEWxtERujXV9wxIB1EyF97BSJFt6vpdI8g==
 
 argparse@^2.0.1:
   version "2.0.1"
@@ -481,15 +487,15 @@ caniuse-lite@^1.0.30001400, caniuse-lite@^1.0.30001426:
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001444.tgz"
   integrity sha512-ecER9xgJQVMqcrxThKptsW0pPxSae8R2RB87LNa+ivW9ppNWRHEplXcDzkCOP4LYWGj8hunXLqaiC41iBATNyg==
 
-case-anything@^2.1.10:
-  version "2.1.10"
-  resolved "https://registry.yarnpkg.com/case-anything/-/case-anything-2.1.10.tgz#d18a6ca968d54ec3421df71e3e190f3bced23410"
-  integrity sha512-JczJwVrCP0jPKh05McyVsuOg6AYosrB9XWZKbQzXeDAm2ClE/PJE/BcrrQrVyGYH7Jg8V/LDupmyL4kFlVsVFQ==
+case-anything@^2.1.13:
+  version "2.1.13"
+  resolved "https://registry.yarnpkg.com/case-anything/-/case-anything-2.1.13.tgz#0cdc16278cb29a7fcdeb072400da3f342ba329e9"
+  integrity sha512-zlOQ80VrQ2Ue+ymH5OuM/DlDq64mEm+B9UTdHULv5osUMD6HalNTblf2b1u/m6QecjsnOkBpqVZ+XPwIVsy7Ng==
 
 crelt@^1.0.0:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/crelt/-/crelt-1.0.5.tgz#57c0d52af8c859e354bace1883eb2e1eb182bb94"
-  integrity sha512-+BO9wPPi+DWTDcNYhr/W90myha8ptzftZT+LwcmUbbok0rcP/fequmFYCw8NMoH7pkAZQzU78b3kYrlua5a9eA==
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/crelt/-/crelt-1.0.6.tgz#7cc898ea74e190fb6ef9dae57f8f81cf7302df72"
+  integrity sha512-VQ2MBenTq1fWZUH9DJNGti7kKv6EeAuYr3cLwxUWhIu1baTaXh4Ib5W2CqHVqib4/MqbYGJqiL3Zb8GJZr3l4g==
 
 css-blank-pseudo@^3.0.3:
   version "3.0.3"
@@ -525,7 +531,7 @@ dash-get@^1.0.2:
   resolved "https://registry.yarnpkg.com/dash-get/-/dash-get-1.0.2.tgz#4c9e9ad5ef04c4bf9d3c9a451f6f7997298dcc7c"
   integrity sha512-4FbVrHDwfOASx7uQVxeiCTo7ggSdYZbqs8lH+WU6ViypPlDbe9y6IP5VVUDQBv9DcnyaiPT5XT0UWHgJ64zLeQ==
 
-deepmerge@^4.2.2:
+deepmerge@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.3.1.tgz#44b5f2147cd3b00d4b56137685966f26fd25dd4a"
   integrity sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==
@@ -727,10 +733,15 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-highlight.js@^11.7.0, highlight.js@~11.7.0:
+highlight.js@^11.7.0:
   version "11.7.0"
   resolved "https://registry.npmjs.org/highlight.js/-/highlight.js-11.7.0.tgz"
   integrity sha512-1rRqesRFhMO/PRF+G86evnyJkCgaZFOI+Z6kdj15TA18funfoqJXvgPCLSf0SWq3SRfg1j3HlDs8o4s3EGq1oQ==
+
+highlight.js@~11.8.0:
+  version "11.8.0"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.8.0.tgz#966518ea83257bae2e7c9a48596231856555bb65"
+  integrity sha512-MedQhoqVdr0U6SSnWPzfiadUcDHfN/Wzq25AkXiQv9oiOO/sG0S7XkvpFIqWBl9Yq1UYyYOOVORs5UW2XlPyzg==
 
 inflight@^1.0.4:
   version "1.0.6"
@@ -773,7 +784,7 @@ isobject@^3.0.1:
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
-  resolved "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
 lilconfig@^2.0.5:
@@ -801,13 +812,13 @@ loose-envify@^1.1.0, loose-envify@^1.4.0:
     js-tokens "^3.0.0 || ^4.0.0"
 
 lowlight@^2.8.0:
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/lowlight/-/lowlight-2.8.1.tgz#5f54016ebd1b2f66b3d0b94d10ef6dd5df4f2e42"
-  integrity sha512-HCaGL61RKc1MYzEYn3rFoGkK0yslzCVDFJEanR19rc2L0mb8i58XM55jSRbzp9jcQrFzschPlwooC0vuNitk8Q==
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/lowlight/-/lowlight-2.9.0.tgz#70da647a4319c7bfd8e97721a679b13ef5621496"
+  integrity sha512-OpcaUTCLmHuVuBcyNckKfH5B0oA4JUavb/M/8n9iAvanJYNQkrVm4pvyX0SUaqkBG4dnWHKt7p50B3ngAG2Rfw==
   dependencies:
     "@types/hast" "^2.0.0"
     fault "^2.0.0"
-    highlight.js "~11.7.0"
+    highlight.js "~11.8.0"
 
 make-error@^1.3.6:
   version "1.3.6"
@@ -879,9 +890,9 @@ once@^1.3.0:
     wrappy "1"
 
 orderedmap@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/orderedmap/-/orderedmap-2.1.0.tgz#819457082fa3a06abd316d83a281a1ca467437cd"
-  integrity sha512-/pIFexOm6S70EPdznemIz3BQZoJ4VTFrhqzu0ACBqBgeLsLxq8e6Jim63ImIfwW/zAD1AlXpRMlOv3aghmo4dA==
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/orderedmap/-/orderedmap-2.1.1.tgz#61481269c44031c449915497bf5a4ad273c512d2"
+  integrity sha512-TvAWxi0nDe1j/rtMcWcIj94+Ffe6n7zhow33h40SKxmsmozs6dz/e+EajymfoFcHd7sxNn8yHM8839uixMOV6g==
 
 path-parse@^1.0.7:
   version "1.0.7"
@@ -1190,41 +1201,41 @@ prop-types@^15.8.1:
     react-is "^16.13.1"
 
 prosemirror-changeset@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/prosemirror-changeset/-/prosemirror-changeset-2.2.0.tgz#22c05da271a118be40d3e339fa2cace789b1254b"
-  integrity sha512-QM7ohGtkpVpwVGmFb8wqVhaz9+6IUXcIQBGZ81YNAKYuHiFJ1ShvSzab4pKqTinJhwciZbrtBEk/2WsqSt2PYg==
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/prosemirror-changeset/-/prosemirror-changeset-2.2.1.tgz#dae94b63aec618fac7bb9061648e6e2a79988383"
+  integrity sha512-J7msc6wbxB4ekDFj+n9gTW/jav/p53kdlivvuppHsrZXCaQdVgRghoZbSS3kwrRyAstRVQ4/+u5k7YfLgkkQvQ==
   dependencies:
     prosemirror-transform "^1.0.0"
 
 prosemirror-collab@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/prosemirror-collab/-/prosemirror-collab-1.3.0.tgz#601d33473bf72e6c43041a54b860c84c60b37769"
-  integrity sha512-+S/IJ69G2cUu2IM5b3PBekuxs94HO1CxJIWOFrLQXUaUDKL/JfBx+QcH31ldBlBXyDEUl+k3Vltfi1E1MKp2mA==
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/prosemirror-collab/-/prosemirror-collab-1.3.1.tgz#0e8c91e76e009b53457eb3b3051fb68dad029a33"
+  integrity sha512-4SnynYR9TTYaQVXd/ieUvsVV4PDMBzrq2xPUWutHivDuOshZXqQ5rGbZM84HEaXKbLdItse7weMGOUdDVcLKEQ==
   dependencies:
     prosemirror-state "^1.0.0"
 
 prosemirror-commands@^1.0.0, prosemirror-commands@^1.3.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/prosemirror-commands/-/prosemirror-commands-1.5.1.tgz#89ddfa14e144dcc7fb0938aa0e2568c7fdde306f"
-  integrity sha512-ga1ga/RkbzxfAvb6iEXYmrEpekn5NCwTb8w1dr/gmhSoaGcQ0VPuCzOn5qDEpC45ql2oDkKoKQbRxLJwKLpMTQ==
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/prosemirror-commands/-/prosemirror-commands-1.5.2.tgz#e94aeea52286f658cd984270de9b4c3fff580852"
+  integrity sha512-hgLcPaakxH8tu6YvVAaILV2tXYsW3rAdDR8WNkeKGcgeMVQg3/TMhPdVoh7iAmfgVjZGtcOSjKiQaoeKjzd2mQ==
   dependencies:
     prosemirror-model "^1.0.0"
     prosemirror-state "^1.0.0"
     prosemirror-transform "^1.0.0"
 
 prosemirror-dropcursor@^1.5.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/prosemirror-dropcursor/-/prosemirror-dropcursor-1.8.0.tgz#7bfa11925e0da41d1db869954fe51e1aa55158e4"
-  integrity sha512-TZMitR8nlp9Xh42pDYGcWopCoFPmJduoyGJ7FjYM2/7gZKnfD41TIaZN5Q1cQjm6Fm/P5vk/DpVYFhS8kDdigw==
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/prosemirror-dropcursor/-/prosemirror-dropcursor-1.8.1.tgz#49b9fb2f583e0d0f4021ff87db825faa2be2832d"
+  integrity sha512-M30WJdJZLyXHi3N8vxN6Zh5O8ZBbQCz0gURTfPmTIBNQ5pxrdU7A58QkNqfa98YEjSAL1HUyyU34f6Pm5xBSGw==
   dependencies:
     prosemirror-state "^1.0.0"
     prosemirror-transform "^1.1.0"
     prosemirror-view "^1.1.0"
 
 prosemirror-gapcursor@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/prosemirror-gapcursor/-/prosemirror-gapcursor-1.3.1.tgz#8cfd874592e4504d63720e14ed680c7866e64554"
-  integrity sha512-GKTeE7ZoMsx5uVfc51/ouwMFPq0o8YrZ7Hx4jTF4EeGbXxBveUV8CGv46mSHuBBeXGmvu50guoV2kSnOeZZnUA==
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/prosemirror-gapcursor/-/prosemirror-gapcursor-1.3.2.tgz#5fa336b83789c6199a7341c9493587e249215cb4"
+  integrity sha512-wtjswVBd2vaQRrnYZaBCbyDqr232Ed4p2QPtRIUK5FuqHYKGWkEwl08oQM4Tw7DOR0FsasARV5uJFvMZWxdNxQ==
   dependencies:
     prosemirror-keymap "^1.0.0"
     prosemirror-model "^1.0.0"
@@ -1232,42 +1243,43 @@ prosemirror-gapcursor@^1.3.1:
     prosemirror-view "^1.0.0"
 
 prosemirror-history@^1.0.0, prosemirror-history@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/prosemirror-history/-/prosemirror-history-1.3.0.tgz#bf5a1ff7759aca759ddf0c722c2fa5b14fb0ddc1"
-  integrity sha512-qo/9Wn4B/Bq89/YD+eNWFbAytu6dmIM85EhID+fz9Jcl9+DfGEo8TTSrRhP15+fFEoaPqpHSxlvSzSEbmlxlUA==
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/prosemirror-history/-/prosemirror-history-1.3.2.tgz#ce6ad7ab9db83e761aee716f3040d74738311b15"
+  integrity sha512-/zm0XoU/N/+u7i5zepjmZAEnpvjDtzoPWW6VmKptcAnPadN/SStsBjMImdCEbb3seiNTpveziPTIrXQbHLtU1g==
   dependencies:
     prosemirror-state "^1.2.2"
     prosemirror-transform "^1.0.0"
+    prosemirror-view "^1.31.0"
     rope-sequence "^1.3.0"
 
 prosemirror-inputrules@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/prosemirror-inputrules/-/prosemirror-inputrules-1.2.0.tgz#476dde2dc244050b3aca00cf58a82adfad6749e7"
-  integrity sha512-eAW/M/NTSSzpCOxfR8Abw6OagdG0MiDAiWHQMQveIsZtoKVYzm0AflSPq/ymqJd56/Su1YPbwy9lM13wgHOFmQ==
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/prosemirror-inputrules/-/prosemirror-inputrules-1.2.1.tgz#8faf3d78c16150aedac71d326a3e3947417ce557"
+  integrity sha512-3LrWJX1+ULRh5SZvbIQlwZafOXqp1XuV21MGBu/i5xsztd+9VD15x6OtN6mdqSFI7/8Y77gYUbQ6vwwJ4mr6QQ==
   dependencies:
     prosemirror-state "^1.0.0"
     prosemirror-transform "^1.0.0"
 
 prosemirror-keymap@^1.0.0, prosemirror-keymap@^1.1.2, prosemirror-keymap@^1.2.0:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/prosemirror-keymap/-/prosemirror-keymap-1.2.1.tgz#3839e7db66cecddae7451f4246e73bdd8489be1d"
-  integrity sha512-kVK6WGC+83LZwuSJnuCb9PsADQnFZllt94qPP3Rx/vLcOUV65+IbBeH2nS5cFggPyEVJhGkGrgYFRrG250WhHQ==
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/prosemirror-keymap/-/prosemirror-keymap-1.2.2.tgz#14a54763a29c7b2704f561088ccf3384d14eb77e"
+  integrity sha512-EAlXoksqC6Vbocqc0GtzCruZEzYgrn+iiGnNjsJsH4mrnIGex4qbLdWWNza3AW5W36ZRrlBID0eM6bdKH4OStQ==
   dependencies:
     prosemirror-state "^1.0.0"
     w3c-keyname "^2.2.0"
 
 prosemirror-markdown@^1.10.1:
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/prosemirror-markdown/-/prosemirror-markdown-1.10.1.tgz#e20468201cda1916a6182686159398b242bb78ab"
-  integrity sha512-s7iaTLiX+qO5z8kF2NcMmy2T7mIlxzkS4Sp3vTKSYChPtbMpg6YxFkU0Y06rUg2WtKlvBu7v1bXzlGBkfjUWAA==
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/prosemirror-markdown/-/prosemirror-markdown-1.11.1.tgz#441ad0ac4ab7c30f50623517e65c6bb8e966e9e3"
+  integrity sha512-CLOieKoaSSEusKyYcXIj8v2qHGLW+tnuffci+8678Sen48NEFQE7M3o0Nx0gj9v63iVDj+yLibj2gCe8eb3jIw==
   dependencies:
     markdown-it "^13.0.1"
     prosemirror-model "^1.0.0"
 
 prosemirror-menu@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/prosemirror-menu/-/prosemirror-menu-1.2.1.tgz#94d99a8547b7ba5680c20e9c497ce19846ce3b2c"
-  integrity sha512-sBirXxVfHalZO4f1ZS63WzewINK4182+7dOmoMeBkqYO8wqMBvBS7wQuwVOHnkMWPEh0+N0LJ856KYUN+vFkmQ==
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/prosemirror-menu/-/prosemirror-menu-1.2.2.tgz#c545a2de0b8cb79babc07682b1d93de0f273aa33"
+  integrity sha512-437HIWTq4F9cTX+kPfqZWWm+luJm95Aut/mLUy+9OMrOml0bmWDS26ceC6SNfb2/S94et1sZ186vLO7pDHzxSw==
   dependencies:
     crelt "^1.0.0"
     prosemirror-commands "^1.0.0"
@@ -1275,41 +1287,41 @@ prosemirror-menu@^1.2.1:
     prosemirror-state "^1.0.0"
 
 prosemirror-model@^1.0.0, prosemirror-model@^1.16.0, prosemirror-model@^1.18.1, prosemirror-model@^1.19.0, prosemirror-model@^1.8.1:
-  version "1.19.0"
-  resolved "https://registry.yarnpkg.com/prosemirror-model/-/prosemirror-model-1.19.0.tgz#d7ad9a65ada0bb12196f64fe0dd4fc392c841c29"
-  integrity sha512-/CvFGJnwc41EJSfDkQLly1cAJJJmBpZwwUJtwZPTjY2RqZJfM8HVbCreOY/jti8wTRbVyjagcylyGoeJH/g/3w==
+  version "1.19.3"
+  resolved "https://registry.yarnpkg.com/prosemirror-model/-/prosemirror-model-1.19.3.tgz#f0d55285487fefd962d0ac695f716f4ec6705006"
+  integrity sha512-tgSnwN7BS7/UM0sSARcW+IQryx2vODKX4MI7xpqY2X+iaepJdKBPc7I4aACIsDV/LTaTjt12Z56MhDr9LsyuZQ==
   dependencies:
     orderedmap "^2.0.0"
 
 prosemirror-schema-basic@^1.2.0:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/prosemirror-schema-basic/-/prosemirror-schema-basic-1.2.1.tgz#a5a137a6399d1a829873332117d2fe8131d291d0"
-  integrity sha512-vYBdIHsYKSDIqYmPBC7lnwk9DsKn8PnVqK97pMYP5MLEDFqWIX75JiaJTzndBii4bRuNqhC2UfDOfM3FKhlBHg==
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/prosemirror-schema-basic/-/prosemirror-schema-basic-1.2.2.tgz#6695f5175e4628aab179bf62e5568628b9cfe6c7"
+  integrity sha512-/dT4JFEGyO7QnNTe9UaKUhjDXbTNkiWTq/N4VpKaF79bBjSExVV2NXmJpcM7z/gD7mbqNjxbmWW5nf1iNSSGnw==
   dependencies:
     prosemirror-model "^1.19.0"
 
 prosemirror-schema-list@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/prosemirror-schema-list/-/prosemirror-schema-list-1.2.2.tgz#bafda37b72367d39accdcaf6ddf8fb654a16e8e5"
-  integrity sha512-rd0pqSDp86p0MUMKG903g3I9VmElFkQpkZ2iOd3EOVg1vo5Cst51rAsoE+5IPy0LPXq64eGcCYlW1+JPNxOj2w==
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/prosemirror-schema-list/-/prosemirror-schema-list-1.3.0.tgz#05374702cf35a3ba5e7ec31079e355a488d52519"
+  integrity sha512-Hz/7gM4skaaYfRPNgr421CU4GSwotmEwBVvJh5ltGiffUJwm7C8GfN/Bc6DR1EKEp5pDKhODmdXXyi9uIsZl5A==
   dependencies:
     prosemirror-model "^1.0.0"
     prosemirror-state "^1.0.0"
-    prosemirror-transform "^1.0.0"
+    prosemirror-transform "^1.7.3"
 
 prosemirror-state@^1.0.0, prosemirror-state@^1.2.2, prosemirror-state@^1.3.1, prosemirror-state@^1.4.1:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/prosemirror-state/-/prosemirror-state-1.4.2.tgz#f93bd8a33a4454efab917ba9b738259d828db7e5"
-  integrity sha512-puuzLD2mz/oTdfgd8msFbe0A42j5eNudKAAPDB0+QJRw8cO1ygjLmhLrg9RvDpf87Dkd6D4t93qdef00KKNacQ==
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/prosemirror-state/-/prosemirror-state-1.4.3.tgz#94aecf3ffd54ec37e87aa7179d13508da181a080"
+  integrity sha512-goFKORVbvPuAQaXhpbemJFRKJ2aixr+AZMGiquiqKxaucC6hlpHNZHWgz5R7dS4roHiwq9vDctE//CZ++o0W1Q==
   dependencies:
     prosemirror-model "^1.0.0"
     prosemirror-transform "^1.0.0"
     prosemirror-view "^1.27.0"
 
 prosemirror-tables@^1.3.0:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/prosemirror-tables/-/prosemirror-tables-1.3.2.tgz#ca208c6a55d510af14b652d23e800e00ba6bebd4"
-  integrity sha512-/9JTeN6s58Zq66HXaxP6uf8PAmc7XXKZFPlOGVtLvxEd6xBP6WtzaJB9wBjiGUzwbdhdMEy7V62yuHqk/3VrnQ==
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/prosemirror-tables/-/prosemirror-tables-1.3.4.tgz#0b7cc16d49f90c5b834c9f29291c545478ce9ab0"
+  integrity sha512-z6uLSQ1BLC3rgbGwZmpfb+xkdvD7W/UOsURDfognZFYaTtc0gsk7u/t71Yijp2eLflVpffMk6X0u0+u+MMDvIw==
   dependencies:
     prosemirror-keymap "^1.1.2"
     prosemirror-model "^1.8.1"
@@ -1318,26 +1330,25 @@ prosemirror-tables@^1.3.0:
     prosemirror-view "^1.13.3"
 
 prosemirror-trailing-node@^2.0.2:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/prosemirror-trailing-node/-/prosemirror-trailing-node-2.0.3.tgz#213fc0e545a434ff3c37b5218a0de69561bf3892"
-  integrity sha512-lGrjMrn97KWkjQSW/FjdvnhJmqFACmQIyr6lKYApvHitDnKsCoZz6XzrHB7RZYHni/0NxQmZ01p/2vyK2SkvaA==
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/prosemirror-trailing-node/-/prosemirror-trailing-node-2.0.7.tgz#ba782a7929f18bcae650b1c7082a2d10443eab19"
+  integrity sha512-8zcZORYj/8WEwsGo6yVCRXFMOfBo0Ub3hCUvmoWIZYfMP26WqENU0mpEP27w7mt8buZWuGrydBewr0tOArPb1Q==
   dependencies:
-    "@babel/runtime" "^7.13.10"
-    "@remirror/core-constants" "^2.0.0"
-    "@remirror/core-helpers" "^2.0.1"
+    "@remirror/core-constants" "^2.0.2"
+    "@remirror/core-helpers" "^3.0.0"
     escape-string-regexp "^4.0.0"
 
-prosemirror-transform@^1.0.0, prosemirror-transform@^1.1.0, prosemirror-transform@^1.2.1, prosemirror-transform@^1.7.0:
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/prosemirror-transform/-/prosemirror-transform-1.7.1.tgz#b516e818c3add0bdf960f4ca8ccb9d057a3ba21b"
-  integrity sha512-VteoifAfpt46z0yEt6Fc73A5OID9t/y2QIeR5MgxEwTuitadEunD/V0c9jQW8ziT8pbFM54uTzRLJ/nLuQjMxg==
+prosemirror-transform@^1.0.0, prosemirror-transform@^1.1.0, prosemirror-transform@^1.2.1, prosemirror-transform@^1.7.0, prosemirror-transform@^1.7.3:
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/prosemirror-transform/-/prosemirror-transform-1.7.4.tgz#ea878c90563f3586064dd5ccf6cabb50b2753fd9"
+  integrity sha512-GO38mvqJ2yeI0BbL5E1CdHcly032Dlfn9nHqlnCHqlNf9e9jZwJixxp6VRtOeDZ1uTDpDIziezMKbA41LpAx3A==
   dependencies:
     prosemirror-model "^1.0.0"
 
-prosemirror-view@^1.0.0, prosemirror-view@^1.1.0, prosemirror-view@^1.13.3, prosemirror-view@^1.27.0, prosemirror-view@^1.28.2:
-  version "1.30.2"
-  resolved "https://registry.yarnpkg.com/prosemirror-view/-/prosemirror-view-1.30.2.tgz#57a9d15c5baa454f0d0f4a3028ddbd9be1e8ed9b"
-  integrity sha512-nTNzZvalQf9kHeEyO407LiV6DoOs/pXsid88UqW9Vvybo4ozJW2PJhkfZUxCUF1hR/9vJLdhxX84wuw9P9HsXA==
+prosemirror-view@^1.0.0, prosemirror-view@^1.1.0, prosemirror-view@^1.13.3, prosemirror-view@^1.27.0, prosemirror-view@^1.28.2, prosemirror-view@^1.31.0:
+  version "1.31.7"
+  resolved "https://registry.yarnpkg.com/prosemirror-view/-/prosemirror-view-1.31.7.tgz#dccb2879314e1e1a24d48044c15374754e50ef00"
+  integrity sha512-Pr7w93yOYmxQwzGIRSaNLZ/1uM6YjnenASzN2H6fO6kGekuzRbgZ/4bHbBTd1u4sIQmL33/TcGmzxxidyPwCjg==
   dependencies:
     prosemirror-model "^1.16.0"
     prosemirror-state "^1.0.0"
@@ -1357,9 +1368,11 @@ react-is@^16.13.1:
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
 react-to-webcomponent@^2.0.0-alpha.0:
-  version "2.0.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/react-to-webcomponent/-/react-to-webcomponent-2.0.0-alpha.4.tgz#2d9081a330ffadf8dee2b44d21a48107a878c963"
-  integrity sha512-pAZpyGXgQrHErtjf+T3gFLmRHipMR8rzCxtSezGXkPVqqVaC/edbYKul4lXGn7htCDenee0aQ4ny1Aboj9m6HQ==
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-to-webcomponent/-/react-to-webcomponent-2.0.0.tgz#45be93e3aafa00f032519b2521adff8cd986235f"
+  integrity sha512-/gD0HgmO+yDg1kSfIktq04WlGVglEcun11xNAy8zMnSMtOZ+t6OF0bJVtHlIcT8nGU+XGwycY2t7prOaO+BWXg==
+  dependencies:
+    "@r2wc/core" "^1.0.0"
 
 react@^18.2.0:
   version "18.2.0"
@@ -1375,11 +1388,6 @@ read-cache@^1.0.0:
   dependencies:
     pify "^2.3.0"
 
-regenerator-runtime@^0.13.11:
-  version "0.13.11"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
-  integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
-
 resolve@^1.1.7:
   version "1.22.1"
   resolved "https://registry.npmjs.org/resolve/-/resolve-1.22.1.tgz"
@@ -1390,9 +1398,9 @@ resolve@^1.1.7:
     supports-preserve-symlinks-flag "^1.0.0"
 
 rope-sequence@^1.3.0:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/rope-sequence/-/rope-sequence-1.3.3.tgz#3f67fc106288b84b71532b4a5fd9d4881e4457f0"
-  integrity sha512-85aZYCxweiD5J8yTEbw+E6A27zSnLPNDL0WfPdw3YYodq7WjnTKo0q4dtyQ2gz23iPT8Q9CUyJtAaUNcTxRf5Q==
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/rope-sequence/-/rope-sequence-1.3.4.tgz#df85711aaecd32f1e756f76e43a415171235d425"
+  integrity sha512-UT5EDe2cu2E/6O4igUr5PSFs23nvvukicWHx6GnOPlHAiiYbzNuCRQCuiUdHJQcqKalLKlrYJnjY0ySGsXNQXQ==
 
 scheduler@^0.23.0:
   version "0.23.0"
@@ -1428,7 +1436,7 @@ tippy.js@^6.3.7:
   dependencies:
     "@popperjs/core" "^2.9.0"
 
-type-fest@^2.0.0:
+type-fest@^2.19.0:
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-2.19.0.tgz#88068015bb33036a598b952e55e9311a60fd3a9b"
   integrity sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==
@@ -1452,9 +1460,9 @@ util-deprecate@^1.0.2:
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
 
 w3c-keyname@^2.2.0:
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/w3c-keyname/-/w3c-keyname-2.2.6.tgz#8412046116bc16c5d73d4e612053ea10a189c85f"
-  integrity sha512-f+fciywl1SJEniZHD6H+kUO8gOnwIr7f4ijKA6+ZvJFjeGi1r4PDLl53Ayud9O/rk64RqgoQine0feoeOU0kXg==
+  version "2.2.8"
+  resolved "https://registry.yarnpkg.com/w3c-keyname/-/w3c-keyname-2.2.8.tgz#7b17c8c6883d4e8b86ac8aba79d39e880f8869c5"
+  integrity sha512-dpojBhNsCNN7T82Tm7k26A6G9ML3NkhDsnw9n/eoxSRlVBB4CEtIQ/KTCLI2Fwf3ataSXRhYFkQi3SlnFwPvPQ==
 
 wrappy@1:
   version "1.0.2"

@@ -7,13 +7,15 @@ import { RicherTextKit } from "./editor/extensions/RicherTextKit";
 
 import MenuBar from "./editor/MenuBar";
 import BubbleMenu from "./editor/menus/BubbleMenu";
+import TableBubbleMenu from "./editor/menus/TableBubbleMenu";
 
 const RicherTextEditor = ({
   content,
   placeholder,
   callouts,
   showMenuBar,
-  bubbleMenuOptions
+  bubbleMenuOptions,
+  tables
 }) => {
   const editorRef = React.useRef(null);
 
@@ -24,6 +26,7 @@ const RicherTextEditor = ({
       RicherTextKit.configure({
         placeholder: placeholder,
         callout: callouts !== "false",
+        tables: tables !== "false",
       }),
     ],
     content: content
@@ -34,6 +37,7 @@ const RicherTextEditor = ({
       {showMenuBar == "true" && <MenuBar editor={editor} />}
 
       <BubbleMenu editor={editor} bubbleMenuOptions={bubbleMenuOptions} />
+      <TableBubbleMenu editor={editor} />
       <div className="editor--content">
         <EditorContent editor={editor} />
       </div>
@@ -46,7 +50,8 @@ RicherTextEditor.defaultProps = {
   placeholder: "Write something...",
   callouts: "false",
   showMenuBar: "true",
-  bubbleMenuOptions: "{ \"highlight\": false }"
+  bubbleMenuOptions: "{ \"highlight\": false }",
+  tables: "false"
 }
 
 RicherTextEditor.propTypes = {
@@ -54,7 +59,8 @@ RicherTextEditor.propTypes = {
   placeholder: PropTypes.string,
   callouts: PropTypes.string,
   showMenuBar: PropTypes.string,
-  bubbleMenuOptions: PropTypes.string
+  bubbleMenuOptions: PropTypes.string,
+  tables: PropTypes.string
 }
 
 import reactToWebcomponent from "react-to-webcomponent";
