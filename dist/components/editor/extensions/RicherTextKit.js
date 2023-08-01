@@ -90,7 +90,7 @@ var RicherTextKit = _core.Extension.create({
     }
     if (this.options.tables !== false) {
       extensions.push(_extensionTable["default"].configure({
-        resizable: true
+        resizable: false
       }), _extensionTableRow["default"], _extensionTableHeader["default"], _extensionTableCell["default"]);
     }
     extensions.push(_EditorEvents["default"], _CodeBlock["default"], _extensionTextStyle["default"], _extensionTextAlign["default"].configure({

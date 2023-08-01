@@ -110,7 +110,7 @@ export const RicherTextKit = Extension.create({
     if (this.options.tables !== false) {
       extensions.push(
         Table.configure({
-          resizable: true,
+          resizable: false,
         }),
         TableRow,
         TableHeader,
