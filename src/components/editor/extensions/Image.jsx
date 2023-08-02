@@ -69,7 +69,7 @@ export default Node.create({
       attachImage: ({ signedId, fileName}) => ({ commands }) => {
         const url = `/rails/active_storage/blobs/redirect/${signedId}/${fileName}`;
 
-        return commands.insertContent({ type: this.name, attrs: { src: window.location.origin + url, alt: fileName, signedId: signedId }})
+        return commands.insertContent({ type: this.name, attrs: { src: url, alt: fileName, signedId: signedId }})
       },
     };
   },

@@ -76,7 +76,7 @@ var _default = _core.Node.create({
           return commands.insertContent({
             type: _this.name,
             attrs: {
-              src: window.location.origin + url,
+              src: url,
               alt: fileName,
               signedId: signedId
             }
