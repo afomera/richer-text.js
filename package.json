@@ -21,6 +21,7 @@
     "@rails/activestorage": "^7.0.4",
     "@tabler/icons": "^1.118.0",
     "@tabler/icons-react": "^2.30.0",
+    "@tippyjs/react": "^4.2.6",
     "@tiptap/core": "2.0.3",
     "@tiptap/extension-bubble-menu": "2.0.3",
     "@tiptap/extension-code-block-lowlight": "2.0.3",

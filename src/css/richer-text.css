@@ -554,3 +554,12 @@ div.editor--hr hr {
   cursor: ew-resize;
   cursor: col-resize;
 }
+
+.richer-text-tooltip {
+  background-color: black;
+  max-width: 420px;
+  color: white;
+  border-radius: 8px;
+  padding: 4px 4px;
+  font-size: small;
+}
