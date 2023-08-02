@@ -2,14 +2,15 @@
 # yarn lockfile v1
 
 
-"@afomera/richer-text@^0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@afomera/richer-text/-/richer-text-0.7.1.tgz#944951358dce953573644e248ad9a44b9cd5945b"
-  integrity sha512-R4oBTPS6BQlj5O1i2SE7DdMB4z0P9Gs2McuUJIhcxKd9Z7UvaBj1VNmY/EGZ54FZgDVy7qdgX0gGitHTMIKsWw==
+"@afomera/richer-text@^0.7.2":
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/@afomera/richer-text/-/richer-text-0.7.2.tgz#68a9ccce1f693800d73358127d53612bca8ee9ed"
+  integrity sha512-VH9Tj5IVxXiE/j1mieD1PVEl4HChVh6ZhxYeAQmdK4g6q6sosWbpTzK3cKEZ5MSI8o5qXVDUZc08mEUq1yiKRQ==
   dependencies:
     "@rails/activestorage" "^7.0.4"
     "@tabler/icons" "^1.118.0"
     "@tabler/icons-react" "^2.30.0"
+    "@tippyjs/react" "^4.2.6"
     "@tiptap/core" "2.0.3"
     "@tiptap/extension-bubble-menu" "2.0.3"
     "@tiptap/extension-code-block-lowlight" "2.0.3"
@@ -208,6 +209,13 @@
   version "1.119.0"
   resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.119.0.tgz#8c590bc5a563c8673a78ccd451bedabd584b376e"
   integrity sha512-Fk3Qq4w2SXcTjc/n1cuL5bccPkylrOMo7cYpQIf/yw6zP76LQV9dtLcHQUjFiUnaYuswR645CnURIhlafyAh9g==
+
+"@tippyjs/react@^4.2.6":
+  version "4.2.6"
+  resolved "https://registry.yarnpkg.com/@tippyjs/react/-/react-4.2.6.tgz#971677a599bf663f20bb1c60a62b9555b749cc71"
+  integrity sha512-91RicDR+H7oDSyPycI13q3b7o4O60wa2oRbjlz2fyRLmHImc4vyDwuUP8NtZaN0VARJY5hybvDYrFzhY9+Lbyw==
+  dependencies:
+    tippy.js "^6.3.1"
 
 "@tiptap/core@2.0.3":
   version "2.0.3"
@@ -1467,7 +1475,7 @@ throttle-debounce@^3.0.1:
   resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-3.0.1.tgz#32f94d84dfa894f786c9a1f290e7a645b6a19abb"
   integrity sha512-dTEWWNu6JmeVXY0ZYoPuH5cRIwc0MeGbJwah9KUNYSJwommQpCzTySTpEe8Gs1J23aeWEuAobe4Ag7EHVt/LOg==
 
-tippy.js@^6.3.7:
+tippy.js@^6.3.1, tippy.js@^6.3.7:
   version "6.3.7"
   resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-6.3.7.tgz#8ccfb651d642010ed9a32ff29b0e9e19c5b8c61c"
   integrity sha512-E1d3oP2emgJ9dRQZdf3Kkn0qJgI6ZLpyS5z6ZkY1DF3kaQaBsGZsndEpHwx+eC+tYM41HaSNvNtLx8tU57FzTQ==
