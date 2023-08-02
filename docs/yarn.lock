@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@afomera/richer-text@^0.7.2":
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/@afomera/richer-text/-/richer-text-0.7.2.tgz#68a9ccce1f693800d73358127d53612bca8ee9ed"
-  integrity sha512-VH9Tj5IVxXiE/j1mieD1PVEl4HChVh6ZhxYeAQmdK4g6q6sosWbpTzK3cKEZ5MSI8o5qXVDUZc08mEUq1yiKRQ==
+"@afomera/richer-text@^0.7.3":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@afomera/richer-text/-/richer-text-0.7.3.tgz#1b0d73ac5adb80c1ef287e721a02178199a2881a"
+  integrity sha512-hthwlqpP/C1QdGL6JbGuebmwBp50rB47kmyoPsasdybEJoT8PQP9oKttYHt7buR2h46Z+4cn7hn1QuzjdOmzmA==
   dependencies:
     "@rails/activestorage" "^7.0.4"
     "@tabler/icons" "^1.118.0"
