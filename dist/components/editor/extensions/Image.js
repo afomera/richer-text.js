@@ -95,8 +95,18 @@ var _default = _core.Node.create({
       props: {
         handlePaste: function handlePaste(_, event) {
           event.preventDefault();
-          console.log(event.clipboardData.files);
-          console.log("Whoops, pasting images is not supported yet.");
+          var images = Array.from(event.clipboardData.files).filter(function (file) {
+            return file.type.startsWith('image/');
+          });
+          Array.from(images).forEach(function (image) {
+            var setSignedId = function setSignedId(editor, signedId) {
+              editor.commands.attachImage({
+                signedId: signedId,
+                fileName: image.name
+              });
+            };
+            uploadFile(image, editor, setSignedId);
+          });
         },
         handleDrop: function handleDrop(_, event) {
           event.preventDefault();

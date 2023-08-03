@@ -88,8 +88,17 @@ export default Node.create({
           handlePaste: (_, event) => {
             event.preventDefault();
 
-            console.log(event.clipboardData.files);
-            console.log("Whoops, pasting images is not supported yet.");
+            const images = Array.from(event.clipboardData.files).filter((file) => {
+              return file.type.startsWith('image/');
+            });
+
+            Array.from(images).forEach((image) => {
+              const setSignedId = (editor, signedId) => {
+                editor.commands.attachImage({ signedId, fileName: image.name });
+              }
+
+              uploadFile(image, editor, setSignedId);
+            });
           },
           handleDrop: (_, event) => {
             event.preventDefault();
