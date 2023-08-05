@@ -9,6 +9,7 @@ Optionally, you can customize a few of the attributes by passing them as attribu
 
 | Option              | &nbsp;&nbsp;&nbsp; |           Default            |              Allowed values |
 | :------------------ | ------------------ | :--------------------------: | --------------------------: |
+| input               |                    |              ""              |               Form field id |
 | content             |                    |              ""              |                      String |
 | placeholder         | &nbsp;&nbsp;&nbsp; |     "Write something..."     |                      String |
 | callouts            |                    |           "false"            |             "true", "false" |

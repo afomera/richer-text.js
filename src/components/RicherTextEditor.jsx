@@ -15,7 +15,8 @@ const RicherTextEditor = ({
   callouts,
   showMenuBar,
   bubbleMenuOptions,
-  tables
+  tables,
+  input
 }) => {
   const editorRef = React.useRef(null);
 
@@ -29,7 +30,10 @@ const RicherTextEditor = ({
         tables: tables !== "false",
       }),
     ],
-    content: content
+    content: content,
+    editorProps: {
+      input: input,
+    }
   });
 
   return (
@@ -51,7 +55,8 @@ RicherTextEditor.defaultProps = {
   callouts: "false",
   showMenuBar: "true",
   bubbleMenuOptions: "{ \"highlight\": false }",
-  tables: "false"
+  tables: "false",
+  input: ""
 }
 
 RicherTextEditor.propTypes = {
@@ -60,7 +65,8 @@ RicherTextEditor.propTypes = {
   callouts: PropTypes.string,
   showMenuBar: PropTypes.string,
   bubbleMenuOptions: PropTypes.string,
-  tables: PropTypes.string
+  tables: PropTypes.string,
+  input: PropTypes.string
 }
 
 import reactToWebcomponent from "react-to-webcomponent";

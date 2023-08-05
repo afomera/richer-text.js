@@ -15,6 +15,14 @@ export default Extension.create({
     // The content has changed.
     const element = editor.options.element;
 
+    if (editor.options.editorProps && editor.options.editorProps.input) {
+      const input = document.getElementById(editor.options.editorProps.input);
+
+      if (input) {
+        input.value = editor.getHTML();
+      }
+    }
+
     const customEvent = new CustomEvent('editor:update', {
       detail: { html: editor.getHTML(), json: editor.getJSON(), isEmpty: editor.isEmpty },
       bubbles: true

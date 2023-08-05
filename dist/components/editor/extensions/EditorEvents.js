@@ -19,6 +19,12 @@ var _default = _core.Extension.create({
     var editor = _ref2.editor;
     // The content has changed.
     var element = editor.options.element;
+    if (editor.options.editorProps && editor.options.editorProps.input) {
+      var input = document.getElementById(editor.options.editorProps.input);
+      if (input) {
+        input.value = editor.getHTML();
+      }
+    }
     var customEvent = new CustomEvent('editor:update', {
       detail: {
         html: editor.getHTML(),

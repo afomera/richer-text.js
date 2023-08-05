@@ -52,7 +52,11 @@ Then add the RicherText editor into your forms.
   &lt;%= form.richer_text_area :body %&gt;
 </pre>
 
-The installation process installs a StimulusJS controller that is responsible for updating a hidden input the form helper generates upon the `editor:update` event from the RicherText editor. 🎉
+Then you can render the content out with:
+
+<pre>
+  &lt;%= @post.body %&gt;
+</pre>
 
 That's all! Enjoy using RicherText 🥳
 
@@ -97,41 +101,15 @@ We like the github-dark theme from Highlight.js:
 
 ## Usage
 
-To use the Richer Text Editor, we need to pass the web component content to be rendered and optionally, a set of attributes we'll use to initialize it.
+To use the Richer Text Editor, we need to pass the web component content to be rendered and optionally, a set of attributes we'll use to initialize it. Passing an HTML element id as input will allow RicherText to automatically update the value of a hidden field for you.
+
+Your full HTML will need to look similar to this:
 
 ```html
-<richer-text-editor content="Hello world" placeholder="Write something...">
-</richer-text-editor>
-```
-
-However, just rendering the editor won't be enough to do much useful with the editor. We'll need to listen to events emitted from the editor so you can choose how to save the resulting JSON or HTML (you choose!).
-
-RicherText currently emits one event: **editor:update** on any update event.
-
-We recommend using something like [Stimulus](http://stimulus.hotwired.dev) to listen for events.
-
-```js
-import { Controller } from "@hotwired/stimulus";
-
-// Connects to data-controller="editor"
-export default class extends Controller {
-  static targets = ["input"];
-
-  update(event) {
-    // Or if storing JSON yourself, event.detail.json
-    this.inputTarget.value = event.detail.html;
-  }
-}
-```
-
-Then you'll need HTML that looks similar to this:
-
-```html
-<div data-controller="editor" data-action="editor:update->editor#update">
-  <input type="hidden" value="" data-editor-target="input" />
-  <richer-text-editor
-    content="Your initial content"
-    placeholder="Write something..."
-  ></richer-text-editor>
-</div>
+<input type="hidden" value="" id="post_body" />
+<richer-text-editor
+  input="post_body"
+  content="Your initial content"
+  placeholder="Write something..."
+></richer-text-editor>
 ```

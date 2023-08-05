@@ -23,7 +23,8 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
     callouts = _ref.callouts,
     showMenuBar = _ref.showMenuBar,
     bubbleMenuOptions = _ref.bubbleMenuOptions,
-    tables = _ref.tables;
+    tables = _ref.tables,
+    input = _ref.input;
   var editorRef = _react["default"].useRef(null);
   bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
   var editor = (0, _react2.useEditor)({
@@ -32,7 +33,10 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
       callout: callouts !== "false",
       tables: tables !== "false"
     })],
-    content: content
+    content: content,
+    editorProps: {
+      input: input
+    }
   });
   return /*#__PURE__*/_react["default"].createElement("div", {
     className: "editor",
@@ -56,7 +60,8 @@ RicherTextEditor.defaultProps = {
   callouts: "false",
   showMenuBar: "true",
   bubbleMenuOptions: "{ \"highlight\": false }",
-  tables: "false"
+  tables: "false",
+  input: ""
 };
 RicherTextEditor.propTypes = {
   content: _propTypes["default"].string,
@@ -64,7 +69,8 @@ RicherTextEditor.propTypes = {
   callouts: _propTypes["default"].string,
   showMenuBar: _propTypes["default"].string,
   bubbleMenuOptions: _propTypes["default"].string,
-  tables: _propTypes["default"].string
+  tables: _propTypes["default"].string,
+  input: _propTypes["default"].string
 };
 var WebRicherTextEditor = (0, _reactToWebcomponent["default"])(RicherTextEditor, _react["default"], ReactDOM);
 customElements.define("richer-text-editor", WebRicherTextEditor);
