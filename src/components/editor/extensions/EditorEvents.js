@@ -3,10 +3,19 @@ import { Extension } from "@tiptap/core";
 export default Extension.create({
   name: "editorEvents",
 
+  onCreate({ editor }) {
+    // The editor is created.
+    const element = editor.options.element;
+
+    const customEvent = new CustomEvent('richer-text-editor:create', { bubbles: true });
+
+    element.dispatchEvent(customEvent);
+  },
+
   onFocus({ editor }) {
     const element = editor.options.element;
 
-    const customEvent = new CustomEvent('editor:focus', { bubbles: true });
+    const customEvent = new CustomEvent('richer-text-editor:focus', { bubbles: true });
 
     element.dispatchEvent(customEvent);
   },
@@ -23,7 +32,7 @@ export default Extension.create({
       }
     }
 
-    const customEvent = new CustomEvent('editor:update', {
+    const customEvent = new CustomEvent('richer-text-editor:update', {
       detail: { html: editor.getHTML(), json: editor.getJSON(), isEmpty: editor.isEmpty },
       bubbles: true
     });
@@ -34,7 +43,7 @@ export default Extension.create({
   onBlur({ editor }) {
     const element = editor.options.element;
 
-    const customEvent = new CustomEvent('editor:blur', {
+    const customEvent = new CustomEvent('richer-text-editor:blur', {
       detail: { isEmpty: editor.isEmpty },
       bubbles: true
     });
