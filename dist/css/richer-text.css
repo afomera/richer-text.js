@@ -180,6 +180,16 @@ html.dark hr {
 .editor--bubble-menu-form {
   display: flex;
   align-items: center;
+  width: 420px;
+}
+
+.editor--bubble-menu-form input {
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  color: var(--editor-text-color);
+  font-size: 1rem;
+  padding: 0.5rem;
 }
 
 .callout {

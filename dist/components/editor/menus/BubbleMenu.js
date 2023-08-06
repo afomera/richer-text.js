@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 exports["default"] = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _react2 = require("@tiptap/react");
-var _icons = require("@tabler/icons");
+var _iconsReact = require("@tabler/icons-react");
 var _LinkBubbleMenu = _interopRequireDefault(require("./LinkBubbleMenu"));
 var _HighlighterMenu = _interopRequireDefault(require("./HighlighterMenu"));
 var _BubbleMenuButton = _interopRequireDefault(require("../elements/BubbleMenuButton"));
@@ -48,25 +48,25 @@ var _default = function _default(_ref) {
       return editor.chain().focus().toggleBold().run();
     },
     active: editor.isActive('bold'),
-    icon: /*#__PURE__*/_react["default"].createElement(_icons.IconBold, null)
+    icon: /*#__PURE__*/_react["default"].createElement(_iconsReact.IconBold, null)
   }), /*#__PURE__*/_react["default"].createElement(_BubbleMenuButton["default"], {
     command: function command() {
       return editor.chain().focus().toggleItalic().run();
     },
     active: editor.isActive('italic'),
-    icon: /*#__PURE__*/_react["default"].createElement(_icons.IconItalic, null)
+    icon: /*#__PURE__*/_react["default"].createElement(_iconsReact.IconItalic, null)
   }), /*#__PURE__*/_react["default"].createElement(_BubbleMenuButton["default"], {
     command: function command() {
       return editor.chain().focus().toggleStrike().run();
     },
     active: editor.isActive('strike'),
-    icon: /*#__PURE__*/_react["default"].createElement(_icons.IconStrikethrough, null)
+    icon: /*#__PURE__*/_react["default"].createElement(_iconsReact.IconStrikethrough, null)
   }), /*#__PURE__*/_react["default"].createElement(_BubbleMenuButton["default"], {
     command: function command() {
       return setEditingLink(true);
     },
     active: editor.isActive('link'),
-    icon: /*#__PURE__*/_react["default"].createElement(_icons.IconLink, null)
+    icon: /*#__PURE__*/_react["default"].createElement(_iconsReact.IconLink, null)
   }), /*#__PURE__*/_react["default"].createElement(_BubbleMenuButton["default"], {
     command: function command() {
       return editor.chain().focus().setTextAlign("left").run();
@@ -74,7 +74,7 @@ var _default = function _default(_ref) {
     active: editor.isActive({
       textAlign: "left"
     }),
-    icon: /*#__PURE__*/_react["default"].createElement(_icons.IconAlignLeft, null)
+    icon: /*#__PURE__*/_react["default"].createElement(_iconsReact.IconAlignLeft, null)
   }), /*#__PURE__*/_react["default"].createElement(_BubbleMenuButton["default"], {
     command: function command() {
       return editor.chain().focus().setTextAlign("center").run();
@@ -82,7 +82,7 @@ var _default = function _default(_ref) {
     active: editor.isActive({
       textAlign: "center"
     }),
-    icon: /*#__PURE__*/_react["default"].createElement(_icons.IconAlignCenter, null)
+    icon: /*#__PURE__*/_react["default"].createElement(_iconsReact.IconAlignCenter, null)
   }), /*#__PURE__*/_react["default"].createElement(_BubbleMenuButton["default"], {
     command: function command() {
       return editor.chain().focus().setTextAlign("right").run();
@@ -90,7 +90,7 @@ var _default = function _default(_ref) {
     active: editor.isActive({
       textAlign: "right"
     }),
-    icon: /*#__PURE__*/_react["default"].createElement(_icons.IconAlignRight, null)
+    icon: /*#__PURE__*/_react["default"].createElement(_iconsReact.IconAlignRight, null)
   }), bubbleMenuOptions.highlight ? /*#__PURE__*/_react["default"].createElement(_HighlighterMenu["default"], {
     editor: editor
   }) : null) : /*#__PURE__*/_react["default"].createElement(_LinkBubbleMenu["default"], {

@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { IconLink } from "@tabler/icons-react";
 
 const LinkBubbleMenu = ({ editor, onClose }) => {
   if (!editor) return null
@@ -22,6 +23,8 @@ const LinkBubbleMenu = ({ editor, onClose }) => {
   return (
     <div className="editor--bubble-menu">
       <form className="editor--bubble-menu-form" onSubmit={onSubmit}>
+        <IconLink
+          style={{ marginLeft: "0.5rem" }} />
         <input
           type="url"
           name="url"

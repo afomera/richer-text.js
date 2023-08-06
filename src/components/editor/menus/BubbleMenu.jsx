@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BubbleMenu } from '@tiptap/react'
 
-import { IconBold, IconItalic, IconStrikethrough, IconLink, IconAlignLeft, IconAlignCenter, IconAlignRight } from '@tabler/icons';
+import { IconBold, IconItalic, IconStrikethrough, IconLink, IconAlignLeft, IconAlignCenter, IconAlignRight } from '@tabler/icons-react';
 import LinkBubbleMenu from "./LinkBubbleMenu";
 import HighlighterMenu from "./HighlighterMenu";
 import BubbleMenuButton from "../elements/BubbleMenuButton";
