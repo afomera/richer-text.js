@@ -7,16 +7,25 @@ exports["default"] = void 0;
 var _core = require("@tiptap/core");
 var _default = _core.Extension.create({
   name: "editorEvents",
-  onFocus: function onFocus(_ref) {
+  onCreate: function onCreate(_ref) {
     var editor = _ref.editor;
+    // The editor is created.
     var element = editor.options.element;
-    var customEvent = new CustomEvent('editor:focus', {
+    var customEvent = new CustomEvent('richer-text-editor:create', {
       bubbles: true
     });
     element.dispatchEvent(customEvent);
   },
-  onUpdate: function onUpdate(_ref2) {
+  onFocus: function onFocus(_ref2) {
     var editor = _ref2.editor;
+    var element = editor.options.element;
+    var customEvent = new CustomEvent('richer-text-editor:focus', {
+      bubbles: true
+    });
+    element.dispatchEvent(customEvent);
+  },
+  onUpdate: function onUpdate(_ref3) {
+    var editor = _ref3.editor;
     // The content has changed.
     var element = editor.options.element;
     if (editor.options.editorProps && editor.options.editorProps.input) {
@@ -25,7 +34,7 @@ var _default = _core.Extension.create({
         input.value = editor.getHTML();
       }
     }
-    var customEvent = new CustomEvent('editor:update', {
+    var customEvent = new CustomEvent('richer-text-editor:update', {
       detail: {
         html: editor.getHTML(),
         json: editor.getJSON(),
@@ -35,10 +44,10 @@ var _default = _core.Extension.create({
     });
     element.dispatchEvent(customEvent);
   },
-  onBlur: function onBlur(_ref3) {
-    var editor = _ref3.editor;
+  onBlur: function onBlur(_ref4) {
+    var editor = _ref4.editor;
     var element = editor.options.element;
-    var customEvent = new CustomEvent('editor:blur', {
+    var customEvent = new CustomEvent('richer-text-editor:blur', {
       detail: {
         isEmpty: editor.isEmpty
       },
