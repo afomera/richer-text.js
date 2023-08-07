@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@afomera/richer-text@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@afomera/richer-text/-/richer-text-0.9.0.tgz#efd8a791575650f1959bf42b4bcc0cb44265bbf9"
-  integrity sha512-Wmf7S8ofeg76eameh5cvUZ5Pud/XKroMw8mv8JpQnXZY6khEh5+vJEXRZMvTUNSc/NimUzbz4st/ElOZS56prw==
+"@afomera/richer-text@^0.9.1":
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/@afomera/richer-text/-/richer-text-0.9.1.tgz#7ead84e8b5c9222ce692dc698423eb2426bd195b"
+  integrity sha512-n+KJkTfy1Gz7EyMMYfvh4RalvebPZcdIMsOPKAZqtBmNKkJdLCT1tI7ZS2BNqYJ2+BDF35IdVeWtKwq3a1r/VQ==
   dependencies:
     "@rails/activestorage" "^7.0.4"
     "@tabler/icons" "^1.118.0"
@@ -31,7 +31,7 @@
     "@tiptap/suggestion" "2.0.3"
     lowlight "^2.8.0"
     prop-types "^15.8.1"
-    react-to-webcomponent "^2.0.0-alpha.0"
+    react-to-webcomponent "^2.0.0"
 
 "@csstools/postcss-cascade-layers@^1.1.1":
   version "1.1.1"
@@ -1413,7 +1413,7 @@ react-is@^16.13.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-to-webcomponent@^2.0.0-alpha.0:
+react-to-webcomponent@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-to-webcomponent/-/react-to-webcomponent-2.0.0.tgz#45be93e3aafa00f032519b2521adff8cd986235f"
   integrity sha512-/gD0HgmO+yDg1kSfIktq04WlGVglEcun11xNAy8zMnSMtOZ+t6OF0bJVtHlIcT8nGU+XGwycY2t7prOaO+BWXg==
