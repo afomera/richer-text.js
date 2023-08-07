@@ -42,7 +42,7 @@
     "@tiptap/suggestion": "2.0.3",
     "lowlight": "^2.8.0",
     "prop-types": "^15.8.1",
-    "react-to-webcomponent": "^2.0.0-alpha.0"
+    "react-to-webcomponent": "^2.0.0"
   },
   "peerDependencies": {
     "react": "^18.2.0",
