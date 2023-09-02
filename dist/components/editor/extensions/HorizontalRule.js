@@ -10,7 +10,7 @@ var _default = _extensionHorizontalRule["default"].extend({
   renderHTML: function renderHTML(_ref) {
     var HTMLAttributes = _ref.HTMLAttributes;
     return ["div", {
-      "class": "editor--hr"
+      "class": "richer-text-editor--hr"
     }, ["hr", HTMLAttributes]];
   }
 });

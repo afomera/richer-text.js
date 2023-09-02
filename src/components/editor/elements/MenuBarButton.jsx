@@ -8,7 +8,7 @@ const MenuBarButton = ({ action, disabled, active, icon, hideOnMobile }) => {
 
   let classes = []
   if (hideOnMobile) {
-    classes.push('editor--hide-on-mobile')
+    classes.push('richer-text-editor--hide-on-mobile')
   }
   classes.push(active ? 'is-active' : '')
 

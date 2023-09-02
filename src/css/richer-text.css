@@ -129,29 +129,29 @@ html.dark {
 }
 
 @media (max-width: 767px) {
-  .editor--hide-on-mobile {
+  .richer-text-editor--hide-on-mobile {
     display: none;
   }
 }
 
-.editor--menu-list-dropdown {
+.richer-text-editor--menu-list-dropdown {
   background-color: var(--editor-menu-list-background-color);
   border: 1px solid var(--editor-menu-list-border-color);
   padding: 0.3rem;
   border-radius: 0.5rem;
 }
 
-.editor--menu-list-dropdown .editor--menu-list-dropdown-group {
+.richer-text-editor--menu-list-dropdown .richer-text-editor--menu-list-dropdown-group {
   margin-bottom: 0.5rem;
   display: block;
   width: 100%;
 }
 
-.editor--menu-list-dropdown .editor--menu-list-dropdown-group:last-child {
+.richer-text-editor--menu-list-dropdown .richer-text-editor--menu-list-dropdown-group:last-child {
   margin-bottom: 0;
 }
 
-.editor--menu-list-dropdown .editor--menu-list-item {
+.richer-text-editor--menu-list-dropdown .richer-text-editor--menu-list-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -163,12 +163,12 @@ html.dark {
   width: 100%;
 }
 
-.editor--menu-list-dropdown .editor--menu-list-item:hover {
+.richer-text-editor--menu-list-dropdown .richer-text-editor--menu-list-item:hover {
   color: var(--editor-menu-list-button-active-text-color);
   background-color: var(--editor-menu-list-button-active-background-color);
 }
 
-.editor--menu-list-dropdown .editor--menu-list-item.is-active {
+.richer-text-editor--menu-list-dropdown .richer-text-editor--menu-list-item.is-active {
   color: var(--editor-menu-list-button-active-text-color);
   background-color: var(--editor-menu-list-button-active-background-color);
 }
@@ -177,13 +177,13 @@ html.dark hr {
   border-color: #dee6f2 !important;
 }
 
-.editor--bubble-menu-form {
+.richer-text-editor--bubble-menu-form {
   display: flex;
   align-items: center;
   width: 420px;
 }
 
-.editor--bubble-menu-form input {
+.richer-text-editor--bubble-menu-form input {
   flex: 1;
   border: none;
   background-color: transparent;
@@ -251,7 +251,7 @@ html.dark hr {
   margin-bottom: 0;
 }
 
-.editor {
+.richer-text-editor {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   color: var(--editor-text-color);
@@ -266,21 +266,21 @@ pre.has-focus {
   outline: 2px solid var(--editor-content-focus-color);
 }
 
-div.editor--hr.has-focus {
+div.richer-text-editor--hr.has-focus {
   outline: 2px solid var(--editor-content-focus-color);
 }
 
-div.editor--hr {
+div.richer-text-editor--hr {
   padding-top: 8px;
   padding-bottom: 8px;
   margin-bottom: 16px;
 }
-div.editor--hr hr {
+div.richer-text-editor--hr hr {
   margin-bottom: 0px !important;
   margin-top: 0px !important;
 }
 
-.editor [contenteditable="true"] {
+.richer-text-editor [contenteditable="true"] {
   padding: 0.5rem;
   border: 1px solid var(--editor-border-color);
   outline: none;
@@ -289,23 +289,23 @@ div.editor--hr hr {
   max-height: 700px;
 }
 
-.editor [contenteditable="true"]:focus {
+.richer-text-editor [contenteditable="true"]:focus {
   border: 2px solid var(--editor-content-focus-color);
 }
 
-.editor ul {
+.richer-text-editor ul {
   list-style-type: disc;
   padding-left: 2.5rem;
   margin-left: 1rem;
 }
 
-.editor ol {
+.richer-text-editor ol {
   list-style-type: decimal;
   padding-left: 2.5rem;
   margin-left: 1rem;
 }
 
-.editor--bubble-menu {
+.richer-text-editor--bubble-menu {
   background-color: var(--editor-bubble-menu-background-color);
   border: 1px solid var(--editor-bubble-menu-border-color);
   border-radius: 0.5rem;
@@ -313,44 +313,44 @@ div.editor--hr hr {
   align-items: center;
 }
 
-.editor--bubble-menu .editor--bubble-menu-highlighter-menu {
+.richer-text-editor--bubble-menu .richer-text-editor--bubble-menu-highlighter-menu {
   background-color: var(--editor-bubble-menu-background-color);
   display: flex;
   align-items: center;
 }
 
-.editor--bubble-menu button {
+.richer-text-editor--bubble-menu button {
   color: var(--editor-bubble-menu-button-text-color);
   background-color: var(--editor-menu-bar-button-background-color);
   padding: 0.3rem;
   margin: 0.2rem;
 }
 
-.editor--bubble-menu button:hover {
+.richer-text-editor--bubble-menu button:hover {
   color: var(--editor-bubble-menu-button-active-text-color);
   background-color: var(--editor-bubble-menu-button-active-background-color);
 }
 
-.editor--bubble-menu button:active {
+.richer-text-editor--bubble-menu button:active {
   color: var(--editor-bubble-menu-button-active-text-color);
   background-color: var(--editor-bubble-menu-button-active-background-color);
 }
 
-.editor--bubble-menu button:disabled {
+.richer-text-editor--bubble-menu button:disabled {
   color: var(--editor-bubble-menu-button-disabled-text-color);
 }
 
-.editor--bubble-menu button svg {
+.richer-text-editor--bubble-menu button svg {
   width: var(--editor-button-size);
   height: var(--editor-button-size);
 }
 
-.editor--bubble-menu button.is-active {
+.richer-text-editor--bubble-menu button.is-active {
   color: var(--editor-bubble-menu-button-active-text-color);
   background-color: var(--editor-bubble-menu-button-active-background-color);
 }
 
-.editor--menu-bar {
+.richer-text-editor--menu-bar {
   background-color: var(--editor-menu-bar-background-color);
   border-color: var(--editor-menu-bar-border-color);
   border-width: 1px;
@@ -364,56 +364,56 @@ div.editor--hr hr {
   justify-content: space-between;
 }
 
-.editor--menu-bar-left {
+.richer-text-editor--menu-bar-left {
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
-.editor--menu-bar-right {
+.richer-text-editor--menu-bar-right {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-.editor--menu-bar .editor--menu-bar-seperator {
+.richer-text-editor--menu-bar .richer-text-editor--menu-bar-seperator {
   background-color: var(--editor-menu-bar-seperator-background-color);
   height: 1.25rem;
   width: 1px;
   margin: 0 0.5rem;
 }
 
-.editor--menu-bar button {
+.richer-text-editor--menu-bar button {
   color: var(--editor-menu-bar-button-text-color);
   background-color: var(--editor-menu-bar-button-background-color);
   padding: 0.5rem;
 }
 
-.editor--menu-bar button:hover {
+.richer-text-editor--menu-bar button:hover {
   color: var(--editor-menu-bar-button-active-color);
   background-color: var(--editor-menu-bar-button-active-background-color);
 }
 
-.editor--menu-bar button:active {
+.richer-text-editor--menu-bar button:active {
   color: var(--editor-menu-bar-button-active-color);
   background-color: var(--editor-menu-bar-button-active-background-color);
 }
 
-.editor--menu-bar button:disabled {
+.richer-text-editor--menu-bar button:disabled {
   color: var(--editor-menu-bar-button-disabled-text-color);
 }
 
-.editor--menu-bar button svg {
+.richer-text-editor--menu-bar button svg {
   width: var(--editor-button-size);
   height: var(--editor-button-size);
 }
 
-.editor--menu-bar button.is-active {
+.richer-text-editor--menu-bar button.is-active {
   color: var(--editor-menu-bar-background-text-color);
   background-color: var(--editor-menu-bar-button-active-background-color);
 }
 
-.editor--content {
+.richer-text-editor--content {
   background-color: var(--editor-content-background-color);
   /* border: 1px solid var(--editor-border-color); */
   /* padding: 0.5rem; */

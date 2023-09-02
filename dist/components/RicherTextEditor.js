@@ -39,7 +39,7 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
     }
   });
   return /*#__PURE__*/_react["default"].createElement("div", {
-    className: "editor",
+    className: "richer-text-editor",
     ref: editorRef
   }, showMenuBar == "true" && /*#__PURE__*/_react["default"].createElement(_MenuBar["default"], {
     editor: editor
@@ -49,7 +49,7 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
   }), /*#__PURE__*/_react["default"].createElement(_TableBubbleMenu["default"], {
     editor: editor
   }), /*#__PURE__*/_react["default"].createElement("div", {
-    className: "editor--content"
+    className: "richer-text-editor--content"
   }, /*#__PURE__*/_react["default"].createElement(_react2.EditorContent, {
     editor: editor
   })));

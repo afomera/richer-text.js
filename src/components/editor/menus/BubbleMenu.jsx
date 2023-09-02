@@ -19,7 +19,7 @@ export default ({ editor, bubbleMenuOptions }) => {
       pluginKey={"main-bubble-menu"}
     >
       {!editingLink ? (
-      <div className="editor--bubble-menu">
+      <div className="richer-text-editor--bubble-menu">
         <BubbleMenuButton
           command={() => editor.chain().focus().toggleBold().run()}
           active={editor.isActive('bold')}

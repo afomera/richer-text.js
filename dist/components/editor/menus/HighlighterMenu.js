@@ -12,7 +12,7 @@ var HighlighterMenu = function HighlighterMenu(_ref) {
   var editor = _ref.editor;
   if (!editor) return null;
   return /*#__PURE__*/_react["default"].createElement("div", {
-    className: "editor--bubble-menu-highlighter-menu"
+    className: "richer-text-editor--bubble-menu-highlighter-menu"
   }, editor.isActive('highlight') && /*#__PURE__*/_react["default"].createElement(_BubbleMenuButton["default"], {
     command: function command() {
       return editor.chain().focus().unsetHighlight().run();

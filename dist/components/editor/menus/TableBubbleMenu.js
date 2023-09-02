@@ -23,7 +23,7 @@ var _default = function _default(_ref) {
     },
     pluginKey: "table-bubble-menu"
   }, /*#__PURE__*/_react["default"].createElement("div", {
-    className: "editor--bubble-menu"
+    className: "richer-text-editor--bubble-menu"
   }, /*#__PURE__*/_react["default"].createElement(_BubbleMenuButton["default"], {
     command: function command() {
       return editor.chain().focus().addColumnBefore().run();

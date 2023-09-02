@@ -31,18 +31,18 @@ Want a smaller menu bar, or perhaps you don't want a border? Using CSS Variables
 
 If you'd like, you can also apply these variables at the ==`:root`== level, just ensure your variables are defined after the Richer Text css is imported into your project.
 
-<div class="editor--without-border">
+<div class="richer-text-editor--without-border">
   <richer-text-editor></richer-text-editor>
 </div>
 
 ```html
-<div class="editor--without-border">
+<div class="richer-text-editor--without-border">
   <richer-text-editor></richer-text-editor>
 </div>
 ```
 
 ```css
-.editor--without-border {
+.richer-text-editor--without-border {
   --editor-menu-bar-border-color: none;
   --editor-button-size: 20px;
 
@@ -52,18 +52,18 @@ If you'd like, you can also apply these variables at the ==`:root`== level, just
 
 ---
 
-<div class="editor-with-menu-bar-background">
+<div class="richer-text-editor--with-menu-bar-background">
   <richer-text-editor></richer-text-editor>
 </div>
 
 ```html
-<div class="editor-with-menu-bar-background">
+<div class="richer-text-editor--with-menu-bar-background">
   <richer-text-editor></richer-text-editor>
 </div>
 ```
 
 ```css
-.editor-with-menu-bar-background {
+.richer-text-editor--with-menu-bar-background {
   --editor-menu-bar-border-color: none;
 
   --editor-menu-bar-background-color: #efefef;

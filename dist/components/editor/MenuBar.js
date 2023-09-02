@@ -14,9 +14,9 @@ var _default = function _default(_ref) {
     return null;
   }
   return /*#__PURE__*/_react["default"].createElement("div", {
-    className: "editor--menu-bar"
+    className: "richer-text-editor--menu-bar"
   }, /*#__PURE__*/_react["default"].createElement("div", {
-    className: "editor--menu-bar-left"
+    className: "richer-text-editor--menu-bar-left"
   }, /*#__PURE__*/_react["default"].createElement(_MenuBarButton["default"], {
     action: function action() {
       return editor.chain().focus().toggleBold().run();
@@ -46,7 +46,7 @@ var _default = function _default(_ref) {
     active: editor.isActive('code'),
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconCode, null)
   }), /*#__PURE__*/_react["default"].createElement("div", {
-    className: "editor--menu-bar-seperator"
+    className: "richer-text-editor--menu-bar-seperator"
   }), /*#__PURE__*/_react["default"].createElement(_MenuBarButton["default"], {
     action: function action() {
       return editor.chain().focus().toggleHeading({
@@ -111,7 +111,7 @@ var _default = function _default(_ref) {
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconSeparator, null),
     hideOnMobile: true
   })), /*#__PURE__*/_react["default"].createElement("div", {
-    className: "editor--menu-bar-right"
+    className: "richer-text-editor--menu-bar-right"
   }, /*#__PURE__*/_react["default"].createElement(_MenuBarButton["default"], {
     action: function action() {
       return editor.chain().focus().undo().run();

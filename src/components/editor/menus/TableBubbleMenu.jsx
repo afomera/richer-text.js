@@ -14,7 +14,7 @@ export default ({ editor }) => {
       }}
       pluginKey={"table-bubble-menu"}
     >
-      <div className="editor--bubble-menu">
+      <div className="richer-text-editor--bubble-menu">
         <BubbleMenuButton
           command={() => editor.chain().focus().addColumnBefore().run()}
           active={false}

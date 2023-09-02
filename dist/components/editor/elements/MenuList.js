@@ -59,19 +59,19 @@ var _default = /*#__PURE__*/(0, _react.forwardRef)(function (props, ref) {
   });
   var items = props.items;
   return /*#__PURE__*/_react["default"].createElement("div", {
-    className: "editor--menu-list-dropdown"
+    className: "richer-text-editor--menu-list-dropdown"
   }, /*#__PURE__*/_react["default"].createElement("div", {
-    className: "editor--menu-list-dropdown-group"
+    className: "richer-text-editor--menu-list-dropdown-group"
   }, items.length ? items.map(function (item, index) {
     return /*#__PURE__*/_react["default"].createElement("button", {
-      className: "editor--menu-list-item ".concat(index === selectedIndex ? "is-active" : ""),
+      className: "richer-text-editor--menu-list-item ".concat(index === selectedIndex ? "is-active" : ""),
       key: index,
       onClick: function onClick() {
         return selectItem(index);
       }
     }, item.icon, item.label);
   }) : /*#__PURE__*/_react["default"].createElement("button", {
-    className: "editor--menu-list-item",
+    className: "richer-text-editor--menu-list-item",
     disabled: true
   }, "No results")));
 });

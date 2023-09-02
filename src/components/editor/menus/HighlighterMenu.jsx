@@ -7,7 +7,7 @@ const HighlighterMenu = ({ editor }) => {
   if (!editor) return null
 
   return (
-    <div className="editor--bubble-menu-highlighter-menu">
+    <div className="richer-text-editor--bubble-menu-highlighter-menu">
       {editor.isActive('highlight') &&
         <BubbleMenuButton
           command={() => editor.chain().focus().unsetHighlight().run()}

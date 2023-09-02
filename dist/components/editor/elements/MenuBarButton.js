@@ -18,7 +18,7 @@ var MenuBarButton = function MenuBarButton(_ref) {
   };
   var classes = [];
   if (hideOnMobile) {
-    classes.push('editor--hide-on-mobile');
+    classes.push('richer-text-editor--hide-on-mobile');
   }
   classes.push(active ? 'is-active' : '');
   return /*#__PURE__*/_react["default"].createElement("button", {

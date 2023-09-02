@@ -37,12 +37,12 @@ const RicherTextEditor = ({
   });
 
   return (
-    <div className="editor" ref={editorRef}>
+    <div className="richer-text-editor" ref={editorRef}>
       {showMenuBar == "true" && <MenuBar editor={editor} />}
 
       <BubbleMenu editor={editor} bubbleMenuOptions={bubbleMenuOptions} />
       <TableBubbleMenu editor={editor} />
-      <div className="editor--content">
+      <div className="richer-text-editor--content">
         <EditorContent editor={editor} />
       </div>
     </div>

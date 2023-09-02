@@ -1,10 +1,10 @@
-.editor--without-border {
+.richer-text-editor--without-border {
   --editor-menu-bar-border-color: none;
   --editor-button-size: 20px;
 }
 
 
-.editor-with-menu-bar-background {
+.richer-text-editor--with-menu-bar-background {
   --editor-menu-bar-border-color: none;
 
   --editor-menu-bar-background-color: #efefef;

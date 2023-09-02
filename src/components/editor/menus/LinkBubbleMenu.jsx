@@ -21,8 +21,8 @@ const LinkBubbleMenu = ({ editor, onClose }) => {
   }
 
   return (
-    <div className="editor--bubble-menu">
-      <form className="editor--bubble-menu-form" onSubmit={onSubmit}>
+    <div className="richer-text-editor--bubble-menu">
+      <form className="richer-text-editor--bubble-menu-form" onSubmit={onSubmit}>
         <IconLink
           style={{ marginLeft: "0.5rem" }} />
         <input

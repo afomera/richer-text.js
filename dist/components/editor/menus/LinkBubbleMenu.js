@@ -27,9 +27,9 @@ var LinkBubbleMenu = function LinkBubbleMenu(_ref) {
     onClose();
   };
   return /*#__PURE__*/_react["default"].createElement("div", {
-    className: "editor--bubble-menu"
+    className: "richer-text-editor--bubble-menu"
   }, /*#__PURE__*/_react["default"].createElement("form", {
-    className: "editor--bubble-menu-form",
+    className: "richer-text-editor--bubble-menu-form",
     onSubmit: onSubmit
   }, /*#__PURE__*/_react["default"].createElement(_iconsReact.IconLink, {
     style: {

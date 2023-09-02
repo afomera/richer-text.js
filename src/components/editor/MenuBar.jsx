@@ -11,8 +11,8 @@ export default ({ editor }) => {
   }
 
   return (
-    <div className="editor--menu-bar">
-      <div className="editor--menu-bar-left">
+    <div className="richer-text-editor--menu-bar">
+      <div className="richer-text-editor--menu-bar-left">
         <MenuBarButton
           action={() => editor.chain().focus().toggleBold().run()}
           disabled={!editor.can().chain().focus().toggleBold().run()}
@@ -41,7 +41,7 @@ export default ({ editor }) => {
           icon={<IconCode />}
         />
 
-        <div className="editor--menu-bar-seperator"></div>
+        <div className="richer-text-editor--menu-bar-seperator"></div>
 
         <MenuBarButton
           action={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
@@ -95,7 +95,7 @@ export default ({ editor }) => {
         />
       </div>
 
-      <div className="editor--menu-bar-right">
+      <div className="richer-text-editor--menu-bar-right">
         <MenuBarButton
           action={() => editor.chain().focus().undo().run()}
           disabled={!editor.can().chain().focus().undo().run()}
