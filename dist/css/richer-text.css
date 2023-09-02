@@ -83,6 +83,19 @@ button {
   --rte-menu-list-button-active-text-color: var(--rte-button-active-color);
   --rte-menu-list-button-disabled-text-color: var(--rte-button-disabled-color);
   --rte-menu-list-button-active-background-color: var(--rte-button-active-background-color);
+
+  /* Tables */
+  --rte-table-border-color: var(--rte-border-color);
+  --rte-table-header-background-color: #f1f3f5;
+  --rte-table-selected-cell-background-color: rgba(200, 200, 255, 0.4);
+
+  /* Tooltips */
+  --rte-tooltip-background-color: #000000;
+  --rte-tooltip-text-color: #ffffff;
+
+  /* Code */
+  --rte-code-background-color: rgba(97, 97, 97, 0.1);
+  --rte-code-text-color: #616161;
 }
 
 html.dark {
@@ -90,42 +103,54 @@ html.dark {
   --rte-text-color: #dee6f2;
   --rte-border-color: #2d3748;
   --rte-placeholder-text-color: #94a3b8;
-  --rte-content-background-color: #0f172a;
+  --rte-content-background-color: #171717;
   --rte-content-focus-color: #ec4899;
 
   /* General buttons */
   --rte-button-text-color: #94a3b8;
-  --rte-button-active-color: #0f172a;
+  --rte-button-active-color: #0a0a0a;
   --rte-button-disabled-color: #2d3748;
   --rte-button-active-background-color: #2d3748;
 
   /* MenuBar */
-  --rte-menu-bar-background-color: #0f172a;
+  --rte-menu-bar-background-color: #0a0a0a;
   --rte-menu-bar-border-color: var(--rte-border-color);
   --rte-menu-bar-seperator-background-color: #2d3748;
-  --rte-menu-bar-button-background-color: #0f172a;
+  --rte-menu-bar-button-background-color: #0a0a0a;
   --rte-menu-bar-button-text-color: var(--rte-button-text-color);
   --rte-menu-bar-button-active-text-color: var(--rte-button-active-color);
   --rte-menu-bar-button-disabled-text-color: var(--rte-button-disabled-color);
-  --rte-menu-bar-button-active-background-color: #0f172a;
+  --rte-menu-bar-button-active-background-color: #0a0a0a;
   --rte-menu-bar-top-radius: 0rem;
 
   /* BubbleMenu */
-  --rte-bubble-menu-background-color: #0f172a;
+  --rte-bubble-menu-background-color: #0a0a0a;
   --rte-bubble-menu-border-color: var(--rte-border-color);
   --rte-bubble-menu-button-text-color: var(--rte-button-text-color);
   --rte-bubble-menu-button-active-text-color: var(--rte-button-active-color);
   --rte-bubble-menu-button-disabled-text-color: var(--rte-button-disabled-color);
   --rte-bubble-menu-button-active-background-color: var(--rte-button-active-background-color);
 
-
   /* MenuList (ie Command Menu) */
-  --rte-menu-list-background-color: #0f172a;
+  --rte-menu-list-background-color: #0a0a0a;
   --rte-menu-list-border-color: var(--rte-border-color);
   --rte-menu-list-item-text-color: var(--rte-text-color);
   --rte-menu-list-button-active-text-color: #dee6f2;
   --rte-menu-list-button-disabled-text-color: var(--rte-button-disabled-color);
   --rte-menu-list-button-active-background-color: var(--rte-button-active-background-color);
+
+  /* Tables */
+  --rte-table-border-color: var(--rte-border-color);
+  --rte-table-header-background-color: #262626;
+  --rte-table-selected-cell-background-color: rgba(200, 200, 255, 0.4);
+
+  /* Tooltips */
+  --rte-tooltip-background-color: #000000;
+  --rte-tooltip-text-color: #ffffff;
+
+  /* Code */
+  --rte-code-background-color: rgba(97, 97, 97, 0.1);
+  --rte-code-text-color: #616161;
 }
 
 @media (max-width: 767px) {
@@ -451,8 +476,8 @@ div.richer-text-editor--hr hr {
 }
 
 .ProseMirror code {
-  background-color: rgba(97, 97, 97, 0.1);
-  color: #616161;
+  background-color: var(--rte-code-background-color);
+  color: var(--rte-code-text-color);
 }
 
 .ProseMirror pre {
@@ -510,7 +535,7 @@ div.richer-text-editor--hr hr {
 
 .ProseMirror table td,
 .ProseMirror table th {
-  border: 2px solid #ced4da;
+  border: 2px solid var(--rte-table-border-color);
   box-sizing: border-box;
   min-width: 1em;
   padding: 3px 5px;
@@ -524,13 +549,13 @@ div.richer-text-editor--hr hr {
 }
 
 .ProseMirror table th {
-  background-color: #f1f3f5;
+  background-color: var(--rte-table-header-background-color);
   font-weight: bold;
   text-align: left;
 }
 
 .ProseMirror table .selectedCell:after {
-  background: rgba(200, 200, 255, 0.4);
+  background: var(--rte-table-selected-cell-background-color);
   content: "";
   left: 0;
   right: 0;
@@ -566,9 +591,9 @@ div.richer-text-editor--hr hr {
 }
 
 .richer-text-tooltip {
-  background-color: black;
+  background-color: var(--rte-tooltip-background-color);
   max-width: 420px;
-  color: white;
+  color: var(--rte-tooltip-text-color);
   border-radius: 8px;
   padding: 4px 4px;
   font-size: small;
