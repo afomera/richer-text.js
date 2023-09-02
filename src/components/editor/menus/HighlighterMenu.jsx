@@ -16,21 +16,21 @@ const HighlighterMenu = ({ editor }) => {
         />}
 
       <BubbleMenuButton
-        command={() => editor.chain().focus().toggleHighlight({ color: 'var(--editor-highlight-color-one)' }).run()}
-        active={editor.isActive('highlight', { color: 'var(--editor-highlight-color-one)' })}
-        icon={<IconHighlight color={'var(--editor-highlight-color-one)'} />}
+        command={() => editor.chain().focus().toggleHighlight({ color: 'var(--rte-highlight-color-one)' }).run()}
+        active={editor.isActive('highlight', { color: 'var(--rte-highlight-color-one)' })}
+        icon={<IconHighlight color={'var(--rte-highlight-color-one)'} />}
       />
 
       <BubbleMenuButton
-        command={() => editor.chain().focus().toggleHighlight({ color: 'var(--editor-highlight-color-two)' }).run()}
-        active={editor.isActive('highlight', { color: 'var(--editor-highlight-color-two)' })}
-        icon={<IconHighlight color={'var(--editor-highlight-color-two)'} />}
+        command={() => editor.chain().focus().toggleHighlight({ color: 'var(--rte-highlight-color-two)' }).run()}
+        active={editor.isActive('highlight', { color: 'var(--rte-highlight-color-two)' })}
+        icon={<IconHighlight color={'var(--rte-highlight-color-two)'} />}
       />
 
       <BubbleMenuButton
-        command={() => editor.chain().focus().toggleHighlight({ color: 'var(--editor-highlight-color-three)' }).run()}
-        active={editor.isActive('highlight', { color: 'var(--editor-highlight-color-three)' })}
-        icon={<IconHighlight color={'var(--editor-highlight-color-three)'} />}
+        command={() => editor.chain().focus().toggleHighlight({ color: 'var(--rte-highlight-color-three)' }).run()}
+        active={editor.isActive('highlight', { color: 'var(--rte-highlight-color-three)' })}
+        icon={<IconHighlight color={'var(--rte-highlight-color-three)'} />}
       />
     </div>
   )

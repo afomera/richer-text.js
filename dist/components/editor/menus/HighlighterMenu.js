@@ -22,38 +22,38 @@ var HighlighterMenu = function HighlighterMenu(_ref) {
   }), /*#__PURE__*/_react["default"].createElement(_BubbleMenuButton["default"], {
     command: function command() {
       return editor.chain().focus().toggleHighlight({
-        color: 'var(--editor-highlight-color-one)'
+        color: 'var(--rte-highlight-color-one)'
       }).run();
     },
     active: editor.isActive('highlight', {
-      color: 'var(--editor-highlight-color-one)'
+      color: 'var(--rte-highlight-color-one)'
     }),
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconHighlight, {
-      color: 'var(--editor-highlight-color-one)'
+      color: 'var(--rte-highlight-color-one)'
     })
   }), /*#__PURE__*/_react["default"].createElement(_BubbleMenuButton["default"], {
     command: function command() {
       return editor.chain().focus().toggleHighlight({
-        color: 'var(--editor-highlight-color-two)'
+        color: 'var(--rte-highlight-color-two)'
       }).run();
     },
     active: editor.isActive('highlight', {
-      color: 'var(--editor-highlight-color-two)'
+      color: 'var(--rte-highlight-color-two)'
     }),
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconHighlight, {
-      color: 'var(--editor-highlight-color-two)'
+      color: 'var(--rte-highlight-color-two)'
     })
   }), /*#__PURE__*/_react["default"].createElement(_BubbleMenuButton["default"], {
     command: function command() {
       return editor.chain().focus().toggleHighlight({
-        color: 'var(--editor-highlight-color-three)'
+        color: 'var(--rte-highlight-color-three)'
       }).run();
     },
     active: editor.isActive('highlight', {
-      color: 'var(--editor-highlight-color-three)'
+      color: 'var(--rte-highlight-color-three)'
     }),
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconHighlight, {
-      color: 'var(--editor-highlight-color-three)'
+      color: 'var(--rte-highlight-color-three)'
     })
   }));
 };

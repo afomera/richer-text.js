@@ -57,7 +57,7 @@ var RicherTextKit = _core.Extension.create({
     }
     if (this.options.dropcursor !== false) {
       extensions.push(_extensionDropcursor["default"].configure({
-        color: 'var(--editor-content-focus-color)'
+        color: 'var(--rte-content-focus-color)'
       }));
     }
     if (this.options.focus !== false) {

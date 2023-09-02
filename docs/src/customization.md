@@ -43,10 +43,10 @@ If you'd like, you can also apply these variables at the ==`:root`== level, just
 
 ```css
 .richer-text-editor--without-border {
-  --editor-menu-bar-border-color: none;
-  --editor-button-size: 20px;
+  --rte-menu-bar-border-color: none;
+  --rte-button-size: 20px;
 
-  --editor-menu-bar-background-color: #efefef;
+  --rte-menu-bar-background-color: #efefef;
 }
 ```
 
@@ -64,16 +64,14 @@ If you'd like, you can also apply these variables at the ==`:root`== level, just
 
 ```css
 .richer-text-editor--with-menu-bar-background {
-  --editor-menu-bar-border-color: none;
+  --rte-menu-bar-border-color: none;
 
-  --editor-menu-bar-background-color: #efefef;
-  --editor-menu-bar-button-background-color: #efefef;
-  --editor-menu-bar-button-text-color: var(--editor-button-text-color);
-  --editor-menu-bar-button-active-text-color: var(--editor-button-active-color);
-  --editor-menu-bar-button-disabled-text-color: var(
-    --editor-button-disabled-color
-  );
-  --editor-menu-bar-button-active-background-color: #d7dae0;
+  --rte-menu-bar-background-color: #efefef;
+  --rte-menu-bar-button-background-color: #efefef;
+  --rte-menu-bar-button-text-color: var(--rte-button-text-color);
+  --rte-menu-bar-button-active-text-color: var(--rte-button-active-color);
+  --rte-menu-bar-button-disabled-text-color: var(--rte-button-disabled-color);
+  --rte-menu-bar-button-active-background-color: #d7dae0;
 }
 ```
 
@@ -107,64 +105,56 @@ We support customizing the looks of the Richer Text Editor by using CSS variable
   --callout-red-text-color: #b30000;
 
   /* General colors */
-  --editor-text-color: #374151;
-  --editor-border-color: #d0d5dd;
-  --editor-placeholder-text-color: #a0aec0;
-  --editor-content-background-color: #ffffff;
-  --editor-content-focus-color: #ec4899;
-  --editor-link-color: #ec4899;
+  --rte-text-color: #374151;
+  --rte-border-color: #d0d5dd;
+  --rte-placeholder-text-color: #a0aec0;
+  --rte-content-background-color: #ffffff;
+  --rte-content-focus-color: #ec4899;
+  --rte-link-color: #ec4899;
 
   /* Highlight colors */
-  --editor-highlight-color-one: #feb7b3;
-  --editor-highlight-color-two: #fef1b3;
-  --editor-highlight-color-three: #b3dcfe;
+  --rte-highlight-color-one: #feb7b3;
+  --rte-highlight-color-two: #fef1b3;
+  --rte-highlight-color-three: #b3dcfe;
 
   /* General buttons */
-  --editor-button-text-color: #667085;
-  --editor-button-active-color: #101828;
-  --editor-button-disabled-color: #d0d5dd;
-  --editor-button-active-background-color: #f1f3f8;
-  --editor-button-size: 24px;
+  --rte-button-text-color: #667085;
+  --rte-button-active-color: #101828;
+  --rte-button-disabled-color: #d0d5dd;
+  --rte-button-active-background-color: #f1f3f8;
+  --rte-button-size: 24px;
 
   /* MenuBar */
-  --editor-menu-bar-background-color: #ffffff;
-  --editor-menu-bar-border-color: var(--editor-border-color);
-  --editor-menu-bar-seperator-background-color: #d0d5dd;
-  --editor-menu-bar-button-background-color: #ffffff;
-  --editor-menu-bar-button-text-color: var(--editor-button-text-color);
-  --editor-menu-bar-button-active-text-color: var(--editor-button-active-color);
-  --editor-menu-bar-button-disabled-text-color: var(
-    --editor-button-disabled-color
-  );
-  --editor-menu-bar-button-active-background-color: #f1f3f8;
-  --editor-menu-bar-top-radius: 0rem;
+  --rte-menu-bar-background-color: #ffffff;
+  --rte-menu-bar-border-color: var(--rte-border-color);
+  --rte-menu-bar-seperator-background-color: #d0d5dd;
+  --rte-menu-bar-button-background-color: #ffffff;
+  --rte-menu-bar-button-text-color: var(--rte-button-text-color);
+  --rte-menu-bar-button-active-text-color: var(--rte-button-active-color);
+  --rte-menu-bar-button-disabled-text-color: var(--rte-button-disabled-color);
+  --rte-menu-bar-button-active-background-color: #f1f3f8;
+  --rte-menu-bar-top-radius: 0rem;
 
   /* BubbleMenu */
-  --editor-bubble-menu-background-color: #ffffff;
-  --editor-bubble-menu-border-color: var(--editor-border-color);
-  --editor-bubble-menu-button-text-color: var(--editor-button-text-color);
-  --editor-bubble-menu-button-active-text-color: var(
-    --editor-button-active-color
+  --rte-bubble-menu-background-color: #ffffff;
+  --rte-bubble-menu-border-color: var(--rte-border-color);
+  --rte-bubble-menu-button-text-color: var(--rte-button-text-color);
+  --rte-bubble-menu-button-active-text-color: var(--rte-button-active-color);
+  --rte-bubble-menu-button-disabled-text-color: var(
+    --rte-button-disabled-color
   );
-  --editor-bubble-menu-button-disabled-text-color: var(
-    --editor-button-disabled-color
-  );
-  --editor-bubble-menu-button-active-background-color: var(
-    --editor-button-active-background-color
+  --rte-bubble-menu-button-active-background-color: var(
+    --rte-button-active-background-color
   );
 
   /* MenuList (ie Command Menu) */
-  --editor-menu-list-background-color: #ffffff;
-  --editor-menu-list-border-color: var(--editor-border-color);
-  --editor-menu-list-item-text-color: var(--editor-text-color);
-  --editor-menu-list-button-active-text-color: var(
-    --editor-button-active-color
-  );
-  --editor-menu-list-button-disabled-text-color: var(
-    --editor-button-disabled-color
-  );
-  --editor-menu-list-button-active-background-color: var(
-    --editor-button-active-background-color
+  --rte-menu-list-background-color: #ffffff;
+  --rte-menu-list-border-color: var(--rte-border-color);
+  --rte-menu-list-item-text-color: var(--rte-text-color);
+  --rte-menu-list-button-active-text-color: var(--rte-button-active-color);
+  --rte-menu-list-button-disabled-text-color: var(--rte-button-disabled-color);
+  --rte-menu-list-button-active-background-color: var(
+    --rte-button-active-background-color
   );
 }
 ```

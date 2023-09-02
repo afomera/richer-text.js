@@ -38,94 +38,94 @@ button {
   --callout-red-text-color: #B30000;
 
   /* General colors */
-  --editor-text-color: #374151;
-  --editor-border-color: #D0D5DD;
-  --editor-placeholder-text-color: #a0aec0;
-  --editor-content-background-color: #ffffff;
-  --editor-content-focus-color: #ec4899;
-  --editor-link-color: #ec4899;
+  --rte-text-color: #374151;
+  --rte-border-color: #D0D5DD;
+  --rte-placeholder-text-color: #a0aec0;
+  --rte-content-background-color: #ffffff;
+  --rte-content-focus-color: #ec4899;
+  --rte-link-color: #ec4899;
 
   /* Highlight colors */
-  --editor-highlight-color-one: #FEB7B3;
-  --editor-highlight-color-two: #fef1b3;
-  --editor-highlight-color-three: #b3dcfe;
+  --rte-highlight-color-one: #FEB7B3;
+  --rte-highlight-color-two: #fef1b3;
+  --rte-highlight-color-three: #b3dcfe;
 
   /* General buttons */
-  --editor-button-text-color: #667085;
-  --editor-button-active-color: #101828;
-  --editor-button-disabled-color: #D0D5DD;
-  --editor-button-active-background-color: #f1f3f8;
-  --editor-button-size: 20px;
+  --rte-button-text-color: #667085;
+  --rte-button-active-color: #101828;
+  --rte-button-disabled-color: #D0D5DD;
+  --rte-button-active-background-color: #f1f3f8;
+  --rte-button-size: 20px;
 
   /* MenuBar */
-  --editor-menu-bar-background-color: #ffffff;
-  --editor-menu-bar-border-color: var(--editor-border-color);
-  --editor-menu-bar-seperator-background-color: #D0D5DD;
-  --editor-menu-bar-button-background-color: #ffffff;
-  --editor-menu-bar-button-text-color: var(--editor-button-text-color);
-  --editor-menu-bar-button-active-text-color: var(--editor-button-active-color);
-  --editor-menu-bar-button-disabled-text-color: var(--editor-button-disabled-color);
-  --editor-menu-bar-button-active-background-color: #f1f3f8;
-  --editor-menu-bar-top-radius: 0rem;
+  --rte-menu-bar-background-color: #ffffff;
+  --rte-menu-bar-border-color: var(--rte-border-color);
+  --rte-menu-bar-seperator-background-color: #D0D5DD;
+  --rte-menu-bar-button-background-color: #ffffff;
+  --rte-menu-bar-button-text-color: var(--rte-button-text-color);
+  --rte-menu-bar-button-active-text-color: var(--rte-button-active-color);
+  --rte-menu-bar-button-disabled-text-color: var(--rte-button-disabled-color);
+  --rte-menu-bar-button-active-background-color: #f1f3f8;
+  --rte-menu-bar-top-radius: 0rem;
 
   /* BubbleMenu */
-  --editor-bubble-menu-background-color: #ffffff;
-  --editor-bubble-menu-border-color: var(--editor-border-color);
-  --editor-bubble-menu-button-text-color: var(--editor-button-text-color);
-  --editor-bubble-menu-button-active-text-color: var(--editor-button-active-color);
-  --editor-bubble-menu-button-disabled-text-color: var(--editor-button-disabled-color);
-  --editor-bubble-menu-button-active-background-color: var(--editor-button-active-background-color);
+  --rte-bubble-menu-background-color: #ffffff;
+  --rte-bubble-menu-border-color: var(--rte-border-color);
+  --rte-bubble-menu-button-text-color: var(--rte-button-text-color);
+  --rte-bubble-menu-button-active-text-color: var(--rte-button-active-color);
+  --rte-bubble-menu-button-disabled-text-color: var(--rte-button-disabled-color);
+  --rte-bubble-menu-button-active-background-color: var(--rte-button-active-background-color);
 
   /* MenuList (ie Command Menu) */
-  --editor-menu-list-background-color: #ffffff;
-  --editor-menu-list-border-color: var(--editor-border-color);
-  --editor-menu-list-item-text-color: var(--editor-text-color);
-  --editor-menu-list-button-active-text-color: var(--editor-button-active-color);
-  --editor-menu-list-button-disabled-text-color: var(--editor-button-disabled-color);
-  --editor-menu-list-button-active-background-color: var(--editor-button-active-background-color);
+  --rte-menu-list-background-color: #ffffff;
+  --rte-menu-list-border-color: var(--rte-border-color);
+  --rte-menu-list-item-text-color: var(--rte-text-color);
+  --rte-menu-list-button-active-text-color: var(--rte-button-active-color);
+  --rte-menu-list-button-disabled-text-color: var(--rte-button-disabled-color);
+  --rte-menu-list-button-active-background-color: var(--rte-button-active-background-color);
 }
 
 html.dark {
   /* General colors */
-  --editor-text-color: #dee6f2;
-  --editor-border-color: #2d3748;
-  --editor-placeholder-text-color: #94a3b8;
-  --editor-content-background-color: #0f172a;
-  --editor-content-focus-color: #ec4899;
+  --rte-text-color: #dee6f2;
+  --rte-border-color: #2d3748;
+  --rte-placeholder-text-color: #94a3b8;
+  --rte-content-background-color: #0f172a;
+  --rte-content-focus-color: #ec4899;
 
   /* General buttons */
-  --editor-button-text-color: #94a3b8;
-  --editor-button-active-color: #0f172a;
-  --editor-button-disabled-color: #2d3748;
-  --editor-button-active-background-color: #2d3748;
+  --rte-button-text-color: #94a3b8;
+  --rte-button-active-color: #0f172a;
+  --rte-button-disabled-color: #2d3748;
+  --rte-button-active-background-color: #2d3748;
 
   /* MenuBar */
-  --editor-menu-bar-background-color: #0f172a;
-  --editor-menu-bar-border-color: var(--editor-border-color);
-  --editor-menu-bar-seperator-background-color: #2d3748;
-  --editor-menu-bar-button-background-color: #0f172a;
-  --editor-menu-bar-button-text-color: var(--editor-button-text-color);
-  --editor-menu-bar-button-active-text-color: var(--editor-button-active-color);
-  --editor-menu-bar-button-disabled-text-color: var(--editor-button-disabled-color);
-  --editor-menu-bar-button-active-background-color: #0f172a;
-  --editor-menu-bar-top-radius: 0rem;
+  --rte-menu-bar-background-color: #0f172a;
+  --rte-menu-bar-border-color: var(--rte-border-color);
+  --rte-menu-bar-seperator-background-color: #2d3748;
+  --rte-menu-bar-button-background-color: #0f172a;
+  --rte-menu-bar-button-text-color: var(--rte-button-text-color);
+  --rte-menu-bar-button-active-text-color: var(--rte-button-active-color);
+  --rte-menu-bar-button-disabled-text-color: var(--rte-button-disabled-color);
+  --rte-menu-bar-button-active-background-color: #0f172a;
+  --rte-menu-bar-top-radius: 0rem;
 
   /* BubbleMenu */
-  --editor-bubble-menu-background-color: #0f172a;
-  --editor-bubble-menu-border-color: var(--editor-border-color);
-  --editor-bubble-menu-button-text-color: var(--editor-button-text-color);
-  --editor-bubble-menu-button-active-text-color: var(--editor-button-active-color);
-  --editor-bubble-menu-button-disabled-text-color: var(--editor-button-disabled-color);
-  --editor-bubble-menu-button-active-background-color: var(--editor-button-active-background-color);
+  --rte-bubble-menu-background-color: #0f172a;
+  --rte-bubble-menu-border-color: var(--rte-border-color);
+  --rte-bubble-menu-button-text-color: var(--rte-button-text-color);
+  --rte-bubble-menu-button-active-text-color: var(--rte-button-active-color);
+  --rte-bubble-menu-button-disabled-text-color: var(--rte-button-disabled-color);
+  --rte-bubble-menu-button-active-background-color: var(--rte-button-active-background-color);
 
 
   /* MenuList (ie Command Menu) */
-  --editor-menu-list-background-color: #0f172a;
-  --editor-menu-list-border-color: var(--editor-border-color);
-  --editor-menu-list-item-text-color: var(--editor-text-color);
-  --editor-menu-list-button-active-text-color: #dee6f2;
-  --editor-menu-list-button-disabled-text-color: var(--editor-button-disabled-color);
-  --editor-menu-list-button-active-background-color: var(--editor-button-active-background-color);
+  --rte-menu-list-background-color: #0f172a;
+  --rte-menu-list-border-color: var(--rte-border-color);
+  --rte-menu-list-item-text-color: var(--rte-text-color);
+  --rte-menu-list-button-active-text-color: #dee6f2;
+  --rte-menu-list-button-disabled-text-color: var(--rte-button-disabled-color);
+  --rte-menu-list-button-active-background-color: var(--rte-button-active-background-color);
 }
 
 @media (max-width: 767px) {
@@ -135,8 +135,8 @@ html.dark {
 }
 
 .richer-text-editor--menu-list-dropdown {
-  background-color: var(--editor-menu-list-background-color);
-  border: 1px solid var(--editor-menu-list-border-color);
+  background-color: var(--rte-menu-list-background-color);
+  border: 1px solid var(--rte-menu-list-border-color);
   padding: 0.3rem;
   border-radius: 0.5rem;
 }
@@ -157,20 +157,20 @@ html.dark {
   gap: 0.5rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  color: var(--editor-menu-list-item-text-color);
+  color: var(--rte-menu-list-item-text-color);
   text-decoration: none;
   cursor: pointer;
   width: 100%;
 }
 
 .richer-text-editor--menu-list-dropdown .richer-text-editor--menu-list-item:hover {
-  color: var(--editor-menu-list-button-active-text-color);
-  background-color: var(--editor-menu-list-button-active-background-color);
+  color: var(--rte-menu-list-button-active-text-color);
+  background-color: var(--rte-menu-list-button-active-background-color);
 }
 
 .richer-text-editor--menu-list-dropdown .richer-text-editor--menu-list-item.is-active {
-  color: var(--editor-menu-list-button-active-text-color);
-  background-color: var(--editor-menu-list-button-active-background-color);
+  color: var(--rte-menu-list-button-active-text-color);
+  background-color: var(--rte-menu-list-button-active-background-color);
 }
 
 html.dark hr {
@@ -187,7 +187,7 @@ html.dark hr {
   flex: 1;
   border: none;
   background-color: transparent;
-  color: var(--editor-text-color);
+  color: var(--rte-text-color);
   font-size: 1rem;
   padding: 0.5rem;
 }
@@ -254,7 +254,7 @@ html.dark hr {
 .richer-text-editor {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  color: var(--editor-text-color);
+  color: var(--rte-text-color);
 }
 
 .ProseMirror .has-focus {
@@ -263,11 +263,11 @@ html.dark hr {
 }
 
 pre.has-focus {
-  outline: 2px solid var(--editor-content-focus-color);
+  outline: 2px solid var(--rte-content-focus-color);
 }
 
 div.richer-text-editor--hr.has-focus {
-  outline: 2px solid var(--editor-content-focus-color);
+  outline: 2px solid var(--rte-content-focus-color);
 }
 
 div.richer-text-editor--hr {
@@ -282,7 +282,7 @@ div.richer-text-editor--hr hr {
 
 .richer-text-editor [contenteditable="true"] {
   padding: 0.5rem;
-  border: 1px solid var(--editor-border-color);
+  border: 1px solid var(--rte-border-color);
   outline: none;
   overflow-y: scroll;
   min-height: 250px;
@@ -290,7 +290,7 @@ div.richer-text-editor--hr hr {
 }
 
 .richer-text-editor [contenteditable="true"]:focus {
-  border: 2px solid var(--editor-content-focus-color);
+  border: 2px solid var(--rte-content-focus-color);
 }
 
 .richer-text-editor ul {
@@ -306,59 +306,59 @@ div.richer-text-editor--hr hr {
 }
 
 .richer-text-editor--bubble-menu {
-  background-color: var(--editor-bubble-menu-background-color);
-  border: 1px solid var(--editor-bubble-menu-border-color);
+  background-color: var(--rte-bubble-menu-background-color);
+  border: 1px solid var(--rte-bubble-menu-border-color);
   border-radius: 0.5rem;
   display: flex;
   align-items: center;
 }
 
 .richer-text-editor--bubble-menu .richer-text-editor--bubble-menu-highlighter-menu {
-  background-color: var(--editor-bubble-menu-background-color);
+  background-color: var(--rte-bubble-menu-background-color);
   display: flex;
   align-items: center;
 }
 
 .richer-text-editor--bubble-menu button {
-  color: var(--editor-bubble-menu-button-text-color);
-  background-color: var(--editor-menu-bar-button-background-color);
+  color: var(--rte-bubble-menu-button-text-color);
+  background-color: var(--rte-menu-bar-button-background-color);
   padding: 0.3rem;
   margin: 0.2rem;
 }
 
 .richer-text-editor--bubble-menu button:hover {
-  color: var(--editor-bubble-menu-button-active-text-color);
-  background-color: var(--editor-bubble-menu-button-active-background-color);
+  color: var(--rte-bubble-menu-button-active-text-color);
+  background-color: var(--rte-bubble-menu-button-active-background-color);
 }
 
 .richer-text-editor--bubble-menu button:active {
-  color: var(--editor-bubble-menu-button-active-text-color);
-  background-color: var(--editor-bubble-menu-button-active-background-color);
+  color: var(--rte-bubble-menu-button-active-text-color);
+  background-color: var(--rte-bubble-menu-button-active-background-color);
 }
 
 .richer-text-editor--bubble-menu button:disabled {
-  color: var(--editor-bubble-menu-button-disabled-text-color);
+  color: var(--rte-bubble-menu-button-disabled-text-color);
 }
 
 .richer-text-editor--bubble-menu button svg {
-  width: var(--editor-button-size);
-  height: var(--editor-button-size);
+  width: var(--rte-button-size);
+  height: var(--rte-button-size);
 }
 
 .richer-text-editor--bubble-menu button.is-active {
-  color: var(--editor-bubble-menu-button-active-text-color);
-  background-color: var(--editor-bubble-menu-button-active-background-color);
+  color: var(--rte-bubble-menu-button-active-text-color);
+  background-color: var(--rte-bubble-menu-button-active-background-color);
 }
 
 .richer-text-editor--menu-bar {
-  background-color: var(--editor-menu-bar-background-color);
-  border-color: var(--editor-menu-bar-border-color);
+  background-color: var(--rte-menu-bar-background-color);
+  border-color: var(--rte-menu-bar-border-color);
   border-width: 1px;
-  border-top-left-radius: var(--editor-menu-bar-top-radius);
-  border-top-right-radius: var(--editor-menu-bar-top-radius);
-  border-left: 1px solid var(--editor-menu-bar-border-color);
-  border-right: 1px solid var(--editor-menu-bar-border-color);
-  border-top: 1px solid var(--editor-menu-bar-border-color);
+  border-top-left-radius: var(--rte-menu-bar-top-radius);
+  border-top-right-radius: var(--rte-menu-bar-top-radius);
+  border-left: 1px solid var(--rte-menu-bar-border-color);
+  border-right: 1px solid var(--rte-menu-bar-border-color);
+  border-top: 1px solid var(--rte-menu-bar-border-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -377,45 +377,45 @@ div.richer-text-editor--hr hr {
 }
 
 .richer-text-editor--menu-bar .richer-text-editor--menu-bar-seperator {
-  background-color: var(--editor-menu-bar-seperator-background-color);
+  background-color: var(--rte-menu-bar-seperator-background-color);
   height: 1.25rem;
   width: 1px;
   margin: 0 0.5rem;
 }
 
 .richer-text-editor--menu-bar button {
-  color: var(--editor-menu-bar-button-text-color);
-  background-color: var(--editor-menu-bar-button-background-color);
+  color: var(--rte-menu-bar-button-text-color);
+  background-color: var(--rte-menu-bar-button-background-color);
   padding: 0.5rem;
 }
 
 .richer-text-editor--menu-bar button:hover {
-  color: var(--editor-menu-bar-button-active-color);
-  background-color: var(--editor-menu-bar-button-active-background-color);
+  color: var(--rte-menu-bar-button-active-color);
+  background-color: var(--rte-menu-bar-button-active-background-color);
 }
 
 .richer-text-editor--menu-bar button:active {
-  color: var(--editor-menu-bar-button-active-color);
-  background-color: var(--editor-menu-bar-button-active-background-color);
+  color: var(--rte-menu-bar-button-active-color);
+  background-color: var(--rte-menu-bar-button-active-background-color);
 }
 
 .richer-text-editor--menu-bar button:disabled {
-  color: var(--editor-menu-bar-button-disabled-text-color);
+  color: var(--rte-menu-bar-button-disabled-text-color);
 }
 
 .richer-text-editor--menu-bar button svg {
-  width: var(--editor-button-size);
-  height: var(--editor-button-size);
+  width: var(--rte-button-size);
+  height: var(--rte-button-size);
 }
 
 .richer-text-editor--menu-bar button.is-active {
-  color: var(--editor-menu-bar-background-text-color);
-  background-color: var(--editor-menu-bar-button-active-background-color);
+  color: var(--rte-menu-bar-background-text-color);
+  background-color: var(--rte-menu-bar-button-active-background-color);
 }
 
 .richer-text-editor--content {
-  background-color: var(--editor-content-background-color);
-  /* border: 1px solid var(--editor-border-color); */
+  background-color: var(--rte-content-background-color);
+  /* border: 1px solid var(--rte-border-color); */
   /* padding: 0.5rem; */
 }
 
@@ -481,9 +481,9 @@ div.richer-text-editor--hr hr {
 }
 
 .ProseMirror a {
-  color: var(--editor-link-color);
+  color: var(--rte-link-color);
   text-decoration: none;
-  border-bottom: 1px solid var(--editor-link-color);
+  border-bottom: 1px solid var(--rte-link-color);
 }
 
 .ProseMirror hr {
@@ -493,7 +493,7 @@ div.richer-text-editor--hr hr {
 }
 
 .ProseMirror p.is-empty::before {
-  color: var(--editor-placeholder-text-color);
+  color: var(--rte-placeholder-text-color);
   content: attr(data-placeholder);
   float: left;
   height: 0;
