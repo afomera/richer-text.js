@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BubbleMenu } from '@tiptap/react'
 
 import { IconColumnInsertLeft, IconColumnInsertRight, IconTableColumn, IconTableRow, IconColumnRemove, IconRowInsertBottom, IconRowInsertTop, IconRowRemove, IconTableOff } from '@tabler/icons-react';
