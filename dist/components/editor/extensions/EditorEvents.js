@@ -30,8 +30,13 @@ var _default = _core.Extension.create({
     var element = editor.options.element;
     if (editor.options.editorProps && editor.options.editorProps.input) {
       var input = document.getElementById(editor.options.editorProps.input);
+      var serializer = editor.options.editorProps.serializer;
       if (input) {
-        input.value = editor.getHTML();
+        if (serializer === "json") {
+          input.value = JSON.stringify(editor.getJSON());
+        } else {
+          input.value = editor.getHTML();
+        }
       }
     }
     var customEvent = new CustomEvent('richer-text-editor:update', {

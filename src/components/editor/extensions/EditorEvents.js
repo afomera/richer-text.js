@@ -26,9 +26,14 @@ export default Extension.create({
 
     if (editor.options.editorProps && editor.options.editorProps.input) {
       const input = document.getElementById(editor.options.editorProps.input);
+      const serializer = editor.options.editorProps.serializer;
 
       if (input) {
-        input.value = editor.getHTML();
+        if (serializer === "json") {
+          input.value = JSON.stringify(editor.getJSON());
+        } else {
+          input.value = editor.getHTML();
+        }
       }
     }
 

@@ -17,14 +17,15 @@ var _reactToWebcomponent = _interopRequireDefault(require("react-to-webcomponent
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-var RicherTextEditor = function RicherTextEditor(_ref) {
-  var content = _ref.content,
-    placeholder = _ref.placeholder,
-    callouts = _ref.callouts,
-    showMenuBar = _ref.showMenuBar,
-    bubbleMenuOptions = _ref.bubbleMenuOptions,
-    tables = _ref.tables,
-    input = _ref.input;
+var RicherTextEditor = function RicherTextEditor(props) {
+  var content = props.content,
+    placeholder = props.placeholder,
+    callouts = props.callouts,
+    showMenuBar = props.showMenuBar,
+    bubbleMenuOptions = props.bubbleMenuOptions,
+    tables = props.tables,
+    input = props.input,
+    serializer = props.serializer;
   var editorRef = _react["default"].useRef(null);
   bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
   var editor = (0, _react2.useEditor)({
@@ -33,9 +34,10 @@ var RicherTextEditor = function RicherTextEditor(_ref) {
       callout: callouts !== "false",
       tables: tables !== "false"
     })],
-    content: content,
+    content: serializer === "json" ? JSON.parse(content) : content,
     editorProps: {
-      input: input
+      input: input,
+      serializer: serializer
     }
   });
   return /*#__PURE__*/_react["default"].createElement("div", {
@@ -61,7 +63,8 @@ RicherTextEditor.defaultProps = {
   showMenuBar: "true",
   bubbleMenuOptions: "{ \"highlight\": false }",
   tables: "false",
-  input: ""
+  input: "",
+  serializer: "html"
 };
 RicherTextEditor.propTypes = {
   content: _propTypes["default"].string,
@@ -70,7 +73,8 @@ RicherTextEditor.propTypes = {
   showMenuBar: _propTypes["default"].string,
   bubbleMenuOptions: _propTypes["default"].string,
   tables: _propTypes["default"].string,
-  input: _propTypes["default"].string
+  input: _propTypes["default"].string,
+  serializer: _propTypes["default"].string
 };
 var WebRicherTextEditor = (0, _reactToWebcomponent["default"])(RicherTextEditor, _react["default"], ReactDOM);
 customElements.define("richer-text-editor", WebRicherTextEditor);

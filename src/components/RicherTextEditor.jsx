@@ -9,15 +9,17 @@ import MenuBar from "./editor/MenuBar";
 import BubbleMenu from "./editor/menus/BubbleMenu";
 import TableBubbleMenu from "./editor/menus/TableBubbleMenu";
 
-const RicherTextEditor = ({
-  content,
-  placeholder,
-  callouts,
-  showMenuBar,
-  bubbleMenuOptions,
-  tables,
-  input
-}) => {
+const RicherTextEditor = (props) => {
+  let {
+    content,
+    placeholder,
+    callouts,
+    showMenuBar,
+    bubbleMenuOptions,
+    tables,
+    input,
+    serializer
+  } = props;
   const editorRef = React.useRef(null);
 
   bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
@@ -30,9 +32,10 @@ const RicherTextEditor = ({
         tables: tables !== "false",
       }),
     ],
-    content: content,
+    content: serializer === "json" ? JSON.parse(content) : content,
     editorProps: {
       input: input,
+      serializer: serializer
     }
   });
 
@@ -56,7 +59,8 @@ RicherTextEditor.defaultProps = {
   showMenuBar: "true",
   bubbleMenuOptions: "{ \"highlight\": false }",
   tables: "false",
-  input: ""
+  input: "",
+  serializer: "html"
 }
 
 RicherTextEditor.propTypes = {
@@ -66,7 +70,8 @@ RicherTextEditor.propTypes = {
   showMenuBar: PropTypes.string,
   bubbleMenuOptions: PropTypes.string,
   tables: PropTypes.string,
-  input: PropTypes.string
+  input: PropTypes.string,
+  serializer: PropTypes.string
 }
 
 import reactToWebcomponent from "react-to-webcomponent";
