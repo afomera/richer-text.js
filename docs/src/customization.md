@@ -9,6 +9,7 @@ Optionally, you can customize a few of the attributes by passing them as attribu
 
 | Option              | &nbsp;&nbsp;&nbsp; |           Default            |              Allowed values |
 | :------------------ | ------------------ | :--------------------------: | --------------------------: |
+| serializer          |                    |            "html"            |              "html", "json" |
 | input               |                    |              ""              |               Form field id |
 | content             |                    |              ""              |                      String |
 | placeholder         | &nbsp;&nbsp;&nbsp; |     "Write something..."     |                      String |
@@ -17,12 +18,26 @@ Optionally, you can customize a few of the attributes by passing them as attribu
 | show-menu-bar       |                    |            "true"            |             "true", "false" |
 | bubble-menu-options |                    | `"{ \"highlight\": false }"` | `"{ \"highlight\": true }"` |
 
+<h2>JSON Serializer</h2>
+
+Richer Text allows you to take full control of storing, and rendering content by using JSON to serialize the content instead of the default (HTML) serializer.
+
+<richer-text-editor
+input="json_serializer"
+serializer="json"
+callouts="true"
+tables="true"
+content='{"type":"doc","content":[{"type":"paragraph","attrs":{"textAlign":"left"},"content":[{"type":"text","text":"Hello from the "},{"type":"text","marks":[{"type":"bold"}],"text":"JSON"},{"type":"text","text":" serializer."}]}]}'> </richer-text-editor>
+
+JSON output:
+<textarea style="width: 100%" rows="6" type="text" id="json_serializer">{"type":"doc","content":[{"type":"paragraph","attrs":{"textAlign":"left"},"content":[{"type":"text","text":"Hello from the "},{"type":"text","marks":[{"type":"bold"}],"text":"JSON"},{"type":"text","text":" serializer."}]}]}</textarea>
+
 ```html
 <richer-text-editor
-  content="I'm an editor without a menu bar and no callouts."
-  callouts="false"
-  show-menu-bar="false"
-></richer-text-editor>
+  serializer="json"
+  content='{"type":"doc","content":[{"type":"paragraph","attrs":{"textAlign":"left"},"content":[{"type":"text","text":"Hello from the "},{"type":"text","marks":[{"type":"bold"}],"text":"JSON"},{"type":"text","text":" serializer."}]}]}'
+>
+</richer-text-editor>
 ```
 
 <h2>Customizing the Menu Bar</h2>
