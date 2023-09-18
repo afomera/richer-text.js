@@ -92,3 +92,19 @@ hr {
   border-top: 2px dotted #bbb;
   margin: 2rem 0;
 }
+
+[aria-hidden="true"] {
+  visibility: hidden;
+}
+
+.anchor {
+  text-decoration: none;
+}
+
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+  visibility: visible;
+}

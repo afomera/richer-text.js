@@ -18,7 +18,7 @@ Optionally, you can customize a few of the attributes by passing them as attribu
 | show-menu-bar       |                    |            "true"            |             "true", "false" |
 | bubble-menu-options |                    | `"{ \"highlight\": false }"` | `"{ \"highlight\": true }"` |
 
-<h2>JSON Serializer</h2>
+<h2 id="json-serializer">JSON Serializer</h2>
 
 Richer Text allows you to take full control of storing, and rendering content by using JSON to serialize the content instead of the default (HTML) serializer.
 
@@ -40,7 +40,7 @@ JSON output:
 </richer-text-editor>
 ```
 
-<h2>Customizing the Menu Bar</h2>
+<h2 id="customizing-menu-bar">Customizing the Menu Bar</h2>
 
 Want a smaller menu bar, or perhaps you don't want a border? Using CSS Variables you can tweak the border color, icon size, and any other colors.
 
@@ -90,7 +90,7 @@ If you'd like, you can also apply these variables at the ==`:root`== level, just
 }
 ```
 
-<h2>All CSS Variables</h2>
+<h2 id="all-css-vars">All CSS Variables</h2>
 
 We support customizing the looks of the Richer Text Editor by using CSS variables to control coloring.
 

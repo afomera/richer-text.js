@@ -47,7 +47,7 @@ layout: default
   validates :title, presence: true
 end</pre>
 
-<p>Another paragraph here, maybe showing off the small text.</p>
+<p>Another paragraph here, maybe showing off the normal text.</p>
 " placeholder="Write something..."></richer-text-editor>
 
 ```html
