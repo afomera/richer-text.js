@@ -24,7 +24,8 @@ function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefine
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var EditImageMenu = function EditImageMenu(_ref) {
   var editor = _ref.editor,
-    node = _ref.node;
+    node = _ref.node,
+    getPos = _ref.getPos;
   var attrs = node.attrs;
   return /*#__PURE__*/_react["default"].createElement("div", {
     className: "richer-text-editor--edit-menu"
@@ -55,11 +56,21 @@ var EditImageMenu = function EditImageMenu(_ref) {
       width: 20,
       height: 20
     })
+  }), /*#__PURE__*/_react["default"].createElement(_BubbleMenuButton["default"], {
+    command: function command() {
+      return editor.chain().setNodeSelection(getPos()).deleteSelection().run();
+    },
+    active: false,
+    icon: /*#__PURE__*/_react["default"].createElement(_iconsReact.IconTrash, {
+      width: 20,
+      height: 20
+    })
   }));
 };
 var ImageNode = function ImageNode(_ref2) {
   var editor = _ref2.editor,
-    node = _ref2.node;
+    node = _ref2.node,
+    getPos = _ref2.getPos;
   var attrs = node.attrs;
   var src = attrs.src,
     alt = attrs.alt,
@@ -75,7 +86,8 @@ var ImageNode = function ImageNode(_ref2) {
     render: function render() {
       return /*#__PURE__*/_react["default"].createElement(EditImageMenu, {
         editor: editor,
-        node: node
+        node: node,
+        getPos: getPos
       });
     },
     interactive: true,

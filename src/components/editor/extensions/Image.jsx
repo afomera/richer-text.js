@@ -5,9 +5,9 @@ import { Plugin, PluginKey } from "@tiptap/pm/state";
 import { DirectUpload } from "@rails/activestorage";
 import Tippy from "@tippyjs/react/headless"
 import BubbleMenuButton from "../elements/BubbleMenuButton";
-import { IconSquare } from '@tabler/icons-react';
+import { IconSquare, IconTrash } from '@tabler/icons-react';
 
-const EditImageMenu = ({ editor, node }) => {
+const EditImageMenu = ({ editor, node, getPos }) => {
   const attrs = node.attrs;
 
   return (
@@ -27,11 +27,16 @@ const EditImageMenu = ({ editor, node }) => {
         active={attrs.width === "100%"}
         icon={<IconSquare width={20} height={20} />}
       />
+      <BubbleMenuButton
+        command={() => editor.chain().setNodeSelection(getPos()).deleteSelection().run()}
+        active={false}
+        icon={<IconTrash width={20} height={20} />}
+      />
     </div>
   );
 }
 
-const ImageNode = ({ editor, node }) => {
+const ImageNode = ({ editor, node, getPos }) => {
   const { attrs } = node;
   const { src, alt, width } = attrs;
   const [editMenuVisible, setEditMenuVisible] = useState(false);
@@ -48,6 +53,7 @@ const ImageNode = ({ editor, node }) => {
             <EditImageMenu
               editor={editor}
               node={node}
+              getPos={getPos}
             />
           )}
           interactive={true}
