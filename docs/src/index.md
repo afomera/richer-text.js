@@ -47,8 +47,7 @@ layout: default
   validates :title, presence: true
 end</pre>
 
-<p>Another paragraph here, maybe showing off the normal text.</p>
-
+<p>Need to support images in your text body? We can do that with three sizing options, small, medium and large.</p>
 <img src='https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=5340&q=80'>
 <p>Photo by <a href='https://unsplash.com/@jrkorpa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Jr Korpa</a> on <a href='https://unsplash.com/photos/9XngoIpxcEo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a></p>
 " placeholder="Write something..."></richer-text-editor>
