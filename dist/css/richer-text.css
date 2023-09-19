@@ -330,7 +330,7 @@ div.richer-text-editor--hr hr {
   margin-left: 1rem;
 }
 
-.richer-text-editor--bubble-menu {
+.richer-text-editor--bubble-menu, .richer-text-editor--edit-menu {
   background-color: var(--rte-bubble-menu-background-color);
   border: 1px solid var(--rte-bubble-menu-border-color);
   border-radius: 0.5rem;
@@ -371,6 +371,32 @@ div.richer-text-editor--hr hr {
 }
 
 .richer-text-editor--bubble-menu button.is-active {
+  color: var(--rte-bubble-menu-button-active-text-color);
+  background-color: var(--rte-bubble-menu-button-active-background-color);
+}
+
+.richer-text-editor--edit-menu button {
+  color: var(--rte-bubble-menu-button-text-color);
+  background-color: var(--rte-menu-bar-button-background-color);
+  padding: 0.3rem;
+  margin: 0.2rem;
+}
+
+.richer-text-editor--edit-menu button:hover {
+  color: var(--rte-bubble-menu-button-active-text-color);
+  background-color: var(--rte-bubble-menu-button-active-background-color);
+}
+
+.richer-text-editor--edit-menu button:active {
+  color: var(--rte-bubble-menu-button-active-text-color);
+  background-color: var(--rte-bubble-menu-button-active-background-color);
+}
+
+.richer-text-editor--edit-menu button:disabled {
+  color: var(--rte-bubble-menu-button-disabled-text-color);
+}
+
+.richer-text-editor--edit-menu button.is-active {
   color: var(--rte-bubble-menu-button-active-text-color);
   background-color: var(--rte-bubble-menu-button-active-background-color);
 }
