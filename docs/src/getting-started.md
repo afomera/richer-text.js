@@ -9,63 +9,7 @@ title: Getting started
 
 ## Installation (Ruby on Rails)
 
-Getting started with Ruby on Rails is a matter of following the following instructions:
-
-First up is to add the `richer_text` gem to your Gemfile.
-
-```shell
-  bundle add richer_text
-```
-
-Next you'll need to run the generator task to add the yarn packages, copy over the migrations and assets.
-
-```shell
-  rails richer_text:install
-```
-
-Then run your migrations to create the tables in the database.
-
-```shell
-  rails db:migrate
-```
-
-### Implementing RicherText into your forms
-
-First up in your model add the `has_richer_text :attribute_name` to your models.
-
-```ruby
-class Post < ApplicationRecord
-  has_richer_text :body
-end
-```
-
-<div class="callout" data-color="blue">
-  <strong>Optionally:</strong> You can choose to store your content as JSON by passing `store_as: :json` to the has_richer_text attribute.
-
-<pre><code>has_richer_text :body, store_as: :json</code></pre>
-
-</div>
-
-Next permit the `body` param in your controller
-
-```ruby
-  params.require(:post).permit(:title, :body)
-```
-
-Then add the RicherText editor into your forms.
-
-<pre>
-  &lt;%= form.label :body %&gt;
-  &lt;%= form.richer_text_area :body %&gt;
-</pre>
-
-Then you can render the content out with:
-
-<pre>
-  &lt;%= @post.body %&gt;
-</pre>
-
-That's all! Enjoy using RicherText 🥳
+<a href="/ruby-on-rails#installation">View the Ruby on Rails installation page.</a>
 
 ## Manual Installation
 

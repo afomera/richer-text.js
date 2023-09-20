@@ -11,9 +11,9 @@
         <%= content %>
       </main>
 
-      <% if resource.data.layout == "page" %>
+      <%# if resource.data.layout == "page" %>
         <%= render "sidebar", metadata: site.metadata, resource: resource %>
-      <% end %>
+      <%# end %>
     </div>
 
     <%= render "footer", metadata: site.metadata %>
