@@ -6,9 +6,15 @@
   <body class='<%= "#{resource.data.layout} #{resource.data.page_class}" %>' >
     <%= render "navbar", metadata: site.metadata, resource: resource %>
 
-    <main>
-      <%= content %>
-    </main>
+    <div class="container-with-sidebar">
+      <main>
+        <%= content %>
+      </main>
+
+      <% if resource.data.layout == "page" %>
+        <%= render "sidebar", metadata: site.metadata, resource: resource %>
+      <% end %>
+    </div>
 
     <%= render "footer", metadata: site.metadata %>
   </body>

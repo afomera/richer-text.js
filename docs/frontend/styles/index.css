@@ -57,18 +57,43 @@ body > nav a {
   text-decoration: none;
 }
 
-main {
-  margin: 0.5rem auto 2rem;
-  /* border: 1px solid #ddd; */
-  max-width: 65rem;
-  min-height: calc(100vh - 200px);
-  padding: 25px 25px 50px;
-  background: white;
-  /* box-shadow: 2px 3px 3px #ddd; */
-  border-radius: 3px;
+/* Place a main element and an aside element side by side */
+main,
+aside {
+  display: inline-block;
+  vertical-align: top;
+}
 
+main {
+  margin-left: 2rem;
+  width: 70%;
+  max-width: 65rem;
+}
+
+aside {
+  width: 30%;
+  max-width: 25rem;
+  margin-left: 2rem;
+  border-left: 2px solid #ddd;
+
+  & ul {
+    list-style-type: none;
+
+    & li {
+      margin-bottom: 0.4em;
+    }
+  }
+}
+
+.container-with-sidebar {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: center;
+
+  /* Handle narrow screens */
   @media (max-width: 500px) {
-    padding: 16px 16px 50px;
+    flex-direction: column;
   }
 }
 

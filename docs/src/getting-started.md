@@ -39,6 +39,13 @@ class Post < ApplicationRecord
 end
 ```
 
+<div class="callout" data-color="blue">
+  <strong>Optionally:</strong> You can choose to store your content as JSON by passing `store_as: :json` to the has_richer_text attribute.
+
+<pre><code>has_richer_text :body, store_as: :json</code></pre>
+
+</div>
+
 Next permit the `body` param in your controller
 
 ```ruby
