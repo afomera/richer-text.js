@@ -7,6 +7,10 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ## main
 
+---
+
+## 0.13.0
+
 - Introduce Emoji extension 🥳. For now, unless we get feedback to make it opt-in, everyone will be opted in to the emojis. You can pass `emoji: false` if you're looking to opt-out of Emojis.
 
 ---
