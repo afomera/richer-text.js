@@ -16,6 +16,7 @@ Optionally, you can customize a few of the attributes by passing them as attribu
 | callouts            |                    |           "false"            |             "true", "false" |
 | tables              |                    |           "false"            |             "true", "false" |
 | show-menu-bar       |                    |            "true"            |             "true", "false" |
+| emoji               |                    |            "true"            |             "true", "false" |
 | bubble-menu-options |                    | `"{ \"highlight\": false }"` | `"{ \"highlight\": true }"` |
 
 <h2 id="json-serializer">JSON Serializer</h2>
