@@ -18,7 +18,8 @@ const RicherTextEditor = (props) => {
     bubbleMenuOptions,
     tables,
     input,
-    serializer
+    serializer,
+    emoji
   } = props;
   const editorRef = React.useRef(null);
 
@@ -30,6 +31,7 @@ const RicherTextEditor = (props) => {
         placeholder: placeholder,
         callout: callouts !== "false",
         tables: tables !== "false",
+        emoji: emoji !== "false",
       }),
     ],
     content: serializer === "json" ? JSON.parse(content) : content,
@@ -60,7 +62,8 @@ RicherTextEditor.defaultProps = {
   bubbleMenuOptions: "{ \"highlight\": false }",
   tables: "false",
   input: "",
-  serializer: "html"
+  serializer: "html",
+  emoji: "true"
 }
 
 RicherTextEditor.propTypes = {
@@ -71,7 +74,8 @@ RicherTextEditor.propTypes = {
   bubbleMenuOptions: PropTypes.string,
   tables: PropTypes.string,
   input: PropTypes.string,
-  serializer: PropTypes.string
+  serializer: PropTypes.string,
+  emoji: PropTypes.string
 }
 
 import reactToWebcomponent from "react-to-webcomponent";

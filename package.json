@@ -1,6 +1,6 @@
 {
   "name": "@afomera/richer-text",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "A Richer Text Editor experience based on Tiptap",
   "main": "index.js",
   "files": [
@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d dist && cp -p src/css/richer-text.css dist/css/richer-text.css"
+    "build": "babel src -d dist --out-dir dist && cp -p src/css/richer-text.css dist/css/richer-text.css"
   },
   "repository": "git@github.com:afomera/richer-text.js.git",
   "bugs": {
@@ -52,6 +52,7 @@
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.7",
     "@babel/preset-env": "^7.20.2",
-    "@babel/preset-react": "^7.18.6"
+    "@babel/preset-react": "^7.18.6",
+    "babel-plugin-inline-json-import": "^0.3.2"
   }
 }

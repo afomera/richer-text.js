@@ -14,6 +14,7 @@ import TableRow from '@tiptap/extension-table-row'
 import TextAlign from "@tiptap/extension-text-align";
 import TextStyle from '@tiptap/extension-text-style'
 
+import Emoji from "./Emoji";
 import Callout from "./Callout";
 import CodeBlock from "./CodeBlock";
 import CommandMenu from "./CommandMenu";
@@ -116,6 +117,10 @@ export const RicherTextKit = Extension.create({
         TableHeader,
         TableCell,
       )
+    }
+
+    if (this.options.emoji !== false) {
+      extensions.push(Emoji);
     }
 
     extensions.push(

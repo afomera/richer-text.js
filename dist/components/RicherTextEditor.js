@@ -25,14 +25,16 @@ var RicherTextEditor = function RicherTextEditor(props) {
     bubbleMenuOptions = props.bubbleMenuOptions,
     tables = props.tables,
     input = props.input,
-    serializer = props.serializer;
+    serializer = props.serializer,
+    emoji = props.emoji;
   var editorRef = _react["default"].useRef(null);
   bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
   var editor = (0, _react2.useEditor)({
     extensions: [_RicherTextKit.RicherTextKit.configure({
       placeholder: placeholder,
       callout: callouts !== "false",
-      tables: tables !== "false"
+      tables: tables !== "false",
+      emoji: emoji !== "false"
     })],
     content: serializer === "json" ? JSON.parse(content) : content,
     editorProps: {
@@ -64,7 +66,8 @@ RicherTextEditor.defaultProps = {
   bubbleMenuOptions: "{ \"highlight\": false }",
   tables: "false",
   input: "",
-  serializer: "html"
+  serializer: "html",
+  emoji: "true"
 };
 RicherTextEditor.propTypes = {
   content: _propTypes["default"].string,
@@ -74,7 +77,8 @@ RicherTextEditor.propTypes = {
   bubbleMenuOptions: _propTypes["default"].string,
   tables: _propTypes["default"].string,
   input: _propTypes["default"].string,
-  serializer: _propTypes["default"].string
+  serializer: _propTypes["default"].string,
+  emoji: _propTypes["default"].string
 };
 var WebRicherTextEditor = (0, _reactToWebcomponent["default"])(RicherTextEditor, _react["default"], ReactDOM);
 customElements.define("richer-text-editor", WebRicherTextEditor);

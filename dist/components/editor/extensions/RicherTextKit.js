@@ -18,6 +18,7 @@ var _extensionTableHeader = _interopRequireDefault(require("@tiptap/extension-ta
 var _extensionTableRow = _interopRequireDefault(require("@tiptap/extension-table-row"));
 var _extensionTextAlign = _interopRequireDefault(require("@tiptap/extension-text-align"));
 var _extensionTextStyle = _interopRequireDefault(require("@tiptap/extension-text-style"));
+var _Emoji = _interopRequireDefault(require("./Emoji"));
 var _Callout = _interopRequireDefault(require("./Callout"));
 var _CodeBlock = _interopRequireDefault(require("./CodeBlock"));
 var _CommandMenu = _interopRequireDefault(require("./CommandMenu"));
@@ -92,6 +93,9 @@ var RicherTextKit = _core.Extension.create({
       extensions.push(_extensionTable["default"].configure({
         resizable: false
       }), _extensionTableRow["default"], _extensionTableHeader["default"], _extensionTableCell["default"]);
+    }
+    if (this.options.emoji !== false) {
+      extensions.push(_Emoji["default"]);
     }
     extensions.push(_EditorEvents["default"], _CodeBlock["default"], _extensionTextStyle["default"], _extensionTextAlign["default"].configure({
       types: ['paragraph', 'heading']
