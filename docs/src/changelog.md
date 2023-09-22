@@ -7,6 +7,10 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ## main
 
+---
+
+## 0.14.0
+
 - Introduce a new Mention extension for @mentions support. To use read below:
 
   - Create an endpoint that returns json in the following format:
