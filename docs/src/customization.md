@@ -7,17 +7,18 @@ title: Customization
 
 Optionally, you can customize a few of the attributes by passing them as attributes to the `<richer-text-editor>` tag.
 
-| Option              | &nbsp;&nbsp;&nbsp; |           Default            |              Allowed values |
-| :------------------ | ------------------ | :--------------------------: | --------------------------: |
-| serializer          |                    |            "html"            |              "html", "json" |
-| input               |                    |              ""              |               Form field id |
-| content             |                    |              ""              |                      String |
-| placeholder         | &nbsp;&nbsp;&nbsp; |     "Write something..."     |                      String |
-| callouts            |                    |           "false"            |             "true", "false" |
-| tables              |                    |           "false"            |             "true", "false" |
-| show-menu-bar       |                    |            "true"            |             "true", "false" |
-| emoji               |                    |            "true"            |             "true", "false" |
-| bubble-menu-options |                    | `"{ \"highlight\": false }"` | `"{ \"highlight\": true }"` |
+| Option                 | &nbsp;&nbsp;&nbsp; |           Default            |              Allowed values |
+| :--------------------- | ------------------ | :--------------------------: | --------------------------: |
+| serializer             |                    |            "html"            |              "html", "json" |
+| input                  |                    |              ""              |               Form field id |
+| content                |                    |              ""              |                      String |
+| placeholder            | &nbsp;&nbsp;&nbsp; |     "Write something..."     |                      String |
+| callouts               |                    |           "false"            |             "true", "false" |
+| tables                 |                    |           "false"            |             "true", "false" |
+| show-menu-bar          |                    |            "true"            |             "true", "false" |
+| emoji                  |                    |            "true"            |             "true", "false" |
+| bubble-menu-options    |                    | `"{ \"highlight\": false }"` | `"{ \"highlight\": true }"` |
+| mentionable-users-path |                    |              ""              |  URL path to .json endpoint |
 
 <h2 id="json-serializer">JSON Serializer</h2>
 
