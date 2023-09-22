@@ -9,6 +9,11 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ---
 
+## 0.14.1
+
+- Added @tiptap/extension-code-block package to dependencies
+- Added @tiptap/extension-horizontial-rule package to dependencies
+
 ## 0.14.0
 
 - Introduce a new Mention extension for @mentions support. To use read below:
