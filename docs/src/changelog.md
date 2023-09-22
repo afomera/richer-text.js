@@ -7,6 +7,29 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ## main
 
+- Introduce a new Mention extension for @mentions support. To use read below:
+
+  - Create an endpoint that returns json in the following format:
+
+  ```json
+  [
+    {
+      "label": "John Doe",
+      "id": "gid://app/User/1",
+      "avatarUrl": "https://i.pravatar.cc/64?img=1"
+    },
+    {
+      "label": "Jane Doe",
+      "id": "gid://app/User/2",
+      "avatarUrl": "https://i.pravatar.cc/64?img=5"
+    }
+  ]
+  ```
+
+  - Pass the relative path to the `richer-text-editor` tag by passing `mentionable-users-path` with the URL path of the json endpoint. For example if the users.json endpoint lived at your app root you should pass "/users.json".
+  - The endpoint can receive a "query" param with the search term from the user as they type after the @. So typing @John would send a query param of "John".
+  - If you're using our `richer_text` Rails gem, you'll need to return Global IDs like so `user.to_global_id.to_s` so we can properly identify the user on the backend.
+
 ---
 
 ## 0.13.0
