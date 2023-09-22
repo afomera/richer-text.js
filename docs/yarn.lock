@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@afomera/richer-text@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@afomera/richer-text/-/richer-text-0.14.0.tgz#79f2c2db1b2877601309c7fdf78fa10c93fe0d16"
-  integrity sha512-jL8Ezk1Mf095t/SvIVh+jJ6dlhsC9YN0XcSUVw89GCcf9tZV2nhLyisPDiqai5b7yg99D8IVdgv9OMq9mEZGug==
+"@afomera/richer-text@^0.14.1":
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/@afomera/richer-text/-/richer-text-0.14.1.tgz#bb1961040d80cd4723dfab861d7dcc74ec6f8b4e"
+  integrity sha512-LNv1Q1PCZ/YXYCdftPXv0Oz3TdNY1/XObB35/HBCLZ7ggw5TliUn/BMb50eF7YENpfq+8jpLA2l5PqybSzULSA==
   dependencies:
     "@rails/activestorage" "^7.0.4"
     "@tabler/icons" "^1.118.0"
@@ -13,10 +13,12 @@
     "@tippyjs/react" "^4.2.6"
     "@tiptap/core" "2.0.3"
     "@tiptap/extension-bubble-menu" "2.0.3"
+    "@tiptap/extension-code-block" "2.0.3"
     "@tiptap/extension-code-block-lowlight" "2.0.3"
     "@tiptap/extension-dropcursor" "2.0.3"
     "@tiptap/extension-focus" "^2.0.3"
     "@tiptap/extension-highlight" "2.0.3"
+    "@tiptap/extension-horizontal-rule" "2.0.3"
     "@tiptap/extension-link" "2.0.3"
     "@tiptap/extension-mention" "2.0.3"
     "@tiptap/extension-placeholder" "2.0.3"
@@ -262,6 +264,11 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-code-block-lowlight/-/extension-code-block-lowlight-2.0.3.tgz#42cad47b048d4657cb0d554a890abd1bc7072451"
   integrity sha512-thFXcFdFyHF0/dr9sqBedjj0Vt14k3m52YVc4l65+d65wRuHp4f8suu8T2ZGRJwqLCE3NIrvwQTSHhzjIqJVxQ==
 
+"@tiptap/extension-code-block@2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-code-block/-/extension-code-block-2.0.3.tgz#4ce08b4f3c5af166d3cc00e91ba5b989f01fee63"
+  integrity sha512-F4xMy18EwgpyY9f5Te7UuF7UwxRLptOtCq1p2c2DfxBvHDWhAjQqVqcW/sq/I/WuED7FwCnPLyyAasPiVPkLPw==
+
 "@tiptap/extension-code-block@^2.0.3":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-code-block/-/extension-code-block-2.0.4.tgz#d551ee7c13fef379bbbad298f1be757d1125cd54"
@@ -323,6 +330,11 @@
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-history/-/extension-history-2.0.4.tgz#761a9c4b2a875817acc73137660552bd49e94fca"
   integrity sha512-3GAUszn1xZx3vniHMiX9BSKmfvb5QOb0oSLXInN+hx80CgJDIHqIFuhx2dyV9I/HWpa0cTxaLWj64kfDzb1JVg==
+
+"@tiptap/extension-horizontal-rule@2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-horizontal-rule/-/extension-horizontal-rule-2.0.3.tgz#5c67db2c0bf3bc14a8aab80df584bee5aa23fbeb"
+  integrity sha512-SZRUSh07b/M0kJHNKnfBwBMWrZBEm/E2LrK1NbluwT3DBhE+gvwiEdBxgB32zKHNxaDEXUJwUIPNC3JSbKvPUA==
 
 "@tiptap/extension-horizontal-rule@^2.0.3":
   version "2.0.4"
