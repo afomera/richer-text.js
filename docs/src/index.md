@@ -15,12 +15,13 @@ layout: default
   <button>Switch To Dark</button>
 </div>
 <input type="hidden" id="foobar" />
-<richer-text-editor tables="true" input="foobar" callouts="true" bubble-menu-options='{ "highlight": false }' content="<div class='callout' data-color='gray'>
+<richer-text-editor mentionable-users-path="/users.json" tables="true" input="foobar" callouts="true" bubble-menu-options='{ "highlight": false }' content="<div class='callout' data-color='gray'>
 
 <p style='text-align: center'><strong><span style='font-size: 20px'>Welcome to RicherText</span></strong></p>
 <p>RicherText aims to provide an alternative solution to using ActionText and Trix in Ruby on Rails. It uses a rich text editor based on TipTap (which itself is based on ProseMirror).</p>
 </div>
 <h1>We have H1 headings</h1>
+<p>We also have @mentions see an example here: <span data-type='mention' class='richer-text--mention' data-id='gid://app/User/2' data-label='Jane Doe' data-avatar-url='https://i.pravatar.cc/64?img=5' contenteditable='false'><img class='richer-text--mention-img' src='https://i.pravatar.cc/64?img=5' alt='Jane Doe'><span class='richer-text--mention-label'>Jane Doe</span></span>, coming at you live from a Richer Text Editor near you.</p>
 <p>Not only do we have headings, and regular paragraphs, you can find an example ✨ <strong>Table</strong> ✨ below. Mind blowing stuff, isn't it? You can use the / insert menu to insert a Table</p>
 <table>
   <tbody>

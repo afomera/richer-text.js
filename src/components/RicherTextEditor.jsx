@@ -5,6 +5,9 @@ import PropTypes from "prop-types"
 import { EditorContent, useEditor } from "@tiptap/react";
 import { RicherTextKit } from "./editor/extensions/RicherTextKit";
 
+import Mention from "./editor/extensions/Mention";
+import MentionSuggestion from "./editor/suggestions/MentionSuggestion";
+
 import MenuBar from "./editor/MenuBar";
 import BubbleMenu from "./editor/menus/BubbleMenu";
 import TableBubbleMenu from "./editor/menus/TableBubbleMenu";
@@ -19,21 +22,33 @@ const RicherTextEditor = (props) => {
     tables,
     input,
     serializer,
-    emoji
+    emoji,
+    mentionableUsersPath
   } = props;
   const editorRef = React.useRef(null);
 
   bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
 
+  let extensions = [
+    RicherTextKit.configure({
+      placeholder: placeholder,
+      callout: callouts !== "false",
+      tables: tables !== "false",
+      emoji: emoji !== "false",
+    }),
+  ];
+
+  if (mentionableUsersPath.length > 0) {
+    extensions.push(
+      Mention.configure({
+        HTMLAttributes: { class: "richer-text--mention" },
+        suggestion: MentionSuggestion(mentionableUsersPath),
+      })
+    );
+  }
+
   const editor = useEditor({
-    extensions: [
-      RicherTextKit.configure({
-        placeholder: placeholder,
-        callout: callouts !== "false",
-        tables: tables !== "false",
-        emoji: emoji !== "false",
-      }),
-    ],
+    extensions: [...extensions],
     content: serializer === "json" ? JSON.parse(content) : content,
     editorProps: {
       input: input,
@@ -63,7 +78,8 @@ RicherTextEditor.defaultProps = {
   tables: "false",
   input: "",
   serializer: "html",
-  emoji: "true"
+  emoji: "true",
+  mentionableUsersPath: ""
 }
 
 RicherTextEditor.propTypes = {
@@ -75,7 +91,8 @@ RicherTextEditor.propTypes = {
   tables: PropTypes.string,
   input: PropTypes.string,
   serializer: PropTypes.string,
-  emoji: PropTypes.string
+  emoji: PropTypes.string,
+  mentionableUsersPath: PropTypes.string
 }
 
 import reactToWebcomponent from "react-to-webcomponent";

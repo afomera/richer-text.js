@@ -10,6 +10,8 @@ var ReactDOM = _interopRequireWildcard(require("react-dom/client"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _react2 = require("@tiptap/react");
 var _RicherTextKit = require("./editor/extensions/RicherTextKit");
+var _Mention = _interopRequireDefault(require("./editor/extensions/Mention"));
+var _MentionSuggestion = _interopRequireDefault(require("./editor/suggestions/MentionSuggestion"));
 var _MenuBar = _interopRequireDefault(require("./editor/MenuBar"));
 var _BubbleMenu = _interopRequireDefault(require("./editor/menus/BubbleMenu"));
 var _TableBubbleMenu = _interopRequireDefault(require("./editor/menus/TableBubbleMenu"));
@@ -26,16 +28,26 @@ var RicherTextEditor = function RicherTextEditor(props) {
     tables = props.tables,
     input = props.input,
     serializer = props.serializer,
-    emoji = props.emoji;
+    emoji = props.emoji,
+    mentionableUsersPath = props.mentionableUsersPath;
   var editorRef = _react["default"].useRef(null);
   bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
+  var extensions = [_RicherTextKit.RicherTextKit.configure({
+    placeholder: placeholder,
+    callout: callouts !== "false",
+    tables: tables !== "false",
+    emoji: emoji !== "false"
+  })];
+  if (mentionableUsersPath.length > 0) {
+    extensions.push(_Mention["default"].configure({
+      HTMLAttributes: {
+        "class": "richer-text--mention"
+      },
+      suggestion: (0, _MentionSuggestion["default"])(mentionableUsersPath)
+    }));
+  }
   var editor = (0, _react2.useEditor)({
-    extensions: [_RicherTextKit.RicherTextKit.configure({
-      placeholder: placeholder,
-      callout: callouts !== "false",
-      tables: tables !== "false",
-      emoji: emoji !== "false"
-    })],
+    extensions: [].concat(extensions),
     content: serializer === "json" ? JSON.parse(content) : content,
     editorProps: {
       input: input,
@@ -67,7 +79,8 @@ RicherTextEditor.defaultProps = {
   tables: "false",
   input: "",
   serializer: "html",
-  emoji: "true"
+  emoji: "true",
+  mentionableUsersPath: ""
 };
 RicherTextEditor.propTypes = {
   content: _propTypes["default"].string,
@@ -78,7 +91,8 @@ RicherTextEditor.propTypes = {
   tables: _propTypes["default"].string,
   input: _propTypes["default"].string,
   serializer: _propTypes["default"].string,
-  emoji: _propTypes["default"].string
+  emoji: _propTypes["default"].string,
+  mentionableUsersPath: _propTypes["default"].string
 };
 var WebRicherTextEditor = (0, _reactToWebcomponent["default"])(RicherTextEditor, _react["default"], ReactDOM);
 customElements.define("richer-text-editor", WebRicherTextEditor);

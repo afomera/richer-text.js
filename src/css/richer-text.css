@@ -624,3 +624,21 @@ div.richer-text-editor--hr hr {
   padding: 4px 4px;
   font-size: small;
 }
+
+.richer-text--mention {
+  background-color: #e2e8f0;
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.25rem;
+  color: #4a5568;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.richer-text--mention-img {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.25rem;
+  margin-right: 0.25rem;
+}

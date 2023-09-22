@@ -1,0 +1,7 @@
+[
+  { "label": "John Doe", "id": "gid://app/User/1", "avatarUrl": "https://i.pravatar.cc/64?img=1" },
+  { "label": "Jane Doe", "id": "gid://app/User/2", "avatarUrl": "https://i.pravatar.cc/64?img=5" },
+  { "label": "Kate Doe", "id": "gid://app/User/3", "avatarUrl": "https://i.pravatar.cc/64?img=4" },
+  { "label": "Tom Doe", "id": "gid://app/User/4", "avatarUrl": "https://i.pravatar.cc/64?img=3" },
+  { "label": "Jerry Doe", "id": "gid://app/User/5", "avatarUrl": "https://i.pravatar.cc/64?img=2" }
+]
