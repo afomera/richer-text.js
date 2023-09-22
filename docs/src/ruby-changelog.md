@@ -9,6 +9,12 @@ This is the changelog for our Ruby Gem package. Are you looking for the <a href=
 
 ---
 
+## 0.9.0
+
+- Added support for @mention nodes on the Ruby gem side. Requires RicherText.js v0.14 or higher.
+  - Mention nodes are supported for either HTML or JSON renderers. For full support, it's recommended you use JSON storage.
+  - You can return the `mentionees` from any RichText record, for example: `post.body.mentionees` will return the parsed HTML/JSON mentionees. This requires you to be using Global IDs from your JSON endpoint the RicherText.js receives.
+
 ## 0.8.0
 
 - Added basic support for [Rhino Editor](https://rhino-editor.vercel.app) to use RicherText to store JSON from the editor. Richer Text will handle attaching and saving ActiveStorage attachments so you don't need to worry about storing them yourself.
