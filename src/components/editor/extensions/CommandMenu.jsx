@@ -13,6 +13,20 @@ const commandItems = ({ calloutEnabled, tablesEnabled }) => {
 
   commandItems.push(
     {
+      label: "Richer Text Embed",
+      icon: <IconH1 />,
+      command: ({ editor, range }) => {
+        editor.chain().focus().deleteRange(range).insertContent({
+          type: "richerTextEmbed",
+          attrs: {
+            sgid: "eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJak5uYVdRNkx5OXlhV05vWlhJdGRHVjRkQzFpYjI5MGMzUnlZWEF2VUc5emRDOHhORDlsZUhCcGNtVnpYMmx1QmpvR1JWUT0iLCJleHAiOm51bGwsInB1ciI6ImF0dGFjaGFibGUifX0=--1eb2a126186a5abe0826d15395dd587b4ecddfd3",
+            width: "100%"
+          }
+        }).run();
+      }
+    },
+
+    {
       label: "Heading 1",
       icon: <IconH1 />,
       command: ({ editor, range }) => {

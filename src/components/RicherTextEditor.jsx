@@ -11,6 +11,8 @@ import MentionSuggestion from "./editor/suggestions/MentionSuggestion";
 import CustomSuggestion from "./editor/extensions/CustomSuggestion";
 import CustomSuggestionSuggestion from "./editor/suggestions/CustomSuggestionSuggestion";
 
+import RicherTextEmbed from "./editor/extensions/RicherTextEmbed";
+
 import MenuBar from "./editor/MenuBar";
 import BubbleMenu from "./editor/menus/BubbleMenu";
 import TableBubbleMenu from "./editor/menus/TableBubbleMenu";
@@ -35,6 +37,7 @@ const RicherTextEditor = (props) => {
   customSuggestions = JSON.parse(customSuggestions);
 
   let extensions = [
+    RicherTextEmbed,
     RicherTextKit.configure({
       placeholder: placeholder,
       callout: callouts !== "false",

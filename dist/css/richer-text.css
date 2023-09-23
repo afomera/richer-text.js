@@ -691,3 +691,7 @@ div.richer-text-editor--hr hr {
     transform: rotate(360deg);
   }
 }
+
+.ProseMirror iframe {
+  pointer-events: none;;
+}

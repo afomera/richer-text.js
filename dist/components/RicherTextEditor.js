@@ -14,6 +14,7 @@ var _Mention = _interopRequireDefault(require("./editor/extensions/Mention"));
 var _MentionSuggestion = _interopRequireDefault(require("./editor/suggestions/MentionSuggestion"));
 var _CustomSuggestion = _interopRequireDefault(require("./editor/extensions/CustomSuggestion"));
 var _CustomSuggestionSuggestion = _interopRequireDefault(require("./editor/suggestions/CustomSuggestionSuggestion"));
+var _RicherTextEmbed = _interopRequireDefault(require("./editor/extensions/RicherTextEmbed"));
 var _MenuBar = _interopRequireDefault(require("./editor/MenuBar"));
 var _BubbleMenu = _interopRequireDefault(require("./editor/menus/BubbleMenu"));
 var _TableBubbleMenu = _interopRequireDefault(require("./editor/menus/TableBubbleMenu"));
@@ -36,7 +37,7 @@ var RicherTextEditor = function RicherTextEditor(props) {
   var editorRef = _react["default"].useRef(null);
   bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
   customSuggestions = JSON.parse(customSuggestions);
-  var extensions = [_RicherTextKit.RicherTextKit.configure({
+  var extensions = [_RicherTextEmbed["default"], _RicherTextKit.RicherTextKit.configure({
     placeholder: placeholder,
     callout: callouts !== "false",
     tables: tables !== "false",
