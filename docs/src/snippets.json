@@ -1,0 +1,7 @@
+[
+  { "label": "Hello world", "content": "<a href='https://i.pravatar.cc/64?img=1'>Link</a>" },
+  { "label": "Something else", "content": "https://i.pravatar.cc/64?img=5" },
+  { "label": "Third item", "content": "https://i.pravatar.cc/64?img=4" },
+  { "label": "Fourth item", "content": "https://i.pravatar.cc/64?img=3" },
+  { "label": "Fifth", "content": "https://i.pravatar.cc/64?img=2" }
+]

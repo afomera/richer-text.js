@@ -12,6 +12,8 @@ var _react2 = require("@tiptap/react");
 var _RicherTextKit = require("./editor/extensions/RicherTextKit");
 var _Mention = _interopRequireDefault(require("./editor/extensions/Mention"));
 var _MentionSuggestion = _interopRequireDefault(require("./editor/suggestions/MentionSuggestion"));
+var _CustomSuggestion = _interopRequireDefault(require("./editor/extensions/CustomSuggestion"));
+var _CustomSuggestionSuggestion = _interopRequireDefault(require("./editor/suggestions/CustomSuggestionSuggestion"));
 var _MenuBar = _interopRequireDefault(require("./editor/MenuBar"));
 var _BubbleMenu = _interopRequireDefault(require("./editor/menus/BubbleMenu"));
 var _TableBubbleMenu = _interopRequireDefault(require("./editor/menus/TableBubbleMenu"));
@@ -29,9 +31,11 @@ var RicherTextEditor = function RicherTextEditor(props) {
     input = props.input,
     serializer = props.serializer,
     emoji = props.emoji,
-    mentionableUsersPath = props.mentionableUsersPath;
+    mentionableUsersPath = props.mentionableUsersPath,
+    customSuggestions = props.customSuggestions;
   var editorRef = _react["default"].useRef(null);
   bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
+  customSuggestions = JSON.parse(customSuggestions);
   var extensions = [_RicherTextKit.RicherTextKit.configure({
     placeholder: placeholder,
     callout: callouts !== "false",
@@ -46,6 +50,11 @@ var RicherTextEditor = function RicherTextEditor(props) {
       suggestion: (0, _MentionSuggestion["default"])(mentionableUsersPath)
     }));
   }
+  customSuggestions.forEach(function (customSuggestion) {
+    extensions.push((0, _CustomSuggestion["default"])("".concat(customSuggestion.name, "Plugin")).configure({
+      suggestion: (0, _CustomSuggestionSuggestion["default"])(customSuggestion.path, customSuggestion.trigger, "".concat(customSuggestion.name, "PluginKey"))
+    }));
+  });
   var editor = (0, _react2.useEditor)({
     extensions: [].concat(extensions),
     content: serializer === "json" ? JSON.parse(content) : content,
@@ -80,7 +89,8 @@ RicherTextEditor.defaultProps = {
   input: "",
   serializer: "html",
   emoji: "true",
-  mentionableUsersPath: ""
+  mentionableUsersPath: "",
+  customSuggestions: "[]"
 };
 RicherTextEditor.propTypes = {
   content: _propTypes["default"].string,
@@ -92,7 +102,8 @@ RicherTextEditor.propTypes = {
   input: _propTypes["default"].string,
   serializer: _propTypes["default"].string,
   emoji: _propTypes["default"].string,
-  mentionableUsersPath: _propTypes["default"].string
+  mentionableUsersPath: _propTypes["default"].string,
+  customSuggestions: _propTypes["default"].string
 };
 var WebRicherTextEditor = (0, _reactToWebcomponent["default"])(RicherTextEditor, _react["default"], ReactDOM);
 customElements.define("richer-text-editor", WebRicherTextEditor);

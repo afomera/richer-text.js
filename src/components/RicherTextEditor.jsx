@@ -8,6 +8,9 @@ import { RicherTextKit } from "./editor/extensions/RicherTextKit";
 import Mention from "./editor/extensions/Mention";
 import MentionSuggestion from "./editor/suggestions/MentionSuggestion";
 
+import CustomSuggestion from "./editor/extensions/CustomSuggestion";
+import CustomSuggestionSuggestion from "./editor/suggestions/CustomSuggestionSuggestion";
+
 import MenuBar from "./editor/MenuBar";
 import BubbleMenu from "./editor/menus/BubbleMenu";
 import TableBubbleMenu from "./editor/menus/TableBubbleMenu";
@@ -23,11 +26,13 @@ const RicherTextEditor = (props) => {
     input,
     serializer,
     emoji,
-    mentionableUsersPath
+    mentionableUsersPath,
+    customSuggestions
   } = props;
   const editorRef = React.useRef(null);
 
   bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
+  customSuggestions = JSON.parse(customSuggestions);
 
   let extensions = [
     RicherTextKit.configure({
@@ -46,6 +51,14 @@ const RicherTextEditor = (props) => {
       })
     );
   }
+
+  customSuggestions.forEach((customSuggestion) => {
+    extensions.push(
+      CustomSuggestion(`${customSuggestion.name}Plugin`).configure({
+        suggestion: CustomSuggestionSuggestion(customSuggestion.path, customSuggestion.trigger, `${customSuggestion.name}PluginKey`),
+      })
+    )
+  });
 
   const editor = useEditor({
     extensions: [...extensions],
@@ -79,7 +92,8 @@ RicherTextEditor.defaultProps = {
   input: "",
   serializer: "html",
   emoji: "true",
-  mentionableUsersPath: ""
+  mentionableUsersPath: "",
+  customSuggestions: "[]"
 }
 
 RicherTextEditor.propTypes = {
@@ -92,7 +106,8 @@ RicherTextEditor.propTypes = {
   input: PropTypes.string,
   serializer: PropTypes.string,
   emoji: PropTypes.string,
-  mentionableUsersPath: PropTypes.string
+  mentionableUsersPath: PropTypes.string,
+  customSuggestions: PropTypes.string
 }
 
 import reactToWebcomponent from "react-to-webcomponent";

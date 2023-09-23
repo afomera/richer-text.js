@@ -1,0 +1,7 @@
+[
+  { "label": "Snippet Welcome", "content": "<h2>Welcome to the team!</h2><p>We know you'll love it here</p>" },
+  { "label": "Snippet Hello Twitter", "content": "Hello Twitter! 👋" },
+  { "label": "Snippet 3", "content": "https://i.pravatar.cc/64?img=5" },
+  { "label": "Snippet 4", "content": "https://i.pravatar.cc/64?img=3" },
+  { "label": "Snippet 5", "content": "https://i.pravatar.cc/64?img=4" }
+]
