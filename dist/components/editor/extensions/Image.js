@@ -13,6 +13,7 @@ var _activestorage = require("@rails/activestorage");
 var _headless = _interopRequireDefault(require("@tippyjs/react/headless"));
 var _BubbleMenuButton = _interopRequireDefault(require("../elements/BubbleMenuButton"));
 var _iconsReact = require("@tabler/icons-react");
+var _view = require("@tiptap/pm/view");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -106,17 +107,20 @@ var ImageNode = function ImageNode(_ref2) {
     "data-drag-handle": true
   })), !src && /*#__PURE__*/_react["default"].createElement("div", null, "Uploading..."));
 };
-var uploadFile = function uploadFile(file, editor, setSignedId) {
-  var url = "/rails/active_storage/direct_uploads";
-  var upload = new _activestorage.DirectUpload(file, url);
-  upload.create(function (error, blob) {
-    if (error) {
-      console.log(error);
-    } else {
-      setSignedId(editor, blob.signed_id);
-    }
+var imagePreview = null;
+var uploadFile = function uploadFile(file, editor) {
+  return new Promise(function (resolve, reject) {
+    var url = "/rails/active_storage/direct_uploads";
+    var upload = new _activestorage.DirectUpload(file, url);
+    upload.create(function (error, blob) {
+      if (error) {
+        reject(error);
+      } else {
+        // setSignedId(editor, blob.signed_id);
+        resolve(blob);
+      }
+    });
   });
-  return upload;
 };
 var _default = _core.Node.create({
   name: 'image',
@@ -189,7 +193,7 @@ var _default = _core.Node.create({
   },
   addProseMirrorPlugins: function addProseMirrorPlugins() {
     var editor = this.editor;
-    return [new _state.Plugin({
+    return [placeholderPlugin, new _state.Plugin({
       key: new _state.PluginKey('image'),
       props: {
         handlePaste: function handlePaste(_, event) {
@@ -198,13 +202,7 @@ var _default = _core.Node.create({
             return file.type.startsWith('image/');
           });
           Array.from(images).forEach(function (image) {
-            var setSignedId = function setSignedId(editor, signedId) {
-              editor.commands.attachImage({
-                signedId: signedId,
-                fileName: image.name
-              });
-            };
-            uploadFile(image, editor, setSignedId);
+            startImageUpload(editor, image, editor.schema, uploadFile);
           });
         },
         handleDrop: function handleDrop(_, event) {
@@ -213,13 +211,7 @@ var _default = _core.Node.create({
             return file.type.startsWith('image/');
           });
           Array.from(images).forEach(function (image) {
-            var setSignedId = function setSignedId(editor, signedId) {
-              editor.commands.attachImage({
-                signedId: signedId,
-                fileName: image.name
-              });
-            };
-            uploadFile(image, editor, setSignedId);
+            startImageUpload(editor, image, editor.schema, uploadFile);
           });
         }
       }
@@ -227,3 +219,88 @@ var _default = _core.Node.create({
   }
 });
 exports["default"] = _default;
+var placeholderPlugin = new _state.Plugin({
+  state: {
+    init: function init() {
+      return _view.DecorationSet.empty;
+    },
+    apply: function apply(tr, set) {
+      // Adjust decoration positions to changes made by the transaction
+      set = set.map(tr.mapping, tr.doc);
+      // See if the transaction adds or removes any placeholders
+      var action = tr.getMeta(this);
+      if (action && action.add) {
+        var widget = document.createElement("div");
+        var img = document.createElement('img');
+        widget.classList = "image-uploading";
+        img.src = imagePreview;
+        widget.appendChild(img);
+        var deco = _view.Decoration.widget(action.add.pos, widget, {
+          id: action.add.id
+        });
+        set = set.add(tr.doc, [deco]);
+      } else if (action && action.remove) {
+        set = set.remove(set.find(null, null, function (spec) {
+          return spec.id == action.remove.id;
+        }));
+      }
+      return set;
+    }
+  },
+  props: {
+    decorations: function decorations(state) {
+      return this.getState(state);
+    }
+  }
+});
+
+//Find the placeholder in editor
+function findPlaceholder(state, id) {
+  var decos = placeholderPlugin.getState(state);
+  var found = decos.find(null, null, function (spec) {
+    return spec.id == id;
+  });
+  return found.length ? found[0].from : null;
+}
+function startImageUpload(editor, file, schema, uploadFile) {
+  var view = editor.view;
+  imagePreview = URL.createObjectURL(file);
+  // A fresh object to act as the ID for this upload
+  var id = {};
+
+  // Replace the selection with a placeholder
+  var tr = view.state.tr;
+  if (!tr.selection.empty) tr.deleteSelection();
+  tr.setMeta(placeholderPlugin, {
+    add: {
+      id: id,
+      pos: tr.selection.from
+    }
+  });
+  view.dispatch(tr);
+  uploadFile(file, editor).then(function (blob) {
+    var pos = findPlaceholder(view.state, id);
+    // If the content around the placeholder has been deleted, drop
+    // the image
+    if (pos == null) return;
+    // Otherwise, insert it at the placeholder's position, and remove
+    // the placeholder
+    var attrs = {
+      src: "/rails/active_storage/blobs/redirect/" + blob.signed_id + "/" + blob.filename,
+      alt: blob.filename,
+      signedId: blob.signed_id
+    };
+    view.dispatch(view.state.tr.replaceWith(pos, pos, schema.nodes.image.create(attrs)).setMeta(placeholderPlugin, {
+      remove: {
+        id: id
+      }
+    }));
+  }, function (e) {
+    // On failure, just clean up the placeholder
+    view.dispatch(tr.setMeta(placeholderPlugin, {
+      remove: {
+        id: id
+      }
+    }));
+  });
+}
