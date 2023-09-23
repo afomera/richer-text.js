@@ -7,6 +7,10 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ## main
 
+---
+
+## 0.15.0
+
 - Introduce Custom Suggestion extension, this can be used to add functionality like saved/canned replies, liquid variable completion and more. The editor will fetch a provided JSON endpoint for each configuration of the custom suggestions extension, and allow filtering through the list. Then when the user selects one, it will insert the "content" attribute returned for that item from the JSON endpoint.
 
   Configuring your editor instance is a matter of adding a `custom-suggestions` attribute and passing it a JSON array of objects configured in the following format:
