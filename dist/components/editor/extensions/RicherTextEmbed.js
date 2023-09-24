@@ -57,6 +57,7 @@ var RicherTextEmbedNode = function RicherTextEmbedNode(_ref2) {
   var onLoad = function onLoad() {
     setHeight(iFrameRef.current.contentWindow.document.body.scrollHeight + 10 + 'px');
   };
+  var iframeSrcPath = "".concat(editor.storage.richerTextEmbed.embedPath, "/").concat(sgid);
   return /*#__PURE__*/_react["default"].createElement(_react2.NodeViewWrapper, null, sgid && /*#__PURE__*/_react["default"].createElement(_headless["default"], {
     render: function render() {
       return /*#__PURE__*/_react["default"].createElement(EditRicherTextEmbedMenu, {
@@ -83,7 +84,7 @@ var RicherTextEmbedNode = function RicherTextEmbedNode(_ref2) {
   }, /*#__PURE__*/_react["default"].createElement("iframe", {
     ref: iFrameRef,
     onLoad: onLoad,
-    src: "/embeds/".concat(sgid),
+    src: iframeSrcPath,
     width: "100%",
     height: height,
     frameBorder: 0
@@ -98,6 +99,16 @@ var _default = _core.Node.create({
       sgid: {
         "default": null
       }
+    };
+  },
+  addOptions: function addOptions() {
+    return {
+      embedPath: "/embeds"
+    };
+  },
+  addStorage: function addStorage() {
+    return {
+      embedPath: this.options.embedPath
     };
   },
   renderHTML: function renderHTML(_ref3) {

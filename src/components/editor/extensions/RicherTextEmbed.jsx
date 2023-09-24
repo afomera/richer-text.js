@@ -34,6 +34,8 @@ const RicherTextEmbedNode = ({ editor, node, getPos }) => {
     setHeight((iFrameRef.current.contentWindow.document.body.scrollHeight + 10) + 'px');
   };
 
+  const iframeSrcPath = `${editor.storage.richerTextEmbed.embedPath}/${sgid}`;
+
   return (
     <NodeViewWrapper>
       {sgid && (
@@ -52,7 +54,7 @@ const RicherTextEmbedNode = ({ editor, node, getPos }) => {
           offset={[0, -16]}
         >
           <div className="richer-text-editor--embed-wrapper" style={{ width: width }} data-drag-handle>
-            <iframe ref={iFrameRef} onLoad={onLoad} src={`/embeds/${sgid}`} width="100%" height={height} frameBorder={0} />
+            <iframe ref={iFrameRef} onLoad={onLoad} src={iframeSrcPath} width="100%" height={height} frameBorder={0} />
           </div>
         </Tippy>
       )}
@@ -71,6 +73,18 @@ export default Node.create({
         default: null,
       },
     };
+  },
+
+  addOptions() {
+    return {
+      embedPath: "/embeds",
+    };
+  },
+
+  addStorage() {
+    return {
+      embedPath: this.options.embedPath,
+    }
   },
 
   renderHTML({ HTMLAttributes }) {
