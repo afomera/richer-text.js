@@ -9,6 +9,18 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ---
 
+## 0.16.1
+
+- Fought a battle with CORS and lost, but it's fixed now, needed to set `sandbox="allow-same-origin"` on the Embeds iframe.
+
+---
+
+## 0.16.0
+
+- Introduce Custom Embeds extension. For more information check the documentation <a href="/ruby-on-rails/embeds">here</a>.
+
+---
+
 ## 0.15.0
 
 - Introduce Custom Suggestion extension, this can be used to add functionality like saved/canned replies, liquid variable completion and more. The editor will fetch a provided JSON endpoint for each configuration of the custom suggestions extension, and allow filtering through the list. Then when the user selects one, it will insert the "content" attribute returned for that item from the JSON endpoint.

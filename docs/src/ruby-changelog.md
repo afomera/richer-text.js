@@ -9,6 +9,14 @@ This is the changelog for our Ruby Gem package. Are you looking for the <a href=
 
 ---
 
+## 0.10.0
+
+- Add support for RicherTextEmbed nodes, allowing the rendering of `richer-text-embed` html tags as a rendered partial for the Embeddable object.
+- Adds support for application models including `RicherText::Embeddable`
+- Adds `RicherText::Embed` class which can be used to look up a given sgid to return the embeddable object.
+
+---
+
 ## 0.9.0
 
 - Added support for @mention nodes on the Ruby gem side. Requires RicherText.js v0.14 or higher.
