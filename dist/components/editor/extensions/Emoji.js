@@ -15290,7 +15290,7 @@ var Emoji = _core.Extension.create({
     suggestion: {
       "char": ":",
       startOfLine: false,
-      allowSpaces: true,
+      allowSpaces: false,
       items: function items(_ref) {
         var query = _ref.query;
         return emojisList.filter(function (emoji) {
