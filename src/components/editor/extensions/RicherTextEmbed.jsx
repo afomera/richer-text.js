@@ -51,8 +51,8 @@ const RicherTextEmbedNode = ({ editor, node, getPos }) => {
           onHide={() => setEditMenuVisible(false)}
           offset={[0, -16]}
         >
-          <div className="richer-text-editor--embed-wrapper" style={{ width: width }}>
-            <iframe ref={iFrameRef} onLoad={onLoad} src={`/embeds/${sgid}`} width="100%" height={height} frameBorder={0} data-drag-handle />
+          <div className="richer-text-editor--embed-wrapper" style={{ width: width }} data-drag-handle>
+            <iframe ref={iFrameRef} onLoad={onLoad} src={`/embeds/${sgid}`} width="100%" height={height} frameBorder={0} />
           </div>
         </Tippy>
       )}

@@ -78,15 +78,15 @@ var RicherTextEmbedNode = function RicherTextEmbedNode(_ref2) {
     className: "richer-text-editor--embed-wrapper",
     style: {
       width: width
-    }
+    },
+    "data-drag-handle": true
   }, /*#__PURE__*/_react["default"].createElement("iframe", {
     ref: iFrameRef,
     onLoad: onLoad,
     src: "/embeds/".concat(sgid),
     width: "100%",
     height: height,
-    frameBorder: 0,
-    "data-drag-handle": true
+    frameBorder: 0
   }))));
 };
 var _default = _core.Node.create({
