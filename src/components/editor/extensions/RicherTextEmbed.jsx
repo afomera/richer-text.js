@@ -23,10 +23,16 @@ const RicherTextEmbedNode = ({ editor, node, getPos }) => {
   const { attrs } = node;
   const { width, sgid } = attrs;
   const [editMenuVisible, setEditMenuVisible] = useState(false);
+  const [height, setHeight] = useState('0px');
+  const iFrameRef = React.useRef(null);
 
   useEffect(() => {
     setEditMenuVisible(editor.isActive("richerTextEmbed"));
   }, [editor.isActive("richerTextEmbed")]);
+
+  const onLoad = () => {
+    setHeight((iFrameRef.current.contentWindow.document.body.scrollHeight + 10) + 'px');
+  };
 
   return (
     <NodeViewWrapper>
@@ -46,8 +52,7 @@ const RicherTextEmbedNode = ({ editor, node, getPos }) => {
           offset={[0, -16]}
         >
           <div className="richer-text-editor--embed-wrapper" style={{ width: width }}>
-            {/* <iframe src={`/embeds/${signedId}`} width="100%" height="100%" frameBorder={0} data-drag-handle /> */}
-            <div dangerouslySetInnerHTML={{ __html: `<div>Hello world</div>` }} />
+            <iframe ref={iFrameRef} onLoad={onLoad} src={`/embeds/${sgid}`} width="100%" height={height} frameBorder={0} data-drag-handle />
           </div>
         </Tippy>
       )}
@@ -65,11 +70,6 @@ export default Node.create({
       sgid: {
         default: null,
       },
-      width: {
-        default: "100%",
-        parseHTML: (element) =>
-          element.style.width.includes("%") ? element.style.width : "100%",
-      }
     };
   },
 
@@ -79,19 +79,6 @@ export default Node.create({
 
   parseHTML() {
     return [{ tag: "richer-text-embed" }];
-  },
-
-  addCommands() {
-    return {
-      attachImage: ({ signedId, fileName}) => ({ commands }) => {
-        const url = `/rails/active_storage/blobs/redirect/${signedId}/${fileName}`;
-
-        return commands.insertContent({ type: this.name, attrs: { src: url, alt: fileName, signedId: signedId }})
-      },
-      setImageWidth: (width) => ({ commands }) => {
-        return commands.updateAttributes(this.name, { width });
-      },
-    };
   },
 
   addNodeView() {

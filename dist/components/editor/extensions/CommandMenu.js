@@ -23,25 +23,11 @@ var commandItems = function commandItems(_ref) {
     tablesEnabled = _ref.tablesEnabled;
   var commandItems = [];
   commandItems.push({
-    label: "Richer Text Embed",
+    label: "Heading 1",
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconH1, null),
     command: function command(_ref2) {
       var editor = _ref2.editor,
         range = _ref2.range;
-      editor.chain().focus().deleteRange(range).insertContent({
-        type: "richerTextEmbed",
-        attrs: {
-          sgid: "eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJak5uYVdRNkx5OXlhV05vWlhJdGRHVjRkQzFpYjI5MGMzUnlZWEF2VUc5emRDOHhORDlsZUhCcGNtVnpYMmx1QmpvR1JWUT0iLCJleHAiOm51bGwsInB1ciI6ImF0dGFjaGFibGUifX0=--1eb2a126186a5abe0826d15395dd587b4ecddfd3",
-          width: "100%"
-        }
-      }).run();
-    }
-  }, {
-    label: "Heading 1",
-    icon: /*#__PURE__*/_react["default"].createElement(_icons.IconH1, null),
-    command: function command(_ref3) {
-      var editor = _ref3.editor,
-        range = _ref3.range;
       editor.chain().focus().deleteRange(range).setHeading({
         level: 1
       }).run();
@@ -49,9 +35,9 @@ var commandItems = function commandItems(_ref) {
   }, {
     label: "Heading 2",
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconH2, null),
-    command: function command(_ref4) {
-      var editor = _ref4.editor,
-        range = _ref4.range;
+    command: function command(_ref3) {
+      var editor = _ref3.editor,
+        range = _ref3.range;
       editor.chain().focus().deleteRange(range).setHeading({
         level: 2
       }).run();
@@ -59,57 +45,57 @@ var commandItems = function commandItems(_ref) {
   }, {
     label: "Large text",
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconTextSize, null),
-    command: function command(_ref5) {
-      var editor = _ref5.editor,
-        range = _ref5.range;
+    command: function command(_ref4) {
+      var editor = _ref4.editor,
+        range = _ref4.range;
       editor.chain().focus().deleteRange(range).setFontSize("22px").run();
     }
   }, {
     label: "Normal text",
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconTextSize, null),
-    command: function command(_ref6) {
-      var editor = _ref6.editor,
-        range = _ref6.range;
+    command: function command(_ref5) {
+      var editor = _ref5.editor,
+        range = _ref5.range;
       editor.chain().focus().deleteRange(range).unsetFontSize().run();
     }
   }, {
     label: "Bullet List",
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconList, null),
-    command: function command(_ref7) {
-      var editor = _ref7.editor,
-        range = _ref7.range;
+    command: function command(_ref6) {
+      var editor = _ref6.editor,
+        range = _ref6.range;
       editor.chain().focus().deleteRange(range).toggleBulletList().run();
     }
   }, {
     label: "Numbered List",
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconListNumbers, null),
-    command: function command(_ref8) {
-      var editor = _ref8.editor,
-        range = _ref8.range;
+    command: function command(_ref7) {
+      var editor = _ref7.editor,
+        range = _ref7.range;
       editor.chain().focus().deleteRange(range).toggleOrderedList().run();
     }
   }, {
     label: "Blockquote",
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconBlockquote, null),
-    command: function command(_ref9) {
-      var editor = _ref9.editor,
-        range = _ref9.range;
+    command: function command(_ref8) {
+      var editor = _ref8.editor,
+        range = _ref8.range;
       editor.chain().focus().deleteRange(range).toggleBlockquote().run();
     }
   }, {
     label: "Horizontal Rule",
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconSeparator, null),
-    command: function command(_ref10) {
-      var editor = _ref10.editor,
-        range = _ref10.range;
+    command: function command(_ref9) {
+      var editor = _ref9.editor,
+        range = _ref9.range;
       editor.chain().focus().deleteRange(range).setHorizontalRule().run();
     }
   }, {
     label: "Code Block",
     icon: /*#__PURE__*/_react["default"].createElement(_icons.IconFileCode, null),
-    command: function command(_ref11) {
-      var editor = _ref11.editor,
-        range = _ref11.range;
+    command: function command(_ref10) {
+      var editor = _ref10.editor,
+        range = _ref10.range;
       editor.chain().focus().deleteRange(range).toggleCodeBlock().run();
     }
   });
@@ -117,9 +103,9 @@ var commandItems = function commandItems(_ref) {
     commandItems.push({
       label: "Table",
       icon: /*#__PURE__*/_react["default"].createElement(_icons.IconTable, null),
-      command: function command(_ref12) {
-        var editor = _ref12.editor,
-          range = _ref12.range;
+      command: function command(_ref11) {
+        var editor = _ref11.editor,
+          range = _ref11.range;
         editor.chain().focus().deleteRange(range).insertTable({
           rows: 3,
           cols: 3
@@ -133,9 +119,9 @@ var commandItems = function commandItems(_ref) {
       icon: /*#__PURE__*/_react["default"].createElement(_icons.IconFlag, {
         color: "gray"
       }),
-      command: function command(_ref13) {
-        var editor = _ref13.editor,
-          range = _ref13.range;
+      command: function command(_ref12) {
+        var editor = _ref12.editor,
+          range = _ref12.range;
         editor.chain().focus().deleteRange(range).setCallout().run();
       }
     }, {
@@ -143,9 +129,9 @@ var commandItems = function commandItems(_ref) {
       icon: /*#__PURE__*/_react["default"].createElement(_icons.IconFlag, {
         color: "blue"
       }),
-      command: function command(_ref14) {
-        var editor = _ref14.editor,
-          range = _ref14.range;
+      command: function command(_ref13) {
+        var editor = _ref13.editor,
+          range = _ref13.range;
         editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", {
           'data-color': "blue"
         }).run();
@@ -155,9 +141,9 @@ var commandItems = function commandItems(_ref) {
       icon: /*#__PURE__*/_react["default"].createElement(_icons.IconFlag, {
         color: "green"
       }),
-      command: function command(_ref15) {
-        var editor = _ref15.editor,
-          range = _ref15.range;
+      command: function command(_ref14) {
+        var editor = _ref14.editor,
+          range = _ref14.range;
         editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", {
           'data-color': "green"
         }).run();
@@ -167,9 +153,9 @@ var commandItems = function commandItems(_ref) {
       icon: /*#__PURE__*/_react["default"].createElement(_icons.IconFlag, {
         color: "gold"
       }),
-      command: function command(_ref16) {
-        var editor = _ref16.editor,
-          range = _ref16.range;
+      command: function command(_ref15) {
+        var editor = _ref15.editor,
+          range = _ref15.range;
         editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", {
           'data-color': "yellow"
         }).run();
@@ -179,9 +165,9 @@ var commandItems = function commandItems(_ref) {
       icon: /*#__PURE__*/_react["default"].createElement(_icons.IconFlag, {
         color: "red"
       }),
-      command: function command(_ref17) {
-        var editor = _ref17.editor,
-          range = _ref17.range;
+      command: function command(_ref16) {
+        var editor = _ref16.editor,
+          range = _ref16.range;
         editor.chain().focus().deleteRange(range).setCallout().updateAttributes("callout", {
           'data-color': "red"
         }).run();
@@ -197,8 +183,8 @@ var CommandMenu = function CommandMenu(calloutEnabled, tablesEnabled) {
       suggestion: {
         "char": "/",
         startOfLine: false,
-        items: function items(_ref18) {
-          var query = _ref18.query;
+        items: function items(_ref17) {
+          var query = _ref17.query;
           return commandItems({
             calloutEnabled: calloutEnabled,
             tablesEnabled: tablesEnabled
@@ -253,10 +239,10 @@ var CommandMenu = function CommandMenu(calloutEnabled, tablesEnabled) {
             }
           };
         },
-        command: function command(_ref19) {
-          var editor = _ref19.editor,
-            range = _ref19.range,
-            props = _ref19.props;
+        command: function command(_ref18) {
+          var editor = _ref18.editor,
+            range = _ref18.range,
+            props = _ref18.props;
           props.command({
             editor: editor,
             range: range,

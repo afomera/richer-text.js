@@ -46,9 +46,17 @@ var RicherTextEmbedNode = function RicherTextEmbedNode(_ref2) {
     _useState2 = _slicedToArray(_useState, 2),
     editMenuVisible = _useState2[0],
     setEditMenuVisible = _useState2[1];
+  var _useState3 = (0, _react.useState)('0px'),
+    _useState4 = _slicedToArray(_useState3, 2),
+    height = _useState4[0],
+    setHeight = _useState4[1];
+  var iFrameRef = _react["default"].useRef(null);
   (0, _react.useEffect)(function () {
     setEditMenuVisible(editor.isActive("richerTextEmbed"));
   }, [editor.isActive("richerTextEmbed")]);
+  var onLoad = function onLoad() {
+    setHeight(iFrameRef.current.contentWindow.document.body.scrollHeight + 10 + 'px');
+  };
   return /*#__PURE__*/_react["default"].createElement(_react2.NodeViewWrapper, null, sgid && /*#__PURE__*/_react["default"].createElement(_headless["default"], {
     render: function render() {
       return /*#__PURE__*/_react["default"].createElement(EditRicherTextEmbedMenu, {
@@ -71,10 +79,14 @@ var RicherTextEmbedNode = function RicherTextEmbedNode(_ref2) {
     style: {
       width: width
     }
-  }, /*#__PURE__*/_react["default"].createElement("div", {
-    dangerouslySetInnerHTML: {
-      __html: "<div>Hello world</div>"
-    }
+  }, /*#__PURE__*/_react["default"].createElement("iframe", {
+    ref: iFrameRef,
+    onLoad: onLoad,
+    src: "/embeds/".concat(sgid),
+    width: "100%",
+    height: height,
+    frameBorder: 0,
+    "data-drag-handle": true
   }))));
 };
 var _default = _core.Node.create({
@@ -85,12 +97,6 @@ var _default = _core.Node.create({
     return {
       sgid: {
         "default": null
-      },
-      width: {
-        "default": "100%",
-        parseHTML: function parseHTML(element) {
-          return element.style.width.includes("%") ? element.style.width : "100%";
-        }
       }
     };
   },
@@ -102,35 +108,6 @@ var _default = _core.Node.create({
     return [{
       tag: "richer-text-embed"
     }];
-  },
-  addCommands: function addCommands() {
-    var _this = this;
-    return {
-      attachImage: function attachImage(_ref4) {
-        var signedId = _ref4.signedId,
-          fileName = _ref4.fileName;
-        return function (_ref5) {
-          var commands = _ref5.commands;
-          var url = "/rails/active_storage/blobs/redirect/".concat(signedId, "/").concat(fileName);
-          return commands.insertContent({
-            type: _this.name,
-            attrs: {
-              src: url,
-              alt: fileName,
-              signedId: signedId
-            }
-          });
-        };
-      },
-      setImageWidth: function setImageWidth(width) {
-        return function (_ref6) {
-          var commands = _ref6.commands;
-          return commands.updateAttributes(_this.name, {
-            width: width
-          });
-        };
-      }
-    };
   },
   addNodeView: function addNodeView() {
     return (0, _react2.ReactNodeViewRenderer)(RicherTextEmbedNode);
