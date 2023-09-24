@@ -16,7 +16,7 @@ const Emoji = Extension.create({
     suggestion: {
       char: ":",
       startOfLine: false,
-      allowSpaces: true,
+      allowSpaces: false,
       items: ({ query }) => {
         return emojisList
           .filter((emoji) => {

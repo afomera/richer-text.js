@@ -11,6 +11,8 @@ import MentionSuggestion from "./editor/suggestions/MentionSuggestion";
 import CustomSuggestion from "./editor/extensions/CustomSuggestion";
 import CustomSuggestionSuggestion from "./editor/suggestions/CustomSuggestionSuggestion";
 
+import RicherTextEmbed from "./editor/extensions/RicherTextEmbed";
+
 import MenuBar from "./editor/MenuBar";
 import BubbleMenu from "./editor/menus/BubbleMenu";
 import TableBubbleMenu from "./editor/menus/TableBubbleMenu";
@@ -27,7 +29,8 @@ const RicherTextEditor = (props) => {
     serializer,
     emoji,
     mentionableUsersPath,
-    customSuggestions
+    customSuggestions,
+    embedsPath
   } = props;
   const editorRef = React.useRef(null);
 
@@ -35,6 +38,9 @@ const RicherTextEditor = (props) => {
   customSuggestions = JSON.parse(customSuggestions);
 
   let extensions = [
+    RicherTextEmbed.configure({
+      embedPath: embedsPath,
+    }),
     RicherTextKit.configure({
       placeholder: placeholder,
       callout: callouts !== "false",
@@ -93,7 +99,8 @@ RicherTextEditor.defaultProps = {
   serializer: "html",
   emoji: "true",
   mentionableUsersPath: "",
-  customSuggestions: "[]"
+  customSuggestions: "[]",
+  embedsPath: "/embeds",
 }
 
 RicherTextEditor.propTypes = {
@@ -107,7 +114,8 @@ RicherTextEditor.propTypes = {
   serializer: PropTypes.string,
   emoji: PropTypes.string,
   mentionableUsersPath: PropTypes.string,
-  customSuggestions: PropTypes.string
+  customSuggestions: PropTypes.string,
+  embedsPath: PropTypes.string
 }
 
 import reactToWebcomponent from "react-to-webcomponent";
