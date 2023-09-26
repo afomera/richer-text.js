@@ -82,7 +82,7 @@ var RicherTextEmbedNode = function RicherTextEmbedNode(_ref2) {
     },
     "data-drag-handle": true
   }, /*#__PURE__*/_react["default"].createElement("iframe", {
-    sandbox: "allow-same-origin",
+    sandbox: "allow-same-origin allow-scripts",
     ref: iFrameRef,
     onLoad: onLoad,
     src: iframeSrcPath,

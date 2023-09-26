@@ -34,7 +34,8 @@ var RicherTextEditor = function RicherTextEditor(props) {
     emoji = props.emoji,
     mentionableUsersPath = props.mentionableUsersPath,
     customSuggestions = props.customSuggestions,
-    embedsPath = props.embedsPath;
+    embedsPath = props.embedsPath,
+    oembed = props.oembed;
   var editorRef = _react["default"].useRef(null);
   bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
   customSuggestions = JSON.parse(customSuggestions);
@@ -64,7 +65,8 @@ var RicherTextEditor = function RicherTextEditor(props) {
     content: serializer === "json" ? JSON.parse(content) : content,
     editorProps: {
       input: input,
-      serializer: serializer
+      serializer: serializer,
+      enableEmbeds: oembed
     }
   });
   return /*#__PURE__*/_react["default"].createElement("div", {
@@ -95,7 +97,8 @@ RicherTextEditor.defaultProps = {
   emoji: "true",
   mentionableUsersPath: "",
   customSuggestions: "[]",
-  embedsPath: "/embeds"
+  embedsPath: "/embeds",
+  oembed: "false"
 };
 RicherTextEditor.propTypes = {
   content: _propTypes["default"].string,
@@ -109,7 +112,8 @@ RicherTextEditor.propTypes = {
   emoji: _propTypes["default"].string,
   mentionableUsersPath: _propTypes["default"].string,
   customSuggestions: _propTypes["default"].string,
-  embedsPath: _propTypes["default"].string
+  embedsPath: _propTypes["default"].string,
+  oembed: _propTypes["default"].string
 };
 var WebRicherTextEditor = (0, _reactToWebcomponent["default"])(RicherTextEditor, _react["default"], ReactDOM);
 customElements.define("richer-text-editor", WebRicherTextEditor);

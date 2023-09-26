@@ -54,7 +54,7 @@ const RicherTextEmbedNode = ({ editor, node, getPos }) => {
           offset={[0, -16]}
         >
           <div className="richer-text-editor--embed-wrapper" style={{ width: width }} data-drag-handle>
-            <iframe sandbox="allow-same-origin" ref={iFrameRef} onLoad={onLoad} src={iframeSrcPath} width="100%" height={height} frameBorder={0} />
+            <iframe sandbox="allow-same-origin allow-scripts" ref={iFrameRef} onLoad={onLoad} src={iframeSrcPath} width="100%" height={height} frameBorder={0} />
           </div>
         </Tippy>
       )}

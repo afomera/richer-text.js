@@ -30,7 +30,8 @@ const RicherTextEditor = (props) => {
     emoji,
     mentionableUsersPath,
     customSuggestions,
-    embedsPath
+    embedsPath,
+    oembed
   } = props;
   const editorRef = React.useRef(null);
 
@@ -71,8 +72,9 @@ const RicherTextEditor = (props) => {
     content: serializer === "json" ? JSON.parse(content) : content,
     editorProps: {
       input: input,
-      serializer: serializer
-    }
+      serializer: serializer,
+      enableEmbeds: oembed
+    },
   });
 
   return (
@@ -101,6 +103,7 @@ RicherTextEditor.defaultProps = {
   mentionableUsersPath: "",
   customSuggestions: "[]",
   embedsPath: "/embeds",
+  oembed: "false"
 }
 
 RicherTextEditor.propTypes = {
@@ -115,7 +118,8 @@ RicherTextEditor.propTypes = {
   emoji: PropTypes.string,
   mentionableUsersPath: PropTypes.string,
   customSuggestions: PropTypes.string,
-  embedsPath: PropTypes.string
+  embedsPath: PropTypes.string,
+  oembed: PropTypes.string
 }
 
 import reactToWebcomponent from "react-to-webcomponent";

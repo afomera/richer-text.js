@@ -695,3 +695,9 @@ div.richer-text-editor--hr hr {
 .ProseMirror iframe {
   pointer-events: none;;
 }
+
+.richer-text iframe {
+  display: inline-block !important;
+  width: 100% !important;
+  min-height: 500px !important;
+}
