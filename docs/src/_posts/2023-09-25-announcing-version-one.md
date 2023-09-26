@@ -37,6 +37,7 @@ Richer Text features a roboust text editor complete with everything from the bas
 - User @Mentions readily available
 - Custom Suggestions
 - Richer Embeds
+- Built in support for oEmbeds
 
 ## Why another editor?
 
