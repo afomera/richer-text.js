@@ -1,37 +1,62 @@
 import React from 'react';
 import { IconHighlight, IconHighlightOff } from '@tabler/icons';
 
-import BubbleMenuButton from '../elements/BubbleMenuButton';
+import HighlightMenuButton from '../elements/HighlightMenuButton';
 
 const HighlighterMenu = ({ editor }) => {
   if (!editor) return null
 
+  const HIGHLIGHT_COLORS = [
+  {
+    name: "Default",
+    color: "var(--rte-highlight-default)",
+  },
+  {
+    name: "Purple",
+    color: "var(--rte-highlight-purple)",
+  },
+  {
+    name: "Red",
+    color: "var(--rte-highlight-red)",
+  },
+  {
+    name: "Yellow",
+    color: "var(--rte-highlight-yellow)",
+  },
+  {
+    name: "Blue",
+    color: "var(--rte-highlight-blue)",
+  },
+  {
+    name: "Green",
+    color: "var(--rte-highlight-green)",
+  },
+  {
+    name: "Orange",
+    color: "var(--rte-highlight-orange)",
+  },
+  {
+    name: "Pink",
+    color: "var(--rte-highlight-pink)",
+  },
+  {
+    name: "Gray",
+    color: "var(--rte-highlight-gray)",
+  },
+];
+
   return (
     <div className="richer-text-editor--bubble-menu-highlighter-menu">
-      {editor.isActive('highlight') &&
-        <BubbleMenuButton
-          command={() => editor.chain().focus().unsetHighlight().run()}
-          active={false} /* always false */
-          icon={<IconHighlightOff />}
-        />}
-
-      <BubbleMenuButton
-        command={() => editor.chain().focus().toggleHighlight({ color: 'var(--rte-highlight-color-one)' }).run()}
-        active={editor.isActive('highlight', { color: 'var(--rte-highlight-color-one)' })}
-        icon={<IconHighlight color={'var(--rte-highlight-color-one)'} />}
-      />
-
-      <BubbleMenuButton
-        command={() => editor.chain().focus().toggleHighlight({ color: 'var(--rte-highlight-color-two)' }).run()}
-        active={editor.isActive('highlight', { color: 'var(--rte-highlight-color-two)' })}
-        icon={<IconHighlight color={'var(--rte-highlight-color-two)'} />}
-      />
-
-      <BubbleMenuButton
-        command={() => editor.chain().focus().toggleHighlight({ color: 'var(--rte-highlight-color-three)' }).run()}
-        active={editor.isActive('highlight', { color: 'var(--rte-highlight-color-three)' })}
-        icon={<IconHighlight color={'var(--rte-highlight-color-three)'} />}
-      />
+        {HIGHLIGHT_COLORS.map(({ name, color }, index) => (
+          <HighlightMenuButton
+            key={index}
+            command={() => editor.chain().focus().toggleHighlight({ color: color }).run()}
+            active={editor.isActive('highlight', { color: color })}
+            text={"A"}
+            backgroundColor={color}
+            tooltip={name}
+          />
+        ))}
     </div>
   )
 }

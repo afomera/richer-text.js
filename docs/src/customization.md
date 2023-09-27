@@ -132,9 +132,15 @@ We support customizing the looks of the Richer Text Editor by using CSS variable
   --rte-link-color: #ec4899;
 
   /* Highlight colors */
-  --rte-highlight-color-one: #feb7b3;
-  --rte-highlight-color-two: #fef1b3;
-  --rte-highlight-color-three: #b3dcfe;
+  --rte-highlight-default: #ffffff;
+  --rte-highlight-purple: #f6f3f8;
+  --rte-highlight-red: #fdebeb;
+  --rte-highlight-yellow: #fbf4a2;
+  --rte-highlight-blue: #c1ecf9;
+  --rte-highlight-green: #acf79f;
+  --rte-highlight-orange: #faebdd;
+  --rte-highlight-pink: #faf1f5;
+  --rte-highlight-gray: #f1f1ef;
 
   /* General buttons */
   --rte-button-text-color: #667085;
