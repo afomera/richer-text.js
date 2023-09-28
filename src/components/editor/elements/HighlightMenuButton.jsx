@@ -31,7 +31,7 @@ const HighlightMenuButton = ({ command, active, text, backgroundColor, tooltip }
           className={active ? 'is-active' : ''}
           style={{ borderRadius: "0.125rem", borderWidth: "1px", borderStyle: "solid", borderColor: "#a0a4b8", fontWeight: 500, backgroundColor: backgroundColor, paddingTop: "0.0625rem", paddingBottom: "0.0625rem", paddingLeft: "0.25rem", paddingRight: "0.25rem" }}
         >
-          {text}
+          {active ? ("√") : (text)}
         </button>
       </Tippy>
     ) : (

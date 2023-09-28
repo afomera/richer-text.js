@@ -50,7 +50,7 @@ var HighlightMenuButton = function HighlightMenuButton(_ref) {
       paddingLeft: "0.25rem",
       paddingRight: "0.25rem"
     }
-  }, text)) : /*#__PURE__*/_react["default"].createElement("button", {
+  }, active ? "√" : text)) : /*#__PURE__*/_react["default"].createElement("button", {
     onClick: handleClick,
     className: active ? 'is-active' : ''
   }, icon);

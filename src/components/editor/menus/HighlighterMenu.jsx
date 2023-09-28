@@ -47,16 +47,21 @@ const HighlighterMenu = ({ editor }) => {
 
   return (
     <div className="richer-text-editor--bubble-menu-highlighter-menu">
-        {HIGHLIGHT_COLORS.map(({ name, color }, index) => (
-          <HighlightMenuButton
-            key={index}
-            command={() => editor.chain().focus().toggleHighlight({ color: color }).run()}
-            active={editor.isActive('highlight', { color: color })}
-            text={"A"}
-            backgroundColor={color}
-            tooltip={name}
-          />
-        ))}
+      {HIGHLIGHT_COLORS.map(({ name, color }, index) => (
+        <HighlightMenuButton
+          key={index}
+          command={() => {
+              // editor.chain().focus().toggleHighlight({ color: color }).run()
+              editor.commands.unsetHighlight();
+              name !== "Default" && editor.commands.setHighlight({ color });
+            }
+          }
+          active={editor.isActive('highlight', { color: color })}
+          text={"A"}
+          backgroundColor={color}
+          tooltip={name}
+        />
+      ))}
     </div>
   )
 }

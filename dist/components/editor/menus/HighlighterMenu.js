@@ -47,9 +47,11 @@ var HighlighterMenu = function HighlighterMenu(_ref) {
     return /*#__PURE__*/_react["default"].createElement(_HighlightMenuButton["default"], {
       key: index,
       command: function command() {
-        return editor.chain().focus().toggleHighlight({
+        // editor.chain().focus().toggleHighlight({ color: color }).run()
+        editor.commands.unsetHighlight();
+        name !== "Default" && editor.commands.setHighlight({
           color: color
-        }).run();
+        });
       },
       active: editor.isActive('highlight', {
         color: color
