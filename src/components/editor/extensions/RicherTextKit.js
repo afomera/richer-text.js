@@ -13,6 +13,7 @@ import TableHeader from '@tiptap/extension-table-header'
 import TableRow from '@tiptap/extension-table-row'
 import TextAlign from "@tiptap/extension-text-align";
 import TextStyle from '@tiptap/extension-text-style'
+import Color from "@tiptap/extension-color";
 
 import Emoji from "./Emoji";
 import Callout from "./Callout";
@@ -127,6 +128,7 @@ export const RicherTextKit = Extension.create({
       EditorEvents,
       CodeBlock,
       TextStyle,
+      Color,
       TextAlign.configure({
         types: ['paragraph', 'heading'],
       }),

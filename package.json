@@ -26,6 +26,7 @@
     "@tiptap/extension-bubble-menu": "2.0.3",
     "@tiptap/extension-code-block": "2.0.3",
     "@tiptap/extension-code-block-lowlight": "2.0.3",
+    "@tiptap/extension-color": "^2.0.3",
     "@tiptap/extension-dropcursor": "2.0.3",
     "@tiptap/extension-focus": "^2.0.3",
     "@tiptap/extension-highlight": "2.0.3",
