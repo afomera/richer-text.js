@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@afomera/richer-text@^0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@afomera/richer-text/-/richer-text-0.16.1.tgz#a182e80e1979f8e95496fc29d5b832d003a2cb5e"
-  integrity sha512-WJKI13F0JGrOQSglWVQrsVT3Zj/MV5F6VU0iNZ0fnQ5gq/6iKtf4f/JWwmC7c14Qwrf+jOkufJlhgF6VP61unA==
+"@afomera/richer-text@^0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@afomera/richer-text/-/richer-text-0.18.0.tgz#8017a71dede7ef7fd06d26b095a66e760df01e68"
+  integrity sha512-0iiTkI5DQdk8SqReMeqLULRJDQeJwhMG1Rd3FPtTYVHYGOo0EZYXAjdad9oEzexkWftgEfcV1VXzAUQrQuzblg==
   dependencies:
     "@rails/activestorage" "^7.0.4"
     "@tabler/icons" "^1.118.0"
@@ -15,6 +15,7 @@
     "@tiptap/extension-bubble-menu" "2.0.3"
     "@tiptap/extension-code-block" "2.0.3"
     "@tiptap/extension-code-block-lowlight" "2.0.3"
+    "@tiptap/extension-color" "^2.0.3"
     "@tiptap/extension-dropcursor" "2.0.3"
     "@tiptap/extension-focus" "^2.0.3"
     "@tiptap/extension-highlight" "2.0.3"
@@ -278,6 +279,11 @@
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-code/-/extension-code-2.0.4.tgz#6952d402e7372dd2d129e962bf9bd54d68ee6183"
   integrity sha512-HuwJSJkipZf4hkns9witv1CABNIPiB9C8lgAQXK4xJKcoUQChcnljEL+PQ2NqeEeMTEeV3nG3A/0QafH0pgTgg==
+
+"@tiptap/extension-color@^2.0.3":
+  version "2.1.11"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-color/-/extension-color-2.1.11.tgz#be6989bb2d6630fc8f8e3c81add6fdfe1b77c790"
+  integrity sha512-xfSfZRnNd40YtFfrXvzpGa2OZsRAZapq0Ce09q7bCEpudhiD7yIIVOjOjggagllOFnafKTwKkFaDLIA0K0eIwg==
 
 "@tiptap/extension-document@^2.0.3":
   version "2.0.4"
