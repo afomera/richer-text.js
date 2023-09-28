@@ -7,6 +7,15 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ## main
 
+- Improved highlighting support by offering a number of colors off the bat.
+- Added support for setting text colors.
+
+---
+
+## 0.17.0
+
+- Added support for oEmbed embeds by adding an `oembed` attribute to the editor, when passing it as true, the editor will look at `embedsPath/patterns` to load the oembed patterns in, and POST to the `embedsPath` endpoint when the users chooses to Embed instead. For more details checkout our oEmbed documentation.
+
 ---
 
 ## 0.16.1
