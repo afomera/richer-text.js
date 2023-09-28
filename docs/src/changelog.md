@@ -9,6 +9,7 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 - Improved highlighting support by offering a number of colors off the bat.
 - Added support for setting text colors.
+  - Added @tiptap/extension-color to dependencies
 
 ---
 
