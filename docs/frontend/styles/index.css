@@ -5,6 +5,13 @@
   --action-color: #d64079;
 }
 
+.richer-text-editor--bubble-menu-highlighter-menu {
+  & button {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+}
+
 body {
   background: var(--body-background);
   color: var(--body-color);
