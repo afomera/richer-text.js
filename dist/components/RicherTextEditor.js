@@ -90,7 +90,7 @@ RicherTextEditor.defaultProps = {
   placeholder: "Write something...",
   callouts: "false",
   showMenuBar: "true",
-  bubbleMenuOptions: "{ \"highlight\": false }",
+  bubbleMenuOptions: "{ \"highlight\": false, \"textColor\": false }",
   tables: "false",
   input: "",
   serializer: "html",
