@@ -59,5 +59,3 @@ end</pre>
 <richer-text-editor content="Hello world" placeholder="Write something...">
 </richer-text-editor>
 ```
-
----
