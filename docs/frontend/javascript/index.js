@@ -8,33 +8,27 @@ import "editor.css"
 // Import all JavaScript & CSS files from src/_components
 import components from "bridgetownComponents/**/*.{js,jsx,js.rb,css}"
 
-console.info("Bridgetown is loaded!")
-
-const switchTheme = () => {
-  // get root element
-  const rootElement = document.documentElement
-  let dataTheme = rootElement.getAttribute("data-theme"), newTheme
-
-  newTheme = dataTheme === "dark" ? "light" : "dark"
-
-  if (newTheme === "dark") {
-    rootElement.classList.add("dark")
-    document.getElementById("#theme-switcher").querySelector("button").innerHTML = "Switch to light mode"
-  } else {
-    rootElement.classList.remove("dark")
-    document.getElementById("#theme-switcher").querySelector("button").innerHTML = "Switch to dark mode"
-  }
-
-  rootElement.setAttribute("data-theme", newTheme)
-
-  localStorage.setItem("theme", newTheme)
-
-  console.log("Switched theme to", newTheme)
+// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.classList.add('dark')
+} else {
+  document.documentElement.classList.remove('dark')
 }
 
-if (document.getElementById("#theme-switcher")) {
-  document.getElementById("#theme-switcher").addEventListener("click", switchTheme)
-}
+document.addEventListener("DOMContentLoaded", function () {
+  if (!document.getElementById('theme-switch')) return;
+
+  document.getElementById('theme-switch').addEventListener('click', function () {
+    if (localStorage.theme == 'dark') {
+      document.documentElement.classList.remove('dark')
+      localStorage.theme = 'light';
+    } else {
+      document.documentElement.classList.add('dark')
+      localStorage.theme = 'dark';
+    }
+  });
+});
+
 
 // document.addEventListener("editor:blur", (event) => {
 //   console.log("Editor blurred", event)

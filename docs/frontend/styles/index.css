@@ -5,6 +5,32 @@
   --action-color: #d64079;
 }
 
+.dark {
+  --body-background: #222;
+  --body-color: #ddd;
+  --heading-color: #ddd;
+  --action-color: #d64079;
+}
+
+#dark-mode-switch-container {
+  position: absolute;
+  top: 4px;
+  right: 2rem;
+}
+
+#theme-switch {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+
+  .dark & {
+    color: #eab308;
+  }
+}
+
 .richer-text-editor--bubble-menu-highlighter-menu {
   & button {
     font-size: 1.1rem;
