@@ -13,11 +13,11 @@ image:
 
 Richer Text is now v1.0 and ready for production use.
 
-When I started this project at the end of last year (2022), my goal was to use it to learn React so I could better help on things at work. My goals have since shifted for Richer Text and it's become so much bigger and better than I could have ever imagined. It became my goal to make the text editor I've always wanted for my Ruby on Rails applications, but without giving up the niceities that ActionText provides.
+When I started this project at the end of last year (2022), my goal was to use it to learn React so I could better help on things at work. My goals have since shifted for Richer Text and it's become so much bigger and better than I could have ever imagined. It became my goal to make the text editor I've always wanted for my Ruby on Rails applications, but without giving up the niceties that ActionText provides.
 
 ## What is Richer Text?
 
-Richer Text is a modern text editor built on top of Tiptap, and ProseMirror. It includes a mechanism for storing either HTML or JSON that is returned from Tiptap and rendering the content, inspired by ActionText's functionality of storing content seperately from the model.
+Richer Text is a modern text editor built on top of Tiptap, and ProseMirror. It includes a mechanism for storing either HTML or JSON that is returned from Tiptap and rendering the content, inspired by ActionText's functionality of storing content separately from the model.
 
 Richer Text features a roboust text editor complete with everything from the basics to rich custom embeds. For a full list of features check below:
 
