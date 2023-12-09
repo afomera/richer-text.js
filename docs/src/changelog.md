@@ -9,6 +9,12 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ---
 
+## 1.0.0-beta.1
+
+- Same as 0.19.0 but now with 100% more 1.0 beta goodness.
+
+---
+
 ## 0.19.0
 
 - Updated all tiptap related extensions to v2.1.13.
