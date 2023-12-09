@@ -17,7 +17,7 @@ When I started this project at the end of last year (2022), my goal was to use i
 
 ## What is Richer Text?
 
-Richer Text is a modern text editor built on top of Tiptap, and ProseMirror. It includes a mechanism for storing either HTML or JSON that is returned from Tiptap and rendering the content, similar to ActionText in functionality.
+Richer Text is a modern text editor built on top of Tiptap, and ProseMirror. It includes a mechanism for storing either HTML or JSON that is returned from Tiptap and rendering the content, inspired by ActionText's functionality of storing content seperately from the model.
 
 Richer Text features a roboust text editor complete with everything from the basics to rich custom embeds. For a full list of features check below:
 
@@ -56,7 +56,7 @@ Nope, it's really not. I loved using ActionText in my projects, until I ran into
 
 Which is better? 🤪 Just kidding, it's really up to you. Though I recommend choosing JSON storage for your content, since you'll have full control over the rendering of HTML, and your content will always render the most up-to-date HTML if you change how an Image should render.
 
-By choosing JSON storage, you also get the ability to use <a href="/ruby-on-rails/embeds" target="_blank">Richer Text's custom embeds</a>.
+By choosing JSON storage, you also get the ability to use <a href="/ruby-on-rails/embeds" target="_blank">Richer Text's custom embeds, built in oEmbed support and more</a>.
 
 ## Future vision
 
@@ -114,9 +114,6 @@ That's all! Enjoy using RicherText 🥳
 
 ## Try it out
 
-<div id="#theme-switcher">
-  <button>Switch To Dark</button>
-</div>
 <input type="hidden" id="foobar" />
 <richer-text-editor embeds-path="/richer-text-embeds" custom-suggestions='[{ "name": "snippets", "trigger": "!", "path": "snippets.json" },{ "name": "snippets2", "trigger": "{{", "path": "snippets2.json" }]' mentionable-users-path="/users.json" tables="true" input="foobar" callouts="true" bubble-menu-options='{ "highlight": false }' content="<div class='callout' data-color='gray'>
 
