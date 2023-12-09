@@ -7,6 +7,16 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ## main
 
+---
+
+## 0.19.0
+
+- Updated all tiptap related extensions to v2.1.13.
+
+---
+
+## 0.18.0
+
 - Improved highlighting support by offering a number of colors off the bat.
 - Added support for setting text colors.
   - Added @tiptap/extension-color to dependencies
