@@ -11,7 +11,7 @@ layout: default
 
 # Try it out
 
-<input type="hidden" id="foobar" />
+<textarea id="foobar"></textarea>
 <richer-text-editor embeds-path="/richer-text-embeds" custom-suggestions='[{ "name": "snippets", "trigger": "!", "path": "snippets.json" },{ "name": "snippets2", "trigger": "{{", "path": "snippets2.json" }]' mentionable-users-path="/users.json" tables="true" input="foobar" callouts="true" bubble-menu-options='{ "highlight": true, "textColor": true }' content="<div class='callout' data-color='gray'>
 
 <p style='text-align: center'><strong><span style='font-size: 20px'>Welcome to RicherText</span></strong></p>

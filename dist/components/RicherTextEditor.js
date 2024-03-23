@@ -5,117 +5,74 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
-var _react = _interopRequireDefault(require("react"));
-var ReactDOM = _interopRequireWildcard(require("react-dom/client"));
-var _propTypes = _interopRequireDefault(require("prop-types"));
-var _react2 = require("@tiptap/react");
-var _RicherTextKit = require("./editor/extensions/RicherTextKit");
-var _Mention = _interopRequireDefault(require("./editor/extensions/Mention"));
-var _MentionSuggestion = _interopRequireDefault(require("./editor/suggestions/MentionSuggestion"));
-var _CustomSuggestion = _interopRequireDefault(require("./editor/extensions/CustomSuggestion"));
-var _CustomSuggestionSuggestion = _interopRequireDefault(require("./editor/suggestions/CustomSuggestionSuggestion"));
-var _RicherTextEmbed = _interopRequireDefault(require("./editor/extensions/RicherTextEmbed"));
-var _MenuBar = _interopRequireDefault(require("./editor/MenuBar"));
-var _BubbleMenu = _interopRequireDefault(require("./editor/menus/BubbleMenu"));
-var _TableBubbleMenu = _interopRequireDefault(require("./editor/menus/TableBubbleMenu"));
-var _reactToWebcomponent = _interopRequireDefault(require("react-to-webcomponent"));
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+var _lit = require("lit");
+var _decorators = require("lit/decorators.js");
+var _core = require("@tiptap/core");
+var _starterKit = _interopRequireDefault(require("@tiptap/starter-kit"));
+var _templateObject;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-var RicherTextEditor = function RicherTextEditor(props) {
-  var content = props.content,
-    placeholder = props.placeholder,
-    callouts = props.callouts,
-    showMenuBar = props.showMenuBar,
-    bubbleMenuOptions = props.bubbleMenuOptions,
-    tables = props.tables,
-    input = props.input,
-    serializer = props.serializer,
-    emoji = props.emoji,
-    mentionableUsersPath = props.mentionableUsersPath,
-    customSuggestions = props.customSuggestions,
-    embedsPath = props.embedsPath,
-    oembed = props.oembed;
-  var editorRef = _react["default"].useRef(null);
-  bubbleMenuOptions = JSON.parse(bubbleMenuOptions);
-  customSuggestions = JSON.parse(customSuggestions);
-  var extensions = [_RicherTextEmbed["default"].configure({
-    embedPath: embedsPath
-  }), _RicherTextKit.RicherTextKit.configure({
-    placeholder: placeholder,
-    callout: callouts !== "false",
-    tables: tables !== "false",
-    emoji: emoji !== "false"
-  })];
-  if (mentionableUsersPath.length > 0) {
-    extensions.push(_Mention["default"].configure({
-      HTMLAttributes: {
-        "class": "richer-text--mention"
-      },
-      suggestion: (0, _MentionSuggestion["default"])(mentionableUsersPath)
-    }));
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
+  _inherits(RicherTextEditor, _LitElement);
+  var _super = _createSuper(RicherTextEditor);
+  function RicherTextEditor() {
+    _classCallCheck(this, RicherTextEditor);
+    return _super.call(this);
   }
-  customSuggestions.forEach(function (customSuggestion) {
-    extensions.push((0, _CustomSuggestion["default"])("".concat(customSuggestion.name, "Plugin")).configure({
-      suggestion: (0, _CustomSuggestionSuggestion["default"])(customSuggestion.path, customSuggestion.trigger, "".concat(customSuggestion.name, "PluginKey"))
-    }));
-  });
-  var editor = (0, _react2.useEditor)({
-    extensions: [].concat(extensions),
-    content: serializer === "json" ? JSON.parse(content) : content,
-    editorProps: {
-      input: input,
-      serializer: serializer,
-      enableEmbeds: oembed
+  _createClass(RicherTextEditor, [{
+    key: "_createEditorRootElement",
+    value: function _createEditorRootElement() {
+      var element = document.createElement("div");
+      element.slot = "editor";
+      this.shadowRoot.host.appendChild(element);
+      return element;
     }
-  });
-  return /*#__PURE__*/_react["default"].createElement("div", {
-    className: "richer-text-editor",
-    ref: editorRef
-  }, showMenuBar == "true" && /*#__PURE__*/_react["default"].createElement(_MenuBar["default"], {
-    editor: editor
-  }), /*#__PURE__*/_react["default"].createElement(_BubbleMenu["default"], {
-    editor: editor,
-    bubbleMenuOptions: bubbleMenuOptions
-  }), /*#__PURE__*/_react["default"].createElement(_TableBubbleMenu["default"], {
-    editor: editor
-  }), /*#__PURE__*/_react["default"].createElement("div", {
-    className: "richer-text-editor--content"
-  }, /*#__PURE__*/_react["default"].createElement(_react2.EditorContent, {
-    editor: editor
-  })));
-};
-RicherTextEditor.defaultProps = {
-  content: "",
-  placeholder: "Write something...",
-  callouts: "false",
-  showMenuBar: "true",
-  bubbleMenuOptions: "{ \"highlight\": false, \"textColor\": false }",
-  tables: "false",
-  input: "",
-  serializer: "html",
-  emoji: "true",
-  mentionableUsersPath: "",
-  customSuggestions: "[]",
-  embedsPath: "/embeds",
-  oembed: "false"
-};
-RicherTextEditor.propTypes = {
-  content: _propTypes["default"].string,
-  placeholder: _propTypes["default"].string,
-  callouts: _propTypes["default"].string,
-  showMenuBar: _propTypes["default"].string,
-  bubbleMenuOptions: _propTypes["default"].string,
-  tables: _propTypes["default"].string,
-  input: _propTypes["default"].string,
-  serializer: _propTypes["default"].string,
-  emoji: _propTypes["default"].string,
-  mentionableUsersPath: _propTypes["default"].string,
-  customSuggestions: _propTypes["default"].string,
-  embedsPath: _propTypes["default"].string,
-  oembed: _propTypes["default"].string
-};
-var WebRicherTextEditor = (0, _reactToWebcomponent["default"])(RicherTextEditor, _react["default"], ReactDOM);
-customElements.define("richer-text-editor", WebRicherTextEditor);
-var _default = RicherTextEditor;
-exports["default"] = _default;
+  }, {
+    key: "firstUpdated",
+    value: function firstUpdated() {
+      console.log("RicherTextEditor firstUpdated");
+      this.editor = new _core.Editor({
+        element: this._createEditorRootElement(),
+        extensions: [_starterKit["default"].configure({
+          placeholder: this.placeholder || "Start typing..."
+        })],
+        content: this.serializer === "json" ? JSON.parse(this.content) : this.content
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        <div class=\"richer-text-editor--content\" part=\"editor\">\n          <slot name=\"editor\"></slot>\n        </div>\n      </div>\n    "])));
+    }
+  }], [{
+    key: "properties",
+    get: function get() {
+      return {
+        content: {
+          type: String
+        },
+        placeholder: {
+          type: String
+        },
+        serializer: {
+          type: String
+        }
+      };
+    }
+  }]);
+  return RicherTextEditor;
+}(_lit.LitElement);
+exports["default"] = RicherTextEditor;
+customElements.define("richer-text-editor", RicherTextEditor);

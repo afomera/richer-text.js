@@ -15,7 +15,7 @@ button {
   cursor: pointer;
 }
 
-:root {
+richer-text-editor :root {
   /* Callouts */
   --callout-gray-background-color: #F2F3F7;
   --callout-gray-border-color: #D0D5DD;
