@@ -12,7 +12,10 @@ layout: default
 # Try it out
 
 <textarea id="foobar"></textarea>
-<richer-text-editor embeds-path="/richer-text-embeds" custom-suggestions='[{ "name": "snippets", "trigger": "!", "path": "snippets.json" },{ "name": "snippets2", "trigger": "{{", "path": "snippets2.json" }]' mentionable-users-path="/users.json" tables="true" input="foobar" callouts="true" bubble-menu-options='{ "highlight": true, "textColor": true }' content="<div class='callout' data-color='gray'>
+
+<!--  toolbar="heading-1, heading-2, divider, bold, italic, strike"  -->
+
+<richer-text-editor toolbar-preset="default" toolbar-placement="bottom" serializer="html" embeds-path="/richer-text-embeds" custom-suggestions='[{ "name": "snippets", "trigger": "!", "path": "snippets.json" },{ "name": "snippets2", "trigger": "{{", "path": "snippets2.json" }]' mentionable-users-path="/users.json" tables="true" input="foobar" callouts="true" bubble-menu-options='{ "highlight": true, "textColor": true }' content="<div class='callout' data-color='gray'>
 
 <p style='text-align: center'><strong><span style='font-size: 20px'>Welcome to RicherText</span></strong></p>
 <p>RicherText aims to provide an alternative solution to using ActionText and Trix in Ruby on Rails. It uses a rich text editor based on TipTap (which itself is based on ProseMirror).</p>
@@ -54,6 +57,12 @@ end</pre>
 <richer-text-embed sgid='1235'></richer-text-embed>
 
 " placeholder="Write something..."></richer-text-editor>
+
+<script>
+  document.querySelector("richer-text-editor").addEventListener("change", (event) => {
+    console.log("event", event)
+  });
+</script>
 
 ```html
 <richer-text-editor content="Hello world" placeholder="Write something...">
