@@ -11,7 +11,7 @@ import { tiptapStyles } from "../styles/tiptapStyles";
 import { richerTextEditorStyles } from "../styles/richerTextEditorStyles";
 
 // Extensions
-import { RicherTextKit } from "../extensions/RicherTextKit";
+import { RicherTextKit } from "../editor/extensions/RicherTextKit";
 
 export default class RicherTextEditor extends LitElement {
   static get styles() {

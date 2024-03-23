@@ -134,7 +134,6 @@ export const RicherTextKit = Extension.create({
       }),
     )
 
-
     return extensions;
   },
 });
