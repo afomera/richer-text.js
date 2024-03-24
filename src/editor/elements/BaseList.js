@@ -22,9 +22,16 @@ export class BaseList extends LitElement {
       border-radius: 0.4rem;
       border: 1px solid transparent;
       padding: 0.2rem 0.4rem;
+      font-size: 0.9rem;
 
       img {
         border-radius: 50%;
+        margin-right: 0.4rem;
+      }
+
+      svg {
+        color: rgba(0, 0, 0, 0.5);
+        width: 1.5rem;
         margin-right: 0.4rem;
       }
     }

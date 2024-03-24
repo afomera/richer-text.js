@@ -16,7 +16,7 @@ import Color from "@tiptap/extension-color";
 
 import Callout from "./Callout";
 import CodeBlock from "./CodeBlock";
-// import CommandMenu from "./CommandMenu";
+import CommandMenu from "./CommandMenu";
 // import EditorEvents from "./EditorEvents";
 // import Emoji from "./Emoji";
 import FontSize from "./FontSize";
@@ -42,7 +42,7 @@ export const RicherTextKit = Extension.create({
           dropcursor: false,
           horizontalRule: false,
           heading: {
-            levels: [1, 2]
+            levels: [1, 2, 3]
           }
         })
       );
@@ -56,12 +56,12 @@ export const RicherTextKit = Extension.create({
       extensions.push(Callout);
     }
 
-    // if (this.options.commandMenu !== false) {
-    //   const calloutEnabled = this.options.callout !== false;
-    //   const tablesEnabled = this.options.tables !== false;
+    if (this.options.commandMenu !== false) {
+      const calloutEnabled = this.options.callout !== false;
+      const tablesEnabled = this.options.tables !== false;
 
-    //   extensions.push(CommandMenu(calloutEnabled, tablesEnabled));
-    // }
+      extensions.push(CommandMenu(calloutEnabled, tablesEnabled));
+    }
 
     if (this.options.dropcursor !== false) {
       extensions.push(Dropcursor.configure({

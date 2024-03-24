@@ -20,10 +20,10 @@ var _extensionTextStyle = _interopRequireDefault(require("@tiptap/extension-text
 var _extensionColor = _interopRequireDefault(require("@tiptap/extension-color"));
 var _Callout = _interopRequireDefault(require("./Callout"));
 var _CodeBlock = _interopRequireDefault(require("./CodeBlock"));
+var _CommandMenu = _interopRequireDefault(require("./CommandMenu"));
 var _FontSize = _interopRequireDefault(require("./FontSize"));
 var _HorizontalRule = _interopRequireDefault(require("./HorizontalRule"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-// import CommandMenu from "./CommandMenu";
 // import EditorEvents from "./EditorEvents";
 // import Emoji from "./Emoji";
 
@@ -44,7 +44,7 @@ var RicherTextKit = _core.Extension.create({
         dropcursor: false,
         horizontalRule: false,
         heading: {
-          levels: [1, 2]
+          levels: [1, 2, 3]
         }
       }));
     }
@@ -54,14 +54,11 @@ var RicherTextKit = _core.Extension.create({
     if (this.options.callout !== false) {
       extensions.push(_Callout["default"]);
     }
-
-    // if (this.options.commandMenu !== false) {
-    //   const calloutEnabled = this.options.callout !== false;
-    //   const tablesEnabled = this.options.tables !== false;
-
-    //   extensions.push(CommandMenu(calloutEnabled, tablesEnabled));
-    // }
-
+    if (this.options.commandMenu !== false) {
+      var calloutEnabled = this.options.callout !== false;
+      var tablesEnabled = this.options.tables !== false;
+      extensions.push((0, _CommandMenu["default"])(calloutEnabled, tablesEnabled));
+    }
     if (this.options.dropcursor !== false) {
       extensions.push(_extensionDropcursor["default"].configure({
         color: 'var(--rte-content-focus-color)'
