@@ -1,4 +1,5 @@
 import { mergeAttributes, Node, wrappingInputRule } from "@tiptap/core";
+import { html, render } from "lit";
 
 export default Node.create({
   name: "callout",
@@ -29,6 +30,51 @@ export default Node.create({
 
   renderHTML({ HTMLAttributes }) {
     return ["div", mergeAttributes(this.options.HTMLAttributes, HTMLAttributes), 0];
+  },
+
+  addNodeView() {
+    return ({ node, getPos, editor }) => {
+      console.log(node)
+
+      const template = html`<div></div>`;
+
+      // Scratch element to render into.
+      const scratch = document.createElement("div");
+      render(template, scratch);
+
+      const dom = scratch.firstElementChild;
+
+      // Add select dropdown to change color
+      const select = document.createElement("select");
+      select.classList.add("callout-select");
+      select.addEventListener("change", (event) => {
+        editor.commands.setNodeSelection(getPos());
+        editor.commands.updateAttributes("callout", { "data-color": event.target.value });
+      });
+
+      const colors = ["gray", "blue", "green", "red", "yellow"];
+
+      colors.forEach((color) => {
+        const option = document.createElement('option')
+        option.value = color
+        option.textContent = color.charAt(0).toUpperCase() + color.slice(1)
+        option.selected = color === node.attrs["data-color"]
+        select.append(option)
+      });
+
+      dom.appendChild(select);
+
+      const contentDiv = document.createElement("div");
+      contentDiv.classList.add("callout");
+      contentDiv.dataset.color = node.attrs["data-color"];
+
+      dom.appendChild(contentDiv);
+
+      return {
+        dom,
+        contentDOM: contentDiv,
+      };
+    };
   },
 
   addCommands() {
