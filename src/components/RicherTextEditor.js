@@ -18,6 +18,7 @@ import CustomSuggestionSuggestion from "../editor/suggestions/CustomSuggestionSu
 
 import Mention from "../editor/extensions/Mention";
 import MentionSuggestion from "../editor/suggestions/MentionSuggestion";
+import RicherTextEmbed from "../editor/extensions/RicherTextEmbed";
 
 export default class RicherTextEditor extends LitElement {
   static get styles() {
@@ -37,6 +38,7 @@ export default class RicherTextEditor extends LitElement {
       toolbarPlacement: { attribute: "toolbar-placement", type: String, reflect: true },
       toolbarPreset: { attribute: "toolbar-preset", type: String, reflect: true },
       customSuggestions: { attribute: "custom-suggestions", type: Array },
+      embedsPath: { attribute: "embeds-path", type: String, reflect: true },
       toolbar: {
         type: Array,
         reflect: true,
@@ -132,6 +134,10 @@ export default class RicherTextEditor extends LitElement {
 
   firstUpdated() {
     let extensions = [
+      RicherTextEmbed.configure({
+        embedPath: this.embedsPath,
+      }),
+
       RicherTextKit.configure({
         placeholder: this.placeholder || "Start typing...",
         callout: this.callouts !== "false",
@@ -189,6 +195,7 @@ export default class RicherTextEditor extends LitElement {
     this.mentionableUsersPath = this.getAttribute("mentionable-users-path") || "";
 
     this.customSuggestions = JSON.parse(this.getAttribute("custom-suggestions")) || [];
+    this.embedsPath = this.getAttribute("embeds-path") || "";
   }
 
    clear() {

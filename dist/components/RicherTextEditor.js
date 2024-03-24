@@ -18,6 +18,7 @@ var _CustomSuggestion = _interopRequireDefault(require("../editor/extensions/Cus
 var _CustomSuggestionSuggestion = _interopRequireDefault(require("../editor/suggestions/CustomSuggestionSuggestion"));
 var _Mention = _interopRequireDefault(require("../editor/extensions/Mention"));
 var _MentionSuggestion = _interopRequireDefault(require("../editor/suggestions/MentionSuggestion"));
+var _RicherTextEmbed = _interopRequireDefault(require("../editor/extensions/RicherTextEmbed"));
 var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18, _templateObject19, _templateObject20, _templateObject21;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -47,6 +48,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     _this.toolbarPreset = _this.getAttribute("toolbar-preset") || "default";
     _this.mentionableUsersPath = _this.getAttribute("mentionable-users-path") || "";
     _this.customSuggestions = JSON.parse(_this.getAttribute("custom-suggestions")) || [];
+    _this.embedsPath = _this.getAttribute("embeds-path") || "";
     return _this;
   }
   _createClass(RicherTextEditor, [{
@@ -114,7 +116,9 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     key: "firstUpdated",
     value: function firstUpdated() {
       var _this2 = this;
-      var extensions = [_RicherTextKit.RicherTextKit.configure({
+      var extensions = [_RicherTextEmbed["default"].configure({
+        embedPath: this.embedsPath
+      }), _RicherTextKit.RicherTextKit.configure({
         placeholder: this.placeholder || "Start typing...",
         callout: this.callouts !== "false",
         tables: this.tables !== "false"
@@ -400,6 +404,11 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
         customSuggestions: {
           attribute: "custom-suggestions",
           type: Array
+        },
+        embedsPath: {
+          attribute: "embeds-path",
+          type: String,
+          reflect: true
         },
         toolbar: {
           type: Array,
