@@ -14,6 +14,9 @@ var _normalize = require("../styles/normalize");
 var _tiptapStyles = require("../styles/tiptapStyles");
 var _richerTextEditorStyles = require("../styles/richerTextEditorStyles");
 var _RicherTextKit = require("../editor/extensions/RicherTextKit");
+var _Mention = _interopRequireDefault(require("../editor/extensions/Mention"));
+var _MentionSuggestion = _interopRequireDefault(require("../editor/suggestions/MentionSuggestion"));
+require("../editor/elements/MentionList");
 var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18, _templateObject19, _templateObject20;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -41,6 +44,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     _this.toolbar = [];
     _this.toolbarPlacement = _this.getAttribute("toolbar-placement") || "top";
     _this.toolbarPreset = _this.getAttribute("toolbar-preset") || "default";
+    _this.mentionableUsersPath = _this.getAttribute("mentionable-users-path") || "";
     return _this;
   }
   _createClass(RicherTextEditor, [{
@@ -110,14 +114,23 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     key: "firstUpdated",
     value: function firstUpdated() {
       var _this2 = this;
+      var extensions = [_RicherTextKit.RicherTextKit.configure({
+        placeholder: this.placeholder || "Start typing...",
+        callout: this.callouts !== "false",
+        tables: this.tables !== "false"
+      })];
+      if (this.mentionableUsersPath.length > 0) {
+        extensions.push(_Mention["default"].configure({
+          HTMLAttributes: {
+            "class": "richer-text--mention"
+          },
+          suggestion: (0, _MentionSuggestion["default"])(this.mentionableUsersPath)
+        }));
+      }
       this.editor = new _core.Editor({
         element: this._createEditorRootElement(),
         editable: !this.readonly,
-        extensions: [_RicherTextKit.RicherTextKit.configure({
-          placeholder: this.placeholder || "Start typing...",
-          callout: this.callouts !== "false",
-          tables: this.tables !== "false"
-        })],
+        extensions: [].concat(extensions),
         content: this.serializer === "json" ? JSON.parse(this.content) : this.content,
         onCreate: function onCreate() {
           // The editor is ready.
@@ -353,6 +366,11 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
           reflect: true
         },
         input: {
+          type: String,
+          reflect: true
+        },
+        mentionableUsersPath: {
+          attribute: "mentionable-users-path",
           type: String,
           reflect: true
         },

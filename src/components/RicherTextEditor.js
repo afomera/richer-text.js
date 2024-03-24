@@ -12,6 +12,11 @@ import { richerTextEditorStyles } from "../styles/richerTextEditorStyles";
 
 // Extensions
 import { RicherTextKit } from "../editor/extensions/RicherTextKit";
+import Mention from "../editor/extensions/Mention";
+import MentionSuggestion from "../editor/suggestions/MentionSuggestion";
+
+import "../editor/elements/MentionList";
+
 
 export default class RicherTextEditor extends LitElement {
   static get styles() {
@@ -27,6 +32,7 @@ export default class RicherTextEditor extends LitElement {
       serializer: { type: String, reflect: true },
       tables: { type: String, reflect: true},
       input: { type: String, reflect: true },
+      mentionableUsersPath: { attribute: "mentionable-users-path", type: String, reflect: true },
       toolbarPlacement: { type: String, reflect: true },
       toolbarPreset: { type: String, reflect: true },
       toolbar: {
@@ -40,7 +46,7 @@ export default class RicherTextEditor extends LitElement {
             return value.join(',');
           },
         }
-      }
+      },
     };
   }
 
@@ -121,16 +127,28 @@ export default class RicherTextEditor extends LitElement {
   }
 
   firstUpdated() {
+    let extensions = [
+      RicherTextKit.configure({
+        placeholder: this.placeholder || "Start typing...",
+        callout: this.callouts !== "false",
+        tables: this.tables !== "false"
+      })
+    ];
+
+    if (this.mentionableUsersPath.length > 0) {
+      extensions.push(
+        Mention.configure({
+          HTMLAttributes: { class: "richer-text--mention" },
+          suggestion: MentionSuggestion(this.mentionableUsersPath),
+        })
+      );
+    }
+
+
     this.editor = new Editor({
       element: this._createEditorRootElement(),
       editable: !this.readonly,
-      extensions: [
-        RicherTextKit.configure({
-          placeholder: this.placeholder || "Start typing...",
-          callout: this.callouts !== "false",
-          tables: this.tables !== "false"
-        })
-      ],
+      extensions: [...extensions],
       content: this.serializer === "json" ? JSON.parse(this.content) : this.content,
       onCreate: () => {
         // The editor is ready.
@@ -157,6 +175,7 @@ export default class RicherTextEditor extends LitElement {
     this.toolbar = [];
     this.toolbarPlacement = this.getAttribute("toolbar-placement") || "top";
     this.toolbarPreset = this.getAttribute("toolbar-preset") || "default";
+    this.mentionableUsersPath = this.getAttribute("mentionable-users-path") || "";
   }
 
    clear() {
