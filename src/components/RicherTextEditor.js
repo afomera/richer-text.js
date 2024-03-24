@@ -3,7 +3,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { map } from 'lit/directives/map.js';
 import { Editor } from "@tiptap/core";
 
-import icons from './icons';
+import icons from '../editor/icons';
 
 // Styles
 import { normalize } from "../styles/normalize";
