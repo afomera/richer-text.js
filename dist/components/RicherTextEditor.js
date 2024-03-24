@@ -16,7 +16,6 @@ var _richerTextEditorStyles = require("../styles/richerTextEditorStyles");
 var _RicherTextKit = require("../editor/extensions/RicherTextKit");
 var _Mention = _interopRequireDefault(require("../editor/extensions/Mention"));
 var _MentionSuggestion = _interopRequireDefault(require("../editor/suggestions/MentionSuggestion"));
-require("../editor/elements/MentionList");
 var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18, _templateObject19, _templateObject20, _templateObject21;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }

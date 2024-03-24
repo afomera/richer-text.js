@@ -46,10 +46,6 @@ export class BaseList extends LitElement {
     this.command = () => {};
   }
 
-  render() {
-    return html``;
-  }
-
   onKeyDown({event}) {
     if (event.key === 'ArrowUp') {
       this.upHandler()
@@ -81,8 +77,13 @@ export class BaseList extends LitElement {
     this.selectItem(this.selectedIndex)
   }
 
+  // This function should be implemented in the extending class
+  render() {
+    return html``;
+  }
+
+  // This function should be implemented in the extending class
   selectItem(index) {
-    // This method should be implemented in the extending class
   }
 }
 

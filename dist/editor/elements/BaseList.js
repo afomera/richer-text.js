@@ -34,11 +34,6 @@ var BaseList = /*#__PURE__*/function (_LitElement) {
     return _this;
   }
   _createClass(BaseList, [{
-    key: "render",
-    value: function render() {
-      return (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral([""])));
-    }
-  }, {
     key: "onKeyDown",
     value: function onKeyDown(_ref) {
       var event = _ref.event;
@@ -71,11 +66,18 @@ var BaseList = /*#__PURE__*/function (_LitElement) {
     value: function enterHandler() {
       this.selectItem(this.selectedIndex);
     }
+
+    // This function should be implemented in the extending class
+  }, {
+    key: "render",
+    value: function render() {
+      return (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral([""])));
+    }
+
+    // This function should be implemented in the extending class
   }, {
     key: "selectItem",
-    value: function selectItem(index) {
-      // This method should be implemented in the extending class
-    }
+    value: function selectItem(index) {}
   }]);
   return BaseList;
 }(_lit.LitElement); // Don't register this element directly as we don't want to use it in the editor and want to extend it in the MentionList element

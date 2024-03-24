@@ -15,9 +15,6 @@ import { RicherTextKit } from "../editor/extensions/RicherTextKit";
 import Mention from "../editor/extensions/Mention";
 import MentionSuggestion from "../editor/suggestions/MentionSuggestion";
 
-import "../editor/elements/MentionList";
-
-
 export default class RicherTextEditor extends LitElement {
   static get styles() {
     return [normalize, tiptapStyles, richerTextEditorStyles];
