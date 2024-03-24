@@ -37,6 +37,7 @@ export class BaseList extends LitElement {
     }
     .suggested-item.is-selected {
       border-color: #000;
+      background: rgba(0, 0, 0, 0.05);
     }
   `
 
