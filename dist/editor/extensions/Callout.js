@@ -42,7 +42,6 @@ var _default = _core.Node.create({
       var node = _ref2.node,
         getPos = _ref2.getPos,
         editor = _ref2.editor;
-      console.log(node);
       var template = (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["<div></div>"])));
 
       // Scratch element to render into.

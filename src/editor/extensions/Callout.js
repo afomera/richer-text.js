@@ -34,8 +34,6 @@ export default Node.create({
 
   addNodeView() {
     return ({ node, getPos, editor }) => {
-      console.log(node)
-
       const template = html`<div></div>`;
 
       // Scratch element to render into.
