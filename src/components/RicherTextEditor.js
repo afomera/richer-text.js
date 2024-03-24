@@ -61,11 +61,13 @@ export default class RicherTextEditor extends LitElement {
       this.toolbar = [
         'heading-1',
         'heading-2',
-        // 'heading-3',
+        'heading-3',
         'divider',
         'bold',
         'italic',
         'strike',
+        'code',
+        'divider',
         'highlight',
         'bulletlist',
         'orderedlist',
@@ -200,6 +202,10 @@ export default class RicherTextEditor extends LitElement {
 
   toggleUnderline() {
     this.editor.chain().toggleUnderline().focus().run();
+  }
+
+  toggleCode() {
+    this.editor.chain().toggleCode().focus().run();
   }
 
   toggleStrike() {
@@ -366,6 +372,17 @@ export default class RicherTextEditor extends LitElement {
           @click="${this.toggleStrike}"
         >
           ${icons.get('strike')}
+        </button>`,
+
+        'code': html`<button
+          type="button"
+          part="toolbar-button"
+          class="toolbar-button ${classMap({
+            'is-active': this.editor.isActive('code'),
+          })}"
+          @click="${this.toggleCode}"
+        >
+          ${icons.get('code')}
         </button>`,
 
         bulletlist: html`<button
