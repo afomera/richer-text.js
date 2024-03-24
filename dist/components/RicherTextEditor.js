@@ -380,10 +380,12 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
           reflect: true
         },
         toolbarPlacement: {
+          attribute: "toolbar-placement",
           type: String,
           reflect: true
         },
         toolbarPreset: {
+          attribute: "toolbar-preset",
           type: String,
           reflect: true
         },

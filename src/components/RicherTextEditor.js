@@ -30,8 +30,8 @@ export default class RicherTextEditor extends LitElement {
       tables: { type: String, reflect: true},
       input: { type: String, reflect: true },
       mentionableUsersPath: { attribute: "mentionable-users-path", type: String, reflect: true },
-      toolbarPlacement: { type: String, reflect: true },
-      toolbarPreset: { type: String, reflect: true },
+      toolbarPlacement: { attribute: "toolbar-placement", type: String, reflect: true },
+      toolbarPreset: { attribute: "toolbar-preset", type: String, reflect: true },
       toolbar: {
         type: Array,
         reflect: true,
