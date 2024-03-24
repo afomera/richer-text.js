@@ -12,6 +12,10 @@ import { richerTextEditorStyles } from "../styles/richerTextEditorStyles";
 
 // Extensions
 import { RicherTextKit } from "../editor/extensions/RicherTextKit";
+
+import CustomSuggestion from "../editor/extensions/CustomSuggestion";
+import CustomSuggestionSuggestion from "../editor/suggestions/CustomSuggestionSuggestion";
+
 import Mention from "../editor/extensions/Mention";
 import MentionSuggestion from "../editor/suggestions/MentionSuggestion";
 
@@ -32,6 +36,7 @@ export default class RicherTextEditor extends LitElement {
       mentionableUsersPath: { attribute: "mentionable-users-path", type: String, reflect: true },
       toolbarPlacement: { attribute: "toolbar-placement", type: String, reflect: true },
       toolbarPreset: { attribute: "toolbar-preset", type: String, reflect: true },
+      customSuggestions: { attribute: "custom-suggestions", type: Array },
       toolbar: {
         type: Array,
         reflect: true,
@@ -143,6 +148,13 @@ export default class RicherTextEditor extends LitElement {
       );
     }
 
+    this.customSuggestions.forEach((customSuggestion) => {
+      extensions.push(
+        CustomSuggestion(`${customSuggestion.name}Plugin`).configure({
+          suggestion: CustomSuggestionSuggestion(customSuggestion.path, customSuggestion.trigger, `${customSuggestion.name}PluginKey`),
+        })
+      )
+    });
 
     this.editor = new Editor({
       element: this._createEditorRootElement(),
@@ -175,6 +187,8 @@ export default class RicherTextEditor extends LitElement {
     this.toolbarPlacement = this.getAttribute("toolbar-placement") || "top";
     this.toolbarPreset = this.getAttribute("toolbar-preset") || "default";
     this.mentionableUsersPath = this.getAttribute("mentionable-users-path") || "";
+
+    this.customSuggestions = JSON.parse(this.getAttribute("custom-suggestions")) || [];
   }
 
    clear() {

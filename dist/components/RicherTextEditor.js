@@ -14,6 +14,8 @@ var _normalize = require("../styles/normalize");
 var _tiptapStyles = require("../styles/tiptapStyles");
 var _richerTextEditorStyles = require("../styles/richerTextEditorStyles");
 var _RicherTextKit = require("../editor/extensions/RicherTextKit");
+var _CustomSuggestion = _interopRequireDefault(require("../editor/extensions/CustomSuggestion"));
+var _CustomSuggestionSuggestion = _interopRequireDefault(require("../editor/suggestions/CustomSuggestionSuggestion"));
 var _Mention = _interopRequireDefault(require("../editor/extensions/Mention"));
 var _MentionSuggestion = _interopRequireDefault(require("../editor/suggestions/MentionSuggestion"));
 var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18, _templateObject19, _templateObject20, _templateObject21;
@@ -44,6 +46,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     _this.toolbarPlacement = _this.getAttribute("toolbar-placement") || "top";
     _this.toolbarPreset = _this.getAttribute("toolbar-preset") || "default";
     _this.mentionableUsersPath = _this.getAttribute("mentionable-users-path") || "";
+    _this.customSuggestions = JSON.parse(_this.getAttribute("custom-suggestions")) || [];
     return _this;
   }
   _createClass(RicherTextEditor, [{
@@ -124,6 +127,11 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
           suggestion: (0, _MentionSuggestion["default"])(this.mentionableUsersPath)
         }));
       }
+      this.customSuggestions.forEach(function (customSuggestion) {
+        extensions.push((0, _CustomSuggestion["default"])("".concat(customSuggestion.name, "Plugin")).configure({
+          suggestion: (0, _CustomSuggestionSuggestion["default"])(customSuggestion.path, customSuggestion.trigger, "".concat(customSuggestion.name, "PluginKey"))
+        }));
+      });
       this.editor = new _core.Editor({
         element: this._createEditorRootElement(),
         editable: !this.readonly,
@@ -388,6 +396,10 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
           attribute: "toolbar-preset",
           type: String,
           reflect: true
+        },
+        customSuggestions: {
+          attribute: "custom-suggestions",
+          type: Array
         },
         toolbar: {
           type: Array,
