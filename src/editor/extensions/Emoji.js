@@ -5,7 +5,9 @@ import { PluginKey } from "@tiptap/pm/state";
 
 import "../elements/EmojiList";
 
-import emojisList from "../elements/emoji.json";
+import data from "@emoji-mart/data";
+
+import { init, SearchIndex } from 'emoji-mart';
 
 const Emoji = Extension.create({
   name: "emoji",
@@ -15,18 +17,17 @@ const Emoji = Extension.create({
       char: ":",
       startOfLine: false,
       allowSpaces: false,
-      items: ({ query }) => {
-        return emojisList
-          .filter((emoji) => {
-            return (
-              emoji.emoji.toLowerCase().includes(query.toLowerCase()) ||
-              emoji.aliases.some((alias) =>
-              alias.toLowerCase().includes(query.toLowerCase())
-              ) ||
-              emoji.description.toLowerCase().includes(query.toLowerCase())
-            );
-          })
-          .slice(0, 10)
+      items: async ({ query }) => {
+        init({data});
+        let emojisList = await SearchIndex.search(query);
+
+        console.log('emojisList:', emojisList);
+
+        if (emojisList === null) {
+          return [];
+        } else {
+          return emojisList.slice(0, 10);
+        }
       },
 
       render: () => {
@@ -79,7 +80,7 @@ const Emoji = Extension.create({
         }
       },
       command: ({ editor, range, props }) => {
-        editor.chain().focus().deleteRange(range).insertContentAt(range.from, props.emoji).run();
+        editor.chain().focus().deleteRange(range).insertContentAt(range.from, props.skins[0].native).run();
       },
     }
   },

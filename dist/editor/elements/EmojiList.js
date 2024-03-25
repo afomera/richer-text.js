@@ -33,9 +33,9 @@ var EmojiList = /*#__PURE__*/function (_BaseList) {
     value: function render() {
       var _this = this;
       return (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n      <div class=\"suggested-items\">\n        ", "\n      </div>\n    "])), this.items.length > 0 ? this.items.map(function (item, index) {
-        return (0, _lit.html)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n            <button\n              class=\"suggested-item ", "\"\n              @click=", "\n            >\n              ", "\n              <span style=\"marginLeft: 4px\"></span>\n              :", ":\n            </button>"])), index === _this.selectedIndex ? 'is-selected' : '', function () {
+        return (0, _lit.html)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n            <button\n              class=\"suggested-item ", "\"\n              @click=", "\n            >\n              ", "\n              <span style=\"marginLeft: 4px\"></span>\n              ", "\n            </button>"])), index === _this.selectedIndex ? 'is-selected' : '', function () {
           return _this.selectItem(index);
-        }, item.emoji, item.aliases[0]);
+        }, item.skins[0]["native"], item.skins[0].shortcodes);
       }) : (0, _lit.html)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["<div class=\"suggested-item\">No results</div>"]))));
     }
   }, {

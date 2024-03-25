@@ -11,9 +11,9 @@ export class EmojiList extends BaseList {
               class="suggested-item ${index === this.selectedIndex ? 'is-selected' : ''}"
               @click=${() => this.selectItem(index)}
             >
-              ${item.emoji}
+              ${item.skins[0].native}
               <span style="marginLeft: 4px"></span>
-              :${item.aliases[0]}:
+              ${item.skins[0].shortcodes}
             </button>`
           ) : html`<div class="suggested-item">No results</div>`}
       </div>
