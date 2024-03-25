@@ -1,4 +1,4 @@
-import { LitElement, html } from "lit";
+import { LitElement, html, svg } from "lit";
 import { classMap } from 'lit/directives/class-map.js';
 import { map } from 'lit/directives/map.js';
 import { Editor } from "@tiptap/core";
@@ -11,6 +11,7 @@ import { tiptapStyles } from "../styles/tiptapStyles";
 import { richerTextEditorStyles } from "../styles/richerTextEditorStyles";
 
 // Extensions
+import BubbleMenu from "@tiptap/extension-bubble-menu";
 import { RicherTextKit } from "../editor/extensions/RicherTextKit";
 
 import CustomSuggestion from "../editor/extensions/CustomSuggestion";
@@ -19,6 +20,10 @@ import CustomSuggestionSuggestion from "../editor/suggestions/CustomSuggestionSu
 import Mention from "../editor/extensions/Mention";
 import MentionSuggestion from "../editor/suggestions/MentionSuggestion";
 import RicherTextEmbed from "../editor/extensions/RicherTextEmbed";
+
+
+import "../editor/elements/RicherBubbleMenu";
+import CustomBubbleMenu from "../editor/extensions/CustomBubbleMenu";
 
 export default class RicherTextEditor extends LitElement {
   static get styles() {
@@ -130,10 +135,12 @@ export default class RicherTextEditor extends LitElement {
     if (changedProperties.has("content")) {
       this.editor.commands.setContent(this.serializer === "json" ? JSON.parse(this.content) : this.content);
     }
+
   }
 
   firstUpdated() {
     let extensions = [
+      CustomBubbleMenu,
       RicherTextEmbed.configure({
         embedPath: this.embedsPath,
       }),
@@ -181,6 +188,7 @@ export default class RicherTextEditor extends LitElement {
         this.requestUpdate();
       },
     });
+
     this.configureToolbar();
 
     this.requestUpdate();

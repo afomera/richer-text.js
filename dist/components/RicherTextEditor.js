@@ -13,12 +13,15 @@ var _icons = _interopRequireDefault(require("../editor/icons"));
 var _normalize = require("../styles/normalize");
 var _tiptapStyles = require("../styles/tiptapStyles");
 var _richerTextEditorStyles = require("../styles/richerTextEditorStyles");
+var _extensionBubbleMenu = _interopRequireDefault(require("@tiptap/extension-bubble-menu"));
 var _RicherTextKit = require("../editor/extensions/RicherTextKit");
 var _CustomSuggestion = _interopRequireDefault(require("../editor/extensions/CustomSuggestion"));
 var _CustomSuggestionSuggestion = _interopRequireDefault(require("../editor/suggestions/CustomSuggestionSuggestion"));
 var _Mention = _interopRequireDefault(require("../editor/extensions/Mention"));
 var _MentionSuggestion = _interopRequireDefault(require("../editor/suggestions/MentionSuggestion"));
 var _RicherTextEmbed = _interopRequireDefault(require("../editor/extensions/RicherTextEmbed"));
+require("../editor/elements/RicherBubbleMenu");
+var _CustomBubbleMenu = _interopRequireDefault(require("../editor/extensions/CustomBubbleMenu"));
 var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18, _templateObject19, _templateObject20, _templateObject21;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -116,7 +119,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     key: "firstUpdated",
     value: function firstUpdated() {
       var _this2 = this;
-      var extensions = [_RicherTextEmbed["default"].configure({
+      var extensions = [_CustomBubbleMenu["default"], _RicherTextEmbed["default"].configure({
         embedPath: this.embedsPath
       }), _RicherTextKit.RicherTextKit.configure({
         placeholder: this.placeholder || "Start typing...",
