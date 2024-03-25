@@ -21,11 +21,11 @@ var _extensionColor = _interopRequireDefault(require("@tiptap/extension-color"))
 var _Callout = _interopRequireDefault(require("./Callout"));
 var _CodeBlock = _interopRequireDefault(require("./CodeBlock"));
 var _CommandMenu = _interopRequireDefault(require("./CommandMenu"));
+var _Emoji = _interopRequireDefault(require("./Emoji"));
 var _FontSize = _interopRequireDefault(require("./FontSize"));
 var _HorizontalRule = _interopRequireDefault(require("./HorizontalRule"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 // import EditorEvents from "./EditorEvents";
-// import Emoji from "./Emoji";
 
 // import Image from "./Image";
 
@@ -99,11 +99,9 @@ var RicherTextKit = _core.Extension.create({
         resizable: false
       }), _extensionTableRow["default"], _extensionTableHeader["default"], _extensionTableCell["default"]);
     }
-
-    // if (this.options.emoji !== false) {
-    //   extensions.push(Emoji);
-    // }
-
+    if (this.options.emoji !== false) {
+      extensions.push(_Emoji["default"]);
+    }
     extensions.push(
     // EditorEvents,
     _CodeBlock["default"], _extensionTextStyle["default"], _extensionColor["default"], _extensionTextAlign["default"].configure({

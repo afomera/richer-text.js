@@ -18,7 +18,7 @@ import Callout from "./Callout";
 import CodeBlock from "./CodeBlock";
 import CommandMenu from "./CommandMenu";
 // import EditorEvents from "./EditorEvents";
-// import Emoji from "./Emoji";
+import Emoji from "./Emoji";
 import FontSize from "./FontSize";
 import HorizontalRule from "./HorizontalRule";
 // import Image from "./Image";
@@ -120,9 +120,9 @@ export const RicherTextKit = Extension.create({
       )
     }
 
-    // if (this.options.emoji !== false) {
-    //   extensions.push(Emoji);
-    // }
+    if (this.options.emoji !== false) {
+      extensions.push(Emoji);
+    }
 
     extensions.push(
       // EditorEvents,
