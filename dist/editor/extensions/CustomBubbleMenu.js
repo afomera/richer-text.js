@@ -12,10 +12,18 @@ var CustomBubbleMenu = _core.Extension.create({
   addProseMirrorPlugins: function addProseMirrorPlugins() {
     var element = document.createElement("richer-bubble-menu");
     element.editor = this.editor;
+    var tippyOptions = element.tippyOptions || {};
     return [(0, _extensionBubbleMenu.BubbleMenuPlugin)({
       editor: this.editor,
       key: new _state.PluginKey("customBubbleMenu"),
-      element: element
+      element: element,
+      tippyOptions: Object.assign(tippyOptions, {
+        duration: 0,
+        delay: 0,
+        onHide: function onHide() {
+          element.editingLink = false;
+        }
+      })
     })];
   }
 });

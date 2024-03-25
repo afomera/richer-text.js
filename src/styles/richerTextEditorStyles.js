@@ -6,7 +6,7 @@ export const richerTextEditorStyles = css`
     container: richer-text-editor-host / inline-size;
 
     /* Theme: light | dark */
-    --theme: dark;
+    --theme: "light";
 
     /* Editor wrapper */
     --border-color: #e5e7eb;

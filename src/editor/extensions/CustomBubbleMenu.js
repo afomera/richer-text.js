@@ -10,11 +10,20 @@ const CustomBubbleMenu = Extension.create({
     const element = document.createElement("richer-bubble-menu");
     element.editor = this.editor;
 
+    const tippyOptions = element.tippyOptions || {};
+
     return [
       BubbleMenuPlugin({
         editor: this.editor,
         key: new PluginKey("customBubbleMenu"),
         element: element,
+        tippyOptions: Object.assign(tippyOptions, {
+          duration: 0,
+          delay: 0,
+          onHide: () => {
+            element.editingLink = false;
+          },
+        }),
       }),
     ];
   },

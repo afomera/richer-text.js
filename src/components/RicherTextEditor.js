@@ -1,4 +1,4 @@
-import { LitElement, html, svg } from "lit";
+import { LitElement, html } from "lit";
 import { classMap } from 'lit/directives/class-map.js';
 import { map } from 'lit/directives/map.js';
 import { Editor } from "@tiptap/core";
@@ -11,7 +11,6 @@ import { tiptapStyles } from "../styles/tiptapStyles";
 import { richerTextEditorStyles } from "../styles/richerTextEditorStyles";
 
 // Extensions
-import BubbleMenu from "@tiptap/extension-bubble-menu";
 import { RicherTextKit } from "../editor/extensions/RicherTextKit";
 
 import CustomSuggestion from "../editor/extensions/CustomSuggestion";

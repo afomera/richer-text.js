@@ -13,7 +13,6 @@ var _icons = _interopRequireDefault(require("../editor/icons"));
 var _normalize = require("../styles/normalize");
 var _tiptapStyles = require("../styles/tiptapStyles");
 var _richerTextEditorStyles = require("../styles/richerTextEditorStyles");
-var _extensionBubbleMenu = _interopRequireDefault(require("@tiptap/extension-bubble-menu"));
 var _RicherTextKit = require("../editor/extensions/RicherTextKit");
 var _CustomSuggestion = _interopRequireDefault(require("../editor/extensions/CustomSuggestion"));
 var _CustomSuggestionSuggestion = _interopRequireDefault(require("../editor/suggestions/CustomSuggestionSuggestion"));
