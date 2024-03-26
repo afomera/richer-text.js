@@ -21,6 +21,11 @@
   --callout-red-text-color: #B30000;
 
   --rte-table-border-color: #e2e8f0;
+  --rte-link-color: #2b6fe6;
+}
+
+richer-text-editor a {
+  color: var(--rte-link-color);
 }
 
 .ProseMirror {

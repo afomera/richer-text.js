@@ -69,15 +69,6 @@ export class RicherBubbleMenu extends LitElement {
     this.editingLink = false;
   }
 
-  updated(changedProperties) {
-    console.log('editor:', this.editor);
-
-    if (changedProperties.has('editingLink')) {
-      // this._computePositionEmojiPicker();
-      console.log('editingLink:', this.editingLink);
-    }
-  }
-
   toggleBold() {
     this.editor.chain().focus().toggleBold().run();
   }
@@ -92,23 +83,35 @@ export class RicherBubbleMenu extends LitElement {
 
   toggleLinkEditor() {
     this.editingLink = !this.editingLink;
+
+    if (this.editingLink) {
+      // Add a small delay to ensure the input is focused after the element is rendered
+      setTimeout(() => {
+        this.shadowRoot.getElementById('link-url').focus();
+      }, 50);
+    }
   }
 
-  clearLinkAndClose() {
-    this.editor.chain().focus().unsetLink().run();
+  setLinkAndClose() {
+    const url = this.shadowRoot.getElementById('link-url').value;
+
+    if (url) {
+      this.editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run()
+    } else {
+      this.editor.chain().focus().unsetLink().run();
+    }
+
     this.editingLink = false;
   }
 
-  // Create event listener for submit or enter of input to set link
-  _handleLinkInput(event) {
-    console.log('event:', event);
+  _handleLinkSubmit(event) {
+    event.preventDefault();
+    this.setLinkAndClose();
   }
 
 
   // This is a simple bubble menu that toggles bold text.
   render() {
-    console.log("Render editor", this.editor)
-
     if (!this.editingLink) {
       return html`
         <div class="richer-text-editor--bubble-menu">
@@ -125,9 +128,11 @@ export class RicherBubbleMenu extends LitElement {
     } else {
       return html`
         <div class="richer-text-editor--bubble-menu">
-          <span class="link-icon">${icons.get("link")}</span>
-          <input type="url" autofocus="true" placeholder="Enter a URL" @keydown=${this._handleLinkInput} />
-          <button @click=${() => this.clearLinkAndClose()}>${icons.get("close")}</button>
+          <form @submit=${this._handleLinkSubmit}>
+            <span class="link-icon">${icons.get("link")}</span>
+            <input id="link-url" value=${this.editor.getAttributes("link").href} type="url" autofocus="true" placeholder="Enter a URL" />
+            <button @click=${() => this.setLinkAndClose()}>Done</button>
+          </form>
         </div>
       `
     }

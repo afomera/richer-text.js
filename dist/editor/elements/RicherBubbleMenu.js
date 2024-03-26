@@ -34,15 +34,6 @@ var RicherBubbleMenu = /*#__PURE__*/function (_LitElement) {
     return _this;
   }
   _createClass(RicherBubbleMenu, [{
-    key: "updated",
-    value: function updated(changedProperties) {
-      console.log('editor:', this.editor);
-      if (changedProperties.has('editingLink')) {
-        // this._computePositionEmojiPicker();
-        console.log('editingLink:', this.editingLink);
-      }
-    }
-  }, {
     key: "toggleBold",
     value: function toggleBold() {
       this.editor.chain().focus().toggleBold().run();
@@ -60,42 +51,54 @@ var RicherBubbleMenu = /*#__PURE__*/function (_LitElement) {
   }, {
     key: "toggleLinkEditor",
     value: function toggleLinkEditor() {
+      var _this2 = this;
       this.editingLink = !this.editingLink;
+      if (this.editingLink) {
+        // Add a small delay to ensure the input is focused after the element is rendered
+        setTimeout(function () {
+          _this2.shadowRoot.getElementById('link-url').focus();
+        }, 50);
+      }
     }
   }, {
-    key: "clearLinkAndClose",
-    value: function clearLinkAndClose() {
-      this.editor.chain().focus().unsetLink().run();
+    key: "setLinkAndClose",
+    value: function setLinkAndClose() {
+      var url = this.shadowRoot.getElementById('link-url').value;
+      if (url) {
+        this.editor.chain().focus().extendMarkRange('link').setLink({
+          href: url
+        }).run();
+      } else {
+        this.editor.chain().focus().unsetLink().run();
+      }
       this.editingLink = false;
     }
-
-    // Create event listener for submit or enter of input to set link
   }, {
-    key: "_handleLinkInput",
-    value: function _handleLinkInput(event) {
-      console.log('event:', event);
+    key: "_handleLinkSubmit",
+    value: function _handleLinkSubmit(event) {
+      event.preventDefault();
+      this.setLinkAndClose();
     }
 
     // This is a simple bubble menu that toggles bold text.
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-      console.log("Render editor", this.editor);
+      var _this3 = this;
       if (!this.editingLink) {
         return (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        <div class=\"richer-text-editor--bubble-menu\">\n          <button class=\"toolbar-button\" @click=", ">\n            ", "\n          </button>\n          <button @click=", ">\n            ", "\n          </button>\n          <button @click=", ">", "</button>\n          <button @click=", ">", "</button>\n        </div>\n      "])), function () {
-          return _this2.toggleBold();
+          return _this3.toggleBold();
         }, _icons["default"].get("bold"), function () {
-          return _this2.editor.chain().focus().toggleItalic().run();
+          return _this3.editor.chain().focus().toggleItalic().run();
         }, _icons["default"].get("italic"), function () {
-          return _this2.editor.chain().focus().toggleStrike().run();
+          return _this3.editor.chain().focus().toggleStrike().run();
         }, _icons["default"].get("strike"), function () {
-          return _this2.toggleLinkEditor();
+          return _this3.toggleLinkEditor();
         }, _icons["default"].get("link"));
       } else {
-        return (0, _lit.html)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n        <div class=\"richer-text-editor--bubble-menu\">\n          <span class=\"link-icon\">", "</span>\n          <input type=\"url\" autofocus=\"true\" placeholder=\"Enter a URL\" @keydown=", " />\n          <button @click=", ">", "</button>\n        </div>\n      "])), _icons["default"].get("link"), this._handleLinkInput, function () {
-          return _this2.clearLinkAndClose();
-        }, _icons["default"].get("close"));
+        return (0, _lit.html)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n        <div class=\"richer-text-editor--bubble-menu\">\n          <form @submit=", ">\n            <span class=\"link-icon\">", "</span>\n            <input id=\"link-url\" value=", " type=\"url\" autofocus=\"true\" placeholder=\"Enter a URL\" />\n            <button @click=", ">Done</button>\n          </form>\n        </div>\n      "])), this._handleLinkSubmit, _icons["default"].get("link"), this.editor.getAttributes("link").href, function () {
+          return _this3.setLinkAndClose();
+        });
       }
     }
   }], [{
