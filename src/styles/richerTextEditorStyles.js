@@ -148,27 +148,9 @@ export const richerTextEditorStyles = css`
     margin-right: var(--toolbar-gap);
   }
 
-  /*
-    https://caniuse.com/css-container-queries-style
-    https://css.oddbird.net/rwd/style/explainer/#key-scenarios
-  */
-  @container richer-text-editor-host style(--theme: dark) {
-    .wrapper {
-      --background-color: #fff;
-      --border-width: 3px;
-      --border-color: #0d0d0d;
-      --border-radius: 0.75rem;
-
-      --toolbar-background: #0d0d0d;
-      --toolbar-button-background: #0d0d0d;
-      --toolbar-button-background-active: #303030;
-      --toolbar-button-background-hover: var(
-        --toolbar-button-background-active
-      );
-      --toolbar-button-fill: #fff;
-      --toolbar-divider-color: #ffffff40;
-      --toolbar-button-fill-active: #fff;
-      --toolbar-button-fill-hover: var(--toolbar-button-fill-active);
-    }
-  }
+  /* Dark Mode styles */
+  // @media (prefers-color-scheme: dark) {
+  //   :host {
+  //   }
+  // }
 `;
