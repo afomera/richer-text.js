@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Announcing Richer Text v1.0! 🎉
+title: Announcing Richer Text v2.0! 🎉
 author:
   name: Andrea Fomera
   link: https://afomera.dev
@@ -11,9 +11,11 @@ image:
   unsplash_credit: https://unsplash.com/photos/gdTxVSAE5sk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 ---
 
-Richer Text is now v1.0 and ready for production use.
+Richer Text is now <strike>v1.0</strike>v2.0 and ready for production use.
 
-When I started this project at the end of last year (2022), my goal was to use it to learn React so I could better help on things at work. My goals have since shifted for Richer Text and it's become so much bigger and better than I could have ever imagined. It became my goal to make the text editor I've always wanted for my Ruby on Rails applications, but without giving up the niceties that ActionText provides.
+When I started this project at the end of 2022, my goal was to use it to learn React so I could better help on things at work. My goals have since shifted for Richer Text and it's become so much bigger and better than I could have ever imagined. It became my goal to make the text editor I've always wanted for my Ruby on Rails applications, but without giving up the niceties that ActionText provides.
+
+In early 2024 the decision was made to rewrite the entire editor using Lit to build custom elements directly without React as a dependency.
 
 ## What is Richer Text?
 
