@@ -72,18 +72,18 @@
 
     /* Editor wrapper */
     --border-color: #374151;
-    --background-color: #1f2937;
-    --text-color: #e2e8f0;
+    --background-color: #0a0a0a;
+    --text-color: #f5f5f5;
 
     /* Editor toolbar */
-    --toolbar-button-background: #374151;
-    --toolbar-button-background-active: #374151;
-    --toolbar-button-background-hover: #2d3748;
-    --toolbar-button-fill: #f9fafb;
-    --toolbar-button-fill-active: #f9fafb;
-    --toolbar-button-fill-hover: #f9fafb;
+    --toolbar-button-background: #0a0a0a;
+    --toolbar-button-background-active: #171717;
+    --toolbar-button-background-hover: #262626;
+    --toolbar-button-fill: #f5f5f5;
+    --toolbar-button-fill-active: #f5f5f5;
+    --toolbar-button-fill-hover: #f5f5f5;
     --toolbar-divider-color: #4b5563;
-    --toolbar-background: #1f2937;
+    --toolbar-background: #0a0a0a;
   }
 }
 
