@@ -7,7 +7,7 @@ Richer Text is a project by [Andrea Fomera](https://afomera.dev). It's based on 
 
 _**Richer Text is not looking to maintain backwards compatibility with ActionText**. For a compatible editor, take a look at [Rhino Editor](http://rhino-editor.vercel.app)._
 
-The editor itself is written in React, and converted into a Web Component for ease of including in any project.
+The editor itself is written as a collection of custom elements via Lit, with the main perk of being a web component so it's easy to drop in any project.
 
 ## Why another editor?
 
@@ -31,7 +31,6 @@ The backend integration with Ruby on Rails will feel familiar for those who've u
 Here's some reasons you may **not** want to use Richer Text.
 
 - You want to maintain backwards compatibility with ActionText as an escape hatch if you need it one day. (For backwards compatibility, but still getting the perks of Tiptap for your text editor, checkout [Rhino Editor](http://rhino-editor.vercel.app). Konnor is doing great work on it to maintain backwards compatibility).
-- You don't want React/React DOM installed in your project. (For the record, you don't need to **use** React outside of the Text Editor, it just needs to be included in your package.json)
 - You want to use ActionText's attachable system for attachments, rather than Richer Text's <a href="/ruby-on-rails/embeds">embed system</a>.
 
 ## You keep mentioning Rhino Editor, why? How do the two editors compare?

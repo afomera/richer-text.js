@@ -26,7 +26,6 @@
     "@tiptap/extension-text-align" "2.2.4"
     "@tiptap/extension-text-style" "2.2.4"
     "@tiptap/pm" "^2.2.4"
-    "@tiptap/react" "2.2.4"
     "@tiptap/starter-kit" "2.2.4"
     "@tiptap/suggestion" "2.2.4"
     emoji-mart "5.5.2"
@@ -206,13 +205,6 @@
   dependencies:
     tippy.js "^6.3.7"
 
-"@tiptap/extension-bubble-menu@^2.2.4":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-bubble-menu/-/extension-bubble-menu-2.3.0.tgz#3447dcc68aaaa76c8327cb636976164986b270c7"
-  integrity sha512-dqyfQ8idTlhapvt0fxCGvkyjw92pBEwPqmkJ01h3EE8wTh53j0ytOHyMSf1KBuzardxpd8Yya3zlrAcR0Z3DlQ==
-  dependencies:
-    tippy.js "^6.3.7"
-
 "@tiptap/extension-bullet-list@^2.2.4":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-bullet-list/-/extension-bullet-list-2.3.0.tgz#14400e19b87e7e9b1cf9c6d3900e7243461abc8d"
@@ -257,13 +249,6 @@
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-dropcursor/-/extension-dropcursor-2.3.0.tgz#4220434bbf96202d7e4c366f28693fe64c3f7542"
   integrity sha512-WWxxGQPWdbzxyYP6jtBYSq4wMRhINhI0wBC8pgkxTVwCIWftMuYj++FP4LLIpuWgj78PWApuoM0QQxk4Lj7FOw==
-
-"@tiptap/extension-floating-menu@^2.2.4":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-floating-menu/-/extension-floating-menu-2.3.0.tgz#ac61ffeac479cdf019a270d23464fd08af6ab931"
-  integrity sha512-bNY43/yU/+wGfmk2eDV7EPDAN/akbC+YnSKTA5VPJADzscvlrL2HlQrxbd/STIdlwKqdPU5MokcvCChhfZ4f6w==
-  dependencies:
-    tippy.js "^6.3.7"
 
 "@tiptap/extension-focus@^2.2.4":
   version "2.3.0"
@@ -405,14 +390,6 @@
     prosemirror-trailing-node "^2.0.7"
     prosemirror-transform "^1.8.0"
     prosemirror-view "^1.32.7"
-
-"@tiptap/react@2.2.4":
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/@tiptap/react/-/react-2.2.4.tgz#bfb6a484a26d85df7a6f9636b98c38f4e83de4c0"
-  integrity sha512-HkYmMZWcETPZn3KpzdDg/ns2TKeFh54TvtCEInA4ljYtWGLoZc/A+KaiEtMIgVs+Mo1XwrhuoNGjL9c0OK2HJw==
-  dependencies:
-    "@tiptap/extension-bubble-menu" "^2.2.4"
-    "@tiptap/extension-floating-menu" "^2.2.4"
 
 "@tiptap/starter-kit@2.2.4":
   version "2.2.4"

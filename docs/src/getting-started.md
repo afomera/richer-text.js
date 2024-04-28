@@ -4,7 +4,7 @@ title: Getting started
 ---
 
 <div class="callout" data-color="green">
-  <p><strong>Important:</strong> RicherText has a hard dependency on React/react-dom and you must install or have React >= 17 in your project. If you follow the Rails installation the packages will be added if they're not already. You <strong>do not</strong> have to use React outside of the RicherText editor if you do not want to.</p>
+  <p><strong>Important:</strong> As of RicherText.js v2, we no longer require a dependency on React/react-dom. Now's the perfect time to try it.</p>
 </div>
 
 ## Installation (Ruby on Rails)
@@ -12,16 +12,6 @@ title: Getting started
 <a href="/ruby-on-rails#installation">View the Ruby on Rails installation page.</a>
 
 ## Manual Installation
-
-<div class="callout" data-color="yellow">
-  <p><strong>Important:</strong></p>
-  <p>RicherText requires React to be installed into your project, so please make sure these are installed in your package.json.</p>
-
-<pre>
-yarn add react react-dom
-</pre>
-
-</div>
 
 Use yarn, npm, pnpm or whatever package manager works for your project:
 
