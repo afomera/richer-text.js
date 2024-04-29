@@ -12,6 +12,23 @@
   --action-color: #d64079;
 }
 
+[hidden] {
+  display: none !important;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+button {
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 #dark-mode-switch-container {
   position: absolute;
   top: 4px;
