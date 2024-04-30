@@ -121,7 +121,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
       var extensions = [_CustomBubbleMenu["default"].configure({
         shouldShow: function shouldShow(_ref) {
           var editor = _ref.editor;
-          return editor.isActive("paragraph") || editor.isActive("heading") || editor.isActive("blockquote");
+          return !editor.view.state.selection.empty && (editor.isActive("paragraph") || editor.isActive("heading") || editor.isActive("blockquote"));
         }
       }), _RicherTextEmbed["default"].configure({
         embedPath: this.embedsPath

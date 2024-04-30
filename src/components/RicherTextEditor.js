@@ -140,7 +140,7 @@ export default class RicherTextEditor extends LitElement {
     let extensions = [
       CustomBubbleMenu.configure({
         shouldShow: ({ editor }) => {
-          return editor.isActive("paragraph") || editor.isActive("heading") || editor.isActive("blockquote");
+          return !editor.view.state.selection.empty && (editor.isActive("paragraph") || editor.isActive("heading") || editor.isActive("blockquote"));
         },
       }),
       RicherTextEmbed.configure({

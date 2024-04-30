@@ -24,20 +24,12 @@ var CustomBubbleMenu = _core.Extension.create({
       placement: "top",
       theme: "bubble",
       allowHTML: true,
-      offset: [0, 10],
+      // offset: [0, 10],
       maxWidth: "none",
       appendTo: function appendTo() {
         return document.body;
       },
-      trigger: "manual",
-      popperOptions: {
-        modifiers: [{
-          name: "offset",
-          options: {
-            offset: [0, 10]
-          }
-        }]
-      }
+      trigger: "manual"
     };
     return [(0, _extensionBubbleMenu.BubbleMenuPlugin)({
       editor: this.editor,
