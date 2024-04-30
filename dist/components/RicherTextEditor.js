@@ -60,7 +60,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
         return;
       }
       if (this.toolbarPreset === 'minimal') {
-        this.toolbar = ['bold', 'italic', 'underline'];
+        this.toolbar = ['bold', 'italic', 'strike'];
       } else {
         this.toolbar = ['heading-1', 'heading-2', 'heading-3', 'divider', 'bold', 'italic', 'strike', 'code', 'divider', 'highlight', 'bulletlist', 'orderedlist', 'blockquote', 'divider', 'code-block', 'horizontal-rule', 'divider', 'undo', 'redo'];
       }

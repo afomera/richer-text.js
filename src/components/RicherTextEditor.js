@@ -64,7 +64,7 @@ export default class RicherTextEditor extends LitElement {
     }
 
     if (this.toolbarPreset === 'minimal') {
-      this.toolbar = ['bold', 'italic', 'underline'];
+      this.toolbar = ['bold', 'italic', 'strike'];
     } else {
       this.toolbar = [
         'heading-1',

@@ -24,7 +24,6 @@ var CustomBubbleMenu = _core.Extension.create({
       placement: "top",
       theme: "bubble",
       allowHTML: true,
-      // offset: [0, 10],
       maxWidth: "none",
       appendTo: function appendTo() {
         return document.body;
