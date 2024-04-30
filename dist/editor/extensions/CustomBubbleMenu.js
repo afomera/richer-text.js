@@ -9,6 +9,12 @@ var _state = require("@tiptap/pm/state");
 var _extensionBubbleMenu = require("@tiptap/extension-bubble-menu");
 var CustomBubbleMenu = _core.Extension.create({
   name: "customBubbleMenu",
+  addOptions: function addOptions() {
+    return {
+      pluginKey: "customBubbleMenu",
+      shouldShow: null
+    };
+  },
   addProseMirrorPlugins: function addProseMirrorPlugins() {
     var _this = this;
     var element = document.createElement("richer-bubble-menu");
@@ -35,8 +41,9 @@ var CustomBubbleMenu = _core.Extension.create({
     };
     return [(0, _extensionBubbleMenu.BubbleMenuPlugin)({
       editor: this.editor,
-      key: new _state.PluginKey("customBubbleMenu"),
+      key: new _state.PluginKey(this.options.pluginKey || "bubbleMenu"),
       element: element,
+      shouldShow: this.options.shouldShow,
       tippyOptions: Object.assign(tippyOptions, {
         duration: 0,
         delay: 0,

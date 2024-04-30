@@ -6,6 +6,13 @@ import { BubbleMenuPlugin } from "@tiptap/extension-bubble-menu";
 const CustomBubbleMenu = Extension.create({
   name: "customBubbleMenu",
 
+  addOptions() {
+    return {
+      pluginKey: "customBubbleMenu",
+      shouldShow: null,
+    }
+  },
+
   addProseMirrorPlugins() {
     const element = document.createElement("richer-bubble-menu");
     element.editor = this.editor;
@@ -34,8 +41,9 @@ const CustomBubbleMenu = Extension.create({
     return [
       BubbleMenuPlugin({
         editor: this.editor,
-        key: new PluginKey("customBubbleMenu"),
+        key: new PluginKey(this.options.pluginKey || "bubbleMenu"),
         element: element,
+        shouldShow: this.options.shouldShow,
         tippyOptions: Object.assign(tippyOptions, {
           duration: 0,
           delay: 0,

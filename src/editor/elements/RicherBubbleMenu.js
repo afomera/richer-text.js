@@ -128,9 +128,9 @@ export class RicherBubbleMenu extends LitElement {
 
   // This is a simple bubble menu that toggles bold text.
   render() {
-    if (this.isActive("image") || this.isActive("mention") || this.isActive("codeBlock") || this.isActive("richerTextEmbed")) {
-      return html``;
-    }
+    // if (this.isActive("image") || this.isActive("mention") || this.isActive("codeBlock") || this.isActive("richerTextEmbed")) {
+    //   return html``;
+    // }
 
     if (!this.editingLink) {
       return html`

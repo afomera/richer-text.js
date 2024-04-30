@@ -118,7 +118,12 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     key: "firstUpdated",
     value: function firstUpdated() {
       var _this2 = this;
-      var extensions = [_CustomBubbleMenu["default"], _RicherTextEmbed["default"].configure({
+      var extensions = [_CustomBubbleMenu["default"].configure({
+        shouldShow: function shouldShow(_ref) {
+          var editor = _ref.editor;
+          return editor.isActive("paragraph") || editor.isActive("heading") || editor.isActive("blockquote");
+        }
+      }), _RicherTextEmbed["default"].configure({
         embedPath: this.embedsPath
       }), _RicherTextKit.RicherTextKit.configure({
         placeholder: this.placeholder || "Start typing...",
@@ -147,8 +152,8 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
           // The editor is ready.
           _this2.emitChange();
         },
-        onUpdate: function onUpdate(_ref) {
-          var editor = _ref.editor;
+        onUpdate: function onUpdate(_ref2) {
+          var editor = _ref2.editor;
           // The content has changed.
           _this2.requestUpdate();
           _this2.emitChange();
