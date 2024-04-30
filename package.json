@@ -46,8 +46,8 @@
     "@emoji-mart/data": "1.1.2",
     "emoji-mart": "5.5.2"
   },
-  "resolutions": {
-    "prosemirror-model": "^1.19.4"
+  "overrides": {
+    "prosemirror-model": "1.19.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.20.7",
