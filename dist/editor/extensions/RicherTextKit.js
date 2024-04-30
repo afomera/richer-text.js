@@ -60,9 +60,10 @@ var RicherTextKit = _core.Extension.create({
     }
     if (this.options.dropcursor !== false) {
       extensions.push(_extensionDropcursor["default"].configure({
-        color: 'var(--rte-content-focus-color)'
+        color: 'pink' //TODO: Change me //'var(--rte-content-focus-color)'
       }));
     }
+
     if (this.options.focus !== false) {
       extensions.push(_extensionFocus["default"].configure({
         className: 'has-focus',

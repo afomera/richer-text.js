@@ -65,7 +65,7 @@ export const RicherTextKit = Extension.create({
 
     if (this.options.dropcursor !== false) {
       extensions.push(Dropcursor.configure({
-        color: 'var(--rte-content-focus-color)'
+        color: 'pink' //TODO: Change me //'var(--rte-content-focus-color)'
       }));
     }
 
