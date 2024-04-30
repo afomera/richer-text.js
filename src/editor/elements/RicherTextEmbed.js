@@ -1,5 +1,7 @@
 import { html, css, LitElement } from 'lit';
 
+import "./editor/EditEmbedMenu";
+
 export class RicherTextEmbed extends LitElement {
   static styles = css``
 
@@ -7,6 +9,7 @@ export class RicherTextEmbed extends LitElement {
     sgid: { type: String },
     embedPath: { attribute: "embed-path", type: String },
     height: { type: Number, attribute: false },
+    removeNode: { type: Function },
   }
 
   constructor() {
@@ -15,6 +18,8 @@ export class RicherTextEmbed extends LitElement {
     this.embedPath = "/embeds",
     this.frameHeight = 0;
     this.height = 0;
+
+    this.removeNode = () => {};
 
     this.addEventListener("load", this.handleLoad);
   }
@@ -41,8 +46,11 @@ export class RicherTextEmbed extends LitElement {
 
   render() {
     return html`
-      <div className="richer-text-editor--embed-wrapper" style="pointer-events: none; width: 100%" data-drag-handle>
-        ${this.renderiFrame()}
+      <div class="richer-text-editor--embed-wrapper" data-drag-handle>
+        <richer-text-editor-embed-menu .removeNode=${this.removeNode}></richer-text-editor-embed-menu>
+        <div style="pointer-events: none; width: 100%">
+          ${this.renderiFrame()}
+        </div>
       </div>
     `
   }

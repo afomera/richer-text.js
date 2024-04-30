@@ -51,8 +51,18 @@ var _default = _core.Node.create({
       var scratch = document.createElement("div");
       (0, _lit.render)(template, scratch);
       var dom = scratch.firstElementChild;
+      function removeNode() {
+        if (typeof getPos === "function") {
+          var view = editor.view;
+          var tr = view.state.tr;
+          var pos = getPos();
+          tr["delete"](pos, pos + 1);
+          view.dispatch(tr);
+        }
+      }
       var contentDiv = document.createElement("richer-text-embed");
       contentDiv.sgid = node.attrs.sgid;
+      contentDiv.removeNode = removeNode;
       contentDiv.setAttribute("embed-path", _this.options.embedPath);
       dom.appendChild(contentDiv);
       return {
