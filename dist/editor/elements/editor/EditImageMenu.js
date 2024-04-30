@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.EditEmbedMenu = void 0;
+exports.EditImageMenu = void 0;
 var _lit = require("lit");
 var _icons = _interopRequireDefault(require("../../icons"));
 var _BaseEditMenu2 = require("./BaseEditMenu");
@@ -24,32 +24,38 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-var EditEmbedMenu = /*#__PURE__*/function (_BaseEditMenu) {
-  _inherits(EditEmbedMenu, _BaseEditMenu);
-  var _super = _createSuper(EditEmbedMenu);
-  function EditEmbedMenu() {
+var EditImageMenu = /*#__PURE__*/function (_BaseEditMenu) {
+  _inherits(EditImageMenu, _BaseEditMenu);
+  var _super = _createSuper(EditImageMenu);
+  function EditImageMenu() {
     var _this;
-    _classCallCheck(this, EditEmbedMenu);
+    _classCallCheck(this, EditImageMenu);
     _this = _super.call(this);
     _this.removeNode = function () {};
-    _this.width = "28px";
+    _this.resizeImage = function (size) {
+      return function () {};
+    };
+    _this.width = "128px";
     return _this;
   }
-  _createClass(EditEmbedMenu, [{
+  _createClass(EditImageMenu, [{
     key: "render",
     value: function render() {
-      return (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n      <div class=\"richer-text-editor--edit-menu\">\n        <button class=\"toolbar-button\" @click=", ">\n          ", "\n        </button>\n      </div>\n    "])), this.removeNode, _icons["default"].get("delete"));
+      return (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n      <div class=\"richer-text-editor--edit-menu\">\n        <button class=\"toolbar-button\" @click=", ">\n          ", "\n        </button>\n        <div class=\"divider\"></div>\n        <button class=\"toolbar-button\" @click=", ">\n          ", "\n        </button>\n        <button class=\"toolbar-button\" @click=", ">\n          ", "\n        </button>\n        <button class=\"toolbar-button\" @click=", ">\n          ", "\n        </button>\n      </div>\n    "])), this.removeNode, _icons["default"].get("delete"), this.resizeImage("25%"), _icons["default"].get("small-square"), this.resizeImage("50%"), _icons["default"].get("medium-square"), this.resizeImage("100%"), _icons["default"].get("large-square"));
     }
   }]);
-  return EditEmbedMenu;
+  return EditImageMenu;
 }(_BaseEditMenu2.BaseEditMenu);
-exports.EditEmbedMenu = EditEmbedMenu;
-_defineProperty(EditEmbedMenu, "properties", {
+exports.EditImageMenu = EditImageMenu;
+_defineProperty(EditImageMenu, "properties", {
   removeNode: {
+    type: Function
+  },
+  resizeImage: {
     type: Function
   },
   width: {
     type: String
   }
 });
-customElements.define('richer-text-editor-embed-menu', EditEmbedMenu);
+customElements.define('richer-text-editor-image-menu', EditImageMenu);

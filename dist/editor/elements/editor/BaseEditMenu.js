@@ -3,12 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.EditEmbedMenu = void 0;
+exports.BaseEditMenu = void 0;
 var _lit = require("lit");
-var _icons = _interopRequireDefault(require("../../icons"));
-var _BaseEditMenu2 = require("./BaseEditMenu");
-var _templateObject;
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+var _templateObject, _templateObject2;
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24,27 +21,31 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-var EditEmbedMenu = /*#__PURE__*/function (_BaseEditMenu) {
-  _inherits(EditEmbedMenu, _BaseEditMenu);
-  var _super = _createSuper(EditEmbedMenu);
-  function EditEmbedMenu() {
+var BaseEditMenu = /*#__PURE__*/function (_LitElement) {
+  _inherits(BaseEditMenu, _LitElement);
+  var _super = _createSuper(BaseEditMenu);
+  function BaseEditMenu() {
     var _this;
-    _classCallCheck(this, EditEmbedMenu);
+    _classCallCheck(this, BaseEditMenu);
     _this = _super.call(this);
     _this.removeNode = function () {};
-    _this.width = "28px";
+    _this.width = "auto";
     return _this;
   }
-  _createClass(EditEmbedMenu, [{
+
+  // This function should be implemented in the extending class
+  _createClass(BaseEditMenu, [{
     key: "render",
     value: function render() {
-      return (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n      <div class=\"richer-text-editor--edit-menu\">\n        <button class=\"toolbar-button\" @click=", ">\n          ", "\n        </button>\n      </div>\n    "])), this.removeNode, _icons["default"].get("delete"));
+      return (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral([""])));
     }
   }]);
-  return EditEmbedMenu;
-}(_BaseEditMenu2.BaseEditMenu);
-exports.EditEmbedMenu = EditEmbedMenu;
-_defineProperty(EditEmbedMenu, "properties", {
+  return BaseEditMenu;
+}(_lit.LitElement); // Don't register this element directly as we don't want to use it in the editor and want to extend it in the MentionList element
+// customElements.define('richer-text-base-edit-menu', BaseEditMenu);
+exports.BaseEditMenu = BaseEditMenu;
+_defineProperty(BaseEditMenu, "styles", (0, _lit.css)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    .richer-text-editor--edit-menu {\n      display: flex;\n      align-items: center;\n      gap: 4px;\n\n      position: relative;\n      top: 16px;\n      right: 0;\n      background-color: white;\n      border: 1px solid #ddd;\n      border-radius: 8px;\n      padding: 2px;\n      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n\n      max-width: 128px;\n\n      .divider {\n        border-left: 1px solid #ddd;\n        height: 24px;\n      }\n\n      button {\n        background: none;\n        border: none;\n        cursor: pointer;\n        padding: 4px;\n        margin: 0;\n        display: inline-block;\n        font-size: 16px;\n        color: #333;\n\n        &:hover {\n          background-color: #f9f9f9;\n          border-radius: 4px;\n        }\n      }\n    }\n  "]))));
+_defineProperty(BaseEditMenu, "properties", {
   removeNode: {
     type: Function
   },
@@ -52,4 +53,3 @@ _defineProperty(EditEmbedMenu, "properties", {
     type: String
   }
 });
-customElements.define('richer-text-editor-embed-menu', EditEmbedMenu);

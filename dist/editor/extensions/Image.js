@@ -9,9 +9,8 @@ var _core = require("@tiptap/core");
 var _state = require("@tiptap/pm/state");
 var _activestorage = require("@rails/activestorage");
 var _view = require("@tiptap/pm/view");
-var _tippy = _interopRequireDefault(require("tippy.js"));
+var _EditImageMenu = require("../elements/editor/EditImageMenu");
 var _templateObject;
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 var imagePreview = null;
 var uploadFile = function uploadFile(file, editor) {
@@ -104,7 +103,21 @@ var _default = _core.Node.create({
         url = _node$attrs.url,
         src = _node$attrs.src,
         width = _node$attrs.width;
-      var template = (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        <div style=\"width: ", "\">\n          <img src=\"", "\" alt=\"", "\" data-drag-handle />\n        </div>\n      "])), width, src, alt);
+      function removeNode() {
+        if (typeof getPos === "function") {
+          var view = editor.view;
+          var tr = view.state.tr;
+          var pos = getPos();
+          tr["delete"](pos, pos + 1);
+          view.dispatch(tr);
+        }
+      }
+      function resizeImage(size) {
+        return function () {
+          editor.commands.setImageWidth(size);
+        };
+      }
+      var template = (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        <div>\n            <richer-text-editor-image-menu .removeNode=", " .resizeImage=", "></richer-text-editor-image-menu>\n            <div style=\"width: ", "\">\n              <img src=\"", "\" alt=\"", "\" data-drag-handle />\n            </div>\n        </div>\n      "])), removeNode, resizeImage, width, src, alt);
 
       // Scratch element to render into.
       var scratch = document.createElement("div");

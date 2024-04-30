@@ -1,57 +1,26 @@
-import { html, css, LitElement, svg } from 'lit';
+import { html } from 'lit';
 
 import icons from "../../icons";
 
-export class EditEmbedMenu extends LitElement {
-  static styles = css`
-    .richer-text-editor--embed-menu {
-      position: relative;
-      top: 16px;
-      right: 0;
-      width: 28px;
+import { BaseEditMenu } from './BaseEditMenu';
 
-      background-color: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 2px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+export class EditEmbedMenu extends BaseEditMenu {
+  constructor() {
+    super()
 
-      button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 4px;
-        margin: 0;
-        display: inline-block;
-        font-size: 16px;
-        color: #333;
+    this.removeNode = () => {};
+    this.width = "28px";
+  }
 
-        &:hover {
-          background-color: #f9f9f9;
-          border-radius: 4px;
-        }
-
-        svg {
-          width: 20px;
-          height: 20px;
-        }
-      }
-    }
-  `
 
   static properties = {
     removeNode: { type: Function },
-  }
-
-  constructor() {
-    super();
-
-    this.removeNode = () => {};
+    width: { type: String },
   }
 
   render() {
     return html`
-      <div class="richer-text-editor--embed-menu">
+      <div class="richer-text-editor--edit-menu">
         <button class="toolbar-button" @click=${this.removeNode}>
           ${icons.get("delete")}
         </button>

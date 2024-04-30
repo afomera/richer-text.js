@@ -3,7 +3,8 @@ import { mergeAttributes, Node } from '@tiptap/core'
 import { Plugin, PluginKey } from "@tiptap/pm/state";
 import { DirectUpload } from "@rails/activestorage";
 import { Decoration, DecorationSet } from '@tiptap/pm/view';
-import tippy from 'tippy.js';
+
+import { EditImageMenu } from '../elements/editor/EditImageMenu';
 
 let imagePreview = null;
 
@@ -77,10 +78,30 @@ export default Node.create({
     return ({ node, getPos, editor }) => {
       const { signedId, alt, url, src, width } = node.attrs;
 
+      function removeNode() {
+        if (typeof getPos === "function") {
+          const { view } = editor;
+
+          const { tr } = view.state;
+
+          const pos = getPos();
+          tr.delete(pos, pos + 1);
+          view.dispatch(tr);
+        }
+      }
+
+      function resizeImage(size) {
+        return () => {
+          editor.commands.setImageWidth(size);
+        }
+      }
 
       const template = html`
-        <div style="width: ${width}">
-          <img src="${src}" alt="${alt}" data-drag-handle />
+        <div>
+            <richer-text-editor-image-menu .removeNode=${removeNode} .resizeImage=${resizeImage}></richer-text-editor-image-menu>
+            <div style="width: ${width}">
+              <img src="${src}" alt="${alt}" data-drag-handle />
+            </div>
         </div>
       `;
 
