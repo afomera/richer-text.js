@@ -24,10 +24,9 @@ var _CommandMenu = _interopRequireDefault(require("./CommandMenu"));
 var _Emoji = _interopRequireDefault(require("./Emoji"));
 var _FontSize = _interopRequireDefault(require("./FontSize"));
 var _HorizontalRule = _interopRequireDefault(require("./HorizontalRule"));
+var _Image = _interopRequireDefault(require("./Image"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 // import EditorEvents from "./EditorEvents";
-
-// import Image from "./Image";
 
 var RicherTextKit = _core.Extension.create({
   name: "richerTextKit",
@@ -78,11 +77,9 @@ var RicherTextKit = _core.Extension.create({
         multicolor: true
       }));
     }
-
-    // if (this.options.image !== false) {
-    //   extensions.push(Image);
-    // }
-
+    if (this.options.image !== false) {
+      extensions.push(_Image["default"]);
+    }
     if (this.options.link !== false) {
       extensions.push(_extensionLink["default"].configure({
         openOnClick: false,

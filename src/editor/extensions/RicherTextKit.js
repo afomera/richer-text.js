@@ -21,7 +21,7 @@ import CommandMenu from "./CommandMenu";
 import Emoji from "./Emoji";
 import FontSize from "./FontSize";
 import HorizontalRule from "./HorizontalRule";
-// import Image from "./Image";
+import Image from "./Image";
 
 export const RicherTextKit = Extension.create({
   name: "richerTextKit",
@@ -88,9 +88,9 @@ export const RicherTextKit = Extension.create({
       );
     }
 
-    // if (this.options.image !== false) {
-    //   extensions.push(Image);
-    // }
+    if (this.options.image !== false) {
+      extensions.push(Image);
+    }
 
     if (this.options.link !== false) {
       extensions.push(

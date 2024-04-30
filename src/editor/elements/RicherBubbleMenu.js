@@ -60,6 +60,7 @@ export class RicherBubbleMenu extends LitElement {
 
       // State
       editingLink: { type: Boolean, state: true },
+      isActive: { type: Function, state: true },
     }
   }
 
@@ -67,18 +68,33 @@ export class RicherBubbleMenu extends LitElement {
     super();
 
     this.editingLink = false;
+
+    this.requestUpdate();
   }
 
   toggleBold() {
     this.editor.chain().focus().toggleBold().run();
+
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
   }
 
   toggleItalic() {
     this.editor.chain().focus().toggleItalic().run();
+
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
   }
 
   toggleStrike() {
     this.editor.chain().focus().toggleStrike().run();
+
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
+  }
+
+  get isBold() {
+    return this.editor.isActive("bold");
   }
 
   toggleLinkEditor() {
@@ -112,6 +128,10 @@ export class RicherBubbleMenu extends LitElement {
 
   // This is a simple bubble menu that toggles bold text.
   render() {
+    if (this.isActive("image") || this.isActive("mention") || this.isActive("codeBlock") || this.isActive("richerTextEmbed")) {
+      return html``;
+    }
+
     if (!this.editingLink) {
       return html`
         <div class="richer-text-editor--bubble-menu">
