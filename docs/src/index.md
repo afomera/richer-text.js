@@ -6,7 +6,7 @@ layout: default
 
 <div class='callout' data-color='yellow'>
   <p><strong>RicherText is considered a Work In Progress</strong></p>
-  <p>Use of RicherText in production is not recommended until we hit a 1.0 release. We may need to introduce breaking changes until we finalize the approach and much of the editor's core functionality.</p>
+  <p>Use of RicherText in production is not recommended until we hit a v2.0 release candidate.</p>
 </div>
 
 # Try it out
