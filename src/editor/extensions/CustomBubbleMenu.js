@@ -3,8 +3,8 @@ import { Plugin, PluginKey } from "@tiptap/pm/state";
 
 import { BubbleMenuPlugin } from "@tiptap/extension-bubble-menu";
 
-const CustomBubbleMenu = Extension.create({
-  name: "customBubbleMenu",
+const CustomBubbleMenu = (pluginName) => Extension.create({
+  name: pluginName || "customBubbleMenu",
 
   addOptions() {
     return {

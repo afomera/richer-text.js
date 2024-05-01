@@ -118,12 +118,12 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     key: "firstUpdated",
     value: function firstUpdated() {
       var _this2 = this;
-      var extensions = [_CustomBubbleMenu["default"].configure({
+      var extensions = [(0, _CustomBubbleMenu["default"])("customBubbleMenu").configure({
         shouldShow: function shouldShow(_ref) {
           var editor = _ref.editor;
           return !editor.view.state.selection.empty && (editor.isActive("paragraph") || editor.isActive("heading") || editor.isActive("blockquote"));
         }
-      }), _CustomBubbleMenu["default"].configure({
+      }), (0, _CustomBubbleMenu["default"])("imageBubbleMenu").configure({
         mode: "image",
         pluginKey: "imageBubbleMenu",
         shouldShow: function shouldShow(_ref2) {
