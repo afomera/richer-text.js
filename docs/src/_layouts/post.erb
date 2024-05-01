@@ -2,6 +2,10 @@
 layout: default
 ---
 
-<h1><%= resource.data.title %></h1>
+<img src="<%= resource.data.image.url %>" width="100%" height="280px" style="object-fit: cover; border-radius: 2rem; margin-bottom: 0px;" />
+<p style="text-align: right; color: #999; margin-bottom: 0px;">Photo by <a href="<%= resource.data.image.creator_url %>"><%= resource.data.image.creator_name %></a> on <a href="<%= resource.data.image.unsplash_credit %>">Unsplash</a></p>
+
+<h1 style="margin-bottom: 8px"><%= resource.data.title %></h1>
+<p style="color: #999; margin-top: 0px;">Published <%= resource.data.date.strftime('%B %d, %Y') %> by <a href="<%= resource.data.author.link %>" target="_blank"><%= resource.data.author.name %></a></p>
 
 <%= yield %>
