@@ -21,7 +21,7 @@ var _MentionSuggestion = _interopRequireDefault(require("../editor/suggestions/M
 var _RicherTextEmbed = _interopRequireDefault(require("../editor/extensions/RicherTextEmbed"));
 require("../editor/elements/RicherBubbleMenu");
 var _CustomBubbleMenu = _interopRequireDefault(require("../editor/extensions/CustomBubbleMenu"));
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18, _templateObject19, _templateObject20, _templateObject21;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18, _templateObject19, _templateObject20, _templateObject21, _templateObject22;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -62,7 +62,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
       if (this.toolbarPreset === 'minimal') {
         this.toolbar = ['bold', 'italic', 'strike'];
       } else {
-        this.toolbar = ['heading-1', 'heading-2', 'heading-3', 'divider', 'bold', 'italic', 'strike', 'code', 'divider', 'highlight', 'bulletlist', 'orderedlist', 'blockquote', 'divider', 'code-block', 'horizontal-rule', 'divider', 'undo', 'redo'];
+        this.toolbar = ['bold', 'italic', 'strike', 'code', 'divider', 'heading-1', 'heading-2', 'heading-3', 'highlight', 'bulletlist', 'orderedlist', 'blockquote', 'code-block', 'horizontal-rule', 'divider', 'attachment', 'spacer', 'undo', 'redo'];
       }
     }
   }, {
@@ -123,6 +123,13 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
           var editor = _ref.editor;
           return !editor.view.state.selection.empty && (editor.isActive("paragraph") || editor.isActive("heading") || editor.isActive("blockquote"));
         }
+      }), _CustomBubbleMenu["default"].configure({
+        mode: "image",
+        pluginKey: "imageBubbleMenu",
+        shouldShow: function shouldShow(_ref2) {
+          var editor = _ref2.editor;
+          return editor.isActive("image");
+        }
       }), _RicherTextEmbed["default"].configure({
         embedPath: this.embedsPath
       }), _RicherTextKit.RicherTextKit.configure({
@@ -152,8 +159,8 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
           // The editor is ready.
           _this2.emitChange();
         },
-        onUpdate: function onUpdate(_ref2) {
-          var editor = _ref2.editor;
+        onUpdate: function onUpdate(_ref3) {
+          var editor = _ref3.editor;
           // The content has changed.
           _this2.requestUpdate();
           _this2.emitChange();
@@ -268,6 +275,12 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
       this.editor.chain().focus().redo().run();
     }
   }, {
+    key: "addFile",
+    value: function addFile() {
+      console.log("addFile");
+      this.emit("add-file");
+    }
+  }, {
     key: "toggleLink",
     value: function toggleLink() {
       if (this.editor.isActive('link')) {
@@ -290,61 +303,62 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
       if (!this.editor || !((_this$toolbar = this.toolbar) !== null && _this$toolbar !== void 0 && _this$toolbar.length)) return '';
       var allToolbarItems = new Map(Object.entries({
         divider: (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["<div class=\"divider\" part=\"divider\"></div>"]))),
-        'heading-1': (0, _lit.html)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        spacer: (0, _lit.html)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["<div class=\"spacer\" part=\"spacer\"></div>"]))),
+        'heading-1': (0, _lit.html)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('heading', {
             level: 1
           })
         }), this.toggleHeadingLevel1, _icons["default"].get('h1')),
-        'heading-2': (0, _lit.html)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        'heading-2': (0, _lit.html)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('heading', {
             level: 2
           })
         }), this.toggleHeadingLevel2, _icons["default"].get('h2')),
-        'heading-3': (0, _lit.html)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        'heading-3': (0, _lit.html)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('heading', {
             level: 3
           })
         }), this.toggleHeadingLevel3, _icons["default"].get('h3')),
-        highlight: (0, _lit.html)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        highlight: (0, _lit.html)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('highlight')
         }), this.toggleHighlight, _icons["default"].get('highlight')),
-        'horizontal-rule': (0, _lit.html)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        'horizontal-rule': (0, _lit.html)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('horizontal-rule')
         }), this.setHorizontalRule, _icons["default"].get('horizontal-rule')),
-        bold: (0, _lit.html)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        bold: (0, _lit.html)(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('bold')
         }), this.toggleBold, _icons["default"].get('bold')),
-        italic: (0, _lit.html)(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        italic: (0, _lit.html)(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('italic')
         }), this.toggleItalic, _icons["default"].get('italic')),
-        underline: (0, _lit.html)(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        underline: (0, _lit.html)(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('underline')
         }), this.toggleUnderline, _icons["default"].get('underline')),
-        strike: (0, _lit.html)(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        strike: (0, _lit.html)(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('strike')
         }), this.toggleStrike, _icons["default"].get('strike')),
-        'code': (0, _lit.html)(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        'code': (0, _lit.html)(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('code')
         }), this.toggleCode, _icons["default"].get('code')),
-        bulletlist: (0, _lit.html)(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        bulletlist: (0, _lit.html)(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('bulletList')
         }), this.toggleBulletList, _icons["default"].get('bullet-list')),
-        orderedlist: (0, _lit.html)(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        orderedlist: (0, _lit.html)(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('orderedlist')
         }), this.toggleOrderedList, _icons["default"].get('ordered-list')),
-        blockquote: (0, _lit.html)(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        blockquote: (0, _lit.html)(_templateObject15 || (_templateObject15 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('blockquote')
         }), this.toggleBlockquote, _icons["default"].get('blockquote')),
-        'code-block': (0, _lit.html)(_templateObject15 || (_templateObject15 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        'code-block': (0, _lit.html)(_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('codeBlock')
         }), this.toggleCodeBlock, _icons["default"].get('code-block')),
-        link: (0, _lit.html)(_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        link: (0, _lit.html)(_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('link')
         }), this.toggleLink, _icons["default"].get('link')),
-        undo: (0, _lit.html)(_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), this.undo, _icons["default"].get('undo')),
-        redo: (0, _lit.html)(_templateObject18 || (_templateObject18 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), this.redo, _icons["default"].get('redo')),
-        emoji: (0, _lit.html)(_templateObject19 || (_templateObject19 = _taggedTemplateLiteral(["<button\n          id=\"emoji-picker-button\"\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), this.toggleEmojiPicker, _icons["default"].get('emoji')),
-        attachment: (0, _lit.html)(_templateObject20 || (_templateObject20 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), this.addFile, _icons["default"].get('attachment'))
+        undo: (0, _lit.html)(_templateObject18 || (_templateObject18 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), this.undo, _icons["default"].get('undo')),
+        redo: (0, _lit.html)(_templateObject19 || (_templateObject19 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), this.redo, _icons["default"].get('redo')),
+        emoji: (0, _lit.html)(_templateObject20 || (_templateObject20 = _taggedTemplateLiteral(["<button\n          id=\"emoji-picker-button\"\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), this.toggleEmojiPicker, _icons["default"].get('emoji')),
+        attachment: (0, _lit.html)(_templateObject21 || (_templateObject21 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), this.addFile, _icons["default"].get('attachment'))
       }));
       return allToolbarItems.get(name);
     }
@@ -352,7 +366,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     key: "render",
     value: function render() {
       var _this3 = this;
-      return (0, _lit.html)(_templateObject21 || (_templateObject21 = _taggedTemplateLiteral(["\n        <div class=\"wrapper\" part=\"wrapper\">\n          <div class=\"toolbar\" part=\"toolbar\">\n            <slot name=\"toolbar-start\"></slot>\n            ", "\n            <slot name=\"toolbar-end\"></slot>\n            <slot></slot>\n          </div>\n          <slot name=\"editor\"></slot>\n        </div>\n      </div>\n    "])), (0, _map.map)(this.toolbar, function (name) {
+      return (0, _lit.html)(_templateObject22 || (_templateObject22 = _taggedTemplateLiteral(["\n        <div class=\"wrapper\" part=\"wrapper\">\n          <div class=\"toolbar\" part=\"toolbar\">\n            <slot name=\"toolbar-start\"></slot>\n            ", "\n            <slot name=\"toolbar-end\"></slot>\n            <slot></slot>\n          </div>\n          <slot name=\"editor\"></slot>\n        </div>\n      </div>\n    "])), (0, _map.map)(this.toolbar, function (name) {
         return _this3.renderToolbarButton(name);
       }));
     }

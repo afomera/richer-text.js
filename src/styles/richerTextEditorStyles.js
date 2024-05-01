@@ -148,6 +148,12 @@ export const richerTextEditorStyles = css`
     margin-right: var(--toolbar-gap);
   }
 
+  .spacer {
+    // Take up all the free space
+    flex: 1;
+    flex-grow: 1;
+  }
+
   /* Dark Mode styles */
   // @media (prefers-color-scheme: dark) {
   //   :host {

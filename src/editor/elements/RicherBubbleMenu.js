@@ -12,6 +12,15 @@ export class RicherBubbleMenu extends LitElement {
       padding: 2px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      .divider {
+        border-left: 1px solid #ddd;
+        height: 24px;
+      }
+
       input {
         border: none;
         border-radius: 4px;
@@ -45,11 +54,6 @@ export class RicherBubbleMenu extends LitElement {
           background-color: #f9f9f9;
           border-radius: 4px;
         }
-
-        svg {
-          width: 20px;
-          height: 20px;
-        }
       }
     }
   `
@@ -61,6 +65,7 @@ export class RicherBubbleMenu extends LitElement {
       // State
       editingLink: { type: Boolean, state: true },
       isActive: { type: Function, state: true },
+      mode: { type: String, state: true },
     }
   }
 
@@ -68,7 +73,24 @@ export class RicherBubbleMenu extends LitElement {
     super();
 
     this.editingLink = false;
+    this.mode = "text";
 
+    this.requestUpdate();
+  }
+
+  removeNode() {
+    console.log("removeNode")
+    this.editor.chain().focus().deleteSelection().run();
+
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
+  }
+
+  resizeImage(size) {
+    console.log("resizeImage", size)
+    this.editor.chain().focus().setImageWidth(size).run();
+
+    // Rebuild the bubble menu element to update the button state
     this.requestUpdate();
   }
 
@@ -108,6 +130,25 @@ export class RicherBubbleMenu extends LitElement {
     }
   }
 
+  toggleLeftAlignment() {
+    this.editor.chain().focus().setTextAlign("left").run();
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
+  }
+
+  toggleCenterAlignment() {
+    this.editor.chain().focus().setTextAlign("center").run();
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
+  }
+
+  toggleRightAlignment() {
+    this.editor.chain().focus().setTextAlign("right").run();
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
+  }
+
+
   setLinkAndClose() {
     const url = this.shadowRoot.getElementById('link-url').value;
 
@@ -131,18 +172,42 @@ export class RicherBubbleMenu extends LitElement {
     // if (this.isActive("image") || this.isActive("mention") || this.isActive("codeBlock") || this.isActive("richerTextEmbed")) {
     //   return html``;
     // }
-
-    if (!this.editingLink) {
+    if (this.mode == "image") {
+      return html`
+        <div class="richer-text-editor--bubble-menu">
+          <button class="toolbar-button" @click=${() => this.removeNode()}>
+            ${icons.get("delete")}
+          </button>
+          <div class="divider"></div>
+          <button class="toolbar-button" @click=${() => this.resizeImage("25%")}>
+            ${icons.get("small-square")}
+          </button>
+          <button class="toolbar-button" @click=${() => this.resizeImage("50%")}>
+            ${icons.get("medium-square")}
+          </button>
+          <button class="toolbar-button" @click=${() => this.resizeImage("100%")}>
+            ${icons.get("large-square")}
+          </button>
+        </div>
+      `
+    } else if (this.mode == "text" && !this.editingLink) {
       return html`
         <div class="richer-text-editor--bubble-menu">
           <button class="toolbar-button" @click=${() => this.toggleBold()}>
             ${icons.get("bold")}
           </button>
-          <button @click=${() => this.editor.chain().focus().toggleItalic().run()}>
+          <button class="toolbar-button" @click=${() => this.toggleItalic()}>
             ${icons.get("italic")}
           </button>
-          <button @click=${() => this.editor.chain().focus().toggleStrike().run()}>${icons.get("strike")}</button>
+          <button class="toolbar-button" @click=${() => this.toggleStrike()}>
+            ${icons.get("strike")}
+          </button>
           <button @click=${() => this.toggleLinkEditor()}>${icons.get("link")}</button>
+
+          <div class="divider"></div>
+          <button @click=${() => this.toggleLeftAlignment()}>${icons.get("align-left")}</button>
+          <button @click=${() => this.toggleCenterAlignment()}>${icons.get("align-center")}</button>
+          <button @click=${() => this.toggleRightAlignment()}>${icons.get("align-right")}</button>
         </div>
       `
     } else {

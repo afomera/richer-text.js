@@ -12,13 +12,15 @@ var CustomBubbleMenu = _core.Extension.create({
   addOptions: function addOptions() {
     return {
       pluginKey: "customBubbleMenu",
-      shouldShow: null
+      shouldShow: null,
+      mode: "text"
     };
   },
   addProseMirrorPlugins: function addProseMirrorPlugins() {
     var _this = this;
     var element = document.createElement("richer-bubble-menu");
     element.editor = this.editor;
+    element.mode = this.options.mode;
     var tippyOptions = element.tippyOptions || {
       interactive: true,
       placement: "top",

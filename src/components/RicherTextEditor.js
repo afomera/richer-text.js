@@ -67,23 +67,23 @@ export default class RicherTextEditor extends LitElement {
       this.toolbar = ['bold', 'italic', 'strike'];
     } else {
       this.toolbar = [
-        'heading-1',
-        'heading-2',
-        'heading-3',
-        'divider',
         'bold',
         'italic',
         'strike',
         'code',
         'divider',
+        'heading-1',
+        'heading-2',
+        'heading-3',
         'highlight',
         'bulletlist',
         'orderedlist',
         'blockquote',
-        'divider',
         'code-block',
         'horizontal-rule',
         'divider',
+        'attachment',
+        'spacer',
         'undo',
         'redo',
       ];
@@ -141,6 +141,13 @@ export default class RicherTextEditor extends LitElement {
       CustomBubbleMenu.configure({
         shouldShow: ({ editor }) => {
           return !editor.view.state.selection.empty && (editor.isActive("paragraph") || editor.isActive("heading") || editor.isActive("blockquote"));
+        },
+      }),
+      CustomBubbleMenu.configure({
+        mode: "image",
+        pluginKey: "imageBubbleMenu",
+        shouldShow: ({ editor }) => {
+          return editor.isActive("image");
         },
       }),
       RicherTextEmbed.configure({
@@ -284,6 +291,11 @@ export default class RicherTextEditor extends LitElement {
     this.editor.chain().focus().redo().run();
   }
 
+  addFile() {
+    console.log("addFile")
+    this.emit("add-file");
+  }
+
   toggleLink() {
     if (this.editor.isActive('link')) {
       this.editor.chain().focus().unsetLink().run();
@@ -302,6 +314,8 @@ export default class RicherTextEditor extends LitElement {
     const allToolbarItems = new Map(
       Object.entries({
         divider: html`<div class="divider" part="divider"></div>`,
+
+        spacer: html`<div class="spacer" part="spacer"></div>`,
 
         'heading-1': html`<button
           type="button"

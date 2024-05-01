@@ -16,7 +16,7 @@ export class BaseEditMenu extends LitElement {
       padding: 2px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-      max-width: 128px;
+      max-width: 28px;
 
       .divider {
         border-left: 1px solid #ddd;

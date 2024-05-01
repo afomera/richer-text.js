@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.RicherBubbleMenu = void 0;
 var _lit = require("lit");
 var _icons = _interopRequireDefault(require("../icons"));
-var _templateObject, _templateObject2, _templateObject3;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -31,10 +31,29 @@ var RicherBubbleMenu = /*#__PURE__*/function (_LitElement) {
     _classCallCheck(this, RicherBubbleMenu);
     _this = _super.call(this);
     _this.editingLink = false;
+    _this.mode = "text";
     _this.requestUpdate();
     return _this;
   }
   _createClass(RicherBubbleMenu, [{
+    key: "removeNode",
+    value: function removeNode() {
+      console.log("removeNode");
+      this.editor.chain().focus().deleteSelection().run();
+
+      // Rebuild the bubble menu element to update the button state
+      this.requestUpdate();
+    }
+  }, {
+    key: "resizeImage",
+    value: function resizeImage(size) {
+      console.log("resizeImage", size);
+      this.editor.chain().focus().setImageWidth(size).run();
+
+      // Rebuild the bubble menu element to update the button state
+      this.requestUpdate();
+    }
+  }, {
     key: "toggleBold",
     value: function toggleBold() {
       this.editor.chain().focus().toggleBold().run();
@@ -76,6 +95,27 @@ var RicherBubbleMenu = /*#__PURE__*/function (_LitElement) {
       }
     }
   }, {
+    key: "toggleLeftAlignment",
+    value: function toggleLeftAlignment() {
+      this.editor.chain().focus().setTextAlign("left").run();
+      // Rebuild the bubble menu element to update the button state
+      this.requestUpdate();
+    }
+  }, {
+    key: "toggleCenterAlignment",
+    value: function toggleCenterAlignment() {
+      this.editor.chain().focus().setTextAlign("center").run();
+      // Rebuild the bubble menu element to update the button state
+      this.requestUpdate();
+    }
+  }, {
+    key: "toggleRightAlignment",
+    value: function toggleRightAlignment() {
+      this.editor.chain().focus().setTextAlign("right").run();
+      // Rebuild the bubble menu element to update the button state
+      this.requestUpdate();
+    }
+  }, {
     key: "setLinkAndClose",
     value: function setLinkAndClose() {
       var url = this.shadowRoot.getElementById('link-url').value;
@@ -103,19 +143,34 @@ var RicherBubbleMenu = /*#__PURE__*/function (_LitElement) {
       // if (this.isActive("image") || this.isActive("mention") || this.isActive("codeBlock") || this.isActive("richerTextEmbed")) {
       //   return html``;
       // }
-
-      if (!this.editingLink) {
-        return (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        <div class=\"richer-text-editor--bubble-menu\">\n          <button class=\"toolbar-button\" @click=", ">\n            ", "\n          </button>\n          <button @click=", ">\n            ", "\n          </button>\n          <button @click=", ">", "</button>\n          <button @click=", ">", "</button>\n        </div>\n      "])), function () {
+      if (this.mode == "image") {
+        return (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        <div class=\"richer-text-editor--bubble-menu\">\n          <button class=\"toolbar-button\" @click=", ">\n            ", "\n          </button>\n          <div class=\"divider\"></div>\n          <button class=\"toolbar-button\" @click=", ">\n            ", "\n          </button>\n          <button class=\"toolbar-button\" @click=", ">\n            ", "\n          </button>\n          <button class=\"toolbar-button\" @click=", ">\n            ", "\n          </button>\n        </div>\n      "])), function () {
+          return _this3.removeNode();
+        }, _icons["default"].get("delete"), function () {
+          return _this3.resizeImage("25%");
+        }, _icons["default"].get("small-square"), function () {
+          return _this3.resizeImage("50%");
+        }, _icons["default"].get("medium-square"), function () {
+          return _this3.resizeImage("100%");
+        }, _icons["default"].get("large-square"));
+      } else if (this.mode == "text" && !this.editingLink) {
+        return (0, _lit.html)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n        <div class=\"richer-text-editor--bubble-menu\">\n          <button class=\"toolbar-button\" @click=", ">\n            ", "\n          </button>\n          <button class=\"toolbar-button\" @click=", ">\n            ", "\n          </button>\n          <button class=\"toolbar-button\" @click=", ">\n            ", "\n          </button>\n          <button @click=", ">", "</button>\n\n          <div class=\"divider\"></div>\n          <button @click=", ">", "</button>\n          <button @click=", ">", "</button>\n          <button @click=", ">", "</button>\n        </div>\n      "])), function () {
           return _this3.toggleBold();
         }, _icons["default"].get("bold"), function () {
-          return _this3.editor.chain().focus().toggleItalic().run();
+          return _this3.toggleItalic();
         }, _icons["default"].get("italic"), function () {
-          return _this3.editor.chain().focus().toggleStrike().run();
+          return _this3.toggleStrike();
         }, _icons["default"].get("strike"), function () {
           return _this3.toggleLinkEditor();
-        }, _icons["default"].get("link"));
+        }, _icons["default"].get("link"), function () {
+          return _this3.toggleLeftAlignment();
+        }, _icons["default"].get("align-left"), function () {
+          return _this3.toggleCenterAlignment();
+        }, _icons["default"].get("align-center"), function () {
+          return _this3.toggleRightAlignment();
+        }, _icons["default"].get("align-right"));
       } else {
-        return (0, _lit.html)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n        <div class=\"richer-text-editor--bubble-menu\">\n          <form @submit=", ">\n            <span class=\"link-icon\">", "</span>\n            <input id=\"link-url\" value=", " type=\"url\" autofocus=\"true\" placeholder=\"Enter a URL\" />\n            <button @click=", ">Done</button>\n          </form>\n        </div>\n      "])), this._handleLinkSubmit, _icons["default"].get("link"), this.editor.getAttributes("link").href, function () {
+        return (0, _lit.html)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n        <div class=\"richer-text-editor--bubble-menu\">\n          <form @submit=", ">\n            <span class=\"link-icon\">", "</span>\n            <input id=\"link-url\" value=", " type=\"url\" autofocus=\"true\" placeholder=\"Enter a URL\" />\n            <button @click=", ">Done</button>\n          </form>\n        </div>\n      "])), this._handleLinkSubmit, _icons["default"].get("link"), this.editor.getAttributes("link").href, function () {
           return _this3.setLinkAndClose();
         });
       }
@@ -135,6 +190,10 @@ var RicherBubbleMenu = /*#__PURE__*/function (_LitElement) {
         isActive: {
           type: Function,
           state: true
+        },
+        mode: {
+          type: String,
+          state: true
         }
       };
     }
@@ -142,5 +201,5 @@ var RicherBubbleMenu = /*#__PURE__*/function (_LitElement) {
   return RicherBubbleMenu;
 }(_lit.LitElement);
 exports.RicherBubbleMenu = RicherBubbleMenu;
-_defineProperty(RicherBubbleMenu, "styles", (0, _lit.css)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    .richer-text-editor--bubble-menu {\n      z-index: 100;\n      background-color: white;\n      border: 1px solid #ddd;\n      border-radius: 8px;\n      padding: 2px;\n      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n\n      input {\n        border: none;\n        border-radius: 4px;\n        padding: 4px;\n        margin: 0;\n        display: inline-block;\n        font-size: 16px;\n        color: #333;\n        width: 200px;\n      }\n\n      .link-icon {\n        display: inline-block;\n        width: 16px;\n        height: 16px;\n        margin-right: 4px;\n        margin-left: 4px;\n      }\n\n      button {\n        background: none;\n        border: none;\n        cursor: pointer;\n        padding: 4px;\n        margin: 0;\n        display: inline-block;\n        font-size: 16px;\n        color: #333;\n\n        &:hover {\n          background-color: #f9f9f9;\n          border-radius: 4px;\n        }\n\n        svg {\n          width: 20px;\n          height: 20px;\n        }\n      }\n    }\n  "]))));
+_defineProperty(RicherBubbleMenu, "styles", (0, _lit.css)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    .richer-text-editor--bubble-menu {\n      z-index: 100;\n      background-color: white;\n      border: 1px solid #ddd;\n      border-radius: 8px;\n      padding: 2px;\n      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n\n      display: flex;\n      align-items: center;\n      gap: 4px;\n\n      .divider {\n        border-left: 1px solid #ddd;\n        height: 24px;\n      }\n\n      input {\n        border: none;\n        border-radius: 4px;\n        padding: 4px;\n        margin: 0;\n        display: inline-block;\n        font-size: 16px;\n        color: #333;\n        width: 200px;\n      }\n\n      .link-icon {\n        display: inline-block;\n        width: 16px;\n        height: 16px;\n        margin-right: 4px;\n        margin-left: 4px;\n      }\n\n      button {\n        background: none;\n        border: none;\n        cursor: pointer;\n        padding: 4px;\n        margin: 0;\n        display: inline-block;\n        font-size: 16px;\n        color: #333;\n\n        &:hover {\n          background-color: #f9f9f9;\n          border-radius: 4px;\n        }\n      }\n    }\n  "]))));
 customElements.define('richer-bubble-menu', RicherBubbleMenu);
