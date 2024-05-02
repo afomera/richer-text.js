@@ -106,8 +106,8 @@ export const richerTextEditorStyles = css`
   }
 
   .toolbar-button {
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
     height: var(--toolbar-button-size);
     width: var(--toolbar-button-size);
     cursor: pointer;

@@ -9,7 +9,9 @@ var _lit = require("lit");
 var _classMap = require("lit/directives/class-map.js");
 var _map = require("lit/directives/map.js");
 var _core = require("@tiptap/core");
+var _roleComponents = require("role-components");
 var _icons = _interopRequireDefault(require("../editor/icons"));
+var _translations = require("../editor/translations");
 var _normalize = require("../styles/normalize");
 var _tiptapStyles = require("../styles/tiptapStyles");
 var _richerTextEditorStyles = require("../styles/richerTextEditorStyles");
@@ -21,7 +23,7 @@ var _MentionSuggestion = _interopRequireDefault(require("../editor/suggestions/M
 var _RicherTextEmbed = _interopRequireDefault(require("../editor/extensions/RicherTextEmbed"));
 require("../editor/elements/RicherBubbleMenu");
 var _CustomBubbleMenu = _interopRequireDefault(require("../editor/extensions/CustomBubbleMenu"));
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18, _templateObject19, _templateObject20, _templateObject21, _templateObject22;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18, _templateObject19, _templateObject20, _templateObject21;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38,6 +40,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get.bind(); } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(arguments.length < 3 ? target : receiver); } return desc.value; }; } return _get.apply(this, arguments); }
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+_roleComponents.RoleTooltip.define();
 var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
   _inherits(RicherTextEditor, _LitElement);
   var _super = _createSuper(RicherTextEditor);
@@ -45,6 +48,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     var _this;
     _classCallCheck(this, RicherTextEditor);
     _this = _super.call(this);
+    _this.translations = _translations.translations;
     _this.toolbar = [];
     _this.toolbarPlacement = _this.getAttribute("toolbar-placement") || "top";
     _this.toolbarPreset = _this.getAttribute("toolbar-preset") || "default";
@@ -304,61 +308,60 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
       var allToolbarItems = new Map(Object.entries({
         divider: (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["<div class=\"divider\" part=\"divider\"></div>"]))),
         spacer: (0, _lit.html)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["<div class=\"spacer\" part=\"spacer\"></div>"]))),
-        'heading-1': (0, _lit.html)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        'heading-1': (0, _lit.html)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"h1-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"h1-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('heading', {
             level: 1
           })
-        }), this.toggleHeadingLevel1, _icons["default"].get('h1')),
-        'heading-2': (0, _lit.html)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        }), this.toggleHeadingLevel1, _icons["default"].get('h1'), this.translations.heading1),
+        'heading-2': (0, _lit.html)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"h2-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"h2-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('heading', {
             level: 2
           })
-        }), this.toggleHeadingLevel2, _icons["default"].get('h2')),
-        'heading-3': (0, _lit.html)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        }), this.toggleHeadingLevel2, _icons["default"].get('h2'), this.translations.heading2),
+        'heading-3': (0, _lit.html)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"h3-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"h3-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('heading', {
             level: 3
           })
-        }), this.toggleHeadingLevel3, _icons["default"].get('h3')),
-        highlight: (0, _lit.html)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        }), this.toggleHeadingLevel3, _icons["default"].get('h3'), this.translations.heading3),
+        highlight: (0, _lit.html)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"highlight-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"highlight-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('highlight')
-        }), this.toggleHighlight, _icons["default"].get('highlight')),
-        'horizontal-rule': (0, _lit.html)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        }), this.toggleHighlight, _icons["default"].get('highlight'), this.translations.highlight),
+        'horizontal-rule': (0, _lit.html)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"hr-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"hr-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('horizontal-rule')
-        }), this.setHorizontalRule, _icons["default"].get('horizontal-rule')),
-        bold: (0, _lit.html)(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        }), this.setHorizontalRule, _icons["default"].get('horizontal-rule'), this.translations.horizontalRule),
+        bold: (0, _lit.html)(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"bold-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"bold-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('bold')
-        }), this.toggleBold, _icons["default"].get('bold')),
-        italic: (0, _lit.html)(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        }), this.toggleBold, _icons["default"].get('bold'), this.translations.bold),
+        italic: (0, _lit.html)(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"italic-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"italic-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('italic')
-        }), this.toggleItalic, _icons["default"].get('italic')),
-        underline: (0, _lit.html)(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        }), this.toggleItalic, _icons["default"].get('italic'), this.translations.italics),
+        underline: (0, _lit.html)(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"underline-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"underline-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('underline')
-        }), this.toggleUnderline, _icons["default"].get('underline')),
-        strike: (0, _lit.html)(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        }), this.toggleUnderline, _icons["default"].get('underline'), this.translations.underline),
+        strike: (0, _lit.html)(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"strike-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"strike-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('strike')
-        }), this.toggleStrike, _icons["default"].get('strike')),
-        'code': (0, _lit.html)(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        }), this.toggleStrike, _icons["default"].get('strike'), this.translations.strike),
+        'code': (0, _lit.html)(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"code-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"code-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('code')
-        }), this.toggleCode, _icons["default"].get('code')),
-        bulletlist: (0, _lit.html)(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        }), this.toggleCode, _icons["default"].get('code'), this.translations.code),
+        bulletlist: (0, _lit.html)(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"bullet-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"bullet-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('bulletList')
-        }), this.toggleBulletList, _icons["default"].get('bullet-list')),
-        orderedlist: (0, _lit.html)(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        }), this.toggleBulletList, _icons["default"].get('bullet-list'), this.translations.bulletList),
+        orderedlist: (0, _lit.html)(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"ordered-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"ordered-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('orderedlist')
-        }), this.toggleOrderedList, _icons["default"].get('ordered-list')),
-        blockquote: (0, _lit.html)(_templateObject15 || (_templateObject15 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        }), this.toggleOrderedList, _icons["default"].get('ordered-list'), this.translations.orderedList),
+        blockquote: (0, _lit.html)(_templateObject15 || (_templateObject15 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"blockquote-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"blockquote-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('blockquote')
-        }), this.toggleBlockquote, _icons["default"].get('blockquote')),
-        'code-block': (0, _lit.html)(_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        }), this.toggleBlockquote, _icons["default"].get('blockquote'), this.translations.blockquote),
+        'code-block': (0, _lit.html)(_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"codeblock-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"codeblock-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('codeBlock')
-        }), this.toggleCodeBlock, _icons["default"].get('code-block')),
-        link: (0, _lit.html)(_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), (0, _classMap.classMap)({
+        }), this.toggleCodeBlock, _icons["default"].get('code-block'), this.translations.codeBlock),
+        link: (0, _lit.html)(_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"link-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"link-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('link')
-        }), this.toggleLink, _icons["default"].get('link')),
-        undo: (0, _lit.html)(_templateObject18 || (_templateObject18 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), this.undo, _icons["default"].get('undo')),
-        redo: (0, _lit.html)(_templateObject19 || (_templateObject19 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), this.redo, _icons["default"].get('redo')),
-        emoji: (0, _lit.html)(_templateObject20 || (_templateObject20 = _taggedTemplateLiteral(["<button\n          id=\"emoji-picker-button\"\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), this.toggleEmojiPicker, _icons["default"].get('emoji')),
-        attachment: (0, _lit.html)(_templateObject21 || (_templateObject21 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n        >\n          ", "\n        </button>"])), this.addFile, _icons["default"].get('attachment'))
+        }), this.toggleLink, _icons["default"].get('link'), this.translations.link),
+        undo: (0, _lit.html)(_templateObject18 || (_templateObject18 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n          aria-describedby=\"undo-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"undo-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), this.undo, _icons["default"].get('undo'), this.translations.undo),
+        redo: (0, _lit.html)(_templateObject19 || (_templateObject19 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n          aria-describedby=\"redo-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"redo-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), this.redo, _icons["default"].get('redo'), this.translations.redo),
+        attachment: (0, _lit.html)(_templateObject20 || (_templateObject20 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n          aria-describedby=\"attachment-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"attachment-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), this.addFile, _icons["default"].get('attachment'), this.translations.attachment)
       }));
       return allToolbarItems.get(name);
     }
@@ -366,7 +369,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     key: "render",
     value: function render() {
       var _this3 = this;
-      return (0, _lit.html)(_templateObject22 || (_templateObject22 = _taggedTemplateLiteral(["\n        <div class=\"wrapper\" part=\"wrapper\">\n          <div class=\"toolbar\" part=\"toolbar\">\n            <slot name=\"toolbar-start\"></slot>\n            ", "\n            <slot name=\"toolbar-end\"></slot>\n            <slot></slot>\n          </div>\n          <slot name=\"editor\"></slot>\n        </div>\n      </div>\n    "])), (0, _map.map)(this.toolbar, function (name) {
+      return (0, _lit.html)(_templateObject21 || (_templateObject21 = _taggedTemplateLiteral(["\n        <div class=\"wrapper\" part=\"wrapper\">\n          <div class=\"toolbar\" part=\"toolbar\">\n            <slot name=\"toolbar-start\"></slot>\n            ", "\n            <slot name=\"toolbar-end\"></slot>\n            <slot></slot>\n          </div>\n          <slot name=\"editor\"></slot>\n        </div>\n      </div>\n    "])), (0, _map.map)(this.toolbar, function (name) {
         return _this3.renderToolbarButton(name);
       }));
     }
@@ -379,6 +382,17 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     key: "properties",
     get: function get() {
       return {
+        translations: {
+          type: Object,
+          converter: {
+            fromAttribute: function fromAttribute(value) {
+              return JSON.parse(value);
+            },
+            toAttribute: function toAttribute(value) {
+              return JSON.stringify(value);
+            }
+          }
+        },
         callouts: {
           type: String,
           reflect: true

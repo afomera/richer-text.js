@@ -3,7 +3,11 @@ import { classMap } from 'lit/directives/class-map.js';
 import { map } from 'lit/directives/map.js';
 import { Editor } from "@tiptap/core";
 
+import { RoleTooltip } from "role-components";
+RoleTooltip.define();
+
 import icons from '../editor/icons';
+import { translations } from "../editor/translations";
 
 // Styles
 import { normalize } from "../styles/normalize";
@@ -31,6 +35,13 @@ export default class RicherTextEditor extends LitElement {
 
   static get properties() {
     return {
+      translations: {
+        type: Object,
+        converter: {
+          fromAttribute: (value) => JSON.parse(value),
+          toAttribute: (value) => JSON.stringify(value),
+        }
+      },
       callouts: { type: String, reflect: true },
       content: { type: String, reflect: true },
       placeholder: { type: String, reflect: true },
@@ -206,6 +217,7 @@ export default class RicherTextEditor extends LitElement {
   constructor() {
     super();
 
+    this.translations = translations;
     this.toolbar = [];
     this.toolbarPlacement = this.getAttribute("toolbar-placement") || "top";
     this.toolbarPreset = this.getAttribute("toolbar-preset") || "default";
@@ -324,8 +336,10 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('heading', { level: 1 }),
           })}"
           @click="${this.toggleHeadingLevel1}"
+          aria-describedby="h1-tooltip"
         >
           ${icons.get('h1')}
+          <role-tooltip id="h1-tooltip" hoist>${this.translations.heading1}</role-tooltip>
         </button>`,
 
         'heading-2': html`<button
@@ -335,8 +349,10 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('heading', { level: 2 }),
           })}"
           @click="${this.toggleHeadingLevel2}"
+          aria-describedby="h2-tooltip"
         >
           ${icons.get('h2')}
+          <role-tooltip id="h2-tooltip" hoist>${this.translations.heading2}</role-tooltip>
         </button>`,
 
         'heading-3': html`<button
@@ -346,8 +362,10 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('heading', { level: 3 }),
           })}"
           @click="${this.toggleHeadingLevel3}"
+          aria-describedby="h3-tooltip"
         >
           ${icons.get('h3')}
+          <role-tooltip id="h3-tooltip" hoist>${this.translations.heading3}</role-tooltip>
         </button>`,
 
         highlight: html`<button
@@ -357,8 +375,10 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('highlight'),
           })}"
           @click="${this.toggleHighlight}"
+          aria-describedby="highlight-tooltip"
         >
           ${icons.get('highlight')}
+          <role-tooltip id="highlight-tooltip" hoist>${this.translations.highlight}</role-tooltip>
         </button>`,
 
         'horizontal-rule': html`<button
@@ -368,8 +388,10 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('horizontal-rule'),
           })}"
           @click="${this.setHorizontalRule}"
+          aria-describedby="hr-tooltip"
         >
           ${icons.get('horizontal-rule')}
+          <role-tooltip id="hr-tooltip" hoist>${this.translations.horizontalRule}</role-tooltip>
         </button>`,
 
         bold: html`<button
@@ -379,8 +401,10 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('bold'),
           })}"
           @click="${this.toggleBold}"
+          aria-describedby="bold-tooltip"
         >
           ${icons.get('bold')}
+          <role-tooltip id="bold-tooltip" hoist>${this.translations.bold}</role-tooltip>
         </button>`,
 
         italic: html`<button
@@ -390,8 +414,10 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('italic'),
           })}"
           @click="${this.toggleItalic}"
+          aria-describedby="italic-tooltip"
         >
           ${icons.get('italic')}
+          <role-tooltip id="italic-tooltip" hoist>${this.translations.italics}</role-tooltip>
         </button>`,
 
         underline: html`<button
@@ -401,8 +427,10 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('underline'),
           })}"
           @click="${this.toggleUnderline}"
+          aria-describedby="underline-tooltip"
         >
           ${icons.get('underline')}
+          <role-tooltip id="underline-tooltip" hoist>${this.translations.underline}</role-tooltip>
         </button>`,
 
         strike: html`<button
@@ -412,8 +440,10 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('strike'),
           })}"
           @click="${this.toggleStrike}"
+          aria-describedby="strike-tooltip"
         >
           ${icons.get('strike')}
+          <role-tooltip id="strike-tooltip" hoist>${this.translations.strike}</role-tooltip>
         </button>`,
 
         'code': html`<button
@@ -423,8 +453,10 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('code'),
           })}"
           @click="${this.toggleCode}"
+          aria-describedby="code-tooltip"
         >
           ${icons.get('code')}
+          <role-tooltip id="code-tooltip" hoist>${this.translations.code}</role-tooltip>
         </button>`,
 
         bulletlist: html`<button
@@ -434,8 +466,10 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('bulletList'),
           })}"
           @click="${this.toggleBulletList}"
+          aria-describedby="bullet-tooltip"
         >
           ${icons.get('bullet-list')}
+          <role-tooltip id="bullet-tooltip" hoist>${this.translations.bulletList}</role-tooltip>
         </button>`,
 
         orderedlist: html`<button
@@ -445,8 +479,10 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('orderedlist'),
           })}"
           @click="${this.toggleOrderedList}"
+          aria-describedby="ordered-tooltip"
         >
           ${icons.get('ordered-list')}
+          <role-tooltip id="ordered-tooltip" hoist>${this.translations.orderedList}</role-tooltip>
         </button>`,
 
         blockquote: html`<button
@@ -456,8 +492,10 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('blockquote'),
           })}"
           @click="${this.toggleBlockquote}"
+          aria-describedby="blockquote-tooltip"
         >
           ${icons.get('blockquote')}
+          <role-tooltip id="blockquote-tooltip" hoist>${this.translations.blockquote}</role-tooltip>
         </button>`,
 
         'code-block': html`<button
@@ -467,8 +505,10 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('codeBlock'),
           })}"
           @click="${this.toggleCodeBlock}"
+          aria-describedby="codeblock-tooltip"
         >
           ${icons.get('code-block')}
+          <role-tooltip id="codeblock-tooltip" hoist>${this.translations.codeBlock}</role-tooltip>
         </button>`,
 
         link: html`<button
@@ -478,8 +518,10 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('link'),
           })}"
           @click="${this.toggleLink}"
+          aria-describedby="link-tooltip"
         >
           ${icons.get('link')}
+          <role-tooltip id="link-tooltip" hoist>${this.translations.link}</role-tooltip>
         </button>`,
 
         undo: html`<button
@@ -487,8 +529,10 @@ export default class RicherTextEditor extends LitElement {
           part="toolbar-button"
           class="toolbar-button"
           @click="${this.undo}"
+          aria-describedby="undo-tooltip"
         >
           ${icons.get('undo')}
+          <role-tooltip id="undo-tooltip" hoist>${this.translations.undo}</role-tooltip>
         </button>`,
 
         redo: html`<button
@@ -496,18 +540,10 @@ export default class RicherTextEditor extends LitElement {
           part="toolbar-button"
           class="toolbar-button"
           @click="${this.redo}"
+          aria-describedby="redo-tooltip"
         >
           ${icons.get('redo')}
-        </button>`,
-
-        emoji: html`<button
-          id="emoji-picker-button"
-          type="button"
-          part="toolbar-button"
-          class="toolbar-button"
-          @click="${this.toggleEmojiPicker}"
-        >
-          ${icons.get('emoji')}
+          <role-tooltip id="redo-tooltip" hoist>${this.translations.redo}</role-tooltip>
         </button>`,
 
         attachment: html`<button
@@ -515,8 +551,10 @@ export default class RicherTextEditor extends LitElement {
           part="toolbar-button"
           class="toolbar-button"
           @click="${this.addFile}"
+          aria-describedby="attachment-tooltip"
         >
           ${icons.get('attachment')}
+          <role-tooltip id="attachment-tooltip" hoist>${this.translations.attachment}</role-tooltip>
         </button>`,
       }),
     );
