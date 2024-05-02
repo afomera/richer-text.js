@@ -41,7 +41,7 @@ var DropdownItem = /*#__PURE__*/function (_LitElement) {
   return DropdownItem;
 }(_lit.LitElement);
 exports.DropdownItem = DropdownItem;
-_defineProperty(DropdownItem, "styles", (0, _lit.css)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    .dropdown-item {\n      padding: 4px;\n      display: block;\n      text-align: left;\n      text-decoration: none;\n      color: black;\n      font-size: 14px;\n    }\n\n    .dropdown-item:hover {\n      background-color: #f1f1f1;\n    }\n  "]))));
+_defineProperty(DropdownItem, "styles", (0, _lit.css)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    .dropdown-item {\n      padding: 8px;\n      display: block;\n      text-align: left;\n      text-decoration: none;\n      color: black;\n      font-size: 14px;\n    }\n\n    .dropdown-item:hover {\n      background-color: #e5e7eb;\n    }\n  "]))));
 _defineProperty(DropdownItem, "properties", {
   href: {
     type: String
@@ -79,7 +79,7 @@ var Dropdown = /*#__PURE__*/function (_LitElement2) {
   return Dropdown;
 }(_lit.LitElement);
 exports.Dropdown = Dropdown;
-_defineProperty(Dropdown, "styles", (0, _lit.css)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  [hidden] {\n      display: none !important;\n    }\n\n    *,\n    *::after,\n    *::before {\n      box-sizing: border-box;\n    }\n\n    button {\n      background-color: inherit;\n      border: none;\n      color: inherit;\n      cursor: pointer;\n    }\n\n\n    .dropdown {\n      position: relative;\n      display: inline-block;\n\n      background: none;\n      border: none;\n      cursor: pointer;\n    }\n\n    .dropdown-items {\n      background-color: #f9f9f9;\n      border: 1px solid #f1f1f1;\n      display: none;\n      position: absolute;\n      z-index: 1;\n    }\n\n    .dropdown-items.is-active {\n      display: block;\n    }\n\n    .dropdown-trigger {\n      cursor: pointer;\n      color: inherit;\n    }\n  "]))));
+_defineProperty(Dropdown, "styles", (0, _lit.css)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  [hidden] {\n      display: none !important;\n    }\n\n    *,\n    *::after,\n    *::before {\n      box-sizing: border-box;\n    }\n\n    button {\n      background-color: inherit;\n      border: none;\n      color: inherit;\n      cursor: pointer;\n    }\n\n\n    .dropdown {\n      position: relative;\n      display: inline-block;\n\n      background: none;\n      border: none;\n      cursor: pointer;\n    }\n\n    .dropdown-items {\n      min-width: 110px;\n      background-color: #ffffff;\n      border: 1px solid #e5e7eb;\n      display: none;\n      position: absolute;\n      z-index: 1;\n    }\n\n    .dropdown-items.is-active {\n      display: block;\n    }\n\n    .dropdown-trigger {\n      cursor: pointer;\n      color: inherit;\n    }\n  "]))));
 _defineProperty(Dropdown, "properties", {
   open: {
     type: Boolean

@@ -4,7 +4,7 @@ import { html, css, LitElement } from 'lit';
 export class DropdownItem extends LitElement {
   static styles = css`
     .dropdown-item {
-      padding: 4px;
+      padding: 8px;
       display: block;
       text-align: left;
       text-decoration: none;
@@ -13,7 +13,7 @@ export class DropdownItem extends LitElement {
     }
 
     .dropdown-item:hover {
-      background-color: #f1f1f1;
+      background-color: #e5e7eb;
     }
   `
 
@@ -71,8 +71,9 @@ export class Dropdown extends LitElement {
     }
 
     .dropdown-items {
-      background-color: #f9f9f9;
-      border: 1px solid #f1f1f1;
+      min-width: 110px;
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
       display: none;
       position: absolute;
       z-index: 1;

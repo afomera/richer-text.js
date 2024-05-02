@@ -53,7 +53,7 @@ export class RicherBubbleMenu extends LitElement {
         color: #333;
 
         &:hover {
-          background-color: #f9f9f9;
+          background-color: #e5e7eb;
           border-radius: 4px;
         }
       }
