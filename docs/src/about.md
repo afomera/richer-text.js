@@ -3,7 +3,7 @@ layout: page
 title: About
 ---
 
-Richer Text is a project by [Andrea Fomera](https://afomera.dev). It's based on [TipTap](https://tiptap.dev), which itself is based on ProseMirror.
+Richer Text is a project by [Andrea Fomera](https://afomera.dev). It's based on [TipTap](https://tiptap.dev), which itself is based on ProseMirror. Richer Text started in December of 2022, and is now on version 2, which focused on a major rewrite of every piece of the editor.
 
 _**Richer Text is not looking to maintain backwards compatibility with ActionText**. For a compatible editor, take a look at [Rhino Editor](http://rhino-editor.vercel.app)._
 
@@ -14,9 +14,9 @@ The editor itself is written as a collection of custom elements via Lit, with th
 Great question, my motives for starting Richer Text were spurred by the desire to have a flexible
 editor that I could easily extend and fully customize the way I always wanted to with Trix.
 
-Trix served me well for many years, but in 2023, nearly 2024 it's time to make way for new editors.
+Trix served me well for many years, but now we're in 2024, it's time to make way for new editors.
 
-Enter, [Tiptap](https://tiptap.dev) which is built on ProseMirror and handles much of the heavy lifting for us with wrangling ProseMirror into sensible code, but it comes headless. The perfect fit for someone looking to provide their own UI for an editor, thus Richer Text was born.
+Enter, [TipTap](https://tiptap.dev) which is built on ProseMirror and handles much of the heavy lifting for us with wrangling ProseMirror into sensible code, but it comes headless. The perfect fit for someone looking to provide their own UI for an editor, thus Richer Text was born.
 
 ## Why Richer Text over ActionText?
 

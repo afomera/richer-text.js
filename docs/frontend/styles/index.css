@@ -12,6 +12,15 @@
   --action-color: #d64079;
 }
 
+.badge {
+  background-color: var(--action-color);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  margin-left: 2rem;
+}
+
 [hidden] {
   display: none !important;
 }

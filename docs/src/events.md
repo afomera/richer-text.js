@@ -3,6 +3,10 @@ layout: page
 title: Events
 ---
 
+<div class="callout" data-color="red">
+  <p><strong>Important:</strong> As of RicherText.js v2, this documentation has not been updated yet. </p>
+</div>
+
 RicherText has a few events that the editor will emit when certain actions happen.
 
 ## Create
