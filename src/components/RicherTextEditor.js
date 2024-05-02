@@ -6,6 +6,8 @@ import { Editor } from "@tiptap/core";
 import { RoleTooltip } from "role-components";
 RoleTooltip.define();
 
+import { Dropdown } from "../editor/elements/Dropdown";
+
 import icons from '../editor/icons';
 import { translations } from "../editor/translations";
 

@@ -10,6 +10,7 @@ var _classMap = require("lit/directives/class-map.js");
 var _map = require("lit/directives/map.js");
 var _core = require("@tiptap/core");
 var _roleComponents = require("role-components");
+var _Dropdown = require("../editor/elements/Dropdown");
 var _icons = _interopRequireDefault(require("../editor/icons"));
 var _translations = require("../editor/translations");
 var _normalize = require("../styles/normalize");

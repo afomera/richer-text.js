@@ -2,6 +2,8 @@ import { html, css, LitElement } from 'lit';
 
 import icons from "../icons";
 
+import { Dropdown } from './Dropdown';
+
 export class RicherBubbleMenu extends LitElement {
   static styles = css`
     .richer-text-editor--bubble-menu {
@@ -53,6 +55,23 @@ export class RicherBubbleMenu extends LitElement {
         &:hover {
           background-color: #f9f9f9;
           border-radius: 4px;
+        }
+      }
+
+      button.caret {
+        position: relative;
+        padding-right: 16px;
+        margin: 0;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 8px;
+          transform: translateY(-50%);
+          border-width: 4px 4px 0;
+          border-style: solid;
+          border-color: #333 transparent transparent;
         }
       }
     }
@@ -148,6 +167,22 @@ export class RicherBubbleMenu extends LitElement {
     this.requestUpdate();
   }
 
+  clear() {
+    console.log('clear')
+
+    this.editor.chain().clearContent(true).focus().run();
+
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
+  }
+
+  focus() {
+    this.editor.commands.focus();
+  }
+
+  blur() {
+    this.editor.commands.blur();
+  }
 
   setLinkAndClose() {
     const url = this.shadowRoot.getElementById('link-url').value;
@@ -202,12 +237,31 @@ export class RicherBubbleMenu extends LitElement {
           <button class="toolbar-button" @click=${() => this.toggleStrike()}>
             ${icons.get("strike")}
           </button>
-          <button @click=${() => this.toggleLinkEditor()}>${icons.get("link")}</button>
+          <button class="toolbar-button" @click=${() => this.toggleLinkEditor()}>${icons.get("link")}</button>
 
           <div class="divider"></div>
-          <button @click=${() => this.toggleLeftAlignment()}>${icons.get("align-left")}</button>
-          <button @click=${() => this.toggleCenterAlignment()}>${icons.get("align-center")}</button>
-          <button @click=${() => this.toggleRightAlignment()}>${icons.get("align-right")}</button>
+          <button class="toolbar-button" @click=${() => this.toggleLeftAlignment()}>${icons.get("align-left")}</button>
+          <button class="toolbar-button" @click=${() => this.toggleCenterAlignment()}>${icons.get("align-center")}</button>
+          <button class="toolbar-button" @click=${() => this.toggleRightAlignment()}>${icons.get("align-right")}</button>
+
+          <div class="divider"></div>
+          <rte-dropdown>
+            <button slot="trigger" class="caret">${icons.get("highlight")}</button>
+            <div slot="items">
+              <rte-dropdown-item @click="${this.clear}">Clear</rte-dropdown-item>
+              <rte-dropdown-item @click="${this.focus}">Focus</rte-dropdown-item>
+              <rte-dropdown-item @click="${this.blur}">Blur</rte-dropdown-item>
+            </div>
+          </rte-dropdown>
+          <div class="divider"></div>
+          <rte-dropdown>
+            <button slot="trigger" class="caret">${icons.get("text-color")}</button>
+            <div slot="items">
+              <rte-dropdown-item @click="${this.clear}">Clear</rte-dropdown-item>
+              <rte-dropdown-item @click="${this.focus}">Focus</rte-dropdown-item>
+              <rte-dropdown-item @click="${this.blur}">Blur</rte-dropdown-item>
+            </div>
+          </rte-dropdown>
         </div>
       `
     } else {
