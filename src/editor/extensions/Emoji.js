@@ -21,8 +21,6 @@ const Emoji = Extension.create({
         init({data});
         let emojisList = await SearchIndex.search(query);
 
-        console.log('emojisList:', emojisList);
-
         if (emojisList === null) {
           return [];
         } else {

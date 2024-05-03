@@ -42,15 +42,14 @@ var Emoji = _core.Extension.create({
                 return _emojiMart.SearchIndex.search(query);
               case 4:
                 emojisList = _context.sent;
-                console.log('emojisList:', emojisList);
                 if (!(emojisList === null)) {
-                  _context.next = 10;
+                  _context.next = 9;
                   break;
                 }
                 return _context.abrupt("return", []);
-              case 10:
+              case 9:
                 return _context.abrupt("return", emojisList.slice(0, 10));
-              case 11:
+              case 10:
               case "end":
                 return _context.stop();
             }

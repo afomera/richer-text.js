@@ -41,7 +41,6 @@ var RicherBubbleMenu = /*#__PURE__*/function (_LitElement) {
   _createClass(RicherBubbleMenu, [{
     key: "removeNode",
     value: function removeNode() {
-      console.log("removeNode");
       this.editor.chain().focus().deleteSelection().run();
 
       // Rebuild the bubble menu element to update the button state
@@ -50,7 +49,6 @@ var RicherBubbleMenu = /*#__PURE__*/function (_LitElement) {
   }, {
     key: "resizeImage",
     value: function resizeImage(size) {
-      console.log("resizeImage", size);
       this.editor.chain().focus().setImageWidth(size).run();
 
       // Rebuild the bubble menu element to update the button state
@@ -121,7 +119,6 @@ var RicherBubbleMenu = /*#__PURE__*/function (_LitElement) {
   }, {
     key: "clear",
     value: function clear() {
-      console.log('clear');
       this.editor.chain().clearContent(true).focus().run();
 
       // Rebuild the bubble menu element to update the button state
@@ -228,15 +225,10 @@ var RicherBubbleMenu = /*#__PURE__*/function (_LitElement) {
       // Rebuild the bubble menu element to update the button state
       this.requestUpdate();
     }
-
-    // This is a simple bubble menu that toggles bold text.
   }, {
     key: "render",
     value: function render() {
       var _this3 = this;
-      // if (this.isActive("image") || this.isActive("mention") || this.isActive("codeBlock") || this.isActive("richerTextEmbed")) {
-      //   return html``;
-      // }
       if (this.mode == "table") {
         return (0, _lit.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        <div class=\"richer-text-editor--bubble-menu\">\n          <button class=\"toolbar-button\" @click=", " aria-describedby=\"insert-column-left-tooltip\">\n            ", "\n            <role-tooltip id=\"insert-column-left-tooltip\" hoist>Insert column before</role-tooltip>\n          </button>\n\n          <button class=\"toolbar-button\" @click=", " aria-describedby=\"insert-column-right-tooltip\">\n            ", "\n            <role-tooltip id=\"insert-column-right-tooltip\" hoist>Insert column after</role-tooltip>\n          </button>\n\n          <button class=\"toolbar-button\" @click=", " aria-describedby=\"column-remove-tooltip\">\n            ", "\n            <role-tooltip id=\"column-remove-tooltip\" hoist>Delete column</role-tooltip>\n          </button>\n\n          <button class=\"toolbar-button\" @click=", " aria-describedby=\"insert-row-above-tooltip\">\n            ", "\n            <role-tooltip id=\"insert-row-above-tooltip\" hoist>Insert row before</role-tooltip>\n          </button>\n\n          <button class=\"toolbar-button\" @click=", " aria-describedby=\"insert-row-below-tooltip\">\n            ", "\n            <role-tooltip id=\"insert-row-below-tooltip\" hoist>Insert row after</role-tooltip>\n          </button>\n\n          <button class=\"toolbar-button\" @click=", " aria-describedby=\"delete-row-tooltip\">\n            ", "\n            <role-tooltip id=\"delete-row-tooltip\" hoist>Delete row</role-tooltip>\n          </button>\n\n          <button class=\"toolbar-button\" @click=", " aria-describedby=\"toggle-header-column-tooltip\">\n            ", "\n            <role-tooltip id=\"toggle-header-column-tooltip\" hoist>Toggle header column</role-tooltip>\n          </button>\n\n          <button class=\"toolbar-button\" @click=", " aria-describedby=\"toggle-header-row-tooltip\">\n            ", "\n            <role-tooltip id=\"toggle-header-row-tooltip\" hoist>Toggle header row</role-tooltip>\n          </button>\n\n          <div class=\"divider\"></div>\n\n          <button class=\"toolbar-button\" @click=", " aria-describedby=\"delete-table-tooltip\">\n            ", "\n            <role-tooltip id=\"delete-table-tooltip\" hoist>Delete Table</role-tooltip>\n          </button>\n        </div>\n      "])), function () {
           return _this3.insertColumnLeft();

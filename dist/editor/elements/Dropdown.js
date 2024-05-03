@@ -64,7 +64,6 @@ var Dropdown = /*#__PURE__*/function (_LitElement2) {
   _createClass(Dropdown, [{
     key: "toggleDropdown",
     value: function toggleDropdown() {
-      console.log('toggleDropdown');
       this.open = !this.open;
       var dropdown = this.shadowRoot.querySelector('.dropdown-items');
       dropdown.classList.toggle('is-active');

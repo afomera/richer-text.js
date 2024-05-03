@@ -100,7 +100,6 @@ export class RicherBubbleMenu extends LitElement {
   }
 
   removeNode() {
-    console.log("removeNode")
     this.editor.chain().focus().deleteSelection().run();
 
     // Rebuild the bubble menu element to update the button state
@@ -108,7 +107,6 @@ export class RicherBubbleMenu extends LitElement {
   }
 
   resizeImage(size) {
-    console.log("resizeImage", size)
     this.editor.chain().focus().setImageWidth(size).run();
 
     // Rebuild the bubble menu element to update the button state
@@ -170,8 +168,6 @@ export class RicherBubbleMenu extends LitElement {
   }
 
   clear() {
-    console.log('clear')
-
     this.editor.chain().clearContent(true).focus().run();
 
     // Rebuild the bubble menu element to update the button state
@@ -266,12 +262,7 @@ export class RicherBubbleMenu extends LitElement {
     this.requestUpdate();
   }
 
-
-  // This is a simple bubble menu that toggles bold text.
   render() {
-    // if (this.isActive("image") || this.isActive("mention") || this.isActive("codeBlock") || this.isActive("richerTextEmbed")) {
-    //   return html``;
-    // }
     if (this.mode == "table") {
       return html`
         <div class="richer-text-editor--bubble-menu">

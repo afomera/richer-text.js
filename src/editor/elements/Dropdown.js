@@ -99,7 +99,6 @@ export class Dropdown extends LitElement {
   }
 
   toggleDropdown() {
-    console.log('toggleDropdown')
     this.open = !this.open;
 
     const dropdown = this.shadowRoot.querySelector('.dropdown-items');
