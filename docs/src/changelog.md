@@ -9,6 +9,23 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ---
 
+## 2.0.0-alpha.1
+
+- Completely rewrite the editor to drop the React / React DOM dependency. Now dependent on Lit to generate our custom elements, but for an application using Richer Text, this won't matter.
+- New functionality to allow developers implementing Richer Text into their project to define the Toolbar buttons.
+
+### Known Issues
+
+- `bubble-menu-options` when passed to the `richer-text-editor` component will do nothing because it's not been reimplemented
+- Drag and Drop is currently the only way to add an image. This will be fixed before a full v2 release.
+- The editor currently only emits a `change` event where `event.detail` contains an html and json key. Other editor events are not implemented yet.
+- There's no hooks to customize extensions if you wanted to extend Richer Text's Editor.
+- Full CSS Customization options are not yet implemented.
+- OEmbed support is missing, there's no way to embed into v2 yet from the Link menu.
+- Text color and highlight colors have not been implemented yet.
+
+---
+
 ## 1.0.0-beta.1
 
 - Same as 0.19.0 but now with 100% more 1.0 beta goodness.
