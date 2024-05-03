@@ -3,6 +3,8 @@ import { html, css, LitElement } from 'lit';
 import icons from "../icons";
 
 import { Dropdown } from './Dropdown';
+import { RoleTooltip } from 'role-components';
+RoleTooltip.define();
 
 export class RicherBubbleMenu extends LitElement {
   static styles = css`
@@ -201,13 +203,127 @@ export class RicherBubbleMenu extends LitElement {
     this.setLinkAndClose();
   }
 
+  deleteTable() {
+    this.editor.chain().focus().deleteTable().run();
+
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
+  }
+
+  insertColumnLeft() {
+    this.editor.chain().focus().addColumnBefore().run();
+
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
+  }
+
+  insertColumnRight() {
+    this.editor.chain().focus().addColumnAfter().run();
+
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
+  }
+
+  deleteColumn() {
+    this.editor.chain().focus().deleteColumn().run();
+
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
+  }
+
+  insertRowAbove() {
+    this.editor.chain().focus().addRowBefore().run();
+
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
+  }
+
+  insertRowBelow() {
+    this.editor.chain().focus().addRowAfter().run();
+
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
+  }
+
+  deleteRow() {
+    this.editor.chain().focus().deleteRow().run();
+
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
+  }
+
+  toggleHeaderColumn() {
+    this.editor.chain().focus().toggleHeaderColumn().run();
+
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
+  }
+
+  toggleHeaderRow() {
+    this.editor.chain().focus().toggleHeaderRow().run();
+
+    // Rebuild the bubble menu element to update the button state
+    this.requestUpdate();
+  }
+
 
   // This is a simple bubble menu that toggles bold text.
   render() {
     // if (this.isActive("image") || this.isActive("mention") || this.isActive("codeBlock") || this.isActive("richerTextEmbed")) {
     //   return html``;
     // }
-    if (this.mode == "image") {
+    if (this.mode == "table") {
+      return html`
+        <div class="richer-text-editor--bubble-menu">
+          <button class="toolbar-button" @click=${() => this.insertColumnLeft()} aria-describedby="insert-column-left-tooltip">
+            ${icons.get("insert-column-left")}
+            <role-tooltip id="insert-column-left-tooltip" hoist>Insert column before</role-tooltip>
+          </button>
+
+          <button class="toolbar-button" @click=${() => this.insertColumnRight()} aria-describedby="insert-column-right-tooltip">
+            ${icons.get("insert-column-right")}
+            <role-tooltip id="insert-column-right-tooltip" hoist>Insert column after</role-tooltip>
+          </button>
+
+          <button class="toolbar-button" @click=${() => this.deleteColumn()} aria-describedby="column-remove-tooltip">
+            ${icons.get("delete-column")}
+            <role-tooltip id="column-remove-tooltip" hoist>Delete column</role-tooltip>
+          </button>
+
+          <button class="toolbar-button" @click=${() => this.insertRowAbove()} aria-describedby="insert-row-above-tooltip">
+            ${icons.get("insert-row-above")}
+            <role-tooltip id="insert-row-above-tooltip" hoist>Insert row before</role-tooltip>
+          </button>
+
+          <button class="toolbar-button" @click=${() => this.insertRowBelow()} aria-describedby="insert-row-below-tooltip">
+            ${icons.get("insert-row-below")}
+            <role-tooltip id="insert-row-below-tooltip" hoist>Insert row after</role-tooltip>
+          </button>
+
+          <button class="toolbar-button" @click=${() => this.deleteRow()} aria-describedby="delete-row-tooltip">
+            ${icons.get("delete-row")}
+            <role-tooltip id="delete-row-tooltip" hoist>Delete row</role-tooltip>
+          </button>
+
+          <button class="toolbar-button" @click=${() => this.toggleHeaderColumn()} aria-describedby="toggle-header-column-tooltip">
+            ${icons.get("toggle-header-column")}
+            <role-tooltip id="toggle-header-column-tooltip" hoist>Toggle header column</role-tooltip>
+          </button>
+
+          <button class="toolbar-button" @click=${() => this.toggleHeaderRow()} aria-describedby="toggle-header-row-tooltip">
+            ${icons.get("toggle-header-row")}
+            <role-tooltip id="toggle-header-row-tooltip" hoist>Toggle header row</role-tooltip>
+          </button>
+
+          <div class="divider"></div>
+
+          <button class="toolbar-button" @click=${() => this.deleteTable()} aria-describedby="delete-table-tooltip">
+            ${icons.get("delete-table")}
+            <role-tooltip id="delete-table-tooltip" hoist>Delete Table</role-tooltip>
+          </button>
+        </div>
+      `
+    } else if (this.mode == "image") {
       return html`
         <div class="richer-text-editor--bubble-menu">
           <button class="toolbar-button" @click=${() => this.removeNode()}>

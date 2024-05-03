@@ -142,6 +142,16 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
         callout: this.callouts !== "false",
         tables: this.tables !== "false"
       })];
+      if (this.tables !== "false") {
+        extensions.push((0, _CustomBubbleMenu["default"])("tableBubbleMenu").configure({
+          mode: "table",
+          pluginKey: "tableBubbleMenu",
+          shouldShow: function shouldShow(_ref3) {
+            var editor = _ref3.editor;
+            return editor.isActive("table");
+          }
+        }));
+      }
       if (this.mentionableUsersPath.length > 0) {
         extensions.push(_Mention["default"].configure({
           HTMLAttributes: {
@@ -164,8 +174,8 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
           // The editor is ready.
           _this2.emitChange();
         },
-        onUpdate: function onUpdate(_ref3) {
-          var editor = _ref3.editor;
+        onUpdate: function onUpdate(_ref4) {
+          var editor = _ref4.editor;
           // The content has changed.
           _this2.requestUpdate();
           _this2.emitChange();

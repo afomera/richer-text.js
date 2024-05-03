@@ -174,6 +174,18 @@ export default class RicherTextEditor extends LitElement {
       })
     ];
 
+    if (this.tables !== "false") {
+      extensions.push(
+        CustomBubbleMenu("tableBubbleMenu").configure({
+          mode: "table",
+          pluginKey: "tableBubbleMenu",
+          shouldShow: ({ editor }) => {
+            return editor.isActive("table");
+          },
+        })
+      );
+    }
+
     if (this.mentionableUsersPath.length > 0) {
       extensions.push(
         Mention.configure({
