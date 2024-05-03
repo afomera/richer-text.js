@@ -350,7 +350,7 @@ export class RicherBubbleMenu extends LitElement {
           <button class="toolbar-button" @click=${() => this.toggleLeftAlignment()}>${icons.get("align-left")}</button>
           <button class="toolbar-button" @click=${() => this.toggleCenterAlignment()}>${icons.get("align-center")}</button>
           <button class="toolbar-button" @click=${() => this.toggleRightAlignment()}>${icons.get("align-right")}</button>
-
+        <!--
           <div class="divider"></div>
           <rte-dropdown>
             <button slot="trigger" class="caret">${icons.get("highlight")}</button>
@@ -368,7 +368,7 @@ export class RicherBubbleMenu extends LitElement {
               <rte-dropdown-item @click="${this.focus}">Focus</rte-dropdown-item>
               <rte-dropdown-item @click="${this.blur}">Blur</rte-dropdown-item>
             </div>
-          </rte-dropdown>
+          </rte-dropdown> -->
         </div>
       `
     } else {
