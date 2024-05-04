@@ -7,6 +7,7 @@ import { RoleTooltip } from "role-components";
 RoleTooltip.define();
 
 import { Dropdown } from "../editor/elements/Dropdown";
+import { uploadFile } from "../editor/extensions/Image";
 
 import icons from '../editor/icons';
 import { translations } from "../editor/translations";
@@ -95,7 +96,7 @@ export default class RicherTextEditor extends LitElement {
         'code-block',
         'horizontal-rule',
         // 'divider',
-        // 'attachment',
+        'attachment',
         'spacer',
         'undo',
         'redo',
@@ -318,8 +319,41 @@ export default class RicherTextEditor extends LitElement {
   }
 
   addFile() {
-    console.log("addFile")
-    this.emit("add-file");
+    const input = this.shadowRoot.getElementById("file-input");
+    input.click();
+  }
+
+  handleFileUpload(event) {
+    const files = event.target.files;
+
+    // Update this to loop through all files with the index
+    Array.from(files).forEach((file, index) => {
+      // A fresh object to act as the ID for this upload
+      let id = {};
+
+      // Replace the selection with a placeholder
+      let tr = this.editor.view.state.tr;
+      if (!tr.selection.empty) tr.deleteSelection();
+
+      tr.setMeta(this.editor.view, {add: {id, pos: tr.selection.from + index}, image: file});
+      this.editor.view.dispatch(tr)
+
+      const onUploadComplete = (attrs, completedUpload) => {
+        const payload = {
+          signedId: attrs.signedId,
+          name: completedUpload.file.name,
+          src: `/rails/active_storage/blobs/redirect/${attrs.signedId}/${completedUpload.file.name}`,
+          alt: completedUpload.file.name,
+        };
+
+        this.editor.view.dispatch(
+          this.editor.view.state.tr.replaceWith(this.editor.view.state.doc.content.size, this.editor.view.state.doc.content.size, this.editor.schema.nodes.image.create(payload))
+            .setMeta(this.editor.view, {remove: {id}})
+        )
+      }
+
+      uploadFile(file, onUploadComplete);
+    });
   }
 
   toggleLink() {
@@ -569,6 +603,15 @@ export default class RicherTextEditor extends LitElement {
         >
           ${icons.get('attachment')}
           <role-tooltip id="attachment-tooltip" hoist>${this.translations.attachment}</role-tooltip>
+
+          <input
+            id="file-input"
+            type="file"
+            hidden
+            multiple
+            accept=${"image/*"}
+            @change=${this.handleFileUpload}
+          />
         </button>`,
       }),
     );

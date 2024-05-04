@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.uploadFile = exports["default"] = void 0;
 var _lit = require("lit");
 var _core = require("@tiptap/core");
 var _state = require("@tiptap/pm/state");
@@ -21,6 +21,7 @@ var uploadFile = function uploadFile(file, handleComplete) {
 };
 
 //Find the placeholder in editor
+exports.uploadFile = uploadFile;
 function findPlaceholder(state, id) {
   var decos = placeholderPlugin.getState(state);
   var found = decos.find(null, null, function (spec) {

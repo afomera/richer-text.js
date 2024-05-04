@@ -4,7 +4,7 @@ import { Plugin, PluginKey } from "@tiptap/pm/state";
 import { Decoration, DecorationSet } from '@tiptap/pm/view';
 import { ActiveStorageUploader } from '../ActiveStorageUploader';
 
-const uploadFile = (file, handleComplete) => {
+export const uploadFile = (file, handleComplete) => {
   const handleProgress = () => {};
   const handleFailure = () => { console.log("Failed to upload attachment"); };
 

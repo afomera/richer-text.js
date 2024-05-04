@@ -11,6 +11,7 @@ var _map = require("lit/directives/map.js");
 var _core = require("@tiptap/core");
 var _roleComponents = require("role-components");
 var _Dropdown = require("../editor/elements/Dropdown");
+var _Image = require("../editor/extensions/Image");
 var _icons = _interopRequireDefault(require("../editor/icons"));
 var _translations = require("../editor/translations");
 var _normalize = require("../styles/normalize");
@@ -71,8 +72,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
         // 'highlight',
         'bulletlist', 'orderedlist', 'blockquote', 'code-block', 'horizontal-rule',
         // 'divider',
-        // 'attachment',
-        'spacer', 'undo', 'redo'];
+        'attachment', 'spacer', 'undo', 'redo'];
       }
     }
   }, {
@@ -297,8 +297,46 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
   }, {
     key: "addFile",
     value: function addFile() {
-      console.log("addFile");
-      this.emit("add-file");
+      var input = this.shadowRoot.getElementById("file-input");
+      input.click();
+    }
+  }, {
+    key: "handleFileUpload",
+    value: function handleFileUpload(event) {
+      var _this3 = this;
+      var files = event.target.files;
+
+      // Update this to loop through all files with the index
+      Array.from(files).forEach(function (file, index) {
+        // A fresh object to act as the ID for this upload
+        var id = {};
+
+        // Replace the selection with a placeholder
+        var tr = _this3.editor.view.state.tr;
+        if (!tr.selection.empty) tr.deleteSelection();
+        tr.setMeta(_this3.editor.view, {
+          add: {
+            id: id,
+            pos: tr.selection.from + index
+          },
+          image: file
+        });
+        _this3.editor.view.dispatch(tr);
+        var onUploadComplete = function onUploadComplete(attrs, completedUpload) {
+          var payload = {
+            signedId: attrs.signedId,
+            name: completedUpload.file.name,
+            src: "/rails/active_storage/blobs/redirect/".concat(attrs.signedId, "/").concat(completedUpload.file.name),
+            alt: completedUpload.file.name
+          };
+          _this3.editor.view.dispatch(_this3.editor.view.state.tr.replaceWith(_this3.editor.view.state.doc.content.size, _this3.editor.view.state.doc.content.size, _this3.editor.schema.nodes.image.create(payload)).setMeta(_this3.editor.view, {
+            remove: {
+              id: id
+            }
+          }));
+        };
+        (0, _Image.uploadFile)(file, onUploadComplete);
+      });
     }
   }, {
     key: "toggleLink",
@@ -377,16 +415,16 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
         }), this.toggleLink, _icons["default"].get('link'), this.translations.link),
         undo: (0, _lit.html)(_templateObject18 || (_templateObject18 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n          aria-describedby=\"undo-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"undo-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), this.undo, _icons["default"].get('undo'), this.translations.undo),
         redo: (0, _lit.html)(_templateObject19 || (_templateObject19 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n          aria-describedby=\"redo-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"redo-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), this.redo, _icons["default"].get('redo'), this.translations.redo),
-        attachment: (0, _lit.html)(_templateObject20 || (_templateObject20 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n          aria-describedby=\"attachment-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"attachment-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), this.addFile, _icons["default"].get('attachment'), this.translations.attachment)
+        attachment: (0, _lit.html)(_templateObject20 || (_templateObject20 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n          aria-describedby=\"attachment-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"attachment-tooltip\" hoist>", "</role-tooltip>\n\n          <input\n            id=\"file-input\"\n            type=\"file\"\n            hidden\n            multiple\n            accept=", "\n            @change=", "\n          />\n        </button>"])), this.addFile, _icons["default"].get('attachment'), this.translations.attachment, "image/*", this.handleFileUpload)
       }));
       return allToolbarItems.get(name);
     }
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
       return (0, _lit.html)(_templateObject21 || (_templateObject21 = _taggedTemplateLiteral(["\n        <div class=\"wrapper\" part=\"wrapper\">\n          <div class=\"toolbar\" part=\"toolbar\">\n            <slot name=\"toolbar-start\"></slot>\n            ", "\n            <slot name=\"toolbar-end\"></slot>\n            <slot></slot>\n          </div>\n          <slot name=\"editor\"></slot>\n        </div>\n      </div>\n    "])), (0, _map.map)(this.toolbar, function (name) {
-        return _this3.renderToolbarButton(name);
+        return _this4.renderToolbarButton(name);
       }));
     }
   }], [{
