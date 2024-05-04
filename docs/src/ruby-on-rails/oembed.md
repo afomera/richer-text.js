@@ -19,6 +19,13 @@ title: oEmbeds
 Full documentation for this feature is coming soon. 🚧
 
 ```ruby
+  # In Routes
+  resources :embeds, only: [:show, :create], constraints: {id: /[^\/]+/}  do
+    collection do
+      get :patterns
+    end
+  end
+
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def create
@@ -32,6 +39,16 @@ Full documentation for this feature is coming soon. 🚧
     else
       head :not_found
     end
+  end
+
+  def show
+    @embed = RicherText::Embed.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    render html: "Embed not found", status: :not_found
+  end
+
+  def patterns
+    render json: RicherText::OEmbed::PATTERNS
   end
 ```
 
