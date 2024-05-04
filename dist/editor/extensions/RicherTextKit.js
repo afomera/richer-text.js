@@ -21,13 +21,12 @@ var _extensionColor = _interopRequireDefault(require("@tiptap/extension-color"))
 var _Callout = _interopRequireDefault(require("./Callout"));
 var _CodeBlock = _interopRequireDefault(require("./CodeBlock"));
 var _CommandMenu = _interopRequireDefault(require("./CommandMenu"));
+var _EditorEvents = _interopRequireDefault(require("./EditorEvents"));
 var _Emoji = _interopRequireDefault(require("./Emoji"));
 var _FontSize = _interopRequireDefault(require("./FontSize"));
 var _HorizontalRule = _interopRequireDefault(require("./HorizontalRule"));
 var _Image = _interopRequireDefault(require("./Image"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-// import EditorEvents from "./EditorEvents";
-
 var RicherTextKit = _core.Extension.create({
   name: "richerTextKit",
   addOptions: function addOptions() {
@@ -100,9 +99,7 @@ var RicherTextKit = _core.Extension.create({
     if (this.options.emoji !== false) {
       extensions.push(_Emoji["default"]);
     }
-    extensions.push(
-    // EditorEvents,
-    _CodeBlock["default"], _extensionTextStyle["default"], _extensionColor["default"], _extensionTextAlign["default"].configure({
+    extensions.push(_EditorEvents["default"], _CodeBlock["default"], _extensionTextStyle["default"], _extensionColor["default"], _extensionTextAlign["default"].configure({
       types: ['paragraph', 'heading']
     }));
     return extensions;

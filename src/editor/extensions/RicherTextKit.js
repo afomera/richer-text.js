@@ -17,7 +17,7 @@ import Color from "@tiptap/extension-color";
 import Callout from "./Callout";
 import CodeBlock from "./CodeBlock";
 import CommandMenu from "./CommandMenu";
-// import EditorEvents from "./EditorEvents";
+import EditorEvents from "./EditorEvents";
 import Emoji from "./Emoji";
 import FontSize from "./FontSize";
 import HorizontalRule from "./HorizontalRule";
@@ -125,7 +125,7 @@ export const RicherTextKit = Extension.create({
     }
 
     extensions.push(
-      // EditorEvents,
+      EditorEvents,
       CodeBlock,
       TextStyle,
       Color,
