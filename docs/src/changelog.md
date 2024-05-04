@@ -17,7 +17,6 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 ### Known Issues
 
 - `bubble-menu-options` when passed to the `richer-text-editor` component will do nothing because it's not been reimplemented
-- Drag and Drop is currently the only way to add an image. This will be fixed before a full v2 release.
 - The editor currently only emits a `change` event where `event.detail` contains an html and json key. Other editor events are not implemented yet.
 - There's no hooks to customize extensions if you wanted to extend Richer Text's Editor.
 - Full CSS Customization options are not yet implemented.
