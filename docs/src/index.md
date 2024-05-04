@@ -11,7 +11,7 @@ layout: default
 
 # Try it out
 
-<textarea id="foobar"></textarea>
+<textarea style="display: none;" id="foobar"></textarea>
 
 <!--  toolbar="heading-1, heading-2, divider, bold, italic, strike"  -->
 

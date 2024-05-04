@@ -50,6 +50,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     var _this;
     _classCallCheck(this, RicherTextEditor);
     _this = _super.call(this);
+    _this["class"] = "";
     _this.translations = _translations.translations;
     _this.toolbar = [];
     _this.toolbarPlacement = _this.getAttribute("toolbar-placement") || "top";
@@ -173,6 +174,11 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
         editable: !this.readonly,
         extensions: [].concat(extensions),
         content: this.serializer === "json" ? JSON.parse(this.content) : this.content,
+        editorProps: {
+          attributes: {
+            "class": this["class"]
+          }
+        },
         onCreate: function onCreate() {
           // The editor is ready.
           _this2.emitChange();
@@ -445,6 +451,10 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
               return JSON.stringify(value);
             }
           }
+        },
+        "class": {
+          type: String,
+          reflect: true
         },
         callouts: {
           type: String,

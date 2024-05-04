@@ -45,6 +45,7 @@ export default class RicherTextEditor extends LitElement {
           toAttribute: (value) => JSON.stringify(value),
         }
       },
+      class: { type: String, reflect: true },
       callouts: { type: String, reflect: true },
       content: { type: String, reflect: true },
       placeholder: { type: String, reflect: true },
@@ -209,6 +210,11 @@ export default class RicherTextEditor extends LitElement {
       editable: !this.readonly,
       extensions: [...extensions],
       content: this.serializer === "json" ? JSON.parse(this.content) : this.content,
+      editorProps: {
+        attributes: {
+          class: this.class,
+        },
+      },
       onCreate: () => {
         // The editor is ready.
         this.emitChange();
@@ -232,6 +238,7 @@ export default class RicherTextEditor extends LitElement {
   constructor() {
     super();
 
+    this.class = "";
     this.translations = translations;
     this.toolbar = [];
     this.toolbarPlacement = this.getAttribute("toolbar-placement") || "top";
