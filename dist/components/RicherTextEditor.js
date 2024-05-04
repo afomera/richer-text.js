@@ -70,9 +70,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
       } else {
         this.toolbar = ['bold', 'italic', 'strike', 'code', 'divider', 'heading-1', 'heading-2', 'heading-3',
         // 'highlight',
-        'bulletlist', 'orderedlist', 'blockquote', 'code-block', 'horizontal-rule',
-        // 'divider',
-        'attachment', 'spacer', 'undo', 'redo'];
+        'bulletlist', 'orderedlist', 'blockquote', 'code-block', 'horizontal-rule', 'divider', 'attachment', 'spacer', 'undo', 'redo'];
       }
     }
   }, {

@@ -95,7 +95,7 @@ export default class RicherTextEditor extends LitElement {
         'blockquote',
         'code-block',
         'horizontal-rule',
-        // 'divider',
+        'divider',
         'attachment',
         'spacer',
         'undo',
