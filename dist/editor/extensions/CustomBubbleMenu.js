@@ -14,7 +14,9 @@ var CustomBubbleMenu = function CustomBubbleMenu(pluginName) {
       return {
         pluginKey: "customBubbleMenu",
         shouldShow: null,
-        mode: "text"
+        mode: "text",
+        oembed: false,
+        embedPath: "/embeds"
       };
     },
     addProseMirrorPlugins: function addProseMirrorPlugins() {
@@ -22,6 +24,8 @@ var CustomBubbleMenu = function CustomBubbleMenu(pluginName) {
       var element = document.createElement("richer-bubble-menu");
       element.editor = this.editor;
       element.mode = this.options.mode;
+      element.embedPath = this.options.embedPath;
+      element.oembed = this.options.oembed;
       var tippyOptions = element.tippyOptions || {
         interactive: true,
         placement: "top",

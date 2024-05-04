@@ -58,6 +58,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     _this.mentionableUsersPath = _this.getAttribute("mentionable-users-path") || "";
     _this.customSuggestions = JSON.parse(_this.getAttribute("custom-suggestions")) || [];
     _this.embedsPath = _this.getAttribute("embeds-path") || "";
+    _this.oembed = _this.getAttribute("oembed") || false;
     return _this;
   }
   _createClass(RicherTextEditor, [{
@@ -131,7 +132,9 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
         shouldShow: function shouldShow(_ref) {
           var editor = _ref.editor;
           return !editor.view.state.selection.empty && (editor.isActive("paragraph") || editor.isActive("heading") || editor.isActive("blockquote"));
-        }
+        },
+        oembed: this.oembed,
+        embedPath: this.embedsPath
       }), (0, _CustomBubbleMenu["default"])("imageBubbleMenu").configure({
         mode: "image",
         pluginKey: "imageBubbleMenu",
@@ -297,6 +300,14 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     key: "redo",
     value: function redo() {
       this.editor.chain().focus().redo().run();
+    }
+  }, {
+    key: "embedURL",
+    value: function embedURL() {
+      var url = window.prompt('URL');
+      this.editor.chain().focus().setEmbed({
+        url: url
+      }).run();
     }
   }, {
     key: "addFile",

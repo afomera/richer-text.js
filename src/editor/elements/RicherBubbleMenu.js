@@ -83,10 +83,14 @@ export class RicherBubbleMenu extends LitElement {
     return {
       editor: { type: Function },
 
+      embedPath: { type: String },
+      urlMatchesPattern: { type: Boolean },
       // State
       editingLink: { type: Boolean, state: true },
       isActive: { type: Function, state: true },
       mode: { type: String, state: true },
+      embedPatterns: { type: Array, state: true },
+      oembed: { type: Boolean, state: true },
     }
   }
 
@@ -95,8 +99,26 @@ export class RicherBubbleMenu extends LitElement {
 
     this.editingLink = false;
     this.mode = "text";
+    this.embedPath = "/embeds";
+    this.embedPatterns = [];
+    this.oembed = false;
+    this.urlMatchesPattern = false;
 
     this.requestUpdate();
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has("embedPath") || changedProperties.has("oembed")) {
+      this.fetchOEmbedPatterns();
+    }
+
+    if (changedProperties.has("urlMatchesPattern")) {
+      this.requestUpdate();
+    }
   }
 
   removeNode() {
@@ -182,16 +204,30 @@ export class RicherBubbleMenu extends LitElement {
     this.editor.commands.blur();
   }
 
-  setLinkAndClose() {
+  setLinkAndClose(embed = false) {
     const url = this.shadowRoot.getElementById('link-url').value;
 
-    if (url) {
+    if (embed) {
+      fetch(`${this.embedPath}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: url }) })
+        .then(response => response.json())
+        .then(data => {
+          if (data.content) {
+            this.editor.chain().focus().deleteSelection().insertContent(data.content).run()
+          }
+        })
+        .catch(error => {
+          console.error(error)
+        })
+    }
+
+    if (!embed && url) {
       this.editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run()
     } else {
       this.editor.chain().focus().unsetLink().run();
     }
 
     this.editingLink = false;
+    this.urlMatchesPattern = false;
   }
 
   _handleLinkSubmit(event) {
@@ -260,6 +296,41 @@ export class RicherBubbleMenu extends LitElement {
 
     // Rebuild the bubble menu element to update the button state
     this.requestUpdate();
+  }
+
+  fetchOEmbedPatterns() {
+    if (!this.oembed) {
+      return;
+    }
+
+    fetch(`${this.embedPath}/patterns`)
+      .then(response => response.json())
+      .then(data => {
+        this.embedPatterns = data;
+      });
+  }
+
+  onURLChange(event) {
+    if (this.oembed) {
+      var url = event.target.value;
+
+      const pattern = this.embedPatterns.find((pattern) => {
+        if (url == "") {
+          return false;
+        }
+        const regex = new RegExp(pattern.source)
+
+        return regex.test(url)
+      });
+
+      if (pattern) {
+        this.urlMatchesPattern = true;
+      } else {
+        this.urlMatchesPattern = false;
+      }
+
+      this.requestUpdate();
+    }
   }
 
   render() {
@@ -376,8 +447,9 @@ export class RicherBubbleMenu extends LitElement {
         <div class="richer-text-editor--bubble-menu">
           <form @submit=${this._handleLinkSubmit}>
             <span class="link-icon">${icons.get("link")}</span>
-            <input id="link-url" value=${this.editor.getAttributes("link").href} type="url" autofocus="true" placeholder="Enter a URL" />
+            <input id="link-url" value=${this.editor.getAttributes("link").href} @input=${this.onURLChange} type="url" autofocus="true" placeholder="Enter a URL" />
             <button @click=${() => this.setLinkAndClose()}>Done</button>
+            ${this.urlMatchesPattern ? html`<button @click=${() => this.setLinkAndClose(true)}>Embed</button>` : null}
           </form>
         </div>
       `

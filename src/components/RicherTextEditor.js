@@ -157,6 +157,8 @@ export default class RicherTextEditor extends LitElement {
         shouldShow: ({ editor }) => {
           return !editor.view.state.selection.empty && (editor.isActive("paragraph") || editor.isActive("heading") || editor.isActive("blockquote"));
         },
+        oembed: this.oembed,
+        embedPath: this.embedsPath,
       }),
       CustomBubbleMenu("imageBubbleMenu").configure({
         mode: "image",
@@ -247,6 +249,7 @@ export default class RicherTextEditor extends LitElement {
 
     this.customSuggestions = JSON.parse(this.getAttribute("custom-suggestions")) || [];
     this.embedsPath = this.getAttribute("embeds-path") || "";
+    this.oembed = this.getAttribute("oembed") || false;
   }
 
    clear() {

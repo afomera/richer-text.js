@@ -10,7 +10,9 @@ const CustomBubbleMenu = (pluginName) => Extension.create({
     return {
       pluginKey: "customBubbleMenu",
       shouldShow: null,
-      mode: "text"
+      mode: "text",
+      oembed: false,
+      embedPath: "/embeds",
     }
   },
 
@@ -18,6 +20,8 @@ const CustomBubbleMenu = (pluginName) => Extension.create({
     const element = document.createElement("richer-bubble-menu");
     element.editor = this.editor;
     element.mode = this.options.mode;
+    element.embedPath = this.options.embedPath;
+    element.oembed = this.options.oembed;
 
     const tippyOptions = element.tippyOptions || {
       interactive: true,
