@@ -1,25 +1,30 @@
 import { html, render } from 'lit';
 import { mergeAttributes, Node } from '@tiptap/core'
 import { Plugin, PluginKey } from "@tiptap/pm/state";
-import { DirectUpload } from "@rails/activestorage";
 import { Decoration, DecorationSet } from '@tiptap/pm/view';
+import { ActiveStorageUploader } from '../ActiveStorageUploader';
 
-let imagePreview = null;
+const uploadFile = (file, handleComplete) => {
+  const handleProgress = () => {};
+  const handleFailure = () => { console.log("Failed to upload attachment"); };
 
-const uploadFile = (file, editor) => {
-  return new Promise((resolve, reject) => {
-    const url = "/rails/active_storage/direct_uploads";
-    const upload = new DirectUpload(file, url);
+  const uploader = new ActiveStorageUploader(
+    file,
+    handleProgress,
+    handleComplete,
+    handleFailure
+  )
 
-    upload.create((error, blob) => {
-      if (error) {
-        reject(error);
-      } else {
-        resolve(blob);
-      }
-    });
-  });
+  uploader.start()
 }
+
+//Find the placeholder in editor
+function findPlaceholder(state, id) {
+  let decos = placeholderPlugin.getState(state)
+  let found = decos.find(null, null, spec => spec.id == id)
+  return found.length ? found[0].from : null
+}
+
 
 export default Node.create({
   name: 'image',
@@ -61,11 +66,11 @@ export default Node.create({
 
   addCommands() {
     return {
-      attachImage: ({ signedId, fileName}) => ({ commands }) => {
-        const url = `/rails/active_storage/blobs/redirect/${signedId}/${fileName}`;
+      // attachImage: ({ signedId, fileName}) => ({ commands }) => {
+      //   const url = `/rails/active_storage/blobs/redirect/${signedId}/${fileName}`;
 
-        return commands.insertContent({ type: this.name, attrs: { src: url, alt: fileName, signedId: signedId }})
-      },
+      //   return commands.insertContent({ type: this.name, attrs: { src: url, alt: fileName, signedId: signedId }})
+      // },
       setImageWidth: (width) => ({ commands }) => {
         return commands.updateAttributes(this.name, { width });
       },
@@ -112,13 +117,14 @@ export default Node.create({
 
   addProseMirrorPlugins() {
     const { editor } = this;
+    const { schema }  = editor;
 
     return [
       placeholderPlugin,
       new Plugin({
         key: new PluginKey('image'),
         props: {
-          handlePaste: (_, event) => {
+          handlePaste: (view, event) => {
             event.preventDefault();
 
             const images = Array.from(event.clipboardData.files).filter((file) => {
@@ -126,18 +132,77 @@ export default Node.create({
             });
 
             Array.from(images).forEach((image) => {
-              startImageUpload(editor, image, editor.schema, uploadFile);
+              // A fresh object to act as the ID for this upload
+              let id = {};
+
+              // Replace the selection with a placeholder
+              let tr = view.state.tr;
+              if (!tr.selection.empty) tr.deleteSelection();
+
+              tr.setMeta(placeholderPlugin, {add: {id, pos: tr.selection.from}, image: image});
+              view.dispatch(tr)
+
+              const onUploadComplete = (attrs, completedUpload) => {
+                const payload = {
+                  signedId: attrs.signedId,
+                  name: completedUpload.file.name,
+                  src: `/rails/active_storage/blobs/redirect/${attrs.signedId}/${completedUpload.file.name}`,
+                  alt: completedUpload.file.name,
+                };
+
+                view.dispatch(
+                  view.state.tr.replaceWith(view.state.history$.prevRanges[0], view.state.history$.prevRanges[1], schema.nodes.image.create(payload))
+                    .setMeta(placeholderPlugin, {remove: {id}})
+                )
+              }
+
+              uploadFile(image, onUploadComplete);
+
             });
           },
-          handleDrop: (_, event) => {
+          handleDrop: (view, event, _sliced, _moved) => {
             event.preventDefault();
-
             const images = Array.from(event.dataTransfer.files).filter((file) => {
               return file.type.startsWith('image/');
             });
 
             Array.from(images).forEach((image) => {
-              startImageUpload(editor, image, editor.schema, uploadFile);
+              const coordinates = view.posAtCoords({
+                left: event.clientX,
+                top: event.clientY,
+              });
+
+              // A fresh object to act as the ID for this upload
+              let id = {};
+
+              // Replace the selection with a placeholder
+              let tr = view.state.tr;
+              if (!tr.selection.empty) tr.deleteSelection();
+
+              tr.setMeta(placeholderPlugin, {add: {id, pos: coordinates.pos}, image: image})
+              view.dispatch(tr)
+
+              const onUploadComplete = (attrs, completedUpload) => {
+                  let pos = findPlaceholder(
+                    view.state,
+                    id
+                  );
+                  if (pos == null) return;
+
+                  const payload = {
+                    signedId: attrs.signedId,
+                    name: completedUpload.file.name,
+                    src: `/rails/active_storage/blobs/redirect/${attrs.signedId}/${completedUpload.file.name}`,
+                    alt: completedUpload.file.name,
+                  };
+
+                  view.dispatch(
+                    view.state.tr.replaceWith(pos, pos, schema.nodes.image.create(payload))
+                      .setMeta(placeholderPlugin, {remove: {id}})
+                  )
+                }
+
+                uploadFile(image, onUploadComplete)
             });
           },
         },
@@ -150,61 +215,26 @@ let placeholderPlugin = new Plugin({
   state: {
     init() { return DecorationSet.empty },
     apply(tr, set) {
-          // Adjust decoration positions to changes made by the transaction
-          set = set.map(tr.mapping, tr.doc)
-          // See if the transaction adds or removes any placeholders
-          let action = tr.getMeta(this)
-          if (action && action.add) {
-            let widget = document.createElement("div")
-            let img = document.createElement('img');
-            widget.classList = "image-uploading";
-            img.src = imagePreview;
-            widget.appendChild(img);
-            let deco = Decoration.widget(action.add.pos, widget, {id: action.add.id})
-            set = set.add(tr.doc, [deco])
-          } else if (action && action.remove) {
-            set = set.remove(set.find(null, null,
-                                        spec => spec.id == action.remove.id))
-          }
-          return set
+      // Adjust decoration positions to changes made by the transaction
+      set = set.map(tr.mapping, tr.doc)
+      // See if the transaction adds or removes any placeholders
+      let action = tr.getMeta(this)
+      if (action && action.add) {
+        let widget = document.createElement("div")
+        let img = document.createElement('img');
+        widget.classList = "image-uploading";
+        img.src = URL.createObjectURL(action.image);
+        widget.appendChild(img);
+        let deco = Decoration.widget(action.add.pos, widget, {id: action.add.id})
+        set = set.add(tr.doc, [deco])
+      } else if (action && action.remove) {
+        set = set.remove(set.find(null, null,
+                                    spec => spec.id == action.remove.id))
+      }
+      return set
       }
     },
     props: {
       decorations(state) { return this.getState(state) }
     }
 });
-
-//Find the placeholder in editor
-function findPlaceholder(state, id) {
-    let decos = placeholderPlugin.getState(state)
-    let found = decos.find(null, null, spec => spec.id == id)
-    return found.length ? found[0].from : null
-}
-
-function startImageUpload(editor, file, schema, uploadFile) {
-    const view = editor.view;
-    imagePreview = URL.createObjectURL(file)
-    // A fresh object to act as the ID for this upload
-    let id = {}
-
-    // Replace the selection with a placeholder
-    let tr = view.state.tr
-    if (!tr.selection.empty) tr.deleteSelection()
-    tr.setMeta(placeholderPlugin, {add: {id, pos: tr.selection.from}})
-    view.dispatch(tr)
-    uploadFile(file, editor).then((blob) => {
-        let pos = findPlaceholder(view.state, id)
-        // If the content around the placeholder has been deleted, drop
-        // the image
-        if (pos == null) return
-        // Otherwise, insert it at the placeholder's position, and remove
-        // the placeholder
-        const attrs = {src: "/rails/active_storage/blobs/redirect/" + blob.signed_id + "/" + blob.filename, alt: blob.filename, signedId: blob.signed_id}
-        view.dispatch(view.state.tr
-                  .replaceWith(pos, pos, schema.nodes.image.create(attrs))
-                  .setMeta(placeholderPlugin, {remove: {id}}))
-    }, (e) => {
-        // On failure, just clean up the placeholder
-        view.dispatch(tr.setMeta(placeholderPlugin, {remove: {id}}))
-    })
-}

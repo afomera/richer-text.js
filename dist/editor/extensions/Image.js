@@ -7,24 +7,27 @@ exports["default"] = void 0;
 var _lit = require("lit");
 var _core = require("@tiptap/core");
 var _state = require("@tiptap/pm/state");
-var _activestorage = require("@rails/activestorage");
 var _view = require("@tiptap/pm/view");
+var _ActiveStorageUploader = require("../ActiveStorageUploader");
 var _templateObject;
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-var imagePreview = null;
-var uploadFile = function uploadFile(file, editor) {
-  return new Promise(function (resolve, reject) {
-    var url = "/rails/active_storage/direct_uploads";
-    var upload = new _activestorage.DirectUpload(file, url);
-    upload.create(function (error, blob) {
-      if (error) {
-        reject(error);
-      } else {
-        resolve(blob);
-      }
-    });
-  });
+var uploadFile = function uploadFile(file, handleComplete) {
+  var handleProgress = function handleProgress() {};
+  var handleFailure = function handleFailure() {
+    console.log("Failed to upload attachment");
+  };
+  var uploader = new _ActiveStorageUploader.ActiveStorageUploader(file, handleProgress, handleComplete, handleFailure);
+  uploader.start();
 };
+
+//Find the placeholder in editor
+function findPlaceholder(state, id) {
+  var decos = placeholderPlugin.getState(state);
+  var found = decos.find(null, null, function (spec) {
+    return spec.id == id;
+  });
+  return found.length ? found[0].from : null;
+}
 var _default = _core.Node.create({
   name: 'image',
   group: 'block',
@@ -65,25 +68,14 @@ var _default = _core.Node.create({
   addCommands: function addCommands() {
     var _this = this;
     return {
-      attachImage: function attachImage(_ref2) {
-        var signedId = _ref2.signedId,
-          fileName = _ref2.fileName;
-        return function (_ref3) {
-          var commands = _ref3.commands;
-          var url = "/rails/active_storage/blobs/redirect/".concat(signedId, "/").concat(fileName);
-          return commands.insertContent({
-            type: _this.name,
-            attrs: {
-              src: url,
-              alt: fileName,
-              signedId: signedId
-            }
-          });
-        };
-      },
+      // attachImage: ({ signedId, fileName}) => ({ commands }) => {
+      //   const url = `/rails/active_storage/blobs/redirect/${signedId}/${fileName}`;
+
+      //   return commands.insertContent({ type: this.name, attrs: { src: url, alt: fileName, signedId: signedId }})
+      // },
       setImageWidth: function setImageWidth(width) {
-        return function (_ref4) {
-          var commands = _ref4.commands;
+        return function (_ref2) {
+          var commands = _ref2.commands;
           return commands.updateAttributes(_this.name, {
             width: width
           });
@@ -92,10 +84,10 @@ var _default = _core.Node.create({
     };
   },
   addNodeView: function addNodeView() {
-    return function (_ref5) {
-      var node = _ref5.node,
-        getPos = _ref5.getPos,
-        editor = _ref5.editor;
+    return function (_ref3) {
+      var node = _ref3.node,
+        getPos = _ref3.getPos,
+        editor = _ref3.editor;
       var _node$attrs = node.attrs,
         signedId = _node$attrs.signedId,
         alt = _node$attrs.alt,
@@ -128,25 +120,87 @@ var _default = _core.Node.create({
   },
   addProseMirrorPlugins: function addProseMirrorPlugins() {
     var editor = this.editor;
+    var schema = editor.schema;
     return [placeholderPlugin, new _state.Plugin({
       key: new _state.PluginKey('image'),
       props: {
-        handlePaste: function handlePaste(_, event) {
+        handlePaste: function handlePaste(view, event) {
           event.preventDefault();
           var images = Array.from(event.clipboardData.files).filter(function (file) {
             return file.type.startsWith('image/');
           });
           Array.from(images).forEach(function (image) {
-            startImageUpload(editor, image, editor.schema, uploadFile);
+            // A fresh object to act as the ID for this upload
+            var id = {};
+
+            // Replace the selection with a placeholder
+            var tr = view.state.tr;
+            if (!tr.selection.empty) tr.deleteSelection();
+            tr.setMeta(placeholderPlugin, {
+              add: {
+                id: id,
+                pos: tr.selection.from
+              },
+              image: image
+            });
+            view.dispatch(tr);
+            var onUploadComplete = function onUploadComplete(attrs, completedUpload) {
+              var payload = {
+                signedId: attrs.signedId,
+                name: completedUpload.file.name,
+                src: "/rails/active_storage/blobs/redirect/".concat(attrs.signedId, "/").concat(completedUpload.file.name),
+                alt: completedUpload.file.name
+              };
+              view.dispatch(view.state.tr.replaceWith(view.state.history$.prevRanges[0], view.state.history$.prevRanges[1], schema.nodes.image.create(payload)).setMeta(placeholderPlugin, {
+                remove: {
+                  id: id
+                }
+              }));
+            };
+            uploadFile(image, onUploadComplete);
           });
         },
-        handleDrop: function handleDrop(_, event) {
+        handleDrop: function handleDrop(view, event, _sliced, _moved) {
           event.preventDefault();
           var images = Array.from(event.dataTransfer.files).filter(function (file) {
             return file.type.startsWith('image/');
           });
           Array.from(images).forEach(function (image) {
-            startImageUpload(editor, image, editor.schema, uploadFile);
+            var coordinates = view.posAtCoords({
+              left: event.clientX,
+              top: event.clientY
+            });
+
+            // A fresh object to act as the ID for this upload
+            var id = {};
+
+            // Replace the selection with a placeholder
+            var tr = view.state.tr;
+            if (!tr.selection.empty) tr.deleteSelection();
+            tr.setMeta(placeholderPlugin, {
+              add: {
+                id: id,
+                pos: coordinates.pos
+              },
+              image: image
+            });
+            view.dispatch(tr);
+            var onUploadComplete = function onUploadComplete(attrs, completedUpload) {
+              var pos = findPlaceholder(view.state, id);
+              if (pos == null) return;
+              var payload = {
+                signedId: attrs.signedId,
+                name: completedUpload.file.name,
+                src: "/rails/active_storage/blobs/redirect/".concat(attrs.signedId, "/").concat(completedUpload.file.name),
+                alt: completedUpload.file.name
+              };
+              view.dispatch(view.state.tr.replaceWith(pos, pos, schema.nodes.image.create(payload)).setMeta(placeholderPlugin, {
+                remove: {
+                  id: id
+                }
+              }));
+            };
+            uploadFile(image, onUploadComplete);
           });
         }
       }
@@ -168,7 +222,7 @@ var placeholderPlugin = new _state.Plugin({
         var widget = document.createElement("div");
         var img = document.createElement('img');
         widget.classList = "image-uploading";
-        img.src = imagePreview;
+        img.src = URL.createObjectURL(action.image);
         widget.appendChild(img);
         var deco = _view.Decoration.widget(action.add.pos, widget, {
           id: action.add.id
@@ -188,54 +242,3 @@ var placeholderPlugin = new _state.Plugin({
     }
   }
 });
-
-//Find the placeholder in editor
-function findPlaceholder(state, id) {
-  var decos = placeholderPlugin.getState(state);
-  var found = decos.find(null, null, function (spec) {
-    return spec.id == id;
-  });
-  return found.length ? found[0].from : null;
-}
-function startImageUpload(editor, file, schema, uploadFile) {
-  var view = editor.view;
-  imagePreview = URL.createObjectURL(file);
-  // A fresh object to act as the ID for this upload
-  var id = {};
-
-  // Replace the selection with a placeholder
-  var tr = view.state.tr;
-  if (!tr.selection.empty) tr.deleteSelection();
-  tr.setMeta(placeholderPlugin, {
-    add: {
-      id: id,
-      pos: tr.selection.from
-    }
-  });
-  view.dispatch(tr);
-  uploadFile(file, editor).then(function (blob) {
-    var pos = findPlaceholder(view.state, id);
-    // If the content around the placeholder has been deleted, drop
-    // the image
-    if (pos == null) return;
-    // Otherwise, insert it at the placeholder's position, and remove
-    // the placeholder
-    var attrs = {
-      src: "/rails/active_storage/blobs/redirect/" + blob.signed_id + "/" + blob.filename,
-      alt: blob.filename,
-      signedId: blob.signed_id
-    };
-    view.dispatch(view.state.tr.replaceWith(pos, pos, schema.nodes.image.create(attrs)).setMeta(placeholderPlugin, {
-      remove: {
-        id: id
-      }
-    }));
-  }, function (e) {
-    // On failure, just clean up the placeholder
-    view.dispatch(tr.setMeta(placeholderPlugin, {
-      remove: {
-        id: id
-      }
-    }));
-  });
-}
