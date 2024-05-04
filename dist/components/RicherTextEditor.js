@@ -335,6 +335,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
         };
         (0, _Image.uploadFile)(file, onUploadComplete);
       });
+      this.shadowRoot.getElementById("file-input").value = "";
     }
   }, {
     key: "toggleLink",

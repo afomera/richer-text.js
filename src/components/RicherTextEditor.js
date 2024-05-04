@@ -354,6 +354,8 @@ export default class RicherTextEditor extends LitElement {
 
       uploadFile(file, onUploadComplete);
     });
+
+    this.shadowRoot.getElementById("file-input").value = "";
   }
 
   toggleLink() {
