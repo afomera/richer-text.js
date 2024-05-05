@@ -368,18 +368,6 @@ export default class RicherTextEditor extends LitElement {
     this.shadowRoot.getElementById("file-input").value = "";
   }
 
-  toggleLink() {
-    if (this.editor.isActive('link')) {
-      this.editor.chain().focus().unsetLink().run();
-    } else {
-      let url = window.prompt('URL');
-      if (!url?.startsWith('http')) {
-        url = `https://${url}`;
-      }
-      this.editor.chain().focus().setLink({ href: url }).run();
-    }
-  }
-
   renderToolbarButton(name) {
     if (!this.editor || !this.toolbar?.length) return '';
 
@@ -569,19 +557,6 @@ export default class RicherTextEditor extends LitElement {
         >
           ${icons.get('code-block')}
           <role-tooltip id="codeblock-tooltip" hoist>${this.translations.codeBlock}</role-tooltip>
-        </button>`,
-
-        link: html`<button
-          type="button"
-          part="toolbar-button"
-          class="toolbar-button ${classMap({
-            'is-active': this.editor.isActive('link'),
-          })}"
-          @click="${this.toggleLink}"
-          aria-describedby="link-tooltip"
-        >
-          ${icons.get('link')}
-          <role-tooltip id="link-tooltip" hoist>${this.translations.link}</role-tooltip>
         </button>`,
 
         undo: html`<button

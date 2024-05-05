@@ -25,7 +25,7 @@ var _MentionSuggestion = _interopRequireDefault(require("../editor/suggestions/M
 var _RicherTextEmbed = _interopRequireDefault(require("../editor/extensions/RicherTextEmbed"));
 require("../editor/elements/RicherBubbleMenu");
 var _CustomBubbleMenu = _interopRequireDefault(require("../editor/extensions/CustomBubbleMenu"));
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18, _templateObject19, _templateObject20, _templateObject21;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18, _templateObject19, _templateObject20;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -302,14 +302,6 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
       this.editor.chain().focus().redo().run();
     }
   }, {
-    key: "embedURL",
-    value: function embedURL() {
-      var url = window.prompt('URL');
-      this.editor.chain().focus().setEmbed({
-        url: url
-      }).run();
-    }
-  }, {
     key: "addFile",
     value: function addFile() {
       var input = this.shadowRoot.getElementById("file-input");
@@ -353,22 +345,6 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
         (0, _Image.uploadFile)(file, onUploadComplete);
       });
       this.shadowRoot.getElementById("file-input").value = "";
-    }
-  }, {
-    key: "toggleLink",
-    value: function toggleLink() {
-      if (this.editor.isActive('link')) {
-        this.editor.chain().focus().unsetLink().run();
-      } else {
-        var _url;
-        var url = window.prompt('URL');
-        if (!((_url = url) !== null && _url !== void 0 && _url.startsWith('http'))) {
-          url = "https://".concat(url);
-        }
-        this.editor.chain().focus().setLink({
-          href: url
-        }).run();
-      }
     }
   }, {
     key: "renderToolbarButton",
@@ -426,12 +402,9 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
         'code-block': (0, _lit.html)(_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"codeblock-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"codeblock-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
           'is-active': this.editor.isActive('codeBlock')
         }), this.toggleCodeBlock, _icons["default"].get('code-block'), this.translations.codeBlock),
-        link: (0, _lit.html)(_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button ", "\"\n          @click=\"", "\"\n          aria-describedby=\"link-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"link-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), (0, _classMap.classMap)({
-          'is-active': this.editor.isActive('link')
-        }), this.toggleLink, _icons["default"].get('link'), this.translations.link),
-        undo: (0, _lit.html)(_templateObject18 || (_templateObject18 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n          aria-describedby=\"undo-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"undo-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), this.undo, _icons["default"].get('undo'), this.translations.undo),
-        redo: (0, _lit.html)(_templateObject19 || (_templateObject19 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n          aria-describedby=\"redo-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"redo-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), this.redo, _icons["default"].get('redo'), this.translations.redo),
-        attachment: (0, _lit.html)(_templateObject20 || (_templateObject20 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n          aria-describedby=\"attachment-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"attachment-tooltip\" hoist>", "</role-tooltip>\n\n          <input\n            id=\"file-input\"\n            type=\"file\"\n            hidden\n            multiple\n            accept=", "\n            @change=", "\n          />\n        </button>"])), this.addFile, _icons["default"].get('attachment'), this.translations.attachment, "image/*", this.handleFileUpload)
+        undo: (0, _lit.html)(_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n          aria-describedby=\"undo-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"undo-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), this.undo, _icons["default"].get('undo'), this.translations.undo),
+        redo: (0, _lit.html)(_templateObject18 || (_templateObject18 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n          aria-describedby=\"redo-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"redo-tooltip\" hoist>", "</role-tooltip>\n        </button>"])), this.redo, _icons["default"].get('redo'), this.translations.redo),
+        attachment: (0, _lit.html)(_templateObject19 || (_templateObject19 = _taggedTemplateLiteral(["<button\n          type=\"button\"\n          part=\"toolbar-button\"\n          class=\"toolbar-button\"\n          @click=\"", "\"\n          aria-describedby=\"attachment-tooltip\"\n        >\n          ", "\n          <role-tooltip id=\"attachment-tooltip\" hoist>", "</role-tooltip>\n\n          <input\n            id=\"file-input\"\n            type=\"file\"\n            hidden\n            multiple\n            accept=", "\n            @change=", "\n          />\n        </button>"])), this.addFile, _icons["default"].get('attachment'), this.translations.attachment, "image/*", this.handleFileUpload)
       }));
       return allToolbarItems.get(name);
     }
@@ -439,7 +412,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     key: "render",
     value: function render() {
       var _this4 = this;
-      return (0, _lit.html)(_templateObject21 || (_templateObject21 = _taggedTemplateLiteral(["\n        <div class=\"wrapper\" part=\"wrapper\">\n          <div class=\"toolbar\" part=\"toolbar\">\n            <slot name=\"toolbar-start\"></slot>\n            ", "\n            <slot name=\"toolbar-end\"></slot>\n            <slot></slot>\n          </div>\n          <slot name=\"editor\"></slot>\n        </div>\n      </div>\n    "])), (0, _map.map)(this.toolbar, function (name) {
+      return (0, _lit.html)(_templateObject20 || (_templateObject20 = _taggedTemplateLiteral(["\n        <div class=\"wrapper\" part=\"wrapper\">\n          <div class=\"toolbar\" part=\"toolbar\">\n            <slot name=\"toolbar-start\"></slot>\n            ", "\n            <slot name=\"toolbar-end\"></slot>\n            <slot></slot>\n          </div>\n          <slot name=\"editor\"></slot>\n        </div>\n      </div>\n    "])), (0, _map.map)(this.toolbar, function (name) {
         return _this4.renderToolbarButton(name);
       }));
     }
