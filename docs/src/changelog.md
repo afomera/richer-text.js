@@ -7,6 +7,10 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ## main
 
+- Added `tabindex="-1"` to buttons for toolbar except Bold.
+- Improve focus state when changing a callout color
+- Update callouts and tables option when passed to `richer-text-editor` element, to work properly.
+
 ---
 
 ## 2.0.0-alpha.2
