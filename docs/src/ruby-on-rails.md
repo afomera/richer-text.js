@@ -42,6 +42,8 @@ end
 
 <pre><code>has_richer_text :body, store_as: :json</code></pre>
 
+<strong>Note:</strong> By using JSON seralization you get access to Custom Suggestions, Built in OEmbed support, and Richer Embeds. For more information on these check the documentation.
+
 </div>
 
 Next permit the `body` param in your controller
