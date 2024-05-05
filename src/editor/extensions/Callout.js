@@ -48,6 +48,7 @@ export default Node.create({
       select.addEventListener("change", (event) => {
         editor.commands.setNodeSelection(getPos());
         editor.commands.updateAttributes("callout", { "data-color": event.target.value });
+        editor.commands.focus(getPos() + 1);
       });
 
       const colors = ["gray", "blue", "green", "red", "yellow"];

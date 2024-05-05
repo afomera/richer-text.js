@@ -171,7 +171,6 @@ export default class RicherTextEditor extends LitElement {
       RicherTextEmbed.configure({
         embedPath: this.embedsPath,
       }),
-
       RicherTextKit.configure({
         placeholder: this.placeholder || "Start typing...",
         callout: this.callouts !== "false",
@@ -246,6 +245,8 @@ export default class RicherTextEditor extends LitElement {
     this.class = "";
     this.translations = translations;
     this.toolbar = [];
+    this.tables = "false";
+    this.callouts = "false";
     this.toolbarPlacement = this.getAttribute("toolbar-placement") || "top";
     this.toolbarPreset = this.getAttribute("toolbar-preset") || "default";
     this.mentionableUsersPath = this.getAttribute("mentionable-users-path") || "";
