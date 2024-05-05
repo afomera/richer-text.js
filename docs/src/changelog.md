@@ -7,7 +7,11 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ## main
 
-- Add back in oEmbed support for the Link Menu, if `oembed` is passed to the `richer-text-editor` component and `embeds-path` is also provided it will be enabled in the Link menu.
+---
+
+## 2.0.0-alpha.2
+
+- Add in oEmbed support for the Link Menu, if `oembed` is passed to the `richer-text-editor` component and `embeds-path` is also provided it will be enabled in the Link menu.
 - Update @tiptap packages to 2.3.1
 - Add back in [Editor Events](/events).
 - Add `autofocus` attribute, valid values are true or false.
