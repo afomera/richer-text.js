@@ -10,7 +10,6 @@ var _classMap = require("lit/directives/class-map.js");
 var _map = require("lit/directives/map.js");
 var _core = require("@tiptap/core");
 var _roleComponents = require("role-components");
-var _Dropdown = require("../editor/elements/Dropdown");
 var _Image = require("../editor/extensions/Image");
 var _icons = _interopRequireDefault(require("../editor/icons"));
 var _translations = require("../editor/translations");
@@ -43,6 +42,8 @@ function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Re
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 _roleComponents.RoleTooltip.define();
+
+// import { Dropdown } from "../editor/elements/Dropdown";
 var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
   _inherits(RicherTextEditor, _LitElement);
   var _super = _createSuper(RicherTextEditor);
@@ -50,6 +51,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
     var _this;
     _classCallCheck(this, RicherTextEditor);
     _this = _super.call(this);
+    _this.autofocus = false;
     _this["class"] = "";
     _this.translations = _translations.translations;
     _this.toolbar = [];
@@ -177,6 +179,7 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
         editable: !this.readonly,
         extensions: [].concat(extensions),
         content: this.serializer === "json" ? JSON.parse(this.content) : this.content,
+        autofocus: this.autofocus && !this.readonly,
         editorProps: {
           attributes: {
             "class": this["class"]
@@ -435,6 +438,10 @@ var RicherTextEditor = /*#__PURE__*/function (_LitElement) {
               return JSON.stringify(value);
             }
           }
+        },
+        autofocus: {
+          type: Boolean,
+          reflect: true
         },
         "class": {
           type: String,

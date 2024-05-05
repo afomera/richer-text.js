@@ -6,7 +6,7 @@ import { Editor } from "@tiptap/core";
 import { RoleTooltip } from "role-components";
 RoleTooltip.define();
 
-import { Dropdown } from "../editor/elements/Dropdown";
+// import { Dropdown } from "../editor/elements/Dropdown";
 import { uploadFile } from "../editor/extensions/Image";
 
 import icons from '../editor/icons';
@@ -45,6 +45,7 @@ export default class RicherTextEditor extends LitElement {
           toAttribute: (value) => JSON.stringify(value),
         }
       },
+      autofocus: { type: Boolean, reflect: true },
       class: { type: String, reflect: true },
       callouts: { type: String, reflect: true },
       content: { type: String, reflect: true },
@@ -212,6 +213,7 @@ export default class RicherTextEditor extends LitElement {
       editable: !this.readonly,
       extensions: [...extensions],
       content: this.serializer === "json" ? JSON.parse(this.content) : this.content,
+      autofocus: this.autofocus && !this.readonly,
       editorProps: {
         attributes: {
           class: this.class,
@@ -240,6 +242,7 @@ export default class RicherTextEditor extends LitElement {
   constructor() {
     super();
 
+    this.autofocus = false;
     this.class = "";
     this.translations = translations;
     this.toolbar = [];
