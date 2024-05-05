@@ -387,6 +387,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('heading', { level: 1 }),
           })}"
+          tabindex="-1"
           @click="${this.toggleHeadingLevel1}"
           aria-describedby="h1-tooltip"
         >
@@ -400,6 +401,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('heading', { level: 2 }),
           })}"
+          tabindex="-1"
           @click="${this.toggleHeadingLevel2}"
           aria-describedby="h2-tooltip"
         >
@@ -413,6 +415,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('heading', { level: 3 }),
           })}"
+          tabindex="-1"
           @click="${this.toggleHeadingLevel3}"
           aria-describedby="h3-tooltip"
         >
@@ -426,6 +429,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('highlight'),
           })}"
+          tabindex="-1"
           @click="${this.toggleHighlight}"
           aria-describedby="highlight-tooltip"
         >
@@ -439,6 +443,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('horizontal-rule'),
           })}"
+          tabindex="-1"
           @click="${this.setHorizontalRule}"
           aria-describedby="hr-tooltip"
         >
@@ -465,6 +470,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('italic'),
           })}"
+          tabindex="-1"
           @click="${this.toggleItalic}"
           aria-describedby="italic-tooltip"
         >
@@ -478,6 +484,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('underline'),
           })}"
+          tabindex="-1"
           @click="${this.toggleUnderline}"
           aria-describedby="underline-tooltip"
         >
@@ -491,6 +498,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('strike'),
           })}"
+          tabindex="-1"
           @click="${this.toggleStrike}"
           aria-describedby="strike-tooltip"
         >
@@ -504,6 +512,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('code'),
           })}"
+          tabindex="-1"
           @click="${this.toggleCode}"
           aria-describedby="code-tooltip"
         >
@@ -517,6 +526,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('bulletList'),
           })}"
+          tabindex="-1"
           @click="${this.toggleBulletList}"
           aria-describedby="bullet-tooltip"
         >
@@ -530,6 +540,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('orderedlist'),
           })}"
+          tabindex="-1"
           @click="${this.toggleOrderedList}"
           aria-describedby="ordered-tooltip"
         >
@@ -543,6 +554,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('blockquote'),
           })}"
+          tabindex="-1"
           @click="${this.toggleBlockquote}"
           aria-describedby="blockquote-tooltip"
         >
@@ -556,6 +568,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('codeBlock'),
           })}"
+          tabindex="-1"
           @click="${this.toggleCodeBlock}"
           aria-describedby="codeblock-tooltip"
         >
@@ -567,6 +580,7 @@ export default class RicherTextEditor extends LitElement {
           type="button"
           part="toolbar-button"
           class="toolbar-button"
+          tabindex="-1"
           @click="${this.undo}"
           aria-describedby="undo-tooltip"
         >
@@ -578,6 +592,7 @@ export default class RicherTextEditor extends LitElement {
           type="button"
           part="toolbar-button"
           class="toolbar-button"
+          tabindex="-1"
           @click="${this.redo}"
           aria-describedby="redo-tooltip"
         >
@@ -589,6 +604,7 @@ export default class RicherTextEditor extends LitElement {
           type="button"
           part="toolbar-button"
           class="toolbar-button"
+          tabindex="-1"
           @click="${this.addFile}"
           aria-describedby="attachment-tooltip"
         >
