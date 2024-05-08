@@ -9,6 +9,13 @@ This is the changelog for our Ruby Gem package. Are you looking for the <a href=
 
 ---
 
+## 0.13.0
+
+- Fixed Rails 7.2 compatability
+- Updated install script to install RicherText.js v2 from the alpha channel
+
+---
+
 ## 0.10.0
 
 - Add support for RicherTextEmbed nodes, allowing the rendering of `richer-text-embed` html tags as a rendered partial for the Embeddable object.
