@@ -13,6 +13,7 @@ import TableRow from '@tiptap/extension-table-row'
 import TextAlign from "@tiptap/extension-text-align";
 import TextStyle from '@tiptap/extension-text-style'
 import Color from "@tiptap/extension-color";
+import { AI } from "./AI";
 
 import Callout from "./Callout";
 import CodeBlock from "./CodeBlock";
@@ -33,7 +34,7 @@ export const RicherTextKit = Extension.create({
   },
 
   addExtensions() {
-    const extensions = [];
+    const extensions = [AI];
 
     if (this.options.starterKit !== false) {
       extensions.push(

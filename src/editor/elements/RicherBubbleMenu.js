@@ -333,6 +333,10 @@ export class RicherBubbleMenu extends LitElement {
     }
   }
 
+  fetchSummary() {
+    this.editor.commands.fetchSummary();
+  }
+
   render() {
     if (this.mode == "table") {
       return html`
@@ -421,6 +425,7 @@ export class RicherBubbleMenu extends LitElement {
           <button class="toolbar-button" @click=${() => this.toggleLeftAlignment()}>${icons.get("align-left")}</button>
           <button class="toolbar-button" @click=${() => this.toggleCenterAlignment()}>${icons.get("align-center")}</button>
           <button class="toolbar-button" @click=${() => this.toggleRightAlignment()}>${icons.get("align-right")}</button>
+          <button class="toolbar-button" @click=${() => this.fetchSummary()}>${icons.get("ai")}</button>
         <!--
           <div class="divider"></div>
           <rte-dropdown>

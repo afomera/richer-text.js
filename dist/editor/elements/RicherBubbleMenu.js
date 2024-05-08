@@ -302,6 +302,11 @@ var RicherBubbleMenu = /*#__PURE__*/function (_LitElement) {
       }
     }
   }, {
+    key: "fetchSummary",
+    value: function fetchSummary() {
+      this.editor.commands.fetchSummary();
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this5 = this;
@@ -336,7 +341,7 @@ var RicherBubbleMenu = /*#__PURE__*/function (_LitElement) {
           return _this5.resizeImage("100%");
         }, _icons["default"].get("large-square"));
       } else if (this.mode == "text" && !this.editingLink) {
-        return (0, _lit.html)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n        <div class=\"richer-text-editor--bubble-menu\">\n          <button class=\"toolbar-button\" @click=", ">\n            ", "\n          </button>\n          <button class=\"toolbar-button\" @click=", ">\n            ", "\n          </button>\n          <button class=\"toolbar-button\" @click=", ">\n            ", "\n          </button>\n          <button class=\"toolbar-button\" @click=", ">", "</button>\n\n          <div class=\"divider\"></div>\n          <button class=\"toolbar-button\" @click=", ">", "</button>\n          <button class=\"toolbar-button\" @click=", ">", "</button>\n          <button class=\"toolbar-button\" @click=", ">", "</button>\n        <!--\n          <div class=\"divider\"></div>\n          <rte-dropdown>\n            <button slot=\"trigger\" class=\"caret\">", "</button>\n            <div slot=\"items\">\n              <rte-dropdown-item @click=\"", "\">Clear</rte-dropdown-item>\n              <rte-dropdown-item @click=\"", "\">Focus</rte-dropdown-item>\n              <rte-dropdown-item @click=\"", "\">Blur</rte-dropdown-item>\n            </div>\n          </rte-dropdown>\n          <div class=\"divider\"></div>\n          <rte-dropdown>\n            <button slot=\"trigger\" class=\"caret\">", "</button>\n            <div slot=\"items\">\n              <rte-dropdown-item @click=\"", "\">Clear</rte-dropdown-item>\n              <rte-dropdown-item @click=\"", "\">Focus</rte-dropdown-item>\n              <rte-dropdown-item @click=\"", "\">Blur</rte-dropdown-item>\n            </div>\n          </rte-dropdown> -->\n        </div>\n      "])), function () {
+        return (0, _lit.html)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n        <div class=\"richer-text-editor--bubble-menu\">\n          <button class=\"toolbar-button\" @click=", ">\n            ", "\n          </button>\n          <button class=\"toolbar-button\" @click=", ">\n            ", "\n          </button>\n          <button class=\"toolbar-button\" @click=", ">\n            ", "\n          </button>\n          <button class=\"toolbar-button\" @click=", ">", "</button>\n\n          <div class=\"divider\"></div>\n          <button class=\"toolbar-button\" @click=", ">", "</button>\n          <button class=\"toolbar-button\" @click=", ">", "</button>\n          <button class=\"toolbar-button\" @click=", ">", "</button>\n          <button class=\"toolbar-button\" @click=", ">", "</button>\n        <!--\n          <div class=\"divider\"></div>\n          <rte-dropdown>\n            <button slot=\"trigger\" class=\"caret\">", "</button>\n            <div slot=\"items\">\n              <rte-dropdown-item @click=\"", "\">Clear</rte-dropdown-item>\n              <rte-dropdown-item @click=\"", "\">Focus</rte-dropdown-item>\n              <rte-dropdown-item @click=\"", "\">Blur</rte-dropdown-item>\n            </div>\n          </rte-dropdown>\n          <div class=\"divider\"></div>\n          <rte-dropdown>\n            <button slot=\"trigger\" class=\"caret\">", "</button>\n            <div slot=\"items\">\n              <rte-dropdown-item @click=\"", "\">Clear</rte-dropdown-item>\n              <rte-dropdown-item @click=\"", "\">Focus</rte-dropdown-item>\n              <rte-dropdown-item @click=\"", "\">Blur</rte-dropdown-item>\n            </div>\n          </rte-dropdown> -->\n        </div>\n      "])), function () {
           return _this5.toggleBold();
         }, _icons["default"].get("bold"), function () {
           return _this5.toggleItalic();
@@ -350,7 +355,9 @@ var RicherBubbleMenu = /*#__PURE__*/function (_LitElement) {
           return _this5.toggleCenterAlignment();
         }, _icons["default"].get("align-center"), function () {
           return _this5.toggleRightAlignment();
-        }, _icons["default"].get("align-right"), _icons["default"].get("highlight"), this.clear, this.focus, this.blur, _icons["default"].get("text-color"), this.clear, this.focus, this.blur);
+        }, _icons["default"].get("align-right"), function () {
+          return _this5.fetchSummary();
+        }, _icons["default"].get("ai"), _icons["default"].get("highlight"), this.clear, this.focus, this.blur, _icons["default"].get("text-color"), this.clear, this.focus, this.blur);
       } else {
         return (0, _lit.html)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n        <div class=\"richer-text-editor--bubble-menu\">\n          <form @submit=", ">\n            <span class=\"link-icon\">", "</span>\n            <input id=\"link-url\" value=", " @input=", " type=\"url\" autofocus=\"true\" placeholder=\"Enter a URL\" />\n            <button @click=", ">Done</button>\n            ", "\n          </form>\n        </div>\n      "])), this._handleLinkSubmit, _icons["default"].get("link"), this.editor.getAttributes("link").href, this.onURLChange, function () {
           return _this5.setLinkAndClose();

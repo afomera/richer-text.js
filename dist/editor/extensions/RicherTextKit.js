@@ -18,6 +18,7 @@ var _extensionTableRow = _interopRequireDefault(require("@tiptap/extension-table
 var _extensionTextAlign = _interopRequireDefault(require("@tiptap/extension-text-align"));
 var _extensionTextStyle = _interopRequireDefault(require("@tiptap/extension-text-style"));
 var _extensionColor = _interopRequireDefault(require("@tiptap/extension-color"));
+var _AI = require("./AI");
 var _Callout = _interopRequireDefault(require("./Callout"));
 var _CodeBlock = _interopRequireDefault(require("./CodeBlock"));
 var _CommandMenu = _interopRequireDefault(require("./CommandMenu"));
@@ -35,7 +36,7 @@ var RicherTextKit = _core.Extension.create({
     };
   },
   addExtensions: function addExtensions() {
-    var extensions = [];
+    var extensions = [_AI.AI];
     if (this.options.starterKit !== false) {
       extensions.push(_starterKit["default"].configure({
         codeBlock: false,
