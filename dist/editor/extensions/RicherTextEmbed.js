@@ -7,6 +7,7 @@ exports["default"] = void 0;
 var _core = require("@tiptap/core");
 var _lit = require("lit");
 require("../elements/RicherTextEmbed");
+var _AiWriter = require("../elements/AiWriter");
 var _templateObject;
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 var _default = _core.Node.create({

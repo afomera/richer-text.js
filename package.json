@@ -45,7 +45,8 @@
     "lit": "^3.1.2",
     "lowlight": "^2.8.0",
     "role-components": "^2.0.2",
-    "tippy.js": "^6.3.7"
+    "tippy.js": "^6.3.7",
+    "uuid": "^9.0.1"
   },
   "overrides": {
     "prosemirror-model": "1.19.4"

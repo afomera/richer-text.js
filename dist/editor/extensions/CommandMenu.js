@@ -20,11 +20,19 @@ var commandItems = function commandItems(_ref) {
     tablesEnabled = _ref.tablesEnabled;
   var items = [];
   items.push({
-    label: "Heading 1",
-    iconName: "h1",
+    label: "AI Writer",
+    iconName: "ai",
     command: function command(_ref2) {
       var editor = _ref2.editor,
         range = _ref2.range;
+      editor.chain().focus().deleteRange(range).setAiWriter().run();
+    }
+  }, {
+    label: "Heading 1",
+    iconName: "h1",
+    command: function command(_ref3) {
+      var editor = _ref3.editor,
+        range = _ref3.range;
       editor.chain().focus().deleteRange(range).setHeading({
         level: 1
       }).run();
@@ -32,9 +40,9 @@ var commandItems = function commandItems(_ref) {
   }, {
     label: "Heading 2",
     iconName: "h2",
-    command: function command(_ref3) {
-      var editor = _ref3.editor,
-        range = _ref3.range;
+    command: function command(_ref4) {
+      var editor = _ref4.editor,
+        range = _ref4.range;
       editor.chain().focus().deleteRange(range).setHeading({
         level: 2
       }).run();
@@ -42,9 +50,9 @@ var commandItems = function commandItems(_ref) {
   }, {
     label: "Heading 3",
     iconName: "h3",
-    command: function command(_ref4) {
-      var editor = _ref4.editor,
-        range = _ref4.range;
+    command: function command(_ref5) {
+      var editor = _ref5.editor,
+        range = _ref5.range;
       editor.chain().focus().deleteRange(range).setHeading({
         level: 3
       }).run();
@@ -52,57 +60,57 @@ var commandItems = function commandItems(_ref) {
   }, {
     label: "Large Text",
     iconName: "text-size",
-    command: function command(_ref5) {
-      var editor = _ref5.editor,
-        range = _ref5.range;
+    command: function command(_ref6) {
+      var editor = _ref6.editor,
+        range = _ref6.range;
       editor.chain().focus().deleteRange(range).setFontSize("22px").run();
     }
   }, {
     label: "Normal Text",
     iconName: "text-size",
-    command: function command(_ref6) {
-      var editor = _ref6.editor,
-        range = _ref6.range;
+    command: function command(_ref7) {
+      var editor = _ref7.editor,
+        range = _ref7.range;
       editor.chain().focus().deleteRange(range).unsetFontSize().run();
     }
   }, {
     label: "Bullet List",
     iconName: "bullet-list",
-    command: function command(_ref7) {
-      var editor = _ref7.editor,
-        range = _ref7.range;
+    command: function command(_ref8) {
+      var editor = _ref8.editor,
+        range = _ref8.range;
       editor.chain().focus().deleteRange(range).toggleBulletList().run();
     }
   }, {
     label: "Numbered List",
     iconName: "ordered-list",
-    command: function command(_ref8) {
-      var editor = _ref8.editor,
-        range = _ref8.range;
+    command: function command(_ref9) {
+      var editor = _ref9.editor,
+        range = _ref9.range;
       editor.chain().focus().deleteRange(range).toggleOrderedList().run();
     }
   }, {
     label: "Blockquote",
     iconName: "blockquote",
-    command: function command(_ref9) {
-      var editor = _ref9.editor,
-        range = _ref9.range;
+    command: function command(_ref10) {
+      var editor = _ref10.editor,
+        range = _ref10.range;
       editor.chain().focus().deleteRange(range).toggleBlockquote().run();
     }
   }, {
     label: "Line",
     iconName: "horizontal-rule",
-    command: function command(_ref10) {
-      var editor = _ref10.editor,
-        range = _ref10.range;
+    command: function command(_ref11) {
+      var editor = _ref11.editor,
+        range = _ref11.range;
       editor.chain().focus().deleteRange(range).setHorizontalRule().run();
     }
   }, {
     label: "Code Block",
     iconName: "code-block",
-    command: function command(_ref11) {
-      var editor = _ref11.editor,
-        range = _ref11.range;
+    command: function command(_ref12) {
+      var editor = _ref12.editor,
+        range = _ref12.range;
       editor.chain().focus().deleteRange(range).setCodeBlock().run();
     }
   });
@@ -110,9 +118,9 @@ var commandItems = function commandItems(_ref) {
     items.push({
       label: "Callout",
       iconName: "callout",
-      command: function command(_ref12) {
-        var editor = _ref12.editor,
-          range = _ref12.range;
+      command: function command(_ref13) {
+        var editor = _ref13.editor,
+          range = _ref13.range;
         editor.chain().focus().deleteRange(range).setCallout().run();
       }
     });
@@ -121,9 +129,9 @@ var commandItems = function commandItems(_ref) {
     items.push({
       label: "Table",
       iconName: "table",
-      command: function command(_ref13) {
-        var editor = _ref13.editor,
-          range = _ref13.range;
+      command: function command(_ref14) {
+        var editor = _ref14.editor,
+          range = _ref14.range;
         editor.chain().focus().deleteRange(range).insertTable({
           rows: 3,
           cols: 3
@@ -141,8 +149,8 @@ var CommandMenu = function CommandMenu(calloutEnabled, tablesEnabled) {
       suggestion: {
         "char": "/",
         startOfLine: false,
-        items: function items(_ref14) {
-          var query = _ref14.query;
+        items: function items(_ref15) {
+          var query = _ref15.query;
           return commandItems({
             calloutEnabled: calloutEnabled,
             tablesEnabled: tablesEnabled
@@ -195,10 +203,10 @@ var CommandMenu = function CommandMenu(calloutEnabled, tablesEnabled) {
             }
           };
         },
-        command: function command(_ref15) {
-          var editor = _ref15.editor,
-            range = _ref15.range,
-            props = _ref15.props;
+        command: function command(_ref16) {
+          var editor = _ref16.editor,
+            range = _ref16.range,
+            props = _ref16.props;
           props.command({
             editor: editor,
             range: range,

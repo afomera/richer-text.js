@@ -12,8 +12,7 @@ var AI = _core.Extension.create({
       fetchSummary: function fetchSummary() {
         return function (_ref) {
           var commands = _ref.commands,
-            editor = _ref.editor,
-            range = _ref.range;
+            editor = _ref.editor;
           var selectedText = editor.getHTML().substring(editor.state.selection.from, editor.state.selection.to);
           fetch("http://localhost:3000/open_ai", {
             method: "POST",
@@ -28,7 +27,6 @@ var AI = _core.Extension.create({
             return response.json();
           }).then(function (data) {
             console.log(data);
-            debugger;
             editor.chain().focus().insertContent(data[0]).run();
           });
         };

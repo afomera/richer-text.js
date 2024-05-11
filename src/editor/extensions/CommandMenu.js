@@ -9,6 +9,14 @@ export const commandItems = ({ calloutEnabled, tablesEnabled }) => {
 
   items.push(
     {
+      label: "AI Writer",
+      iconName: "ai",
+      command: ({ editor, range }) => {
+        editor.chain().focus().deleteRange(range).setAiWriter().run();
+      },
+    },
+
+    {
       label: "Heading 1",
       iconName: "h1",
       command: ({ editor, range }) => {

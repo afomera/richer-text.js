@@ -19,6 +19,7 @@ var _extensionTextAlign = _interopRequireDefault(require("@tiptap/extension-text
 var _extensionTextStyle = _interopRequireDefault(require("@tiptap/extension-text-style"));
 var _extensionColor = _interopRequireDefault(require("@tiptap/extension-color"));
 var _AI = require("./AI");
+var _AiWriter = _interopRequireDefault(require("./AiWriter"));
 var _Callout = _interopRequireDefault(require("./Callout"));
 var _CodeBlock = _interopRequireDefault(require("./CodeBlock"));
 var _CommandMenu = _interopRequireDefault(require("./CommandMenu"));
@@ -36,7 +37,7 @@ var RicherTextKit = _core.Extension.create({
     };
   },
   addExtensions: function addExtensions() {
-    var extensions = [_AI.AI];
+    var extensions = [_AiWriter["default"], _AI.AI];
     if (this.options.starterKit !== false) {
       extensions.push(_starterKit["default"].configure({
         codeBlock: false,

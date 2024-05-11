@@ -14,6 +14,7 @@ import TextAlign from "@tiptap/extension-text-align";
 import TextStyle from '@tiptap/extension-text-style'
 import Color from "@tiptap/extension-color";
 import { AI } from "./AI";
+import AiWriter from "./AiWriter";
 
 import Callout from "./Callout";
 import CodeBlock from "./CodeBlock";
@@ -34,7 +35,7 @@ export const RicherTextKit = Extension.create({
   },
 
   addExtensions() {
-    const extensions = [AI];
+    const extensions = [AiWriter, AI];
 
     if (this.options.starterKit !== false) {
       extensions.push(

@@ -2,6 +2,8 @@ import { Node, mergeAttributes } from "@tiptap/core";
 import { html, render } from "lit";
 import "../elements/RicherTextEmbed";
 
+import { AiWriter } from "../elements/AiWriter";
+
 export default Node.create({
   name: 'richerTextEmbed',
   group: 'block',
