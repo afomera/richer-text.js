@@ -22,6 +22,7 @@ import Emoji from "./Emoji";
 import FontSize from "./FontSize";
 import HorizontalRule from "./HorizontalRule";
 import Image from "./Image";
+import { AiWriter } from "./AiWriter";
 
 export const RicherTextKit = Extension.create({
   name: "richerTextKit",
@@ -33,7 +34,7 @@ export const RicherTextKit = Extension.create({
   },
 
   addExtensions() {
-    const extensions = [];
+    const extensions = [AiWriter];
 
     if (this.options.starterKit !== false) {
       extensions.push(

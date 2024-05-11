@@ -29,7 +29,7 @@ var CustomBubbleMenu = function CustomBubbleMenu(pluginName) {
       var tippyOptions = element.tippyOptions || {
         interactive: true,
         placement: "top",
-        theme: "bubble",
+        theme: "translucent",
         allowHTML: true,
         maxWidth: "none",
         appendTo: function appendTo() {

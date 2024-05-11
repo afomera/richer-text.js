@@ -26,6 +26,7 @@ var _Emoji = _interopRequireDefault(require("./Emoji"));
 var _FontSize = _interopRequireDefault(require("./FontSize"));
 var _HorizontalRule = _interopRequireDefault(require("./HorizontalRule"));
 var _Image = _interopRequireDefault(require("./Image"));
+var _AiWriter = require("./AiWriter");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 var RicherTextKit = _core.Extension.create({
   name: "richerTextKit",
@@ -35,7 +36,7 @@ var RicherTextKit = _core.Extension.create({
     };
   },
   addExtensions: function addExtensions() {
-    var extensions = [];
+    var extensions = [_AiWriter.AiWriter];
     if (this.options.starterKit !== false) {
       extensions.push(_starterKit["default"].configure({
         codeBlock: false,

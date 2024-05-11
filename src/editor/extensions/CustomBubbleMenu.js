@@ -26,7 +26,7 @@ const CustomBubbleMenu = (pluginName) => Extension.create({
     const tippyOptions = element.tippyOptions || {
       interactive: true,
       placement: "top",
-      theme: "bubble",
+      theme: "translucent",
       allowHTML: true,
       maxWidth: "none",
       appendTo: () => document.body,
