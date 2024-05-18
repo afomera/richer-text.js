@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/editor/elements/editor/EditEmbedMenu.js"],
+  "sourcesContent": ["import { html } from 'lit';\n\nimport icons from \"../../icons\";\n\nimport { BaseEditMenu } from './BaseEditMenu';\n\nexport class EditEmbedMenu extends BaseEditMenu {\n  constructor() {\n    super()\n\n    this.removeNode = () => {};\n    this.width = \"28px\";\n  }\n\n\n  static properties = {\n    removeNode: { type: Function },\n    width: { type: String },\n  }\n\n  render() {\n    return html`\n      <div class=\"richer-text-editor--edit-menu\">\n        <button class=\"toolbar-button\" @click=${this.removeNode}>\n          ${icons.get(\"delete\")}\n        </button>\n      </div>\n    `\n  }\n}\n\ncustomElements.define('richer-text-editor-embed-menu', EditEmbedMenu);\n"],
+  "mappings": ";;;;;;;;;;;AAAA,SAAS,YAAY;AAMd,IAAM,gBAAN,cAA4B,aAAa;AAAA,EAC9C,cAAc;AACZ,UAAM;AAEN,SAAK,aAAa,MAAM;AAAA,IAAC;AACzB,SAAK,QAAQ;AAAA,EACf;AAAA,EAQA,SAAS;AACP,WAAO;AAAA;AAAA,gDAEqC,KAAK,UAAU;AAAA,YACnD,cAAM,IAAI,QAAQ,CAAC;AAAA;AAAA;AAAA;AAAA,EAI7B;AACF;AAdE,cATW,eASJ,cAAa;AAAA,EAClB,YAAY,EAAE,MAAM,SAAS;AAAA,EAC7B,OAAO,EAAE,MAAM,OAAO;AACxB;AAaF,eAAe,OAAO,iCAAiC,aAAa;",
+  "names": []
+}

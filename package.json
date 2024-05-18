@@ -1,14 +1,25 @@
 {
   "name": "@afomera/richer-text",
-  "version": "2.0.0-alpha.6",
+  "version": "2.0.0-alpha.7",
   "description": "A Richer Text Editor experience based on Tiptap",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "files": [
-    "dist"
+    "dist",
+    "cdn"
+  ],
+  "keywords": [
+    "tiptap",
+    "prosemirror",
+    "richtext",
+    "editor",
+    "wysiwyg",
+    "web-components"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d dist --out-dir dist && cp -p src/css/richer-text.css dist/css/richer-text.css"
+    "build": "rm -rf {cdn,dist} && node esbuild.config.js"
   },
   "repository": "git@github.com:afomera/richer-text.js.git",
   "bugs": {
@@ -51,10 +62,11 @@
     "prosemirror-model": "1.19.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.20.7",
-    "@babel/core": "^7.20.7",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/plugin-proposal-decorators": "^7.24.1",
-    "@babel/preset-env": "^7.20.2"
+    "chalk": "^5.3.0",
+    "esbuild": "^0.19.2",
+    "glob": "^10.3.15"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

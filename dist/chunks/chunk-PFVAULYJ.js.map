@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/editor/extensions/CodeBlock.js"],
+  "sourcesContent": ["import CodeBlockLowlight from \"@tiptap/extension-code-block-lowlight\";\nimport { lowlight } from \"lowlight\";\n\nconst CodeBlock = CodeBlockLowlight.extend({\n  addKeyboardShortcuts() {\n    return {\n      ...this.parent?.(),\n      Tab: () => {\n        if (this.editor.state.doc.childBefore(this.editor.state.selection.from).node.type.name === this.name) {\n          return this.editor.commands.insertContent(\"  \");\n        }\n        return false\n      }\n    }\n  }\n}).configure({\n  lowlight\n})\n\nexport default CodeBlock;\n"],
+  "mappings": ";AAAA,OAAO,uBAAuB;AAC9B,SAAS,gBAAgB;AAEzB,IAAM,YAAY,kBAAkB,OAAO;AAAA,EACzC,uBAAuB;AACrB,WAAO;AAAA,MACL,GAAG,KAAK,SAAS;AAAA,MACjB,KAAK,MAAM;AACT,YAAI,KAAK,OAAO,MAAM,IAAI,YAAY,KAAK,OAAO,MAAM,UAAU,IAAI,EAAE,KAAK,KAAK,SAAS,KAAK,MAAM;AACpG,iBAAO,KAAK,OAAO,SAAS,cAAc,IAAI;AAAA,QAChD;AACA,eAAO;AAAA,MACT;AAAA,IACF;AAAA,EACF;AACF,CAAC,EAAE,UAAU;AAAA,EACX;AACF,CAAC;AAED,IAAO,oBAAQ;",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/styles/normalize.js"],
+  "sourcesContent": ["import { css } from \"lit\";\n\nexport const normalize = css`\n  [hidden] {\n    display: none !important;\n  }\n\n  *,\n  *::after,\n  *::before {\n    box-sizing: border-box;\n  }\n\n  button {\n    background-color: inherit;\n    border: none;\n    color: inherit;\n    cursor: pointer;\n  }\n`;\n"],
+  "mappings": ";AAAA,SAAS,WAAW;AAEb,IAAM,YAAY;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;",
+  "names": []
+}

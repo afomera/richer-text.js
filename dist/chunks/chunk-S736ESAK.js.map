@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/editor/elements/EmojiList.js"],
+  "sourcesContent": ["import { html } from 'lit';\nimport { BaseList } from './BaseList';\n\nexport class EmojiList extends BaseList {\n  render() {\n    return html`\n      <div class=\"suggested-items\">\n        ${this.items.length > 0 ? \n          this.items.map((item, index) => html`\n            <button\n              class=\"suggested-item ${index === this.selectedIndex ? 'is-selected' : ''}\"\n              @click=${() => this.selectItem(index)}\n            >\n              ${item.skins[0].native}\n              <span style=\"marginLeft: 4px\"></span>\n              ${item.skins[0].shortcodes}\n            </button>`\n          ) : html`<div class=\"suggested-item\">No results</div>`}\n      </div>\n    `;\n  }\n\n  selectItem(index) {\n    const item = this.items[index]\n    if (item) {\n      this.command(item);\n    }\n  }\n}\n\ncustomElements.define('richer-text-emoji-list', EmojiList);\n"],
+  "mappings": ";;;;;AAAA,SAAS,YAAY;AAGd,IAAM,YAAN,cAAwB,SAAS;AAAA,EACtC,SAAS;AACP,WAAO;AAAA;AAAA,UAED,KAAK,MAAM,SAAS,IACpB,KAAK,MAAM;AAAA,MAAI,CAAC,MAAM,UAAU;AAAA;AAAA,sCAEJ,UAAU,KAAK,gBAAgB,gBAAgB,EAAE;AAAA,uBAChE,MAAM,KAAK,WAAW,KAAK,CAAC;AAAA;AAAA,gBAEnC,KAAK,MAAM,CAAC,EAAE,MAAM;AAAA;AAAA,gBAEpB,KAAK,MAAM,CAAC,EAAE,UAAU;AAAA;AAAA,IAE9B,IAAI,kDAAkD;AAAA;AAAA;AAAA,EAG9D;AAAA,EAEA,WAAW,OAAO;AAChB,UAAM,OAAO,KAAK,MAAM,KAAK;AAC7B,QAAI,MAAM;AACR,WAAK,QAAQ,IAAI;AAAA,IACnB;AAAA,EACF;AACF;AAEA,eAAe,OAAO,0BAA0B,SAAS;",
+  "names": []
+}

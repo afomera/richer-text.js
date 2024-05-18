@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/editor/extensions/HorizontalRule.js"],
+  "sourcesContent": ["import HorizontalRule from '@tiptap/extension-horizontal-rule'\n\nexport default HorizontalRule.extend({\n  renderHTML({ HTMLAttributes }) {\n    return [\"div\", { class: \"richer-text-editor--hr\" }, [\"hr\", HTMLAttributes]];\n  },\n});\n"],
+  "mappings": ";AAAA,OAAO,oBAAoB;AAE3B,IAAO,yBAAQ,eAAe,OAAO;AAAA,EACnC,WAAW,EAAE,eAAe,GAAG;AAC7B,WAAO,CAAC,OAAO,EAAE,OAAO,yBAAyB,GAAG,CAAC,MAAM,cAAc,CAAC;AAAA,EAC5E;AACF,CAAC;",
+  "names": []
+}

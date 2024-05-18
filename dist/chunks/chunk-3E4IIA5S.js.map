@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/editor/elements/CustomSuggestionList.js"],
+  "sourcesContent": ["import { html } from 'lit';\nimport { BaseList } from './BaseList';\n\nexport class CustomSuggestionList extends BaseList {\n  render() {\n    return html`\n      <div class=\"suggested-items\">\n        ${this.items.length > 0 ?\n          this.items.map((item, index) => html`\n            <button\n              class=\"suggested-item ${index === this.selectedIndex ? 'is-selected' : ''}\"\n              @click=${() => this.selectItem(index)}\n            >\n              ${item.label}\n            </button>`\n          ) : html`<div class=\"suggested-item\">No results</div>`}\n      </div>\n    `;\n  }\n\n  selectItem(index) {\n    const item = this.items[index]\n    if (item) {\n      this.command(item)\n    }\n  }\n}\n\ncustomElements.define('richer-text-custom-suggestion-list', CustomSuggestionList);\n"],
+  "mappings": ";;;;;AAAA,SAAS,YAAY;AAGd,IAAM,uBAAN,cAAmC,SAAS;AAAA,EACjD,SAAS;AACP,WAAO;AAAA;AAAA,UAED,KAAK,MAAM,SAAS,IACpB,KAAK,MAAM;AAAA,MAAI,CAAC,MAAM,UAAU;AAAA;AAAA,sCAEJ,UAAU,KAAK,gBAAgB,gBAAgB,EAAE;AAAA,uBAChE,MAAM,KAAK,WAAW,KAAK,CAAC;AAAA;AAAA,gBAEnC,KAAK,KAAK;AAAA;AAAA,IAEhB,IAAI,kDAAkD;AAAA;AAAA;AAAA,EAG9D;AAAA,EAEA,WAAW,OAAO;AAChB,UAAM,OAAO,KAAK,MAAM,KAAK;AAC7B,QAAI,MAAM;AACR,WAAK,QAAQ,IAAI;AAAA,IACnB;AAAA,EACF;AACF;AAEA,eAAe,OAAO,sCAAsC,oBAAoB;",
+  "names": []
+}
