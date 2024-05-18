@@ -9,6 +9,31 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ---
 
+## 2.0.0-alpha.7
+
+- Rewrite package bundler for package to use esbuild instead of Babel, which should provide better compatiability for other bundler types.
+- Get manual importmaps flows working with new bundling system.
+
+---
+
+## 2.0.0-alpha.6
+
+- Revert change back to alpha.3 code for package.json
+
+---
+
+## 2.0.0-alpha.5
+
+- Remove specifying of `module` in package.json
+
+---
+
+## 2.0.0-alpha.4
+
+- Specify the main file to `dist/index.js` for the main and `moudle` in package.json
+
+---
+
 ## 2.0.0-alpha.3
 
 - Added `tabindex="-1"` to buttons for toolbar except Bold.

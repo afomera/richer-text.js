@@ -27,6 +27,27 @@ Then run your migrations to create the tables in the database.
   rails db:migrate
 ```
 
+## Manual Importmaps Installation
+
+If you're using Importmaps v2+ for Ruby on Rails you'll need to install our JS and CSS manually our installation script won't do it for you, as the vendoring of the package doesn't work properly at the moment.
+
+```bash
+curl -Lo ./vendor/javascript/richer-text.js https://unpkg.com/@afomera/richer-text@<%= version_number %>/dist/bundle/index.module.js
+curl -Lo ./app/assets/stylesheets/richer-text.css https://unpkg.com/@afomera/richer-text@<%= version_number %>/dist/css/richer-text.css
+```
+
+Next inside of `config/importmaps.rb` you'll need to pin @afomera/richer-text to the newly downloaded file
+
+```ruby
+pin "@afomera/richer-text", to: "richer-text.js"
+```
+
+Lastly in your JS entrypoint import "@afomera/richer-text".
+
+```js
+import "@afomera/richer-text";
+```
+
 ## Usage
 
 First up in your model add the `has_richer_text :attribute_name` to your models.
