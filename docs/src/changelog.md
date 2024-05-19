@@ -7,6 +7,8 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ## main
 
+- Update `@tiptap` packages to 2.4.0
+
 ---
 
 ## 2.0.0-alpha.7
