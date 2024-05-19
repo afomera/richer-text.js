@@ -80,7 +80,7 @@ export const richerTextEditorStyles = css`
     border-bottom-right-radius: 0;
   }
 
-  .toolbar {
+  role-toolbar {
     display: flex;
     align-items: center;
     gap: var(--toolbar-gap);
@@ -91,13 +91,13 @@ export const richerTextEditorStyles = css`
     border: 1px solid var(--border-color);
   }
 
-  :host([toolbar-placement='top']) .toolbar {
+  :host([toolbar-placement='top']) role-toolbar {
     border-bottom: 0;
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
   }
 
-  :host([toolbar-placement='bottom']) .toolbar {
+  :host([toolbar-placement='bottom']) role-toolbar {
     border-top: 0;
     border-radius: 0;
     border-bottom-left-radius: var(--border-radius);

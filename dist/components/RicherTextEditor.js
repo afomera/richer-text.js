@@ -1,6 +1,6 @@
 import {
   RicherTextEditor
-} from "../chunks/chunk-X7PLASSK.js";
+} from "../chunks/chunk-SQZLAAT3.js";
 import "../chunks/chunk-C4RV2H35.js";
 import "../chunks/chunk-OSW6TYRR.js";
 import "../chunks/chunk-6QIOIMDS.js";
@@ -24,7 +24,7 @@ import "../chunks/chunk-TDPOOSLO.js";
 import "../chunks/chunk-RLAFABN3.js";
 import "../chunks/chunk-S736ESAK.js";
 import "../chunks/chunk-S2DXAW4H.js";
-import "../chunks/chunk-WQML35PL.js";
+import "../chunks/chunk-GEFRMSJW.js";
 import "../chunks/chunk-2EZFRUF7.js";
 import "../chunks/chunk-WYVXEKWY.js";
 import "../chunks/chunk-TGWDFHJ5.js";

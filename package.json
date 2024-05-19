@@ -19,7 +19,8 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf {cdn,dist} && node esbuild.config.js"
+    "build": "rm -rf {cdn,dist} && node esbuild.config.js",
+    "watch": "node esbuild.config.js --watch"
   },
   "repository": "git@github.com:afomera/richer-text.js.git",
   "bugs": {

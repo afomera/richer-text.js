@@ -3,8 +3,9 @@ import { classMap } from 'lit/directives/class-map.js';
 import { map } from 'lit/directives/map.js';
 import { Editor } from "@tiptap/core";
 
-import { RoleTooltip } from "role-components";
+import { RoleTooltip, RoleToolbar } from "role-components";
 RoleTooltip.define();
+RoleToolbar.define();
 
 // import { Dropdown } from "../editor/elements/Dropdown";
 import { uploadFile } from "../editor/extensions/Image";
@@ -387,6 +388,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('heading', { level: 1 }),
           })}"
+          data-role="toolbar-item"
           tabindex="-1"
           @click="${this.toggleHeadingLevel1}"
           aria-describedby="h1-tooltip"
@@ -401,6 +403,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('heading', { level: 2 }),
           })}"
+          data-role="toolbar-item"
           tabindex="-1"
           @click="${this.toggleHeadingLevel2}"
           aria-describedby="h2-tooltip"
@@ -415,6 +418,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('heading', { level: 3 }),
           })}"
+          data-role="toolbar-item"
           tabindex="-1"
           @click="${this.toggleHeadingLevel3}"
           aria-describedby="h3-tooltip"
@@ -429,6 +433,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('highlight'),
           })}"
+          data-role="toolbar-item"
           tabindex="-1"
           @click="${this.toggleHighlight}"
           aria-describedby="highlight-tooltip"
@@ -444,6 +449,7 @@ export default class RicherTextEditor extends LitElement {
             'is-active': this.editor.isActive('horizontal-rule'),
           })}"
           tabindex="-1"
+          data-role="toolbar-item"
           @click="${this.setHorizontalRule}"
           aria-describedby="hr-tooltip"
         >
@@ -457,6 +463,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('bold'),
           })}"
+          data-role="toolbar-item"
           @click="${this.toggleBold}"
           aria-describedby="bold-tooltip"
         >
@@ -470,6 +477,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('italic'),
           })}"
+          data-role="toolbar-item"
           tabindex="-1"
           @click="${this.toggleItalic}"
           aria-describedby="italic-tooltip"
@@ -484,6 +492,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('underline'),
           })}"
+          data-role="toolbar-item"
           tabindex="-1"
           @click="${this.toggleUnderline}"
           aria-describedby="underline-tooltip"
@@ -498,6 +507,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('strike'),
           })}"
+          data-role="toolbar-item"
           tabindex="-1"
           @click="${this.toggleStrike}"
           aria-describedby="strike-tooltip"
@@ -512,6 +522,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('code'),
           })}"
+          data-role="toolbar-item"
           tabindex="-1"
           @click="${this.toggleCode}"
           aria-describedby="code-tooltip"
@@ -526,6 +537,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('bulletList'),
           })}"
+          data-role="toolbar-item"
           tabindex="-1"
           @click="${this.toggleBulletList}"
           aria-describedby="bullet-tooltip"
@@ -540,6 +552,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('orderedlist'),
           })}"
+          data-role="toolbar-item"
           tabindex="-1"
           @click="${this.toggleOrderedList}"
           aria-describedby="ordered-tooltip"
@@ -554,6 +567,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('blockquote'),
           })}"
+          data-role="toolbar-item"
           tabindex="-1"
           @click="${this.toggleBlockquote}"
           aria-describedby="blockquote-tooltip"
@@ -568,6 +582,7 @@ export default class RicherTextEditor extends LitElement {
           class="toolbar-button ${classMap({
             'is-active': this.editor.isActive('codeBlock'),
           })}"
+          data-role="toolbar-item"
           tabindex="-1"
           @click="${this.toggleCodeBlock}"
           aria-describedby="codeblock-tooltip"
@@ -580,6 +595,7 @@ export default class RicherTextEditor extends LitElement {
           type="button"
           part="toolbar-button"
           class="toolbar-button"
+          data-role="toolbar-item"
           tabindex="-1"
           @click="${this.undo}"
           aria-describedby="undo-tooltip"
@@ -592,6 +608,7 @@ export default class RicherTextEditor extends LitElement {
           type="button"
           part="toolbar-button"
           class="toolbar-button"
+          data-role="toolbar-item"
           tabindex="-1"
           @click="${this.redo}"
           aria-describedby="redo-tooltip"
@@ -604,6 +621,7 @@ export default class RicherTextEditor extends LitElement {
           type="button"
           part="toolbar-button"
           class="toolbar-button"
+          data-role="toolbar-item"
           tabindex="-1"
           @click="${this.addFile}"
           aria-describedby="attachment-tooltip"
@@ -629,12 +647,9 @@ export default class RicherTextEditor extends LitElement {
   render() {
     return html`
         <div class="wrapper" part="wrapper">
-          <div class="toolbar" part="toolbar">
-            <slot name="toolbar-start"></slot>
+          <role-toolbar  class="toolbar" part="toolbar">
             ${map(this.toolbar, (name) => this.renderToolbarButton(name))}
-            <slot name="toolbar-end"></slot>
-            <slot></slot>
-          </div>
+          </role-toolbar>
           <slot name="editor"></slot>
         </div>
       </div>
