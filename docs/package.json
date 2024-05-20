@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@afomera/richer-text": "file:../.",
-    "highlight.js": "^11.7.0"
+    "highlight.js": "^11.7.0",
+    "trix": "^2.1.1"
   }
 }

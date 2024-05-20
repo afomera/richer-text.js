@@ -5,6 +5,10 @@ import "@afomera/richer-text"
 import "@afomera/richer-text/dist/css/richer-text.css"
 import "editor.css"
 
+import "trix"
+import "trix/dist/trix.css"
+
+
 // import { Table } from "@tiptap/extension-table";
 // import { TableHeader } from "@tiptap/extension-table-header"
 // import { TableRow } from "@tiptap/extension-table-row";
