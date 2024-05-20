@@ -5,6 +5,12 @@ import "@afomera/richer-text"
 import "@afomera/richer-text/dist/css/richer-text.css"
 import "editor.css"
 
+// import { Table } from "@tiptap/extension-table";
+// import { TableHeader } from "@tiptap/extension-table-header"
+// import { TableRow } from "@tiptap/extension-table-row";
+// import { TableCell } from "@tiptap/extension-table-cell";
+
+
 // Import all JavaScript & CSS files from src/_components
 import components from "bridgetownComponents/**/*.{js,jsx,js.rb,css}"
 
@@ -29,6 +35,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+// const editor = document.querySelector("richer-text-editor")
+
+// if (editor) {
+//   editor.addExtensions([
+//     Table.configure({
+//       resizable: false
+//     }),
+//     TableHeader,
+//     TableRow,
+//     TableCell
+//   ])
+// }
 
 // document.addEventListener("editor:blur", (event) => {
 //   console.log("Editor blurred", event)

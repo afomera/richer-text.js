@@ -1,7 +1,6 @@
-import { LitElement, html } from "lit";
+import { html } from "lit";
 import { classMap } from 'lit/directives/class-map.js';
 import { map } from 'lit/directives/map.js';
-import { Editor } from "@tiptap/core";
 
 import { RoleTooltip } from "role-components";
 RoleTooltip.define();
@@ -9,12 +8,12 @@ RoleTooltip.define();
 // import { Dropdown } from "../editor/elements/Dropdown";
 import { uploadFile } from "../editor/extensions/Image";
 
+import { TipTapEditorBase } from "./TipTapEditorBase";
+
 import icons from '../editor/icons';
 import { translations } from "../editor/translations";
 
 // Styles
-import { normalize } from "../styles/normalize";
-import { tiptapStyles } from "../styles/tiptapStyles";
 import { richerTextEditorStyles } from "../styles/richerTextEditorStyles";
 
 // Extensions
@@ -27,17 +26,16 @@ import Mention from "../editor/extensions/Mention";
 import MentionSuggestion from "../editor/suggestions/MentionSuggestion";
 import RicherTextEmbed from "../editor/extensions/RicherTextEmbed";
 
-
 import "../editor/elements/RicherBubbleMenu";
 import CustomBubbleMenu from "../editor/extensions/CustomBubbleMenu";
 
-export default class RicherTextEditor extends LitElement {
+export default class RicherTextEditor extends TipTapEditorBase {
   static get styles() {
-    return [normalize, tiptapStyles, richerTextEditorStyles];
+    return TipTapEditorBase.styles.concat([richerTextEditorStyles]);
   }
 
   static get properties() {
-    return {
+    return Object.assign(TipTapEditorBase.properties, {
       translations: {
         type: Object,
         converter: {
@@ -45,15 +43,8 @@ export default class RicherTextEditor extends LitElement {
           toAttribute: (value) => JSON.stringify(value),
         }
       },
-      autofocus: { type: Boolean, reflect: true },
-      class: { type: String, reflect: true },
       callouts: { type: String, reflect: true },
-      content: { type: String, reflect: true },
-      placeholder: { type: String, reflect: true },
-      readonly: { type: Boolean, reflect: true },
-      serializer: { type: String, reflect: true },
       tables: { type: String, reflect: true},
-      input: { type: String, reflect: true },
       mentionableUsersPath: { attribute: "mentionable-users-path", type: String, reflect: true },
       toolbarPlacement: { attribute: "toolbar-placement", type: String, reflect: true },
       toolbarPreset: { attribute: "toolbar-preset", type: String, reflect: true },
@@ -71,7 +62,23 @@ export default class RicherTextEditor extends LitElement {
           },
         }
       },
-    };
+    });
+  }
+
+  constructor() {
+    super();
+
+    this.translations = translations;
+    this.toolbar = [];
+    this.tables = "false";
+    this.callouts = "false";
+    this.toolbarPlacement = this.getAttribute("toolbar-placement") || "top";
+    this.toolbarPreset = this.getAttribute("toolbar-preset") || "default";
+    this.mentionableUsersPath = this.getAttribute("mentionable-users-path") || "";
+
+    this.customSuggestions = JSON.parse(this.getAttribute("custom-suggestions")) || [];
+    this.embedsPath = this.getAttribute("embeds-path") || "";
+    this.oembed = this.getAttribute("oembed") || false;
   }
 
   configureToolbar() {
@@ -106,38 +113,6 @@ export default class RicherTextEditor extends LitElement {
     }
   }
 
-  disconnectedCallback() {
-    super.disconnectedCallback();
-
-    this.editor.destroy();
-  }
-
-  getHTML() {
-    const html = this.editor.getHTML();
-    return html === '<p></p>' ? '' : html;
-  }
-
-  emit(eventName, detail = {}) {
-    this.dispatchEvent(new CustomEvent(eventName, { detail, bubbles: true, composed: true }));
-  }
-
-  emitChange() {
-    this.emit("change", {
-      html: this.getHTML(),
-      json: this.editor.getJSON(),
-    });
-
-    document.getElementById(this.input).value = this.serializer === "json" ? JSON.stringify(this.editor.getJSON()) : this.getHTML();
-  }
-
-  _createEditorRootElement() {
-    const element = document.createElement("div");
-    element.slot = "editor";
-    this.shadowRoot.host.appendChild(element);
-
-    return element;
-  }
-
   updated(changedProperties) {
     if (
       changedProperties.has('toolbar') ||
@@ -146,13 +121,10 @@ export default class RicherTextEditor extends LitElement {
       this.configureToolbar();
     }
 
-    if (changedProperties.has("content")) {
-      this.editor.commands.setContent(this.serializer === "json" ? JSON.parse(this.content) : this.content);
-    }
-
+    super.updated(changedProperties);
   }
 
-  firstUpdated() {
+  get __baseExtensions() {
     let extensions = [
       CustomBubbleMenu("customBubbleMenu").configure({
         shouldShow: ({ editor }) => {
@@ -178,7 +150,7 @@ export default class RicherTextEditor extends LitElement {
       })
     ];
 
-    if (this.tables !== "false") {
+     if (this.tables !== "false") {
       extensions.push(
         CustomBubbleMenu("tableBubbleMenu").configure({
           mode: "table",
@@ -207,129 +179,14 @@ export default class RicherTextEditor extends LitElement {
       )
     });
 
-    this.editor = new Editor({
-      element: this._createEditorRootElement(),
-      editable: !this.readonly,
-      extensions: [...extensions],
-      content: this.serializer === "json" ? JSON.parse(this.content) : this.content,
-      autofocus: this.autofocus && !this.readonly,
-      editorProps: {
-        attributes: {
-          class: this.class,
-        },
-      },
-      onCreate: () => {
-        // The editor is ready.
-        this.emitChange();
-      },
-      onUpdate: ({ editor }) => {
-        // The content has changed.
-        this.requestUpdate();
-        this.emitChange();
-      },
-      onSelectionUpdate: () => {
-        // The selection has changed.
-        this.requestUpdate();
-      },
-    });
+    return extensions;
+  }
 
+  firstUpdated() {
+    this.rebuildEditor();
     this.configureToolbar();
 
     this.requestUpdate();
-  }
-
-  constructor() {
-    super();
-
-    this.autofocus = false;
-    this.class = "";
-    this.translations = translations;
-    this.toolbar = [];
-    this.tables = "false";
-    this.callouts = "false";
-    this.toolbarPlacement = this.getAttribute("toolbar-placement") || "top";
-    this.toolbarPreset = this.getAttribute("toolbar-preset") || "default";
-    this.mentionableUsersPath = this.getAttribute("mentionable-users-path") || "";
-
-    this.customSuggestions = JSON.parse(this.getAttribute("custom-suggestions")) || [];
-    this.embedsPath = this.getAttribute("embeds-path") || "";
-    this.oembed = this.getAttribute("oembed") || false;
-  }
-
-   clear() {
-    this.editor.commands.clearContent(true);
-  }
-
-  focus() {
-    this.editor.commands.focus();
-  }
-
-  blur() {
-    this.editor.commands.blur();
-  }
-
-  toggleBold() {
-    this.editor.chain().toggleBold().focus().run();
-  }
-
-  toggleItalic() {
-    this.editor.chain().toggleItalic().focus().run();
-  }
-
-  toggleUnderline() {
-    this.editor.chain().toggleUnderline().focus().run();
-  }
-
-  toggleCode() {
-    this.editor.chain().toggleCode().focus().run();
-  }
-
-  toggleStrike() {
-    this.editor.chain().toggleStrike().focus().run();
-  }
-
-  toggleHeadingLevel1() {
-    this.editor.chain().toggleHeading({ level: 1 }).focus().run();
-  }
-
-  toggleHeadingLevel2() {
-    this.editor.chain().toggleHeading({ level: 2 }).focus().run();
-  }
-
-  toggleHeadingLevel3() {
-    this.editor.chain().toggleHeading({ level: 3 }).focus().run();
-  }
-
-  toggleBulletList() {
-    this.editor.chain().toggleBulletList().focus().run();
-  }
-
-  toggleOrderedList() {
-    this.editor.chain().toggleOrderedList().focus().run();
-  }
-
-  setHorizontalRule() {
-    this.editor.chain().setHorizontalRule().focus().run();
-  }
-
-  toggleBlockquote() {
-    this.editor.chain().toggleBlockquote().focus().run();
-  }
-
-  toggleCodeBlock() {
-    this.editor.chain().toggleCodeBlock().focus().run();
-  }
-
-  toggleHighlight() {
-    this.editor.chain().toggleHighlight().focus().run();
-  }
-
-  undo() {
-    this.editor.chain().focus().undo().run();
-  }
-
-  redo() {
-    this.editor.chain().focus().redo().run();
   }
 
   addFile() {

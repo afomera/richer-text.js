@@ -1,6 +1,9 @@
 import {
   RicherTextEditor
-} from "./chunks/chunk-X7PLASSK.js";
+} from "./chunks/chunk-HBEUJ4I6.js";
+import {
+  TipTapEditorBase
+} from "./chunks/chunk-G4I3KFXS.js";
 import "./chunks/chunk-C4RV2H35.js";
 import "./chunks/chunk-OSW6TYRR.js";
 import "./chunks/chunk-6QIOIMDS.js";
@@ -34,6 +37,7 @@ import "./chunks/chunk-GOWIZSL4.js";
 import "./chunks/chunk-XFEFOKNE.js";
 import "./chunks/chunk-7ZQBTYAI.js";
 export {
-  RicherTextEditor
+  RicherTextEditor,
+  TipTapEditorBase
 };
 //# sourceMappingURL=index.js.map

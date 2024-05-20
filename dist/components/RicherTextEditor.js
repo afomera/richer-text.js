@@ -1,6 +1,7 @@
 import {
   RicherTextEditor
-} from "../chunks/chunk-X7PLASSK.js";
+} from "../chunks/chunk-HBEUJ4I6.js";
+import "../chunks/chunk-G4I3KFXS.js";
 import "../chunks/chunk-C4RV2H35.js";
 import "../chunks/chunk-OSW6TYRR.js";
 import "../chunks/chunk-6QIOIMDS.js";
