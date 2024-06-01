@@ -7,6 +7,10 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ## main
 
+---
+
+## 2.0.0-alpha.8
+
 - Update `@tiptap` packages to 2.4.0
 - Added `TipTapEditorBase` component, to be used as a Base Element to build a customized editor where needed. Updated RicherTextEditor component to use the new base editor component and validated the approach works by using the addExtensions functionality.
 
