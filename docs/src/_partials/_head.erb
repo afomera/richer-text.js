@@ -5,6 +5,20 @@
 
 <meta name="description" content="<%= metadata.description %>" />
 
+<meta property="og:url" content="https://richer-text.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="<%= resource_title %>">
+<meta property="og:description" content="<%= metadata.description %>">
+<meta property="og:image" content="https://richer-text.com/images/open-graph.png">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="richer-text.com">
+<meta property="twitter:url" content="https://richer-text.com">
+<meta name="twitter:title" content="<%= resource_title %>">
+<meta name="twitter:description" content="<%= metadata.description %>">
+<meta name="twitter:image" content="https://richer-text.com/images/open-graph.png">
+
 <link rel="stylesheet" data-turbo-track="reload" href="<%= asset_path :css %>" />
 <script data-turbo-track="reload" src="<%= asset_path :js %>" defer></script>
 
