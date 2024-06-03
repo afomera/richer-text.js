@@ -7,6 +7,10 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ## main
 
+- Added `iframely-key` as an attribute to the Richer Text Editor html tag. When present (as the hashed API Key), a new Embed Media option will appear and allow embedding media via iframely.com. You'll need a paid iframely account to use this functionality, though it's free to get started to try it out.
+- Added iframelyEmbed node.
+- Fixed some issues where passing `oembed: false` wouldn't actually disable the built-in Embed functionality.
+
 ---
 
 ## 2.0.0-alpha.8
