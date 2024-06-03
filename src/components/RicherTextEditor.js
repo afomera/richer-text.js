@@ -25,6 +25,7 @@ import CustomSuggestionSuggestion from "../editor/suggestions/CustomSuggestionSu
 import Mention from "../editor/extensions/Mention";
 import MentionSuggestion from "../editor/suggestions/MentionSuggestion";
 import RicherTextEmbed from "../editor/extensions/RicherTextEmbed";
+import iframelyEmbed from "../editor/extensions/iframelyEmbed";
 
 import "../editor/elements/RicherBubbleMenu";
 import CustomBubbleMenu from "../editor/extensions/CustomBubbleMenu";
@@ -44,7 +45,9 @@ export default class RicherTextEditor extends TipTapEditorBase {
         }
       },
       callouts: { type: String, reflect: true },
+      iframelyKey: { attribute: "iframely-key", type: String },
       tables: { type: String, reflect: true},
+      oembed: { type: String, reflect: true },
       mentionableUsersPath: { attribute: "mentionable-users-path", type: String, reflect: true },
       toolbarPlacement: { attribute: "toolbar-placement", type: String, reflect: true },
       toolbarPreset: { attribute: "toolbar-preset", type: String, reflect: true },
@@ -75,10 +78,11 @@ export default class RicherTextEditor extends TipTapEditorBase {
     this.toolbarPlacement = this.getAttribute("toolbar-placement") || "top";
     this.toolbarPreset = this.getAttribute("toolbar-preset") || "default";
     this.mentionableUsersPath = this.getAttribute("mentionable-users-path") || "";
+    this.iframelyKey = this.getAttribute("iframely-key") || "";
 
     this.customSuggestions = JSON.parse(this.getAttribute("custom-suggestions")) || [];
     this.embedsPath = this.getAttribute("embeds-path") || "";
-    this.oembed = this.getAttribute("oembed") || false;
+    this.oembed = "false";
   }
 
   configureToolbar() {
@@ -110,6 +114,10 @@ export default class RicherTextEditor extends TipTapEditorBase {
         'undo',
         'redo',
       ];
+
+      if (this.iframelyKey) {
+        this.toolbar.splice(15, 0, 'embed');
+      }
     }
   }
 
@@ -130,7 +138,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
         shouldShow: ({ editor }) => {
           return !editor.view.state.selection.empty && (editor.isActive("paragraph") || editor.isActive("heading") || editor.isActive("blockquote"));
         },
-        oembed: this.oembed,
+        oembed: this.oembed !== "false",
         embedPath: this.embedsPath,
       }),
       CustomBubbleMenu("imageBubbleMenu").configure({
@@ -149,6 +157,10 @@ export default class RicherTextEditor extends TipTapEditorBase {
         tables: this.tables !== "false"
       })
     ];
+
+    if (this.iframelyKey) {
+      extensions.push(iframelyEmbed);
+    }
 
      if (this.tables !== "false") {
       extensions.push(
@@ -229,6 +241,37 @@ export default class RicherTextEditor extends TipTapEditorBase {
     this.shadowRoot.getElementById("file-input").value = "";
   }
 
+  async toggleiFramelyEmbed() {
+    if (!this.iframelyKey) {
+      console.error("[Richer Text] You need to provide an iFramely key to use this feature.");
+      return;
+    }
+
+    const url = prompt("Enter the URL to embed:");
+    if (!url) return;
+
+    const data = await this.fetchiFramelyEmbed(url);
+    if (!data) return;
+
+    if (!data.previewHtml) {
+      console.error("[Richer Text] Could not fetch the embed data.");
+      return;
+    }
+
+    this.editor.chain().focus().insertEmbed({url}).updateEmbed(data.href, data.previewHtml).run();
+  }
+
+  fetchiFramelyEmbed(href) {
+    return fetch(`https://iframe.ly/api/oembed?url=${encodeURIComponent(href)}&key=${this.iframelyKey}&omit_script=1`)
+      .then((response) => response.json())
+      .then((data) => {
+        return {
+          href: data.url,
+          previewHtml: data.html,
+        };
+      });
+  }
+
   renderToolbarButton(name) {
     if (!this.editor || !this.toolbar?.length) return '';
 
@@ -237,6 +280,20 @@ export default class RicherTextEditor extends TipTapEditorBase {
         divider: html`<div class="divider" part="divider"></div>`,
 
         spacer: html`<div class="spacer" part="spacer"></div>`,
+
+        'embed': html`<button
+          type="button"
+          part="toolbar-button"
+          class="toolbar-button ${classMap({
+            'is-active': this.editor.isActive('iframelyEmbed'),
+          })}"
+          tabindex="-1"
+          @click="${this.toggleiFramelyEmbed}"
+          aria-describedby="iframely-embed-tooltip"
+        >
+          ${icons.get('embed')}
+          <role-tooltip id="iframely-embed-tooltip" hoist>${this.translations.iframelyEmbed}</role-tooltip>
+        </button>`,
 
         'heading-1': html`<button
           type="button"

@@ -2,7 +2,7 @@ import {
   isMac,
   modifierKey,
   translations
-} from "../chunks/chunk-NYRCWD4H.js";
+} from "../chunks/chunk-7CX2Y6ZJ.js";
 import "../chunks/chunk-AHNUJI67.js";
 export {
   isMac,

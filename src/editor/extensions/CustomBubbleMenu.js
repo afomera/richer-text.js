@@ -12,7 +12,7 @@ const CustomBubbleMenu = (pluginName) => Extension.create({
       shouldShow: null,
       mode: "text",
       oembed: false,
-      embedPath: "/embeds",
+      embedPath: "",
     }
   },
 

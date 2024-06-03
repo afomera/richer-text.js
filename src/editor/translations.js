@@ -23,4 +23,5 @@ export const translations = {
   blockquote: `Insert Blockquote`,
   undo: `Undo <${modifierKey}+z>`,
   redo: `Redo <${modifierKey}+shift+z>`,
+  iframelyEmbed: "Embed Media",
 };

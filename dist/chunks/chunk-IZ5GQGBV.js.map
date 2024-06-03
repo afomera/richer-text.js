@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/editor/translations.js"],
+  "sourcesContent": ["export const isMac = /Mac|iOS|iPhone|iPad|iPod/i.test(\n  window.navigator.platform,\n);\n\nexport const modifierKey = isMac ? \"cmd\" : \"ctrl\";\n\nexport const translations = {\n  attachment: \"Insert Image\",\n  bold: `Bold <${modifierKey}+b>`,\n  italics: `Italics <${modifierKey}+i>`,\n  underline: `Underline`,\n  strike: `Strikethrough <${modifierKey}+shift+x>`,\n  link: `Link <${modifierKey}+k>`,\n  code: \"Code\",\n  codeBlock: \"Insert Code Block\",\n  highlight: \"Highlight\",\n  heading1: `Heading 1 <${modifierKey}+alt+1>`,\n  heading2: `Heading 2 <${modifierKey}+alt+2>`,\n  heading3: `Heading 3 <${modifierKey}+alt+3>`,\n  horizontalRule: \"Insert Line\",\n  bulletList: `Insert Bullet List`,\n  orderedList: `Insert Ordered List`,\n  blockquote: `Insert Blockquote`,\n  undo: `Undo <${modifierKey}+z>`,\n  redo: `Redo <${modifierKey}+shift+z>`,\n  iframelyEmbed: \"Embed Media\",\n};\n"],
+  "mappings": ";AAAO,IAAM,QAAQ,4BAA4B;AAAA,EAC/C,OAAO,UAAU;AACnB;AAEO,IAAM,cAAc,QAAQ,QAAQ;AAEpC,IAAM,eAAe;AAAA,EAC1B,YAAY;AAAA,EACZ,MAAM,SAAS,WAAW;AAAA,EAC1B,SAAS,YAAY,WAAW;AAAA,EAChC,WAAW;AAAA,EACX,QAAQ,kBAAkB,WAAW;AAAA,EACrC,MAAM,SAAS,WAAW;AAAA,EAC1B,MAAM;AAAA,EACN,WAAW;AAAA,EACX,WAAW;AAAA,EACX,UAAU,cAAc,WAAW;AAAA,EACnC,UAAU,cAAc,WAAW;AAAA,EACnC,UAAU,cAAc,WAAW;AAAA,EACnC,gBAAgB;AAAA,EAChB,YAAY;AAAA,EACZ,aAAa;AAAA,EACb,YAAY;AAAA,EACZ,MAAM,SAAS,WAAW;AAAA,EAC1B,MAAM,SAAS,WAAW;AAAA,EAC1B,eAAe;AACjB;",
+  "names": []
+}

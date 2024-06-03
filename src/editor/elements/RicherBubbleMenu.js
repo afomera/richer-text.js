@@ -85,12 +85,12 @@ export class RicherBubbleMenu extends LitElement {
 
       embedPath: { type: String },
       urlMatchesPattern: { type: Boolean },
+      oembed: { type: Boolean },
       // State
       editingLink: { type: Boolean, state: true },
       isActive: { type: Function, state: true },
       mode: { type: String, state: true },
       embedPatterns: { type: Array, state: true },
-      oembed: { type: Boolean, state: true },
     }
   }
 
@@ -99,7 +99,7 @@ export class RicherBubbleMenu extends LitElement {
 
     this.editingLink = false;
     this.mode = "text";
-    this.embedPath = "/embeds";
+    this.embedPath = "";
     this.embedPatterns = [];
     this.oembed = false;
     this.urlMatchesPattern = false;
@@ -328,8 +328,6 @@ export class RicherBubbleMenu extends LitElement {
       } else {
         this.urlMatchesPattern = false;
       }
-
-      this.requestUpdate();
     }
   }
 
