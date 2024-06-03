@@ -101,17 +101,17 @@ function BuildTimer () {
       chunkNames: 'chunks/[name]-[hash]',
       plugins: defaultConfig.plugins.concat([BuildTimer()])
     },
-    {
-      ...defaultConfig,
-      entryPoints: entries,
-      outdir: 'cdn/dist',
-      format: 'esm',
-      target: "es2020",
-      external: [],
-      splitting: true,
-      minify: false,
-      chunkNames: 'chunks/[name]-[hash]'
-    },
+    // {
+    //   ...defaultConfig,
+    //   entryPoints: entries,
+    //   outdir: 'cdn/dist',
+    //   format: 'esm',
+    //   target: "es2020",
+    //   external: [],
+    //   splitting: true,
+    //   minify: false,
+    //   chunkNames: 'chunks/[name]-[hash]'
+    // },
   ]
 
   if (!watchMode) {
