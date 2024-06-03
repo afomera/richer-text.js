@@ -7,6 +7,10 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ## main
 
+---
+
+## 2.0.0-alpha.10
+
 - Removed cdn/dist folder, use `/dist` instead.
 
 ---
