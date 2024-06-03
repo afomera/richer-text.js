@@ -7,6 +7,23 @@ This is the changelog for our Ruby Gem package. Are you looking for the <a href=
 
 ## main
 
+- Added `RicherText.default_form_options` as a configuration option.
+
+You can specify in an initializer default options to avoid needing to specify them on every form, and override them on a per form basis.
+
+```ruby
+Rails.application.config.to_prepare do
+  RicherText.default_form_options = {
+    class: "min-h-[10rem]",
+    callouts: true,
+    tables: true,
+    oembed: false
+  }
+end
+```
+
+- Added IframelyEmbed node
+
 ---
 
 ## 0.13.0
