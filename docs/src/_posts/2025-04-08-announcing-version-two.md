@@ -40,6 +40,7 @@ Richer Text features a roboust text editor complete with everything from the bas
 - Custom Suggestions
 - Richer Embeds
 - Built in support for oEmbeds
+- Support for 1900+ embeds via optional iFramely.com integration
 
 ## Why another editor?
 
