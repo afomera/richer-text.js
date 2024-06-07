@@ -1,6 +1,6 @@
 {
   "name": "@afomera/richer-text",
-  "version": "2.0.0-alpha.10",
+  "version": "2.0.0-beta.1",
   "description": "An open-source text editor based on TipTap and ProseMirror for the modern age.",
   "type": "module",
   "main": "dist/index.js",

@@ -33,6 +33,7 @@ Future versions will work to remove this hard dependency so it's usable for ever
 - Built in support for oEmbed from Twitter/Instagram/etc (see docs for more info)
 - Built in support for Custom Suggestions, which are great to use for things like snippets or saved responses.
 - Easily build out Mentions (see docs for more info)
+- Support for 1900+ embeds via optional iFramely.com integration
 
 ## How the JS works
 
