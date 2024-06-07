@@ -4,9 +4,9 @@ title: Welcome to RicherText.js
 layout: default
 ---
 
-<div class='callout' data-color='yellow'>
-  <p><strong>RicherText is considered a Work In Progress</strong></p>
-  <p>Use of RicherText in production is not recommended until we hit a v2.0 release candidate.</p>
+<div class='callout' data-color='green'>
+  <p><strong>RicherText is in Beta</strong></p>
+  <p>Use of RicherText in production is now recommended, and we have finalized the general interface for options and configurations. Please give it a try and report issues on our GitHub.</p>
 </div>
 
 # Try it out
