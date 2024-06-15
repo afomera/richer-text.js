@@ -7,6 +7,8 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ## main
 
+- Updated the `clear()` function to re-focus the editor instance after clearing content.
+
 ---
 
 ## 2.0.0-beta.1

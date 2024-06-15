@@ -153,7 +153,7 @@ export class TipTapEditorBase extends LitElement {
   }
 
   clear() {
-    this.editor.commands.clearContent(true);
+    this.editor.chain().clearContent(true).focus().run();
   }
 
   focus() {
