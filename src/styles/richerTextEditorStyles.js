@@ -80,7 +80,7 @@ export const richerTextEditorStyles = css`
     border-bottom-right-radius: 0;
   }
 
-  .toolbar {
+  role-toolbar::part(base) {
     display: flex;
     align-items: center;
     gap: var(--toolbar-gap);

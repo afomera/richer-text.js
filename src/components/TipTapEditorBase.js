@@ -35,7 +35,12 @@ export class TipTapEditorBase extends LitElement {
   }
 
   _createEditorRootElement() {
+    if (this.shadowRoot.host.querySelector(".text-editor-wrapper")) {
+      return this.shadowRoot.host.querySelector(".text-editor-wrapper");
+    }
+
     const element = document.createElement("div");
+    element.classList.add("text-editor-wrapper");
     element.slot = "editor";
     this.shadowRoot.host.appendChild(element);
 

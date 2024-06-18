@@ -5,6 +5,8 @@ import { map } from 'lit/directives/map.js';
 import { RoleTooltip } from "role-components";
 RoleTooltip.define();
 
+import "role-components/exports/toolbar/toolbar-register.js"
+
 // import { Dropdown } from "../editor/elements/Dropdown";
 import { uploadFile } from "../editor/extensions/Image";
 
@@ -290,6 +292,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.toggleiFramelyEmbed}"
           aria-describedby="iframely-embed-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('embed')}
           <role-tooltip id="iframely-embed-tooltip" hoist>${this.translations.iframelyEmbed}</role-tooltip>
@@ -304,6 +307,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.toggleHeadingLevel1}"
           aria-describedby="h1-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('h1')}
           <role-tooltip id="h1-tooltip" hoist>${this.translations.heading1}</role-tooltip>
@@ -318,6 +322,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.toggleHeadingLevel2}"
           aria-describedby="h2-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('h2')}
           <role-tooltip id="h2-tooltip" hoist>${this.translations.heading2}</role-tooltip>
@@ -332,6 +337,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.toggleHeadingLevel3}"
           aria-describedby="h3-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('h3')}
           <role-tooltip id="h3-tooltip" hoist>${this.translations.heading3}</role-tooltip>
@@ -346,6 +352,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.toggleHighlight}"
           aria-describedby="highlight-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('highlight')}
           <role-tooltip id="highlight-tooltip" hoist>${this.translations.highlight}</role-tooltip>
@@ -360,6 +367,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.setHorizontalRule}"
           aria-describedby="hr-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('horizontal-rule')}
           <role-tooltip id="hr-tooltip" hoist>${this.translations.horizontalRule}</role-tooltip>
@@ -373,6 +381,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           })}"
           @click="${this.toggleBold}"
           aria-describedby="bold-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('bold')}
           <role-tooltip id="bold-tooltip" hoist>${this.translations.bold}</role-tooltip>
@@ -387,6 +396,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.toggleItalic}"
           aria-describedby="italic-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('italic')}
           <role-tooltip id="italic-tooltip" hoist>${this.translations.italics}</role-tooltip>
@@ -401,6 +411,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.toggleUnderline}"
           aria-describedby="underline-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('underline')}
           <role-tooltip id="underline-tooltip" hoist>${this.translations.underline}</role-tooltip>
@@ -415,6 +426,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.toggleStrike}"
           aria-describedby="strike-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('strike')}
           <role-tooltip id="strike-tooltip" hoist>${this.translations.strike}</role-tooltip>
@@ -429,6 +441,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.toggleCode}"
           aria-describedby="code-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('code')}
           <role-tooltip id="code-tooltip" hoist>${this.translations.code}</role-tooltip>
@@ -443,6 +456,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.toggleBulletList}"
           aria-describedby="bullet-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('bullet-list')}
           <role-tooltip id="bullet-tooltip" hoist>${this.translations.bulletList}</role-tooltip>
@@ -457,6 +471,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.toggleOrderedList}"
           aria-describedby="ordered-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('ordered-list')}
           <role-tooltip id="ordered-tooltip" hoist>${this.translations.orderedList}</role-tooltip>
@@ -471,6 +486,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.toggleBlockquote}"
           aria-describedby="blockquote-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('blockquote')}
           <role-tooltip id="blockquote-tooltip" hoist>${this.translations.blockquote}</role-tooltip>
@@ -485,6 +501,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.toggleCodeBlock}"
           aria-describedby="codeblock-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('code-block')}
           <role-tooltip id="codeblock-tooltip" hoist>${this.translations.codeBlock}</role-tooltip>
@@ -497,6 +514,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.undo}"
           aria-describedby="undo-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('undo')}
           <role-tooltip id="undo-tooltip" hoist>${this.translations.undo}</role-tooltip>
@@ -509,6 +527,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.redo}"
           aria-describedby="redo-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('redo')}
           <role-tooltip id="redo-tooltip" hoist>${this.translations.redo}</role-tooltip>
@@ -521,6 +540,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
           tabindex="-1"
           @click="${this.addFile}"
           aria-describedby="attachment-tooltip"
+          data-role="toolbar-item"
         >
           ${icons.get('attachment')}
           <role-tooltip id="attachment-tooltip" hoist>${this.translations.attachment}</role-tooltip>
@@ -543,12 +563,15 @@ export default class RicherTextEditor extends TipTapEditorBase {
   render() {
     return html`
         <div class="wrapper" part="wrapper">
-          <div class="toolbar" part="toolbar">
+          <role-toolbar
+            class="toolbar"
+            part="toolbar"
+            role="toolbar"
+          >
             <slot name="toolbar-start"></slot>
             ${map(this.toolbar, (name) => this.renderToolbarButton(name))}
             <slot name="toolbar-end"></slot>
-            <slot></slot>
-          </div>
+          </role-toolbar>
           <slot name="editor"></slot>
         </div>
       </div>

@@ -8,6 +8,8 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 ## main
 
 - Updated the `clear()` function to re-focus the editor instance after clearing content.
+- Lookup if the dom has a text-editor-wrapper class name before creating a new element when initializing or rebuilding the editor to prevent multiple editor instances for the same Richer Text editor.
+- Swap to use role-toolbar for the toolbar for better accessibility and keyboard navigation.
 
 ---
 
