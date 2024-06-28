@@ -5,8 +5,8 @@ layout: default
 ---
 
 <div class='callout' data-color='green'>
-  <p><strong>RicherText is in Beta</strong></p>
-  <p>Use of RicherText in production is now recommended, and we have finalized the general interface for options and configurations. Please give it a try and report issues on our GitHub.</p>
+  <p><strong>RicherText is v2.0.0!</strong></p>
+  <p>We've just launched v2.0.0 and it's considered stable and ready for production usage. Learn more on our <a href="/2024/06/28/announcing-version-two/" target="_blank">blog post</a></p>
 </div>
 
 # Try it out

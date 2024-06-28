@@ -40,7 +40,7 @@ Richer Text features a roboust text editor complete with everything from the bas
 - Custom Suggestions
 - Richer Embeds
 - Built in support for oEmbeds
-- Support for 1900+ embeds via optional iFramely.com integration
+- Support for 1900+ embeds via optional iframely.com integration
 
 ## Why another editor?
 
@@ -59,7 +59,7 @@ Nope, it's really not. I loved using ActionText in my projects, until I ran into
 
 Which is better? 🤪 Just kidding, it's really up to you. Though I recommend choosing JSON storage for your content, since you'll have full control over the rendering of HTML, and your content will always render the most up-to-date HTML if you change how an Image should render.
 
-By choosing JSON storage, you also get the ability to use <a href="/ruby-on-rails/embeds" target="_blank">Richer Text's custom embeds, built in oEmbed support and more</a>.
+By choosing JSON storage, you also get the ability to use <a href="/ruby-on-rails/embeds" target="_blank">Richer Text's custom embeds, built in oEmbed support, iframely's 1900+ embeds and more</a>.
 
 ## Future vision
 

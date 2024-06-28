@@ -9,6 +9,12 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ---
 
+## 2.0.0
+
+- No changes from Beta 2, just a promotion to a full release of 2.0
+
+---
+
 ## 2.0.0-beta.2
 
 - Updated the `clear()` function to re-focus the editor instance after clearing content.
