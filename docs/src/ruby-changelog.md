@@ -7,6 +7,41 @@ This is the changelog for our Ruby Gem package. Are you looking for the <a href=
 
 ## main
 
+---
+
+## 0.17.0
+
+- Added `RicherText.default_text_renderer=` setter, to allow you to write a custom TextVisitor for rendering plain text.
+- Added `to_plain_text` method to JsonText records for rendering plain text.
+
+```ruby
+class TextVisitor < RicherText::TextVisitor
+  # ... your overridden methods here
+end
+
+# initializer somewhere
+Rails.configuration.to_prepare do
+  RicherText.default_renderer = HtmlVisitor.new  # if you had a HtmlVisitor also defined.
+  RicherText.default_text_renderer = TextVisitor.new
+end
+```
+
+---
+
+## 0.16.0
+
+-- Use stable channel for installing RicherText.js
+
+---
+
+## 0.15.0
+
+- Use beta channel for installing RicherText.js
+
+---
+
+## 0.14.0
+
 - Added `RicherText.default_form_options` as a configuration option.
 
 You can specify in an initializer default options to avoid needing to specify them on every form, and override them on a per form basis.
