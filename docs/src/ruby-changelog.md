@@ -9,6 +9,12 @@ This is the changelog for our Ruby Gem package. Are you looking for the <a href=
 
 ---
 
+## 0.18.0
+
+- Rails 8 ready for Importmaps / SQLite out of the box. Enjoy! `rails richer_text:install` is all you need to do once you add the gem!
+
+---
+
 ## 0.17.0
 
 - Added `RicherText.default_text_renderer=` setter, to allow you to write a custom TextVisitor for rendering plain text.
