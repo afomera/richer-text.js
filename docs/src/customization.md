@@ -41,3 +41,68 @@ JSON output:
 >
 </richer-text-editor>
 ```
+
+<h2 id="configuring-the-toolbar">Configuring the Toolbar</h2>
+
+Richer Text supports customizing the toolbar as well
+
+For example:
+
+```html
+<richer-text-editor
+  toolbar-preset="default"
+  toolbar-placement="top"
+></richer-text-editor>
+```
+
+<richer-text-editor toolbar-preset="default" toolbar-placement="top"></richer-text-editor>
+
+```html
+<richer-text-editor
+  toolbar-preset="minimal"
+  toolbar-placement="bottom"
+></richer-text-editor>
+```
+
+<richer-text-editor toolbar-preset="minimal" toolbar-placement="bottom"></richer-text-editor>
+
+### Customizing options completely
+
+Optionally you can specify the toolbar using the `toolbar` attribute:
+
+```html
+<richer-text-editor
+  toolbar="heading-1, heading-2, divider, bold, italic, strike"
+  toolbar-placement="top"
+></richer-text-editor>
+```
+
+<richer-text-editor
+toolbar="heading-1, heading-2, divider, bold, italic, strike"
+toolbar-placement="top"
+
+> </richer-text-editor>
+
+The supported options are:
+
+```js
+"bold",
+  "italic",
+  "strike",
+  "code",
+  "divider",
+  "heading-1",
+  "heading-2",
+  "heading-3",
+  "bulletlist",
+  "orderedlist",
+  "blockquote",
+  "code-block",
+  "horizontal-rule",
+  "divider",
+  "attachment",
+  "spacer",
+  "undo",
+  "redo",
+  "embed";
+```
