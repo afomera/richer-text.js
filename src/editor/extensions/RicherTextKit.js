@@ -88,10 +88,6 @@ export const RicherTextKit = Extension.create({
       );
     }
 
-    if (this.options.image !== false) {
-      extensions.push(Image);
-    }
-
     if (this.options.link !== false) {
       extensions.push(
         Link.configure({

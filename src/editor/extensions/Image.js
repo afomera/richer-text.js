@@ -31,6 +31,12 @@ export default Node.create({
   group: 'block',
   draggable: true,
 
+  addOptions() {
+    return {
+      attachmentsEnabled: true,
+    }
+  },
+
   addAttributes() {
     return {
       src: {
@@ -125,6 +131,8 @@ export default Node.create({
         key: new PluginKey('image'),
         props: {
           handlePaste: (view, event) => {
+            if (!this.options.attachmentsEnabled) return false;
+
             event.preventDefault();
 
             const images = Array.from(event.clipboardData.files).filter((file) => {
@@ -161,6 +169,8 @@ export default Node.create({
             });
           },
           handleDrop: (view, event, _sliced, _moved) => {
+            if (!this.options.attachmentsEnabled) return false;
+
             event.preventDefault();
             const images = Array.from(event.dataTransfer.files).filter((file) => {
               return file.type.startsWith('image/');

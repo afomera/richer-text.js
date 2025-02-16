@@ -28,6 +28,7 @@ import Mention from "../editor/extensions/Mention";
 import MentionSuggestion from "../editor/suggestions/MentionSuggestion";
 import RicherTextEmbed from "../editor/extensions/RicherTextEmbed";
 import iframelyEmbed from "../editor/extensions/iframelyEmbed";
+import Image from "../editor/extensions/Image";
 
 import "../editor/elements/RicherBubbleMenu";
 import CustomBubbleMenu from "../editor/extensions/CustomBubbleMenu";
@@ -55,6 +56,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
       toolbarPreset: { attribute: "toolbar-preset", type: String, reflect: true },
       customSuggestions: { attribute: "custom-suggestions", type: Array },
       embedsPath: { attribute: "embeds-path", type: String, reflect: true },
+      attachments: { type: String, reflect: true },
       toolbar: {
         type: Array,
         reflect: true,
@@ -81,6 +83,7 @@ export default class RicherTextEditor extends TipTapEditorBase {
     this.toolbarPreset = this.getAttribute("toolbar-preset") || "default";
     this.mentionableUsersPath = this.getAttribute("mentionable-users-path") || "";
     this.iframelyKey = this.getAttribute("iframely-key") || "";
+    this.attachments = this.getAttribute("attachments") || "true";
 
     this.customSuggestions = JSON.parse(this.getAttribute("custom-suggestions")) || [];
     this.embedsPath = this.getAttribute("embeds-path") || "";
@@ -111,14 +114,16 @@ export default class RicherTextEditor extends TipTapEditorBase {
         'code-block',
         'horizontal-rule',
         'divider',
-        'attachment',
-        'spacer',
-        'undo',
-        'redo',
       ];
 
+      if (this.attachments !== "false") {
+        this.toolbar.push('attachment');
+      }
+
+      this.toolbar.push('spacer', 'undo', 'redo');
+
       if (this.iframelyKey) {
-        this.toolbar.splice(15, 0, 'embed');
+        this.toolbar.splice(this.toolbar.indexOf('spacer'), 0, 'embed');
       }
     }
   }
@@ -126,7 +131,8 @@ export default class RicherTextEditor extends TipTapEditorBase {
   updated(changedProperties) {
     if (
       changedProperties.has('toolbar') ||
-      changedProperties.has('toolbarPreset')
+      changedProperties.has('toolbarPreset') ||
+      changedProperties.has('attachments')
     ) {
       this.configureToolbar();
     }
@@ -157,6 +163,9 @@ export default class RicherTextEditor extends TipTapEditorBase {
         placeholder: this.placeholder || "Start typing...",
         callout: this.callouts !== "false",
         tables: this.tables !== "false"
+      }),
+      Image.configure({
+        attachmentsEnabled: this.attachments !== "false"
       })
     ];
 
@@ -204,11 +213,15 @@ export default class RicherTextEditor extends TipTapEditorBase {
   }
 
   addFile() {
+    if (this.attachments === "false") return;
+
     const input = this.shadowRoot.getElementById("file-input");
     input.click();
   }
 
   handleFileUpload(event) {
+    if (this.attachments === "false") return;
+
     const files = event.target.files;
 
     // Update this to loop through all files with the index
