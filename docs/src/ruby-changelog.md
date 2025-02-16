@@ -9,6 +9,12 @@ This is the changelog for our Ruby Gem package. Are you looking for the <a href=
 
 ---
 
+## 0.20.0
+
+- Add support for passing `attachments: false` to the `has_richer_text` attribute, to disable attachments.
+
+---
+
 ## 0.18.0
 
 - Rails 8 ready for Importmaps / SQLite out of the box. Enjoy! `rails richer_text:install` is all you need to do once you add the gem!

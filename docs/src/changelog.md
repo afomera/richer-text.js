@@ -9,6 +9,12 @@ This is the changelog for our JavaScript package. Are you looking for the <a hre
 
 ---
 
+## 2.1.0
+
+- Allow disabling attachments by passing an attachments attribute to the RicherTextEditor tag as false.
+
+---
+
 ## 2.0.0
 
 - No changes from Beta 2, just a promotion to a full release of 2.0

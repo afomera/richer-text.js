@@ -7,18 +7,19 @@ title: Customization
 
 Optionally, you can customize a few of the attributes by passing them as attributes to the `<richer-text-editor>` tag.
 
-| Option                 | &nbsp;&nbsp;&nbsp; |      Default      |                  Allowed values | Notes                                      |
-| :--------------------- | ------------------ | :---------------: | ------------------------------: | ------------------------------------------ |
-| serializer             |                    |      "html"       |                  "html", "json" |                                            |
-| input                  |                    |        ""         |                   Form field id |                                            |
-| content                |                    |        ""         |                          String |                                            |
-| placeholder            | &nbsp;&nbsp;&nbsp; | "Start typing..." |                          String |                                            |
-| callouts               |                    |      "false"      |                 "true", "false" |                                            |
-| tables                 |                    |      "false"      |                 "true", "false" |                                            |
-| emoji                  |                    |      "true"       |                 "true", "false" |                                            |
-| mentionable-users-path |                    |        ""         |      URL path to .json endpoint |                                            |
-| embeds-path            |                    |     "/embeds"     | URL path to controller endpoint |                                            |
-| oembed                 |                    |      "false"      |                 "true", "false" | When present, embeds-path must be provided |
+| Option                 | &nbsp;&nbsp;&nbsp; |      Default      |                  Allowed values | Notes                                                           |
+| :--------------------- | ------------------ | :---------------: | ------------------------------: | --------------------------------------------------------------- |
+| serializer             |                    |      "html"       |                  "html", "json" |                                                                 |
+| input                  |                    |        ""         |                   Form field id |                                                                 |
+| content                |                    |        ""         |                          String |                                                                 |
+| placeholder            | &nbsp;&nbsp;&nbsp; | "Start typing..." |                          String |                                                                 |
+| callouts               |                    |      "false"      |                 "true", "false" |                                                                 |
+| tables                 |                    |      "false"      |                 "true", "false" |                                                                 |
+| emoji                  |                    |      "true"       |                 "true", "false" |                                                                 |
+| mentionable-users-path |                    |        ""         |      URL path to .json endpoint |                                                                 |
+| embeds-path            |                    |     "/embeds"     | URL path to controller endpoint |                                                                 |
+| oembed                 |                    |      "false"      |                 "true", "false" | When present, embeds-path must be provided                      |
+| attachments            |                    |      "true"       |                 "true", "false" | Disables attachment button, and drag and drop/pasting of images |
 
 <h2 id="json-serializer">JSON Serializer</h2>
 
